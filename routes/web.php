@@ -11,15 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Admin
+Route::get('admin', 'Admin\DashboardController@index');
 
-// admin
-Route::get('admin', function () {
-    return view('admin');
-});
-
+// Auth
 Auth::routes();
+// FrontEnd
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::prefix('en')->group(function () {
+// 	// Auth
+// 	Auth::routes();
+
+// 	// FrontEnd
+// 	Route::get('/', 'HomeController@index')->name('home');
+// });
+
