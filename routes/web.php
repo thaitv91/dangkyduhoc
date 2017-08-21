@@ -12,7 +12,16 @@
 */
 
 // Admin
-Route::get('admin', 'Admin\DashboardController@index');
+Route::get('admin', 'Admin\DashboardController@index')->name('admin');
+Route::group(['prefix'=>'admin'], function() {
+	Route::group(['prefix'=>'user'], function() {
+		Route::get('/', 'Admin\UserController@index')->name('admin.user');
+		Route::get('edit/{id?}','Admin\UserController@edit')->name('admin.user.edit');
+		Route::post('edit/{id}', 'Admin\UserController@update');
+		Route::get('delete/{id}', 'Admin\UserController@destroy')->name('admin.user.delete');
+		Route::get('get-url-delete','Admin\UserController@getUrlDelete')->name('admin.user.getUrlDelete');
+	});
+});
 
 // Auth
 Auth::routes();
