@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\University;
+use App\Models\UniversityMetas;
+use App\Models\UniversityRanking;
+use App\Models\UniversityStatistic;
 
 class UniversityController extends Controller
 {
@@ -23,7 +26,7 @@ class UniversityController extends Controller
         
         $data = [
         	'title' => "All Universities",
-        	'university' => $universites
+        	'universities' => $universites
         ];
 
         return view('admin.universities', $data);
@@ -36,7 +39,12 @@ class UniversityController extends Controller
      */
     public function create()
     {
-        //
+
+        $data = [
+        	'title' => "Create New University",
+        ];
+
+        return view('admin.create_new_university', $data);
     }
 
     /**
@@ -47,7 +55,17 @@ class UniversityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        // save university
+        $university = New University;
+
+        // save university_metas
+
+
+        //save university_ranking
+
+        // save university_statistic
     }
 
     /**
@@ -56,9 +74,9 @@ class UniversityController extends Controller
      * @param  \App\University  $university
      * @return \Illuminate\Http\Response
      */
-    public function show(University $university)
+    public function show($university_slug)
     {
-        //
+        // donot action
     }
 
     /**
@@ -67,9 +85,15 @@ class UniversityController extends Controller
      * @param  \App\University  $university
      * @return \Illuminate\Http\Response
      */
-    public function edit(University $university)
+    public function edit($university_slug)
     {
-        //
+        $university = University::where('slug', '=', $university_slug)->first();
+        $data = [
+        	'title' => "University: " . $university->name,
+        	'university' => $university
+        ];
+
+        return view('admin.view_university', $data);
     }
 
     /**
