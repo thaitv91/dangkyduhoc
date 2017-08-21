@@ -14,6 +14,7 @@
 // Admin
 Route::get('admin', 'Admin\DashboardController@index');
 
+Route::resource('/admin/universities', 'Admin\UniversityController');
 // Auth
 Auth::routes();
 // FrontEnd
