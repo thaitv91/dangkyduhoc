@@ -18,12 +18,3 @@ Route::get('admin', 'Admin\DashboardController@index');
 Auth::routes();
 // FrontEnd
 Route::get('/', 'HomeController@index')->name('home');
-
-// Route::prefix('en')->group(function () {
-// 	// Auth
-// 	Auth::routes();
-
-// 	// FrontEnd
-// 	Route::get('/', 'HomeController@index')->name('home');
-// });
-
