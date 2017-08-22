@@ -34,4 +34,8 @@ class User extends Authenticatable
             return false;
         }
     }
+
+    public function getUserInfo() {
+        return $this->hasOne('App\UserMeta','user_id');
+    }
 }
