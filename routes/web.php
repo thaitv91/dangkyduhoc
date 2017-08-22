@@ -23,16 +23,13 @@ Route::group(['prefix'=>'admin'], function() {
 	});
 });
 
+Route::resource('/admin/universities', 'Admin\UniversityController');
+Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
+Route::get('/admin/countries/{country}/edit', 'Admin\CountryController@edit');
+Route::post('/admin/countries/{country}/edit', 'Admin\CountryController@update')->name('countries.update');
+Route::post('/admin/countries/{country}/delete', 'Admin\CountryController@destroy')->name('countries.destroy');
+
 // Auth
 Auth::routes();
 // FrontEnd
 Route::get('/', 'HomeController@index')->name('home');
-
-// Route::prefix('en')->group(function () {
-// 	// Auth
-// 	Auth::routes();
-
-// 	// FrontEnd
-// 	Route::get('/', 'HomeController@index')->name('home');
-// });
-
