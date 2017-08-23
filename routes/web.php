@@ -22,6 +22,10 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('get-url-delete','Admin\UserController@getUrlDelete')->name('admin.user.getUrlDelete');
 	});
 });
+// Mail
+Route::group(['prefix'=>'system'], function() {
+	Route::get('active-account','Admin\SystemController@activeAccount')->name('system.activeAccount');
+});
 
 Route::resource('/admin/universities', 'Admin\UniversityController');
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
