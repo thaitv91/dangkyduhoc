@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\MailResetPassword;
+use Hash;
 
 class User extends Authenticatable
 {
@@ -37,5 +39,13 @@ class User extends Authenticatable
 
     public function getUserInfo() {
         return $this->hasOne('App\UserMeta','user_id');
+    }
+
+    /**
+ * Send a password reset email to the user
+ */
+    public function sendPasswordResetNotification($token)
+    {   
+        $this->notify(new MailResetPassword($token));
     }
 }
