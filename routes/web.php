@@ -12,20 +12,7 @@
 */
 
 // Admin
-Route::get('admin', 'Admin\DashboardController@index')->name('admin');
-Route::group(['prefix'=>'admin'], function() {
-	Route::group(['prefix'=>'user'], function() {
-		Route::get('/', 'Admin\UserController@index')->name('admin.user');
-		Route::get('edit/{id?}','Admin\UserController@edit')->name('admin.user.edit');
-		Route::post('edit/{id}', 'Admin\UserController@update');
-		Route::get('delete/{id}', 'Admin\UserController@destroy')->name('admin.user.delete');
-		Route::get('get-url-delete','Admin\UserController@getUrlDelete')->name('admin.user.getUrlDelete');
-	});
-});
-// Mail
-Route::group(['prefix'=>'system'], function() {
-	Route::get('active-account','Admin\SystemController@activeAccount')->name('system.activeAccount');
-});
+Route::get('admin', 'Admin\DashboardController@index');
 
 Route::resource('/admin/universities', 'Admin\UniversityController');
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
@@ -36,4 +23,6 @@ Route::post('/admin/countries/{country}/delete', 'Admin\CountryController@destro
 // Auth
 Auth::routes();
 // FrontEnd
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', function() {
+	return view('user/homepage');
+});
