@@ -106,6 +106,15 @@ class UniversitySeeder extends Seeder
         ]);
 
         DB::table('university')->insert([
+            'name' => 'Heriot-Watt University',
+            'slug' => 'heriot-watt-university',
+            'logo' => '',
+            'country_slug' => 'UK',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('university')->insert([
             'name' => 'Istituto Marangoni',
             'slug' => 'istituto-marangoni',
             'logo' => '',
@@ -378,15 +387,6 @@ class UniversitySeeder extends Seeder
         DB::table('university')->insert([
             'name' => 'University of Sussex',
             'slug' => 'university-of-sussex',
-            'logo' => '',
-            'country_slug' => 'UK',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ]);
-
-        DB::table('university')->insert([
-            'name' => 'University of Winchester',
-            'slug' => 'university-of-winchester',
             'logo' => '',
             'country_slug' => 'UK',
             'created_at' => Carbon::now(),
