@@ -6,6 +6,13 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use App\UserMeta;
+use Mail;
+use App\Mail\SendMailActiveAccount;
+use Redirect;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -27,7 +34,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -63,9 +70,28 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name'              => $data['name'],
+            'email'             => $data['email'],
+            'password'          => bcrypt($data['password']),
+            'remember_token'    => $data['_token']
         ]);
+    }
+    /*
+    @overide register
+    */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+        // $this->guard()->login($user);
+        Mail::to($request->email)->send(new SendMailActiveAccount(
+            array('id'=>$user->id,'code'=>$user->password)//To create url active
+            ));
+        // UserMeta::create(['user_id'=>$user->id]);//Create more info in table user_meta
+        Session::flash('success','Create account successfully! Please check email to active this account.');
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+        // return Redirect::route('auth.login');
     }
 }
