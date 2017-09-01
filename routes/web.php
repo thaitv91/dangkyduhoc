@@ -23,4 +23,6 @@ Route::post('/admin/countries/{country}/delete', 'Admin\CountryController@destro
 // Auth
 Auth::routes();
 // FrontEnd
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', function() {
+	return view('user/homepages');
+});
