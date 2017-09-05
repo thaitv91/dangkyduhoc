@@ -1,0 +1,39 @@
+footer{
+	background-color:#2f5385;
+	color:#fff;
+	padding-top:33px;
+	padding-bottom: 22px;
+	.footer-top{
+		padding-bottom: 24px;
+		.social{
+			padding-top:15px;
+		}
+	}
+}
+
+.social{
+	a{
+		display: inline-block;
+		@include border-radius(50%);
+		width: 29px;
+		height: 29px;
+		background-color:#fff;
+		text-align: center;
+		line-height: 29px;
+		margin: 0 4px;
+		@include transition-value();
+		&:hover{
+			background-color: rgba(#fff,0.8);
+		}
+		i{
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+}
+
+.footer-bottom{
+	color:#42a4d3;
+	border-top:1px solid rgba(#5ea6ff,0.3);
+	padding-top: 14px;
+}
