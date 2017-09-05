@@ -1,0 +1,24 @@
+
+.sprite-facebook{
+	@include use-sprite('facebook',true);
+}
+
+.sprite-google-plus{
+	@include use-sprite('google-plus',true);
+}
+
+.sprite-twitter{
+	@include use-sprite('twitter',true);
+}
+
+.sprite-youtube{
+	@include use-sprite('youtube',true);
+}
+
+.sprite-search{
+	@include use-sprite('search',true);
+}
+
+.sprite-user{
+	@include use-sprite('user',true);
+}
