@@ -73,4 +73,24 @@ $(document).ready(function() {
        $('#forgot_password').show();
    });
 
+
+   $(document).ready(function(){
+    $('.reviews .slider').slick({
+      infinite: true,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      autoplay: true,
+      arrows: false,
+      dots: true,
+      responsive:[
+        {
+          breakpoint: 767,
+          setting:{
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+  });
 });

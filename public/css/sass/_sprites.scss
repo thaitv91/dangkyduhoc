@@ -22,3 +22,19 @@
 .sprite-user{
 	@include use-sprite('user',true);
 }
+
+.sprite-search-white{
+	@include use-sprite('search-white',true);
+}
+
+.sprite-chart{
+	@include use-sprite('chart',true);
+}
+
+.sprite-comment{
+	@include use-sprite('comment',true);
+}
+
+.sprite-letter{
+	@include use-sprite('letter',true);
+}

@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/slick.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -351,6 +352,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/slick.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 </html>
