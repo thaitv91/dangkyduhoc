@@ -20,3 +20,39 @@ body{
 .clickable{
     cursor: pointer;
 }
+
+.btn{
+    font-size: 24px;
+    @include UTMBebas();
+    text-transform: uppercase;
+    border:none;
+    @include border-radius(0);
+    color:$white;
+    @include transition-value();
+    &:hover{
+        color:$white;
+        @include border-radius(8px);
+    }
+}
+.btn-blue{
+    background-color: $color-1;
+    &:hover{
+        background-color: #24497d;
+    }
+}
+
+.btn-green{
+    background-color: $color-3;
+    &:hover{
+        background-color: $color-3-hover;
+    }
+}
+
+.title{
+    @include UTMBebas();
+    text-transform: uppercase;
+}
+
+img{
+    max-width: 100%;
+}

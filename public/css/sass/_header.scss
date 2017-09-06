@@ -5,6 +5,7 @@
 	@include border-radius(0);
 	.navbar-nav{
 		margin-top: 23px;
+		margin-right: 0;
 		&>li{
 			&>a{
 				text-transform: uppercase;
