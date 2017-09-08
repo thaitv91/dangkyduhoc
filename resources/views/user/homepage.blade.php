@@ -114,22 +114,6 @@
 				</div>
 			</div>
 		</div><!-- /.step -->
-		<div class="step step-3">
-			<div class="step-icon">
-				<div class="icon-box">
-					<div class="icon"><span><i class="sprite-letter"></i></span></div>
-				</div>
-			</div>
-			<div class="step-number">
-				step
-				<span>05</span>
-			</div>
-			<div class="step-text">
-				<div class="text-box">
-					{!!$data_field['content-chill']!!}
-				</div>
-			</div>
-		</div>
 	</div>
 </div><!-- /.steps-guide -->
 
