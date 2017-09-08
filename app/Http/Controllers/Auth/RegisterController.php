@@ -88,7 +88,7 @@ class RegisterController extends Controller
         Mail::to($request->email)->send(new SendMailActiveAccount(
             array('id'=>$user->id,'code'=>$user->password)//To create url active
             ));
-        // UserMeta::create(['user_id'=>$user->id]);//Create more info in table user_meta
+        UserMeta::create(['user_id'=>$user->id]);//Create more info in table user_meta
         Session::flash('success','Create account successfully! Please check email to active this account.');
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());

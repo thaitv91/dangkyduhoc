@@ -6,13 +6,11 @@
 <div class="banner-home" style="background-image: url(/img/banner.jpg);">
 	<div class="container">
 		<div class="text">
-			<h1>Let us simplify your university application</h1>
+			<h1>{{ $data_field['header-slogan1']}}</h1>
 			<div class="description">
-				Planning to study abroad? We can help! Get started by completing 
-your free education assessment or scroll to find out more.
+				{{$data_field['header-slogan2']}}
 			</div>
 		</div>
-
 		<div class="free-assessment">
 			<h2>FREE ASSESSMENT</h2>
 			<div class="description">
@@ -61,8 +59,7 @@ your free education assessment or scroll to find out more.
 			</div>
 			<div class="step-text">
 				<div class="text-box">
-					<h4>Discover</h4>
-					<p>See matching courses instantly by completing your free education assessment.</p>
+					{!!$data_field['content-discover']!!}
 				</div>
 			</div>
 		</div><!-- /.step -->
@@ -79,8 +76,7 @@ your free education assessment or scroll to find out more.
 			</div>
 			<div class="step-text">
 				<div class="text-box">
-					<h4>Compare</h4>
-					<p>See matching courses instantly by completing your free education assessment.</p>
+					{!!$data_field['content-compare']!!}
 				</div>
 			</div>
 		</div><!-- /.step -->
@@ -97,8 +93,7 @@ your free education assessment or scroll to find out more.
 			</div>
 			<div class="step-text">
 				<div class="text-box">
-					<h4>Cosult</h4>
-					<p>See matching courses instantly by completing your free education assessment.</p>
+					{!!$data_field['content-consult']!!}
 				</div>
 			</div>
 		</div><!-- /.step -->
@@ -115,11 +110,26 @@ your free education assessment or scroll to find out more.
 			</div>
 			<div class="step-text">
 				<div class="text-box">
-					<h4>Apply</h4>
-					<p>See matching courses instantly by completing your free education assessment.</p>
+					{!!$data_field['content-apply']!!}
 				</div>
 			</div>
 		</div><!-- /.step -->
+		<div class="step step-3">
+			<div class="step-icon">
+				<div class="icon-box">
+					<div class="icon"><span><i class="sprite-letter"></i></span></div>
+				</div>
+			</div>
+			<div class="step-number">
+				step
+				<span>05</span>
+			</div>
+			<div class="step-text">
+				<div class="text-box">
+					{!!$data_field['content-chill']!!}
+				</div>
+			</div>
+		</div>
 	</div>
 </div><!-- /.steps-guide -->
 
@@ -130,11 +140,11 @@ your free education assessment or scroll to find out more.
 			<div class="col-md-4">
 				<div class="blog-item">
 					<div class="header-blog">
-						<h2 class="title">98%</h2>
-						<p class="title">obtained offrs</p>
+						<h2 class="title">{{$data_field['blog-percent']}}</h2>
+						<p class="title">{{$data_field['blog-percent-off']}}</p>
 					</div>
 					<div class="description">
-						<p>With the aid of innovative software designed to give our education consultants a technological edge over traditional agencies, our students have enjoyed better quality of service and obtained higher offer rates. Best of all, our services are free of charge!</p>
+						<p>{{$data_field['blog-percent-content']}}</p>
 					</div>
 					<div class="bottom">
 						<a href="#" class="btn btn-blue btn-block">Let’s get started</a>
@@ -145,11 +155,11 @@ your free education assessment or scroll to find out more.
 			<div class="col-md-4">
 				<div class="blog-item">
 					<div class="header-blog">
-						<h2 class="title">1 in 2</h2>
-						<p class="title">offered scholarhips</p>
+						<h2 class="title">{{$data_field['blog-scholarships']}}</h2>
+						<p class="title">{{$data_field['blog-scholarships-title']}}</p>
 					</div>
 					<div class="description">
-						<p>With the aid of innovative software designed to give our education consultants a technological edge over traditional agencies, our students have enjoyed better quality of service and obtained higher offer rates. Best of all, our services are free of charge!</p>
+						<p>{{$data_field['blog-scholarships-content']}}</p>
 					</div>
 					<div class="bottom">
 						<a href="#" class="btn btn-blue btn-block">chat with us</a>
@@ -160,11 +170,11 @@ your free education assessment or scroll to find out more.
 			<div class="col-md-4">
 				<div class="blog-item">
 					<div class="header-blog">
-						<h2 class="title">99%</h2>
-						<p class="title">student satisfaction</p>
+						<h2 class="title">{{$data_field['blog-satisfaction']}}</h2>
+						<p class="title">{{$data_field['blog-satisfaction-title']}}</p>
 					</div>
 					<div class="description">
-						<p>With the aid of innovative software designed to give our education consultants a technological edge over traditional agencies, our students have enjoyed better quality of service and obtained higher offer rates. Best of all, our services are free of charge!</p>
+						<p>{{$data_field['blog-satisfaction-content']}}</p>
 					</div>
 					<div class="bottom">
 						<a href="#" class="btn btn-blue btn-block">read facebook reviews</a>
@@ -258,9 +268,9 @@ your free education assessment or scroll to find out more.
 	<div class="container">
 		<div class="wrap">
 			<img src="/img/tools.jpg" alt="">
-			<h2 class="title">The Right Tools</h2>
+			<h2 class="title">{{$data_field['let-started-title']}}</h2>
 			<div class="description">
-				<p>Our mobile-friendly website allows you to instantly search, compare and apply to over 15,000 courses at your convenience. Access to our online tools and knowledge database are free of charge and our friendly education agents are just one click away to assist you.</p>
+				<p>{{$data_field['let-started-content']}}</p>
 			</div>
 			<a href="#" class="btn btn-green">Let’s get started</a>
 		</div>
