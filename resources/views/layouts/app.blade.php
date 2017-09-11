@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
                                     <div class="form-group">
-                                        <span class="tip" data-toggle="tooltip" data-placement="bottom" style="cursor:default; font-size:14px;" title="&lt;div class='whysignup'&gt;&lt;ul class='reasons'&gt;&lt;li&gt;Save course comparisons&lt;/li&gt;&lt;li&gt;Save your university application progress&lt;/li&gt;&lt;li&gt;Be notified when you receive a university offer&lt;/li&gt;&lt;li&gt;Retrieve online consultation history on multiple devices&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;">Why register?</span>
+                                        <span style="cursor:default; font-size:14px;" class="tip" data-toggle="tooltip" title="" data-html="true" data-placement="bottom" data-original-title="<div class='whysignup'><ul class='reasons'><li>Save course comparisons</li><li>Save your university application progress</li><li>Be notified when you receive a university offer</li><li>Retrieve online consultation history on multiple devices</li></ul></div>">Why register?</span>
                                     </div>
                                 </div>
                             </div>
