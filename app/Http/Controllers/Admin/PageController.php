@@ -22,7 +22,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::orderBy('id', 'DESC')->paginate(10);
+        $pages = Page::orderBy('id', 'DESC')->get();
         $data = array(
             'pages' => $pages
             );
@@ -168,18 +168,27 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        DB::beginTransaction();
+       DB::beginTransaction();
         try {
             Page::find( $id )->delete();
             DB::commit();
-            Session::flash('success','Success!');
-            return redirect(route('admin.page.index'));
-            
+            Session::flash('success','Success');
+            return Redirect::back();
+
         } catch(\Exception $e) {
             \Log::info( $e->getMessage() );
             DB::rollback();
-            Session::flash('success','Success!');
-            return redirect(route('admin.page.index'));
+            Session::flash('error','Error');
+            return Redirect::back();
         }
+    }
+
+
+    public function getUrlDelete(Request $request) {
+        $id = $request->id;
+        if (isset($id)) {
+            return route('admin.page.delete',['id'=>$id]);
+        }
+        return -1;
     }
 }

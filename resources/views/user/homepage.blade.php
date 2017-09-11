@@ -3,6 +3,7 @@
 @section("scripts")
 @endsection
 @section("content")
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 <div class="banner-home" style="background-image: url(/img/banner.jpg);">
 	<div class="container">
 		<div class="text">
@@ -54,7 +55,7 @@
 				</div>
 			</div>
 			<div class="step-number">
-				step
+				{{trans('home.step')}}
 				<span>01</span>
 			</div>
 			<div class="step-text">
@@ -71,7 +72,7 @@
 				</div>
 			</div>
 			<div class="step-number">
-				step
+				{{trans('home.step')}}
 				<span>02</span>
 			</div>
 			<div class="step-text">
@@ -88,7 +89,7 @@
 				</div>
 			</div>
 			<div class="step-number">
-				step
+				{{trans('home.step')}}
 				<span>03</span>
 			</div>
 			<div class="step-text">
@@ -105,7 +106,7 @@
 				</div>
 			</div>
 			<div class="step-number">
-				step
+				{{trans('home.step')}}
 				<span>04</span>
 			</div>
 			<div class="step-text">
@@ -131,7 +132,7 @@
 						<p>{{$data_field['blog-percent-content']}}</p>
 					</div>
 					<div class="bottom">
-						<a href="#" class="btn btn-blue btn-block">Let’s get started</a>
+						<a href="#" class="btn btn-blue btn-block">{{trans('home.get_started')}}</a>
 					</div>
 				</div><!-- /.blog-item -->
 			</div>
@@ -146,7 +147,7 @@
 						<p>{{$data_field['blog-scholarships-content']}}</p>
 					</div>
 					<div class="bottom">
-						<a href="#" class="btn btn-blue btn-block">chat with us</a>
+						<a href="#" class="btn btn-blue btn-block">{{trans('home.chat_us')}}</a>
 					</div>
 				</div><!-- /.blog-item -->
 			</div>
@@ -161,7 +162,7 @@
 						<p>{{$data_field['blog-satisfaction-content']}}</p>
 					</div>
 					<div class="bottom">
-						<a href="#" class="btn btn-blue btn-block">read facebook reviews</a>
+						<a href="#" class="btn btn-blue btn-block">{{trans('home.facebook_review')}}</a>
 					</div>
 				</div><!-- /.blog-item -->
 			</div>
@@ -172,81 +173,33 @@
 <div class="reviews">
 	<div class="container">
 		<div class="slider">
-			<div class="review-item right">
+		@foreach($rating as $key => $list)
+			<div class="review-item <?php $class = ($key % 2 == 0) ? 'right' : ''; echo $class; ?>">
 				<div class="avatar-rating">
 					<div class="avatar">
-						<img src="/img/avatar.png" alt="">
+						<img src="{{ Storage::disk('local')->url($list['avatar']) }}" alt="">
 					</div>
 					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-o"></i>
+						<?php for ($i = $list['rating']  ; $i--; $i > 0) {?>
+                       	<i class="fa fa-star"></i>
+                        <?php } ?>
+                        <?php for ($i = 5-$list['rating']; $i--; $i > 0) {?>
+                        <i class="fa fa-star-o"></i>
+                        <?php } ?>
 					</div>
 				</div>
 				<div class="text">
-					Great experience, top quality service, humble people. Everything needed of an educational consultancy and even more. theRightU is ever willing to help, and they even going the extra mile visit the different universities before recommending it to you. Highly recommended! Special thanks to Wei Siang for everything; ensuring that my application was handled promptly and following up even after I entered university!
+					@if($locale=='en')
+					{!! $list['content_en']!!}
+					@else
+					{!! $list['content']!!}
+					@endif
 				</div>
 			</div><!-- /.review-item -->
-
-			<div class="review-item">
-				<div class="avatar-rating">
-					<div class="avatar">
-						<img src="/img/avatar.png" alt="">
-					</div>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-o"></i>
-					</div>
-				</div>
-				<div class="text">
-					Great experience, top quality service, humble people. Everything needed of an educational consultancy and even more. theRightU is ever willing to help, and they even going the extra mile visit the different universities before recommending it to you. Highly recommended! Special thanks to Wei Siang for everything; ensuring that my application was handled promptly and following up even after I entered university!
-				</div>
-			</div><!-- /.review-item -->
-
-			<div class="review-item right">
-				<div class="avatar-rating">
-					<div class="avatar">
-						<img src="/img/avatar.png" alt="">
-					</div>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-o"></i>
-					</div>
-				</div>
-				<div class="text">
-					Great experience, top quality service, humble people. Everything needed of an educational consultancy and even more. theRightU is ever willing to help, and they even going the extra mile visit the different universities before recommending it to you. Highly recommended! Special thanks to Wei Siang for everything; ensuring that my application was handled promptly and following up even after I entered university!
-				</div>
-			</div><!-- /.review-item -->
-
-			<div class="review-item">
-				<div class="avatar-rating">
-					<div class="avatar">
-						<img src="/img/avatar.png" alt="">
-					</div>
-					<div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-o"></i>
-					</div>
-				</div>
-				<div class="text">
-					Great experience, top quality service, humble people. Everything needed of an educational consultancy and even more. theRightU is ever willing to help, and they even going the extra mile visit the different universities before recommending it to you. Highly recommended! Special thanks to Wei Siang for everything; ensuring that my application was handled promptly and following up even after I entered university!
-				</div>
-			</div><!-- /.review-item -->
+			@endforeach
 		</div>
 	</div>
 </div><!-- /.reviews -->
-
 
 <div class="let-started text-center">
 	<div class="container">
@@ -256,7 +209,7 @@
 			<div class="description">
 				<p>{{$data_field['let-started-content']}}</p>
 			</div>
-			<a href="#" class="btn btn-green">Let’s get started</a>
+			<a href="#" class="btn btn-green">{{trans('home.get_started')}}</a>
 		</div>
 	</div>
 </div><!-- /.let-started -->
@@ -267,7 +220,7 @@
 		<div class="row">
 			<div class="col-md-3 col-sm-6 col">
 				<div class="university-guide">
-					<h3 class="title">UNIVERSITY GUIDE</h3>
+					<h3 class="title">{{ trans('home.university_guide')}}</h3>
 					<ul>
 						<li>Choosing a university
 						<li>Applying to university</li>
@@ -281,7 +234,7 @@
 
 			<div class="col-md-4 col-sm-6 col">
 				<div class="form-contact">
-					<h3 class="title">HAVE US CONTACT YOU</h3>
+					<h3 class="title">{{ trans('home.contact_you')}}</h3>
 					<div class="form-group">
 						<input class="form-control" type="text" placeholder="Name">
 					</div>
@@ -294,13 +247,13 @@
 					<div class="form-group">
 						<textarea class="form-control">Your questions for our education consultans</textarea>
 					</div>
-					<div class="bottom"><button class="btn btn-green btn-block">Contact me</button></div>
+					<div class="bottom"><button class="btn btn-green btn-block">{{trans('home.contact_me')}}</button></div>
 				</div><!-- /.form-contact -->
 			</div>
 
 			<div class="col-md-5 col-sm-12 col">
 				<div class="maps">
-					<h3 class="title">MEET US</h3>
+					<h3 class="title">{{ trans('home.meet_us')}}</h3>
 					<div class="img">
 						<img src="/img/map.jpg" alt="">
 					</div>

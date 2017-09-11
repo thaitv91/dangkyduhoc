@@ -183,7 +183,7 @@
                 </li>
                 <li class="dropdown">
                     <span class="clickable open-user"><i class="sprite-user"></i></span>
-                </li>
+                </li>   
               </ul>
           </div><!-- /.container -->
 
@@ -354,6 +354,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/slick.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+    <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
 </body>
 </html>
 
