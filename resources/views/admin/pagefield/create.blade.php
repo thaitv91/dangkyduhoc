@@ -61,6 +61,7 @@
 							    <option value="checkbox">Checkbox</option>
 							    <option value="submit">Submit</option>
 							    <option value="radio">Radio</option>
+							    <option value="file">File</option>
 							  </select>
 	                    </div>
 					</div>

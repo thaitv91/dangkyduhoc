@@ -272,6 +272,9 @@ desired effect
             <li><a href="#">Link in level 2</a></li>
           </ul>
         </li>
+        <li><a href="{{ route('admin.page.index') }}"><i class="fa fa-link"></i> <span>Page</span></a></li>
+        <li><a href="{{ route('admin.pagefield.index') }}"><i class="fa fa-link"></i> <span>Page Fields</span></a></li>
+        <li><a href="{{ route('admin.rating.index') }}"><i class="fa fa-link"></i> <span>Rating</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

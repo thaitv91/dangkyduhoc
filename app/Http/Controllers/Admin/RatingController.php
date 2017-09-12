@@ -4,24 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Page;
-use App\Models\PageField;
+use App\Models\Rating;
 use DB;
 use Session;
 use Redirect;
 use Validator;
-use Storage;
 use Log;
-use Illuminate\Support\Facades\Input;
-
-
-class PageController extends Controller
-{   
-    private $page_field;
-
-    public function __construct() {
-        $this->page_field = new PageField;;
-    }
+class RatingController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
@@ -29,11 +19,11 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::orderBy('id', 'DESC')->get();
-        $data = array(
-            'pages' => $pages
-            );
-        return view( 'admin.page.index', $data);
+        $data = Rating::orderBy('id', 'DESC')->paginate(10);
+        $this->viewData = array(
+            'data' => $data
+        );
+        return view ('admin.rating.index', $this->viewData);
     }
 
     /**
@@ -43,7 +33,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view( 'admin.page.create');
+        return view('admin.rating.create');
     }
 
     /**
@@ -55,16 +45,12 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        unset($data['_token']);
         try {
             $rules = [
-                'title'               =>'required',
-                    
-                ];
-
+                'name'                 =>'required',
+            ];
             $messages = [
-            'title.required'      =>'Vui lòng nhập!!',
-                                
+                'name.required'        =>'Please enter the name!!!',
             ];
 
             $validator = Validator::make( $request->all(), $rules, $messages);
@@ -72,18 +58,19 @@ class PageController extends Controller
             if ( $validator->fails() ){
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
-                DB::beginTransaction();
-                $data['slug'] = str_slug( $data['title'] );
-                $pages = Page::create($data);
-                DB::commit();
+                $avatar = $data['avatar'];
+                $name_img = $avatar->getClientOriginalName();
+                $data['avatar']= $request->file( 'avatar' )->storeAs( 'public/img/rating',$name_img );  
+                $rating = Rating::create($data);
+
                 Session::flash('success','Success!');
-                return redirect(route('admin.page.index'));
-                
+                return redirect(route('admin.rating.index'));
             }
+
         } catch (Exception $e) {
             Session::flash('error','Opp! Please try again.Error!');
-            DB::rollback();
         }
+        
     }
 
     /**
@@ -94,7 +81,7 @@ class PageController extends Controller
      */
     public function show($id)
     {
-       //
+        //
     }
 
     /**
@@ -105,43 +92,13 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        $page = Page::find($id);
-        $data = array(
-            'page' => $page,
+        $data = Rating::find($id);
+        $this->viewData = array(
+            'data' => $data
         );
-        return view ('admin.page.edit', $data);
+        return view('admin.rating.edit', $this->viewData);
     }
 
-    public function editPage($id)
-    {   
-        $fields = PageField::where('page_id', '=', $id)->get();
-         $data = array(
-            'fields' => $fields
-        );
-        return view ('admin.page.editpage', $data);
-    }
-
-    
-    
-    public function updatePage(Request $request, $id)
-    {
-        $data = $request->all();
-        $content =$this->page_field->getLocale();
-        unset( $data['_token']);
-        unset( $data['_method']);
-
-        foreach ( $data as $key => $list ) {  
-            if (Input::hasFile($key)) {
-                $name_img = $list->getClientOriginalName();
-                $list = $request->file( $key )->storeAs( 'public/img/home',$name_img );                 
-            }
-            $datas = PageField::where('slug', $key)->update([ $content => $list]);
-            
-        }  
-
-        Session::flash('success','Success!');
-        return redirect(route('admin.page.index'));
-    }
     /**
      * Update the specified resource in storage.
      *
@@ -154,11 +111,10 @@ class PageController extends Controller
         $data = $request->all();
         try {
             $rules = [
-                'title'           =>'required',    
+            'name'                 =>'required',
             ];
-
             $messages = [
-            'title.required'      =>'Vui lòng nhập!!',                    
+             'name.required'        =>'Please enter the name!!!',
             ];
 
             $validator = Validator::make( $request->all(), $rules, $messages);
@@ -166,19 +122,26 @@ class PageController extends Controller
             if ( $validator->fails() ){
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
-                DB::beginTransaction();
-                $data['slug'] = str_slug( $data['title'] );
-                $page = Page::where('id', $id)->first();
-                $page->update($data);
-                DB::commit();
-                Session::flash('success','Success!');
-                return redirect(route('admin.page.index'));
+                if(!$request->hasFile('avatar')){
+                    $rating = Rating::where('id', $id)->first();
+                    $rating->update($data);
+                }else{
+                    $avatar = $data['avatar'];
+                    $name_img = $avatar->getClientOriginalName();
+                    $data['avatar']= $request->file( 'avatar' )->storeAs( 'public/img/rating',$name_img );  
+                    $rating = Rating::where('id', $id)->first();
+                    $rating->update($data);
+                }
                 
+
+                Session::flash('success','Success!');
+                return redirect(route('admin.rating.index'));
             }
+
         } catch (Exception $e) {
             Session::flash('error','Opp! Please try again.Error!');
-            DB::rollback();
         }
+        
     }
 
     /**
@@ -189,9 +152,9 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-       DB::beginTransaction();
+        DB::beginTransaction();
         try {
-            Page::find( $id )->delete();
+            Rating::find( $id )->delete();
             DB::commit();
             Session::flash('success','Success');
             return Redirect::back();
@@ -204,11 +167,10 @@ class PageController extends Controller
         }
     }
 
-
     public function getUrlDelete(Request $request) {
         $id = $request->id;
         if (isset($id)) {
-            return route('admin.page.delete',['id'=>$id]);
+            return route('admin.rating.delete',['id'=>$id]);
         }
         return -1;
     }

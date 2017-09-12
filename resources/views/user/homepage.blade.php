@@ -4,7 +4,7 @@
 @endsection
 @section("content")
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<div class="banner-home" style="background-image: url(/img/banner.jpg);">
+<div class="banner-home" style="background-image: url({{ Storage::disk('local')->url( $data_field['header-banner']) }});">
 	<div class="container">
 		<div class="text">
 			<h1>{{ $data_field['header-slogan1']}}</h1>
@@ -204,7 +204,7 @@
 <div class="let-started text-center">
 	<div class="container">
 		<div class="wrap">
-			<img src="/img/tools.jpg" alt="">
+			<img src="{{ Storage::disk('local')->url( $data_field['image-right-tools']) }}" alt="">
 			<h2 class="title">{{$data_field['let-started-title']}}</h2>
 			<div class="description">
 				<p>{{$data_field['let-started-content']}}</p>

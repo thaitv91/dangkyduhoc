@@ -62,6 +62,7 @@
 							    <option  @if($data->type == 'checkbox') selected @endif value="checkbox">Checkbox</option>
 							    <option  @if($data->type == 'submit') selected @endif value="submit">Submit</option>
 							    <option  @if($data->type == 'radio') selected @endif value="radio">Radio</option>
+							    <option  @if($data->type == 'file') selected @endif value="file">File</option>
 							  </select>
 	                    </div>
 					</div>

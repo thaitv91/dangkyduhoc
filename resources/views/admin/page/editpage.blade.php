@@ -20,7 +20,12 @@
 			{{ method_field('PUT') }}
 			<div class="col-md-12">
 				<div class="box-body">
-						@foreach ($fields as $field)
+						@foreach ($fields as $key => $field)
+							<?php 
+							 	if($field->type == 'file')
+								$name = $field->slug;
+								$id = $field->id;
+							 ?>
 							{!! $field->render() !!}
 						@endforeach					
 					<div class="form-group">
@@ -37,3 +42,22 @@
 </div>
 
 @endsection
+@section('scripts')
+<script type="text/javascript">
+   	function readURL(input) {
+  		if (input.files && input.files[0]) {
+		    var reader = new FileReader();
+		    reader.onload = function(e) {
+		      $('#previewHolder-<?php echo $id; ?>').attr('src', e.target.result);
+		    }
+
+		    reader.readAsDataURL(input.files[0]);
+		    console.log(reader);
+  		}
+	}
+
+ 	$("#<?php echo $name; ?>").change(function() {
+  	readURL(this);
+	});
+  </script>
+  @endsection
