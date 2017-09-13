@@ -12,8 +12,8 @@
 @section('content')
 <div class="box">
 	<div class="box-header">
-		<div class="col-md-11"><h3 class="box-title">Page</h3></div>
-	<div class="col-md-1"><a href="{{ route('admin.page.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
+	<div class="col-md-11"><h3 class="box-title">Page</h3></div>
+	<div class="col-md-1"><a href="{{ route('admin.rating.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
 	</div>
 	<!-- /.box-header -->
 	<div class="box-body">
@@ -21,31 +21,36 @@
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>Title</th>
-					<th>Slug</th>
-					<th>Fuction</th>
+					<th>Name</th>
+					<th>Avatar</th>
+					<th>Content Vi</th>
+					<th>Content En</th>
+					<th>Function</th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($pages as $key => $value): ?>
+				<?php foreach ($data as $key => $value): ?>
 					<tr>
 						<td>{{ $key+1 }}</td>
-						<td>{{ $value->title }}</td>
-						<td>{{ $value->slug }}</td>
+						<td>{{ $value->name }}</td>
+						<td ><img src="{{ Storage::disk('local')->url($value->avatar) }}" class="img-responsive" style="width: 70px"></td>
+						<td>{!! str_limit($value->content , $limit = 100, $end = '...') !!}</td>
+						<td>{!! str_limit($value->content_en , $limit = 100, $end = '...') !!}</td>
 						<td>
-							<a href="{{ route('admin.page.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
-							<a href="{{ route('admin.page.editpage',['id'=>$value->id]) }}" class="btn btn-xs btn-info">Edit Page</a>
+							<a href="{{ route('admin.rating.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
 	                        <a onclick="confirmDelete({{$value->id}})" class="btn btn-xs btn-danger">Delete</a>
 						</td>
 					</tr>
 				<?php endforeach ?>
 			</tbody>
 		</table>
+		{{$data->links()}}
 	</div>
 	<!-- /.box-body -->
 </div>
 <!-- /.box -->
- <div class="modal fade" id="modal-delete" role="dialog">
+
+<div class="modal fade" id="modal-delete" role="dialog">
 	    <div class="modal-dialog">
 	    
 	      <!-- Modal content-->
@@ -83,7 +88,7 @@
 <script type="text/javascript">
 	function confirmDelete(id) {
 		$.ajax({
-			url : '{{ route("admin.page.getUrlDelete") }}',
+			url : '{{ route("admin.rating.getUrlDelete") }}',
 			data : {id:id},
 		}).done(function(data) {
 			if (data == -1) {

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePageFieldsTable extends Migration
+class CreateRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreatePageFieldsTable extends Migration
      */
     public function up()
     {
-        Schema::create('page_fields', function (Blueprint $table) {
+        Schema::create('ratings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('slug');
-            $table->string('type');
-            $table->integer('page_id');
-            $table->text('content')->nullable();
-            $table->text('content_en')->nullable();
+            $table->string('name');
+            $table->string('avatar');
+            $table->integer('rating');
+            $table->text('content');
+            $table->text('content_en');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreatePageFieldsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page_fields');
+        Schema::dropIfExists('ratings');
     }
 }

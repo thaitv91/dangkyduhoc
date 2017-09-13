@@ -21,7 +21,7 @@ class PageFieldController extends Controller
      */
     public function index()
     {
-        $pagefield = PageField::orderBy( 'id', 'DESC' )->paginate(10);
+        $pagefield = PageField::orderBy( 'id', 'DESC' )->get();
         $data = array(
             'pagefield' => $pagefield
         );
