@@ -64,3 +64,7 @@ Route::get('/html/guide', function() {
 Route::get('/html/universities', function() {
 	return view('user.universities');
 });
+
+Route::get('/html/subjects', function() {
+	return view('user.subjects');
+});
