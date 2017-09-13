@@ -60,3 +60,7 @@ Route::get('/','User\HomeController@index');
 Route::get('/html/guide', function() {
 	return view('user.guide');
 });
+
+Route::get('/html/universities', function() {
+	return view('user.universities');
+});

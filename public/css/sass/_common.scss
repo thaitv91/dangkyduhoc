@@ -16,6 +16,12 @@ body{
 	@include Opensans();
     padding-top: 80px;
 }
+a{
+    color:$color-link;
+    &:hover{
+        color: $color-link;
+    }
+}
 
 .clickable{
     cursor: pointer;
@@ -69,3 +75,11 @@ img{
         color:$color-link;
     }
 }
+
+.title-box{
+    text-transform: uppercase;
+    @include UTMBebas();
+    font-size: 24px;
+    margin: 0 0 20px;
+}
+
