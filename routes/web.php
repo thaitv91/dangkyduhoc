@@ -55,3 +55,8 @@ Auth::routes();
 
 // FrontEnd
 Route::get('/','User\HomeController@index');
+
+// html
+Route::get('/html/guide', function() {
+	return view('user.guide');
+});
