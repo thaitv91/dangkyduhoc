@@ -69,3 +69,7 @@ Route::get('/','User\HomeController@index');
 //Route::post('/language-chooser', 'Language\LanguageController@changeLanguage');
 //Route::post('/language/', array('before' => 'csrf', 'as'=>'language-chooser', 'uses' => 'Language\LanguageController@changeLanguage',) );
 
+// html
+Route::get('/html/guide', function() {
+	return view('user.guide');
+});
