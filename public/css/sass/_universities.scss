@@ -145,6 +145,13 @@
 			&:first-child{
 				margin-left: 0;
 			}
+			@include screen-size(xs){
+				width: 50%;
+				margin-left: 0;
+				&:nth-child(2n+3){
+					clear: left;
+				}
+			}
 			a{
 				color: $white;
 				&:hover, &:focus{

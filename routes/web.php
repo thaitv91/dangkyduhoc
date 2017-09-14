@@ -72,3 +72,7 @@ Route::get('/html/subjects', function() {
 Route::get('/html/fair', function() {
 	return view('user.fair');
 });
+
+Route::get('/html/careers', function() {
+	return view('user.careers');
+});

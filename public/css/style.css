@@ -4765,6 +4765,15 @@ footer .footer-top .social {
 .breadcrumb-page .list li:first-child {
   margin-left: 0;
 }
+@media screen and (max-width: 767px) {
+  .breadcrumb-page .list li {
+    width: 50%;
+    margin-left: 0;
+  }
+  .breadcrumb-page .list li:nth-child(2n+3) {
+    clear: left;
+  }
+}
 .breadcrumb-page .list li a {
   color: white;
 }
@@ -5431,4 +5440,13 @@ a.university_name {
 }
 .form-enjoy .btn {
   margin-top: 22px;
+}
+
+.about-career .title {
+  margin: 0 0 26px;
+  font-size: 36px;
+}
+.about-career .description {
+  line-height: 1.7;
+  padding-bottom: 30px;
 }
