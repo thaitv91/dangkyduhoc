@@ -80,6 +80,7 @@ class UserController extends Controller
     {
         //
         $user = $this->user->where('id',$id)->get(['id','name','email','isadmin'])->first();
+        // dd($user->getUserInfo()->toSql());
         $user_detail = $user->getUserInfo()->first();
         if (!count($user_detail)) {
             $this->user_meta->create(['user_id'=>$user->id]);

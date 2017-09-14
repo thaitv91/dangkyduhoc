@@ -18,6 +18,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" type="text/css" href="{{url('css/multi-select/bootstrap-select.css')}}">
+  <link href="{{url('css/toastr.min.css')}}" rel="stylesheet" />
+
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
@@ -269,6 +272,9 @@ desired effect
             <li><a href="#">Link in level 2</a></li>
           </ul>
         </li>
+        <li><a href="{{ route('admin.page.index') }}"><i class="fa fa-link"></i> <span>Page</span></a></li>
+        <li><a href="{{ route('admin.pagefield.index') }}"><i class="fa fa-link"></i> <span>Page Fields</span></a></li>
+        <li><a href="{{ route('admin.rating.index') }}"><i class="fa fa-link"></i> <span>Rating</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -395,10 +401,63 @@ desired effect
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/app.min.js"></script>
+ <script src="{{url('js/multi-select/bootstrap-select.js')}}" type="text/javascript"></script>
+ <script src="{{ url('js/tinymce/tinymce.min.js') }}"></script> 
+ <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+ <script>
+      tinymce.PluginManager.add('placeholder', function (editor) {
+          editor.on('init', function () {
+              var label = new Label;
+              onBlur();
+              tinymce.DOM.bind(label.el, 'click', onFocus);
+              editor.on('focus', onFocus);
+              editor.on('blur', onBlur);
+              editor.on('change', onBlur);
+              editor.on('setContent', onBlur);
+              function onFocus() { if (!editor.settings.readonly === true) { label.hide(); } editor.execCommand('mceFocus', false); }
+              function onBlur() { if (editor.getContent() == '') { label.show(); } else { label.hide(); } }
+          });
+          var Label = function () {
+              var placeholder_text = editor.getElement().getAttribute("placeholder") || editor.settings.placeholder;
+              var placeholder_attrs = editor.settings.placeholder_attrs || { style: { position: 'absolute', top: '2px', left: 0, color: '#aaaaaa', padding: '.25%', margin: '5px', width: '80%', 'font-size': '17px !important;', overflow: 'hidden', 'white-space': 'pre-wrap' } };
+              var contentAreaContainer = editor.getContentAreaContainer();
+              tinymce.DOM.setStyle(contentAreaContainer, 'position', 'relative');
+              this.el = tinymce.DOM.add(contentAreaContainer, "label", placeholder_attrs, placeholder_text);
+          }
+          Label.prototype.hide = function () { tinymce.DOM.setStyle(this.el, 'display', 'none'); }
+          Label.prototype.show = function () { tinymce.DOM.setStyle(this.el, 'display', ''); }
+      });
+      tinymce.init({
+          selector: 'textarea.my-editor',
+          menubar: false,
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code'
+          ],
+          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+          content_css: [
+              '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+              '//www.tinymce.com/css/codepen.min.css'
+            ],
+          // setup: function(ed) {
+          //       ed.on('keyup', function(e) {
+          //           // check_submit();
+          //       });
+          //   }
+        });
+
+  </script>
+    <script>  
+            @if ( Session::has('success'))  
+            toastr.success('{{ session('success')}}');  
+            @endif
+        </script>
 @yield('scripts')
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
 </body>
+
 </html>
