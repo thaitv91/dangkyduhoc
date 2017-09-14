@@ -80,7 +80,10 @@ class UserController extends Controller
     {
         //
         $user = $this->user->where('id',$id)->get(['id','name','email','isadmin'])->first();
-        // dd($user->getUserInfo()->get());
+        $user_detail = $user->getUserInfo()->first();
+        if (!count($user_detail)) {
+            $this->user_meta->create(['user_id'=>$user->id]);
+        }
         return view('admin.users.edit',compact('user'));
     }
 
