@@ -68,3 +68,7 @@ Route::get('/html/universities', function() {
 Route::get('/html/subjects', function() {
 	return view('user.subjects');
 });
+
+Route::get('/html/fair', function() {
+	return view('user.fair');
+});

@@ -35,13 +35,13 @@
 						<div class="neo">
 					</li>
 					<li>
-						<a href="#apply-online" class="neo">
+						<a href="#apply-online" class="neo link-scroll">
 							<span class="icon"><i class="fa fa-check" aria-hidden="true"></i></span><br/>
 							Apply Online
 						</a>
 					</li>
 					<li>
-						<a href="#scholarships" class="neo">
+						<a href="#scholarships" class="neo link-scroll">
 							<span class="icon"><i class="fa fa-check" aria-hidden="true"></i></span><br/>
 							Scholarships 
 						</a>
@@ -96,12 +96,12 @@
 
 	<div class="breadcrumb-page hidden-sm hidden-xs">
 		<ul class="list">
-			<li><a href="#about-us">About us</a></li>            
-			<li><a href="#apply-online">Courses</a></li>            
-			<li><a href="#rankings">Rankings</a></li>           
-			<li><a href="#scholarships">Scholarships</a></li>            
-			<li><a href="#campuses">Campuses</a></li>            
-			<li><a href="#ask-us-a-question">Ask us a question</a></li>            
+			<li><a href="#about-us" class="link-scroll">About us</a></li>            
+			<li><a href="#apply-online" class="link-scroll">Courses</a></li>            
+			<li><a href="#rankings" class="link-scroll">Rankings</a></li>           
+			<li><a href="#scholarships" class="link-scroll">Scholarships</a></li>            
+			<li><a href="#campuses" class="link-scroll">Campuses</a></li>            
+			<li><a href="#ask-us-a-question" class="link-scroll">Ask us a question</a></li>            
 			<li>+65 6333 1300</li>
 		</ul>
 

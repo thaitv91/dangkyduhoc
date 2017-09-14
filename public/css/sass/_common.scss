@@ -83,3 +83,36 @@ img{
     margin: 0 0 20px;
 }
 
+.pagination{
+    &> li{
+        margin: 0 2px;
+        display: inline-block;
+        &>a, &>span{
+            color: #686868;
+            background:#fff;
+            padding: 4px 10px;
+            &:hover, &:focus{
+                background: #7f7f7f;
+                border-color:#7f7f7f;
+                color: #fff;
+            }
+        }
+        &:first-child, &:last-child{
+            &>a, &>span{
+                @include border-radius(0);
+            }
+        }
+        &.active{
+            &>a, &>span{
+                background: #7f7f7f;
+                border-color:#7f7f7f;
+                color: #fff;
+                &:hover, &:focus{
+                    background: #7f7f7f;
+                    border-color:#7f7f7f;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

@@ -105,6 +105,17 @@ $(document).ready(function() {
     fade: true
   });
 
+$('#slider-img-fair').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: false,
+    dots: false,
+    fade: true
+  });
+  
+
   $('.whichroute').click(function(){
     $(this).parent().find('#faq-list').show();
   });
@@ -115,7 +126,7 @@ $(document).ready(function() {
 
   // scroll smooth
     // Select all links with hashes
-    $('a[href*="#"]')
+    $('a.link-scroll"[href*="#"]')
     // Remove links that don't actually link to anything
     .not('[href="#"]')
     .not('[href="#0"]')
