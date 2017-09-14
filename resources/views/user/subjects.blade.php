@@ -10,7 +10,7 @@
 <div class="container">
 	<div class="subject-detail">
 		<img src="/img/subject-img.jpg" alt="">
-		<div class="breadcrumb-page hidden-sm hidden-xs">
+		<div class="breadcrumb-page">
 			<ul class="list">
 				<li><a href="#">Accountant</a></li>            
 				<li><a href="#">Auditor</a></li>            
@@ -311,7 +311,7 @@
 		      </a>
 		    </li>
 		  </ul>
-		</div>
+		</div><!-- /.pagging -->
 	</div><!-- /.filter-result -->
 </div>
 
