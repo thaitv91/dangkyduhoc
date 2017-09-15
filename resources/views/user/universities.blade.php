@@ -15,7 +15,7 @@
 				<p class="sub-title">United Kingdom</p>
 			</div>
 			<div class="col-lg-8">
-				<ul class="link-neo">
+				<ul class="link-neo smoothScroll">
 					<li class="hidden-xs">
 						<div class="neo">
 							<span class="icon"><i class="fa fa fa-flask" aria-hidden="true"></i></span><br/>
@@ -94,7 +94,7 @@
 		</div><!-- /.info -->
 	</div><!-- /.uni-info -->
 
-	<div class="breadcrumb-page hidden-sm hidden-xs">
+	<div class="breadcrumb-page smoothScroll hidden-sm hidden-xs">
 		<ul class="list">
 			<li><a href="#about-us" class="link-scroll">About us</a></li>            
 			<li><a href="#apply-online" class="link-scroll">Courses</a></li>            
@@ -469,251 +469,6 @@
 				</div>
 			</div><!-- /.item -->
 		</div><!-- /.list-courses -->
-
-		<div class="filter-result subjects">
-		<h4 class="title-box"><span>Accounting &amp; Finance</span></h4>
-		<div class="list-courses">
-			<div class="row item">
-				<div class="uni-logo-col col-lg-1 col-md-1 col-sm-2 col-xs-3 col-no-pad-right">
-					<div class="uni-logo">
-						<img src="/img/B085_bathspa_logo.jpg" alt=""/>
-					</div>
-				</div>
-				<div class="col-lg-11 col-md-11 col-sm-10 col-xs-9">
-					<div class="row">
-						<div class="col-lg-4 col-md-4 col-sm-7 col-xs-12">
-							<div class="uni-name">
-								<a class="course_name" href="#">Accounting and Finance</a>
-								<div class="classification">BSc (Hons)</div>
-								<div class="uni-name-sec">
-	                        <a class="university_name" href="#">Bath Spa University, UK</a>
-	                    </div>
-								<div class="visible-sm visible-xs">
-			                     <span class="inline-block-sm margin-right10-sm">S$22.7K / year</span>
-			                     <span class="inline-block-sm margin-right10-sm">3 years</span>
-			                     <span class="inline-block-sm">BBB</span>
-			               </div>
-			               <div class="see-similar">
-                            See 46 similar <i class="fa fa-chevron-down"></i>
-                        </div>
-							</div><!-- /.uni-name -->
-						</div>
-
-						<div class="course-stats col-lg-8 col-md-8 col-sm-5 col-xs-12">
-							<div class="pull-right">
-								<div class="cell hidden-sm hidden-xs">
-									<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">S$22.7K</span>
-									<span class="sub-tip display-block">per year</span>
-								</div>
-
-								<div class="cell hidden-sm hidden-xs">
-		                     <span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Chat with us for a free advance standing assessment.">3</span>
-		                     <span class="sub-tip display-block">years</span>
-		                  </div>
-
-		                  <div class="cell hidden-sm hidden-xs">
-		                     <span rel="a_levels" class="tip display-block" title=""  data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Click to toggle between entry requirements for different qualifications">	
-		                     	BBB
-		                     </span>
-		                     <span class="sub-tip display-block">grade</span>
-		                  </div>
-
-		                  <div class="cell hidden-sm hidden-xs course-progression">
-					                <div class="see-pathways tip" title="" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Can't meet the minimum grades? Click to see available pathways to progress into Bangor University.">
-					                    <i class="fa fa-arrow-up"></i>
-					                    <span class="sub-tip display-block">5 pathways</span>
-					                </div>
-					        </div>
-
-					        <div class="cell_1">
-		                     <div class="compare" title="Add to compare">
-		                         <div class="compare-btn">
-		                             <input id="compare_1" data-courseid="1" type="checkbox" class="compare-btn compareCheckbox">
-		                             <label for="compare_1" class="compare-label  btn btn-green">Compare <i class="fa fa-check"></i></label>
-		                         </div>
-		                     </div>
-		                 </div>
-
-		                    <div class="cell_1">
-		                           <div id="apply_1425" class="btn btn-green apply-btn" onclick="javascript:apply('1');">
-		                                APPLY
-		                           </div>
-		                           <div id="selected_1425" class="btn btn-green apply-add-btn hide" onclick="javascript:unselect('1');" title="Remove from university application?">
-		                                ADDED  <i class="fa fa-check"></i>
-		                           </div>
-		                    </div>
-							</div>
-						</div>
-
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<div id="" class="arrow-box">
-								<div class="tree">
-									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-		                         <div class="info">
-		                             <h1>Pathway programmes available</h1>
-		                         </div>
-		                     </div>
-		                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
-		                         <div class="info">
-		                             <a class="whichroute"><i class="fa fa-question-circle" aria-hidden="true"></i> Which pathway should I choose?</a>
-		                             <div id="faq-list" class="martop10">
-		                                 <ul>
-		                                     <li>
-		                                         <a href="/guide/pathways-to-university-what-is-foundation-program" target="_blank">What is Foundation Program?</a>
-		                                     </li>
-		                                     <li>
-		                                         <a href="/guide/pathways-to-university-what-is-diploma" target="_blank">What is Diploma?</a>
-		                                     </li>
-		                                     <li>
-		                                         <a class="openchat gtt-chat">Ask an education consultant</a>
-		                                     </li>
-		                                 </ul>
-		                             </div>
-		                         </div>
-		                     </div>
-
-		                     <div id="diagram" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		                     	svg
-		                     </div>
-								</div>
-							</div><!-- /.arrow_box -->
-						</div>
-					</div>
-				</div>
-				
-			</div><!-- /.item -->
-
-			<div class="row item">
-				<div class="uni-logo-col col-lg-1 col-md-1 col-sm-2 col-xs-3 col-no-pad-right">
-					<div class="uni-logo">
-						<img src="/img/B085_bathspa_logo.jpg" alt=""/>
-					</div>
-				</div>
-				<div class="col-lg-11 col-md-11 col-sm-10 col-xs-9">
-					<div class="row">
-						<div class="col-lg-4 col-md-4 col-sm-7 col-xs-12">
-							<div class="uni-name">
-								<a class="course_name" href="#">Accounting and Finance</a>
-								<div class="classification">BSc (Hons)</div>
-								<div class="uni-name-sec">
-	                        <a class="university_name" href="#">Bath Spa University, UK</a>
-	                    </div>
-								<div class="visible-sm visible-xs">
-			                     <span class="inline-block-sm margin-right10-sm">S$22.7K / year</span>
-			                     <span class="inline-block-sm margin-right10-sm">3 years</span>
-			                     <span class="inline-block-sm">BBB</span>
-			               </div>
-			               <div class="see-similar">
-                            See 46 similar <i class="fa fa-chevron-down"></i>
-                        </div>
-							</div><!-- /.uni-name -->
-						</div>
-
-						<div class="course-stats col-lg-8 col-md-8 col-sm-5 col-xs-12">
-							<div class="pull-right">
-								<div class="cell hidden-sm hidden-xs">
-									<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">S$22.7K</span>
-									<span class="sub-tip display-block">per year</span>
-								</div>
-
-								<div class="cell hidden-sm hidden-xs">
-		                     <span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Chat with us for a free advance standing assessment.">3</span>
-		                     <span class="sub-tip display-block">years</span>
-		                  </div>
-
-		                  <div class="cell hidden-sm hidden-xs">
-		                     <span rel="a_levels" class="tip display-block" title=""  data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Click to toggle between entry requirements for different qualifications">	
-		                     	BBB
-		                     </span>
-		                     <span class="sub-tip display-block">grade</span>
-		                  </div>
-
-		                  <div class="cell hidden-sm hidden-xs course-progression">
-					                <div class="see-pathways tip" title="" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Can't meet the minimum grades? Click to see available pathways to progress into Bangor University.">
-					                    <i class="fa fa-arrow-up"></i>
-					                    <span class="sub-tip display-block">5 pathways</span>
-					                </div>
-					        </div>
-
-					        <div class="cell_1">
-		                     <div class="compare" title="Add to compare">
-		                         <div class="compare-btn">
-		                             <input id="compare_2" data-courseid="1" type="checkbox" class="compare-btn compareCheckbox">
-		                             <label for="compare_2" class="compare-label  btn btn-green">Compare <i class="fa fa-check"></i></label>
-		                         </div>
-		                     </div>
-		                 </div>
-
-		                    <div class="cell_1">
-		                           <div id="apply_2" class="btn btn-green apply-btn" onclick="javascript:apply('2');">
-		                                APPLY
-		                           </div>
-		                           <div id="selected_1425" class="btn btn-green apply-add-btn hide" onclick="javascript:unselect('2');" title="Remove from university application?">
-		                                ADDED  <i class="fa fa-check"></i>
-		                           </div>
-		                    </div>
-							</div>
-						</div>
-
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<div id="" class="arrow-box">
-								<div class="tree">
-									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-		                         <div class="info">
-		                             <h1>Pathway programmes available</h1>
-		                         </div>
-		                     </div>
-		                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
-		                         <div class="info">
-		                             <a class="whichroute"><i class="fa fa-question-circle" aria-hidden="true"></i> Which pathway should I choose?</a>
-		                             <div id="faq-list" class="martop10">
-		                                 <ul>
-		                                     <li>
-		                                         <a href="/guide/pathways-to-university-what-is-foundation-program" target="_blank">What is Foundation Program?</a>
-		                                     </li>
-		                                     <li>
-		                                         <a href="/guide/pathways-to-university-what-is-diploma" target="_blank">What is Diploma?</a>
-		                                     </li>
-		                                     <li>
-		                                         <a class="openchat gtt-chat">Ask an education consultant</a>
-		                                     </li>
-		                                 </ul>
-		                             </div>
-		                         </div>
-		                     </div>
-
-		                     <div id="diagram" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-		                     	svg
-		                     </div>
-								</div>
-							</div><!-- /.arrow_box -->
-						</div>
-					</div>
-				</div>
-
-				
-			</div><!-- /.item -->
-		</div><!-- /.list-courses -->
-
-		<div class="pagging text-center">
-			<ul class="pagination">
-		    <li>
-		      <a href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo; Back</span>
-		      </a>
-		    </li>
-		    <li class="active"><a href="#">1</a></li>
-		    <li><a href="#">2</a></li>
-		    <li><a href="#">3</a></li>
-		    <li><a href="#">4</a></li>
-		    <li><a href="#">5</a></li>
-		    <li>
-		      <a href="#" aria-label="Next">
-		        <span aria-hidden="true">Next &raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</div><!-- /.pagging -->
 	</div><!-- /.filter-result -->
 </div>
 
@@ -728,8 +483,8 @@
 						<li>Choosing a university
 						<li>Applying to university</li>
 						<li>Accepting your offer</li>
-						<li>Finances & Scholarships</li>
-						<li>Flight & Accomodation</li>
+						<li>Finances &amp; Scholarships</li>
+						<li>Flight &amp; Accomodation</li>
 						<li>Student visa</li>
 					</ul>
 				</div><!-- /.university-guide -->
