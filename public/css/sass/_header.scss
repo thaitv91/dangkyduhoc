@@ -3,6 +3,9 @@
 	background: #fff;
 	border:none;
 	@include border-radius(0);
+	@include screen-size-max(sm){
+		display: none;
+	}
 	.navbar-nav{
 		margin-top: 23px;
 		margin-right: 0;

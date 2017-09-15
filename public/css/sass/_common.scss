@@ -16,6 +16,12 @@ body{
 	@include Opensans();
     padding-top: 80px;
 }
+a{
+    color:$color-link;
+    &:hover{
+        color: $color-link;
+    }
+}
 
 .clickable{
     cursor: pointer;
@@ -67,5 +73,46 @@ img{
         font-size: 24px;
         @include UTMBebas();
         color:$color-link;
+    }
+}
+
+.title-box{
+    text-transform: uppercase;
+    @include UTMBebas();
+    font-size: 24px;
+    margin: 0 0 20px;
+}
+
+.pagination{
+    &> li{
+        margin: 0 2px;
+        display: inline-block;
+        &>a, &>span{
+            color: #686868;
+            background:#fff;
+            padding: 4px 10px;
+            &:hover, &:focus{
+                background: #7f7f7f;
+                border-color:#7f7f7f;
+                color: #fff;
+            }
+        }
+        &:first-child, &:last-child{
+            &>a, &>span{
+                @include border-radius(0);
+            }
+        }
+        &.active{
+            &>a, &>span{
+                background: #7f7f7f;
+                border-color:#7f7f7f;
+                color: #fff;
+                &:hover, &:focus{
+                    background: #7f7f7f;
+                    border-color:#7f7f7f;
+                    color: #fff;
+                }
+            }
+        }
     }
 }

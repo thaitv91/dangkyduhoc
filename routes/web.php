@@ -100,4 +100,20 @@ Route::get('/','User\HomeController@index');
 //Route::post('/language/', array('before' => 'csrf', 'as'=>'language-chooser', 'uses' => 'Language\LanguageController@changeLanguage',) );
 
 // html
+Route::get('/html/universities', function() {
+	return view('user.universities');
+});
+
+Route::get('/html/subjects', function() {
+	return view('user.subjects');
+});
+
+Route::get('/html/fair', function() {
+	return view('user.fair');
+});
+
+Route::get('/html/careers', function() {
+	return view('user.careers');
+});
+
 Route::get('/guide', 'User\GuideController@index')->name('user.guide');
