@@ -4,7 +4,7 @@
 @endsection
 @section("content")
 <div class="title-page">
-	<div class="container"><h1>Guide</h1></div>
+	<div class="container"><h1>{!! $data_field['guide-title'] !!}</h1></div>
 </div>
 
 <div class="container">
@@ -21,7 +21,7 @@
 				<a class="tile-guide bg-light-blue" href="#">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-1"></i></div>
-						<p>ABOUT THERIGHTU </p>
+						<p>{!! $data_field['about-therightu'] !!}</p>
 					</div>
 				</a><!-- /.tile -->
 			</div>
@@ -30,7 +30,7 @@
 				<a class="tile-guide bg-brown" href="#">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-2"></i></div>
-						<p>CHOOSING A UNIVERSITY</p>
+						<p>{!! $data_field['choosing-university'] !!}</p>
 					</div>
 				</a><!-- /.tile -->
 			</div>
@@ -39,7 +39,7 @@
 				<a class="tile-guide bg-dark-blue" href="#">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-3"></i></div>
-						<p>APPLYING TO UNIVERSITY</p>
+						<p>{!! $data_field['apply-to-university'] !!}</p>
 					</div>
 				</a><!-- /.tile -->
 			</div>
@@ -48,7 +48,7 @@
 				<a class="tile-guide bg-light-brown" href="#">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-4"></i></div>
-						<p>ACCEPTING YOUR OFFER</p>
+						<p>{!! $data_field['accept-offer'] !!}</p>
 					</div>
 				</a><!-- /.tile -->
 			</div>
@@ -57,7 +57,7 @@
 				<a class="tile-guide bg-dark-blue" href="#">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-5"></i></div>
-						<p>FINANCES &amp; SCHOLARSHIPS</p>
+						<p>{!! $data_field['finances-scholarships'] !!}</p>
 					</div>
 				</a><!-- /.tile -->
 			</div>
@@ -66,7 +66,7 @@
 				<a class="tile-guide bg-light-violet" href="#">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-6"></i></div>
-						<p>FLIGHT &amp; ACCOMODATION</p>
+						<p>{!! $data_field['flight-accomodation'] !!}</p>
 					</div>
 				</a><!-- /.tile -->
 			</div>
@@ -75,7 +75,7 @@
 				<a class="tile-guide bg-dark-orange" href="#">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-7"></i></div>
-						<p>Student visa</p>
+						<p>{!! $data_field['student-visa'] !!}</p>
 					</div>
 				</a><!-- /.tile -->
 			</div>
@@ -84,7 +84,7 @@
 				<a class="tile-guide bg-light-orange" href="#">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-8"></i></div>
-						<p>Online consultation</p>
+						<p>{!! $data_field['online-consultation'] !!}</p>
 					</div>
 				</a><!-- /.tile -->
 			</div>

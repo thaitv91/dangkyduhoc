@@ -153,7 +153,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
               <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#">Guide</a></li>
+                <li class="active"><a href="{{ route('user.guide') }}">Guide</a></li>
                 <li class="subjectddl slideddl"><a href="#">Subjects <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
                 <li class="universityddl slideddl"><a href="#">Universities <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
                 <li class="careerddl slideddl"><a href="#">Careers <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
