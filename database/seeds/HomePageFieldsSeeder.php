@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use DB;
 class HomePageFieldsSeeder extends Seeder
 {
     /**
@@ -251,7 +251,6 @@ class HomePageFieldsSeeder extends Seeder
             'updated_at' => Carbon::now()
 
         ]);
-
 
     }
 }
