@@ -15,7 +15,7 @@ class AddCourseInfomationTableCourseInfomation extends Migration
     {
         Schema::table('course_information', function (Blueprint $table) {
             //
-            $table->string('university_infomation');
+            $table->string('university_information');
         });
     }
 

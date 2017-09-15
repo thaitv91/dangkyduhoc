@@ -8,6 +8,8 @@ use App\Models\PageField;
 use App\Models\Page;
 use App\Models\Rating;
 use App;
+
+use DB;
 class HomeController extends Controller
 {
     /**

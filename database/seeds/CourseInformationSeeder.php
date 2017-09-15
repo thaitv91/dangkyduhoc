@@ -22,10 +22,10 @@ class CourseInformationSeeder extends Seeder
             'Duration'                  =>  'duration',
             'About course'              =>  'about',
             'What you will learn'       =>  'will_learn',
-            'University INFORMATION'        =>  'university_infomation',
+            'University INFORMATION'        =>  'university_information',
             );
 
-        $myfile = fopen(public_path('course_infomation.json'), "r") or die("Unable to open file!");
+        $myfile = fopen(public_path('course_information.json'), "r") or die("Unable to open file!");
         while(!feof($myfile)) {
             $data .= fgets($myfile);
         }
@@ -41,12 +41,12 @@ class CourseInformationSeeder extends Seeder
                 'created_at'                    =>  Carbon::now(),
                 'updated_at'                    =>  Carbon::now(),
                 );
-            foreach ($value->infomation as $key => $info) {
+            foreach ($value->information as $key => $info) {
                 if (isset($field[$key]))
-                    $course_information[$field[$key]] = $info; 
+                    $course_information[$field[$key]] = $info;
             }
-            $course_information['upcoming_intakes'] = Carbon::parse($course_information['upcoming_intakes']);
-            $course_information['university_infomation'] = str_replace('.html', '', $course_information['university_infomation']);
+            $course_information['upcoming_intakes'] = isset($course_information['upcoming_intakes'])?Carbon::parse($course_information['upcoming_intakes']):'';
+            $course_information['university_information'] = isset($course_information['university_information'])?str_replace('.html', '', $course_information['university_information']):'';
 
             $course = DB::table('course')->where('slug', $course_slug)->first();
             if (count($course)) {
