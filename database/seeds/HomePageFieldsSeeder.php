@@ -234,7 +234,7 @@ class HomePageFieldsSeeder extends Seeder
             'type' => 'file',
             'page_id' => '1',
             'content' => 'public/img/home/banner.jpg',
-            'content_en' => 'public/img/banner/tools.jpg',
+            'content_en' => 'public/img/home/banner.jpg',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
 
