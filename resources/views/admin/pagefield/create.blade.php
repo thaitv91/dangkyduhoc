@@ -33,7 +33,7 @@
 					<div class="form-group row">
 						<label  class="col-md-3" for="name">Content</label>
 						<div class="col-md-9">
-							<textarea class="form-control" rows="5" id="content" name="content" value="{{ old('content') }}"></textarea>    
+							<textarea class="form-control my-editor" rows="5" id="content" name="content" value="{{ old('content') }}"></textarea>    
 							@if($errors->has('content'))
 	                            <span class="help-block">
 	                                <strong class="text-danger">{{$errors->first('content')}}</strong>
@@ -44,7 +44,7 @@
 					<div class="form-group row">
 						<label  class="col-md-3" for="name">Content English</label>
 						<div class="col-md-9">
-							<textarea class="form-control" rows="5" id="content_en" name="content_en" value="{{ old('content_en') }}"></textarea>    
+							<textarea class="form-control my-editor" rows="5" id="content_en" name="content_en" value="{{ old('content_en') }}"></textarea>    
 							@if($errors->has('content_en'))
 	                            <span class="help-block">
 	                                <strong class="text-danger">{{$errors->first('content_en')}}</strong>
@@ -61,6 +61,7 @@
 							    <option value="checkbox">Checkbox</option>
 							    <option value="submit">Submit</option>
 							    <option value="radio">Radio</option>
+							    <option value="file">File</option>
 							  </select>
 	                    </div>
 					</div>

@@ -6,13 +6,14 @@
 
 @push('styles')
 <!-- DataTables -->
-<link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css') }}">
+<link rel="stylesheet" href="{{ url('plugins/datatables/dataTables.bootstrap.css') }}">
 @endpush
+
 
 @section('content')
 <div class="box">
 	<div class="box-header">
-	<div class="col-md-11"><h3 class="box-title">Page</h3></div>
+	<div class="col-md-11"><h3 class="box-title">Page Fields</h3></div>
 	<div class="col-md-1"><a href="{{ route('admin.pagefield.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
 	</div>
 	<!-- /.box-header -->
@@ -22,7 +23,8 @@
 				<tr>
 					<th>ID</th>
 					<th>Title</th>
-					<th>Slug</th>
+					<th>Content Vi</th>
+					<th>Content En</th>
 					<th>Fuction</th>
 				</tr>
 			</thead>
@@ -41,18 +43,18 @@
 				<?php endforeach ?>
 			</tbody>
 		</table>
-		{{$pagefield->links()}}
+{{-- 		{{$pagefield->links()}} --}}
 	</div>
 	<!-- /.box-body -->
 </div>
 <!-- /.box -->
 @endsection
 
-@push('scripts')
+@section('scripts')
 
 <!-- DataTables -->
-<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ url('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
 <script type="text/javascript">
 	$('#example2').DataTable({
 		"paging": true,
@@ -85,4 +87,4 @@
 
 	}
 </script> --}}
-@endpush
+@endsection

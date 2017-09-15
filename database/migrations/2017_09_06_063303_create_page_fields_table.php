@@ -19,8 +19,8 @@ class CreatePageFieldsTable extends Migration
             $table->string('slug');
             $table->string('type');
             $table->integer('page_id');
-            $table->text('content');
-            $table->text('content_en');
+            $table->text('content')->nullable();
+            $table->text('content_en')->nullable();
             $table->timestamps();
         });
     }

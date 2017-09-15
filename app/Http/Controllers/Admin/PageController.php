@@ -12,9 +12,16 @@ use Redirect;
 use Validator;
 use Storage;
 use Log;
+use Illuminate\Support\Facades\Input;
+
 
 class PageController extends Controller
-{
+{   
+    private $page_field;
+
+    public function __construct() {
+        $this->page_field = new PageField;;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +29,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::orderBy('id', 'DESC')->paginate(10);
+        $pages = Page::orderBy('id', 'DESC')->get();
         $data = array(
             'pages' => $pages
             );
@@ -119,7 +126,21 @@ class PageController extends Controller
     public function updatePage(Request $request, $id)
     {
         $data = $request->all();
-        dd($data);
+        $content =$this->page_field->getLocale();
+        unset( $data['_token']);
+        unset( $data['_method']);
+
+        foreach ( $data as $key => $list ) {  
+            if (Input::hasFile($key)) {
+                $name_img = $list->getClientOriginalName();
+                $list = $request->file( $key )->storeAs( 'public/img/home',$name_img );                 
+            }
+            $datas = PageField::where('slug', $key)->update([ $content => $list]);
+            
+        }  
+
+        Session::flash('success','Success!');
+        return redirect(route('admin.page.index'));
     }
     /**
      * Update the specified resource in storage.
@@ -168,18 +189,27 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        DB::beginTransaction();
+       DB::beginTransaction();
         try {
             Page::find( $id )->delete();
             DB::commit();
-            Session::flash('success','Success!');
-            return redirect(route('admin.page.index'));
-            
+            Session::flash('success','Success');
+            return Redirect::back();
+
         } catch(\Exception $e) {
             \Log::info( $e->getMessage() );
             DB::rollback();
-            Session::flash('success','Success!');
-            return redirect(route('admin.page.index'));
+            Session::flash('error','Error');
+            return Redirect::back();
         }
+    }
+
+
+    public function getUrlDelete(Request $request) {
+        $id = $request->id;
+        if (isset($id)) {
+            return route('admin.page.delete',['id'=>$id]);
+        }
+        return -1;
     }
 }
