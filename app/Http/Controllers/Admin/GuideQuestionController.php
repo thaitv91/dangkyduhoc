@@ -53,7 +53,37 @@ class GuideQuestionController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
+        try {
+            $rules = [
+                'question'               =>'required',
+                'question_en'            =>'required',
+                'topic_id'               =>'required'
+                ];
+
+            $messages = [
+                'question.required'      =>'Please enter the question!!',
+                'question.required'      =>'Please enter the question!!',
+                'topic_id.required'      =>'Please chose the topic!!',
+                                
+            ];
+
+            $validator = Validator::make( $request->all(), $rules, $messages);
+
+            if ( $validator->fails() ){
+                return redirect()->back()->withInput($data)->withErrors($validator);
+            }else{
+                DB::beginTransaction();
+                $data['slug'] = str_slug( $data['question_en'] );
+                $datas = GuideQuestion::create($data);
+                DB::commit();
+                Session::flash('success','Success!');
+                return redirect(route('admin.guideQuestion.index'));
+                
+            }
+        } catch (Exception $e) {
+            Session::flash('error','Opp! Please try again.Error!');
+            DB::rollback();
+        }
     }
 
     /**
@@ -99,5 +129,19 @@ class GuideQuestionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function ajax(Request $request)
+    {   
+        $id = $request->id;
+        $guide_topic = GuideTopic::where('guide_id' , $id)->get();
+        $html = '';
+        foreach ($guide_topic as $key => $value) {
+             # code...
+            $html .=  "<option value='".$value['id']."'>".$value['title_en']."</option>";
+
+        }
+        return response()->json($html);
+
     }
 }

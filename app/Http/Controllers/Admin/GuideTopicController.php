@@ -101,7 +101,13 @@ class GuideTopicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $guide = Guide::all();
+        $data = GuideTopic::find($id);
+        $this->viewData = array(
+            'guide' => $guide,
+            'data'  => $data
+        );
+        return view('admin.guideTopic.edit', $this->viewData);
     }
 
     /**
@@ -113,7 +119,8 @@ class GuideTopicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        dd($data);
     }
 
     /**

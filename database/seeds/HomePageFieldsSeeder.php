@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use DB;
+use Carbon\Carbon;
 class HomePageFieldsSeeder extends Seeder
 {
     /**
@@ -183,6 +183,7 @@ class HomePageFieldsSeeder extends Seeder
             'title' => 'Blog satisfaction title',
             'slug' => 'blog-satisfaction-title',
             'type' => 'text',
+            'page_id' => '1',
             'page_id' => 'sự hài lòng của sinh viên',
             'content' => 'student satisfaction',
             'content_en' => '',

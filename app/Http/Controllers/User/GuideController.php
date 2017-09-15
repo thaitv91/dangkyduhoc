@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App;
 use App\Models\PageField;
 use App\Models\Page;
+use App\Models\GuideQuestion;
+use Illuminate\Support\Facades\Input;
+use Response;
 class GuideController extends Controller
 {
     /**
@@ -97,5 +100,24 @@ class GuideController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function autocomplete(){
+    $term = Input::get('term');
+    
+    $results = array();
+    
+    $queries = GuideQuestion::where('question_en', 'LIKE', '%'.$term.'%')->get();
+    
+    foreach ($queries as $query)
+    {
+        $results[] = [ 'id' => $query->id, 'value' => $query->question_en, 'slug'=>$query->slug ];
+    }
+            return Response::json($results);
+    }  
+
+    public function search($slug){
+        $data = GuideQuestion::where('slug', $slug)->first();
+        dd($data);
     }
 }
