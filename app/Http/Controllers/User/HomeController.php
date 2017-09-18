@@ -9,7 +9,6 @@ use App\Models\Page;
 use App\Models\Rating;
 use App;
 
-use DB;
 class HomeController extends Controller
 {
     /**
@@ -19,6 +18,7 @@ class HomeController extends Controller
      */
     public function index()
     {   
+
         $locale = App::getLocale();
         
         $rating = Rating::all();
