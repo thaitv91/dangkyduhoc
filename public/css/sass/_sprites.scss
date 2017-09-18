@@ -74,3 +74,19 @@
 .sprite-guide-8{
 	@include use-sprite('guide-8',true);
 }
+
+.sprite-pharmacy{
+	@include use-sprite('pharmacy',true);
+}
+
+.sprite-award{
+	@include use-sprite('award',true);
+}
+
+.sprite-triple-crown{
+	@include use-sprite('triple-crown',true);
+}
+
+.sprite-check-online{
+	@include use-sprite('check-online',true);
+}

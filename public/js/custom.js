@@ -94,4 +94,35 @@ $(document).ready(function() {
 
    
   $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+  $('#slider-img-uni').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: false,
+    dots: false,
+    fade: true
+  });
+
+$('#slider-img-fair').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: false,
+    dots: false,
+    fade: true
+  });
+  
+
+  $('.whichroute').click(function(){
+    $(this).parent().find('#faq-list').show();
+  });
+
+  $('.course-progression i').click(function(){
+    $(this).parents('.item').find('.arrow-box').slideToggle();
+  });
+
+  $('.smoothScroll a').smoothScroll({offset: -100});
 });

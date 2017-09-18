@@ -7,9 +7,9 @@
 <div class="banner-home" style="background-image: url({{ Storage::disk('local')->url( $data_field['header-banner']) }});">
 	<div class="container">
 		<div class="text">
-			<h1>{{ $data_field['header-slogan1']}}</h1>
+			<h1>{!! $data_field['header-slogan1']!!}</h1>
 			<div class="description">
-				{{$data_field['header-slogan2']}}
+				{!! $data_field['header-slogan2'] !!}
 			</div>
 		</div>
 		<div class="free-assessment">
@@ -55,12 +55,12 @@
 				</div>
 			</div>
 			<div class="step-number">
-				{{trans('home.step')}}
+				{{ trans('home.step') }}
 				<span>01</span>
 			</div>
 			<div class="step-text">
 				<div class="text-box">
-					{!!$data_field['content-discover']!!}
+					{!! $data_field['content-discover'] !!}
 				</div>
 			</div>
 		</div><!-- /.step -->
@@ -72,12 +72,12 @@
 				</div>
 			</div>
 			<div class="step-number">
-				{{trans('home.step')}}
+				{{ trans('home.step') }}
 				<span>02</span>
 			</div>
 			<div class="step-text">
 				<div class="text-box">
-					{!!$data_field['content-compare']!!}
+					{!! $data_field['content-compare'] !!}
 				</div>
 			</div>
 		</div><!-- /.step -->
@@ -89,12 +89,12 @@
 				</div>
 			</div>
 			<div class="step-number">
-				{{trans('home.step')}}
+				{{ trans('home.step') }}
 				<span>03</span>
 			</div>
 			<div class="step-text">
 				<div class="text-box">
-					{!!$data_field['content-consult']!!}
+					{!! $data_field['content-consult'] !!}
 				</div>
 			</div>
 		</div><!-- /.step -->
@@ -106,12 +106,12 @@
 				</div>
 			</div>
 			<div class="step-number">
-				{{trans('home.step')}}
+				{{ trans('home.step') }}
 				<span>04</span>
 			</div>
 			<div class="step-text">
 				<div class="text-box">
-					{!!$data_field['content-apply']!!}
+					{!! $data_field['content-apply'] !!}
 				</div>
 			</div>
 		</div><!-- /.step -->
@@ -125,14 +125,14 @@
 			<div class="col-md-4">
 				<div class="blog-item">
 					<div class="header-blog">
-						<h2 class="title">{{$data_field['blog-percent']}}</h2>
-						<p class="title">{{$data_field['blog-percent-off']}}</p>
+						<h2 class="title">{!! $data_field['blog-percent'] !!}</h2>
+						<p class="title">{!! $data_field['blog-percent-off'] !!}</p>
 					</div>
 					<div class="description">
-						<p>{{$data_field['blog-percent-content']}}</p>
+						<p>{!! $data_field['blog-percent-content'] !!}</p>
 					</div>
 					<div class="bottom">
-						<a href="#" class="btn btn-blue btn-block">{{trans('home.get_started')}}</a>
+						<a href="#" class="btn btn-blue btn-block">{{ trans('home.get_started') }}</a>
 					</div>
 				</div><!-- /.blog-item -->
 			</div>
@@ -140,14 +140,14 @@
 			<div class="col-md-4">
 				<div class="blog-item">
 					<div class="header-blog">
-						<h2 class="title">{{$data_field['blog-scholarships']}}</h2>
-						<p class="title">{{$data_field['blog-scholarships-title']}}</p>
+						<h2 class="title">{!! $data_field['blog-scholarships'] !!}</h2>
+						<p class="title">{!! $data_field['blog-scholarships-title'] !!}</p>
 					</div>
 					<div class="description">
-						<p>{{$data_field['blog-scholarships-content']}}</p>
+						<p>{!! $data_field['blog-scholarships-content'] !!}</p>
 					</div>
 					<div class="bottom">
-						<a href="#" class="btn btn-blue btn-block">{{trans('home.chat_us')}}</a>
+						<a href="#" class="btn btn-blue btn-block">{{ trans('home.chat_us') }}</a>
 					</div>
 				</div><!-- /.blog-item -->
 			</div>
@@ -155,14 +155,14 @@
 			<div class="col-md-4">
 				<div class="blog-item">
 					<div class="header-blog">
-						<h2 class="title">{{$data_field['blog-satisfaction']}}</h2>
-						<p class="title">{{$data_field['blog-satisfaction-title']}}</p>
+						<h2 class="title">{!! $data_field['blog-satisfaction'] !!}</h2>
+						<p class="title">{!! $data_field['blog-satisfaction-title'] !!}</p>
 					</div>
 					<div class="description">
-						<p>{{$data_field['blog-satisfaction-content']}}</p>
+						<p>{!! $data_field['blog-satisfaction-content'] !!}</p>
 					</div>
 					<div class="bottom">
-						<a href="#" class="btn btn-blue btn-block">{{trans('home.facebook_review')}}</a>
+						<a href="#" class="btn btn-blue btn-block">{{ trans('home.facebook_review') }}</a>
 					</div>
 				</div><!-- /.blog-item -->
 			</div>
@@ -190,9 +190,9 @@
 				</div>
 				<div class="text">
 					@if($locale=='en')
-					{!! $list['content_en']!!}
+					{!! $list['content_en'] !!}
 					@else
-					{!! $list['content']!!}
+					{!! $list['content'] !!}
 					@endif
 				</div>
 			</div><!-- /.review-item -->
@@ -205,11 +205,11 @@
 	<div class="container">
 		<div class="wrap">
 			<img src="{{ Storage::disk('local')->url( $data_field['image-right-tools']) }}" alt="">
-			<h2 class="title">{{$data_field['let-started-title']}}</h2>
+			<h2 class="title">{!! $data_field['let-started-title'] !!}</h2>
 			<div class="description">
-				<p>{{$data_field['let-started-content']}}</p>
+				<p>{!! $data_field['let-started-content'] !!}</p>
 			</div>
-			<a href="#" class="btn btn-green">{{trans('home.get_started')}}</a>
+			<a href="#" class="btn btn-green">{{ trans('home.get_started') }}</a>
 		</div>
 	</div>
 </div><!-- /.let-started -->

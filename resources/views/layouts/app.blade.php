@@ -14,6 +14,7 @@
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/slick.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 </head>
 <body>
     <div id="app">
@@ -153,7 +154,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
               <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#">Guide</a></li>
+                <li class="active"><a href="{{ route('user.guide') }}">Guide</a></li>
                 <li class="subjectddl slideddl"><a href="#">Subjects <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
                 <li class="universityddl slideddl"><a href="#">Universities <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
                 <li class="careerddl slideddl"><a href="#">Careers <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
@@ -325,6 +326,57 @@
 
 
         <!-- footer -->
+        <div class="container">
+            <div class="contact-home" id="ask-us-a-question">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col">
+                        <div class="university-guide">
+                            <h3 class="title">UNIVERSITY GUIDE</h3>
+                            <ul>
+                                <li>Choosing a university
+                                <li>Applying to university</li>
+                                <li>Accepting your offer</li>
+                                <li>Finances &amp; Scholarships</li>
+                                <li>Flight &amp; Accomodation</li>
+                                <li>Student visa</li>
+                            </ul>
+                        </div><!-- /.university-guide -->
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col">
+                        <div class="form-contact">
+                            <h3 class="title">HAVE US CONTACT YOU</h3>
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="WhatsApp">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control">Your questions for our education consultans</textarea>
+                            </div>
+                            <div class="bottom"><button class="btn btn-green btn-block">Contact me</button></div>
+                        </div><!-- /.form-contact -->
+                    </div>
+
+                    <div class="col-md-5 col-sm-12 col">
+                        <div class="maps">
+                            <h3 class="title">MEET US</h3>
+                            <div class="img">
+                                <img src="/img/map.jpg" alt="">
+                            </div>
+                            <div class="info">
+                                <p>Monday to Friday: <strong>10am - 8pm</strong></p>
+                                <p>Saturday: <strong>10am - 1pm</strong></p>
+                            </div>
+                        </div><!-- /.maps -->
+                    </div>
+                </div>
+            </div><!-- /.contact-home -->
+        </div>
         <footer>
             <div class="container text-center footer-top">
                 <p>
@@ -353,8 +405,12 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/slick.js') }}"></script>
+    <script src="{{ asset('js/jquery.smooth-scroll.js') }}"></script>
+    <script src="{{ asset('js/test.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
+    
+    @yield('scripts')
 </body>
 </html>
 
