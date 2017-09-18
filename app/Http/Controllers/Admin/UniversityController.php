@@ -8,13 +8,10 @@ use App\Models\University;
 use App\Models\UniversityMetas;
 use App\Models\UniversityRanking;
 use App\Models\UniversityStatistic;
+use App\Models\Country;
 
 class UniversityController extends Controller
 {
-	public function __construct()
-    {
-        $this->middleware('admin');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -23,13 +20,11 @@ class UniversityController extends Controller
     public function index()
     {
         $universites = University::all();
-        
-        $data = [
-        	'title' => "All Universities",
-        	'universities' => $universites
-        ];
+        $this->viewData = array(
+            'universites' => $universites
+        );
 
-        return view('admin.universities', $data);
+        return view('admin.universities.index', $this->viewData);
     }
 
     /**
@@ -40,11 +35,12 @@ class UniversityController extends Controller
     public function create()
     {
 
-        $data = [
-        	'title' => "Create New University",
-        ];
+        $country = Country::all();
+        $this->viewData  = array(
+            'country'  => $country
+        );
 
-        return view('admin.create_new_university', $data);
+        return view('admin.universities.create', $this->viewData);
     }
 
     /**
@@ -56,7 +52,7 @@ class UniversityController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        dd($data);
         // save university
         $university = New University;
 

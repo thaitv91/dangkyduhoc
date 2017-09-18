@@ -248,7 +248,7 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ route('admin.countries') }}"><i class="fa fa-link"></i> <span>Countries</span></a></li>
-        <li><a href="{{ route('universities.index') }}"><i class="fa fa-link"></i> <span>Universities</span></a></li>
+        <li><a href="{{ route('admin.universities.index') }}"><i class="fa fa-link"></i> <span>Universities</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Guide</span>
             <span class="pull-right-container">

@@ -55,8 +55,8 @@
 		    console.log(reader);
   		}
 	}
-
- 	$("#<?php echo $name; ?>").change(function() {
+	
+ 	$("#<?php if($field->type == 'file'){ echo $name;} ?>").change(function() {
   	readURL(this);
 	});
   </script>

@@ -21,7 +21,7 @@ class PageField extends Model
         }
         switch ($this->type) {
             case 'text':
-                $html = '<div class="form-group row"><label  class="col-md-3 row" for="name">'.$this->title.'</label><div class="col-md-9 row"><input class="form-control" type="text" id="'. $this->id .'" name="'. $this->slug .'" value="'. $content .'"></div></div>';
+                $html = '<div class="form-group row"><label  class="col-md-3 row" for="name">'.$this->title.'</label><div class="col-md-9 row"><input class="form-control" type="text" id="'. $this->id .'" name="'. $this->slug .'" value="' . trim($content, '</p>') . '"></div></div>';
                 break;
             case 'textarea':
                 $html = '<div class="form-group row"><label  class="col-md-3 row" for="name">'.$this->title.'</label><div class="col-md-9 row"><textarea class="form-control my-editor" rows="5" id="'. $this->id .'" name="'. $this->slug .'" >'. $content .'</textarea></div></div>';

@@ -11,8 +11,8 @@
 	<div class="header-page">
 		<div class="row">
 			<div class="col-lg-4">
-				<h2 class="title-header">Aston University</h2>
-				<p class="sub-title">United Kingdom</p>
+				<h2 class="title-header">{{ $university['name']}}</h2>
+				<p class="sub-title">{{ $university->country['name']}}</p>
 			</div>
 			<div class="col-lg-8">
 				<ul class="link-neo smoothScroll">
@@ -64,32 +64,32 @@
 			<h3>Information</h3>
 			<div class="item">
 				<div class="lbl">Year <br/>Founded</div>
-				<div class="right">1966</div>
+				<div class="right">{{ $statistic['year_founded']}}</div>
 			</div>
 
 			<div class="item">
 				<div class="lbl">Student<br/> Population</div>
-				<div class="right">15000</div>
+				<div class="right">{{ $statistic['student_population']}}</div>
 			</div>
 
 			<div class="item">
 				<div class="lbl">Staff<br/> Population</div>
-				<div class="right">681</div>
+				<div class="right">{{ $statistic['staff_population']}}</div>
 			</div>
 
 			<div class="item">
 				<div class="lbl">Male to Female<br/> Ratio</div>
-				<div class="right">52 : 48</div>
+				<div class="right">{{ $statistic['male_number']}} : {{ $statistic['female_number']}}</div>
 			</div>
 
 			<div class="item">
 				<div class="lbl">International<br/> Students</div>
-				<div class="right">32%</div>
+				<div class="right">{{ $statistic['international_students']}}%</div>
 			</div>
 
 			<div class="item">
 				<div class="lbl">Local<br/> Hotline</div>
-				<div class="right">+65 6333 1300</div>
+				<div class="right">{{ $meta->phone}}</div>
 			</div>
 		</div><!-- /.info -->
 	</div><!-- /.uni-info -->
@@ -102,7 +102,7 @@
 			<li><a href="#scholarships" class="link-scroll">Scholarships</a></li>            
 			<li><a href="#campuses" class="link-scroll">Campuses</a></li>            
 			<li><a href="#ask-us-a-question" class="link-scroll">Ask us a question</a></li>            
-			<li>+65 6333 1300</li>
+			<li>{{ $meta->phone}}</li>
 		</ul>
 
 		<div class="social">
@@ -118,10 +118,7 @@
 			<div class="box about" id="about-us">
 				<h4 class="title-box">About the University</h4>
 				<div class="description">
-					<p>Founded in 1895 and a University since 1966, Aston is a research-intensive university known for its world-class teaching quality and strong links to industry, government and commerce.</p>
-					<p>Ranked 27 out of 124 UK universities by the Complete University Guide 2014 and 30 out of 119 universities by the Guardian University Guide 2014, Aston University has cemented its place among Britain’s elite higher education institutions. A leading university for graduate employment success for over 25 years, Aston University has consistently outdone eminent institutions such as Oxford University in this area.</p>
-					<p>Subject strengths: Business and Management, subjects allied to Medicine, Pharmacy and Pharmacology, Psychology, Biological Sciences, Mechanical Engineering, Modern Languages.</p>
-					<p>Contact our Singapore representative at +65 6333 1300 for all university related enquiries or scroll down to apply for courses we are currently offering.</p>
+					{!! $meta->about !!}
 				</div>
 			</div><!-- /.about -->
 		</div><!-- /.col-md-6 -->
@@ -130,8 +127,7 @@
 			<div class="box our-campuses" id="campuses">
 				<h4 class="title-box">Our campuses</h4>
 				<div class="description">
-					<p>Aston University is located in the centre of the vibrant city of Birmingham on a self-contained green campus with all academic, accommodation and social facilities located on-site.</p>
-					<p>Students have easy access to excellent nightlife, culture, sport, shopping and work - the campus is a five-minute walk from the main shopping and social areas of the city and a fifteen-minute walk from Birmingham New Street station (a national rail hub).</p>
+					{!! $meta->campus !!}
 				</div>
 
 				<div class="tags">
@@ -157,50 +153,18 @@
 		<div class="col-md-6">
 			<div class="box-ranking left" id="rankings">
 				<h4 class="title-box">Rankings</h4>
+				@if($ranking)
+				@foreach( $ranking as $list_ranking)
+				<?php $slug_country  = $list_ranking->country_slug; 
+					$country = \App\Models\Country::where('slug',$slug_country)->first();
+					$name_country = $country->name;
+				?>
 				<div class="item">
-					<div class="number"><span>3</span>rd<br/>Optometry</div>
-					<div class="lbl">CUG Ophthalmics<br/>United Kingdom</div>
+					<div class="number"><span>{{ $list_ranking->ranking_point}}</span>@if($list_ranking->ranking_point == 1 )st @elseif($list_ranking->ranking_point == 2) nd @elseif($list_ranking->ranking_point ==3)rd @else th @endif <br/>{{ $list_ranking->ranking_title}}</div>
+					<div class="lbl">{{ $list_ranking->ranking_subject}}<br/>{{ $name_country }}</div>
 				</div>
-
-				<div class="item">
-					<div class="number"><span>12</span>th<br/>Business Studies</div>
-					<div class="lbl">CUG Marketing<br/>United Kingdom</div>
-				</div>
-
-				<div class="item">
-					<div class="number"><span>13</span>th<br/>Pharmacology &amp;Pharmacy</div>
-					<div class="lbl">CUG Pharmacology &amp; Pharmacy<br/>United Kingdom</div>
-				</div>
-
-				<div class="item">
-					<div class="number"><span>15</span>th<br/>Logistics</div>
-					<div class="lbl">QS Business &amp; Management<br/>United Kingdom</div>
-				</div>
-
-				<div class="item">
-					<div class="number"><span>19</span>th<br/>Linguistics</div>
-					<div class="lbl">QS Linguistics <br/>United Kingdom</div>
-				</div>
-
-				<div class="item">
-					<div class="number"><span>20</span>th<br/>Social Work &amp; Policy</div>
-					<div class="lbl">CUG Social Policy<br/>United Kingdom</div>
-				</div>
-
-				<div class="item">
-					<div class="number"><span>25</span>th<br/>Chemical Engineering</div>
-					<div class="lbl">CUG Chemical Engineering<br/>United Kingdom</div>
-				</div>
-
-				<div class="item">
-					<div class="number"><span>37</span>th<br/>English and Literature</div>
-					<div class="lbl">QS English Language &amp; Literature<br/>United Kingdom</div>
-				</div>
-
-				<div class="item">
-					<div class="number"><span>38</span>th<br/>Computer Science</div>
-					<div class="lbl">QS Computer Science<br/>United Kingdom</div>
-				</div>
+				@endforeach
+				@endif
 			</div><!-- /.box-ranking -->
 		</div><!-- /.col-md-6 -->
 
@@ -472,56 +436,4 @@
 	</div><!-- /.filter-result -->
 </div>
 
-
-<div class="container">
-	<div class="contact-home" id="ask-us-a-question">
-		<div class="row">
-			<div class="col-md-3 col-sm-6 col">
-				<div class="university-guide">
-					<h3 class="title">UNIVERSITY GUIDE</h3>
-					<ul>
-						<li>Choosing a university
-						<li>Applying to university</li>
-						<li>Accepting your offer</li>
-						<li>Finances &amp; Scholarships</li>
-						<li>Flight &amp; Accomodation</li>
-						<li>Student visa</li>
-					</ul>
-				</div><!-- /.university-guide -->
-			</div>
-
-			<div class="col-md-4 col-sm-6 col">
-				<div class="form-contact">
-					<h3 class="title">HAVE US CONTACT YOU</h3>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Name">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Email">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="WhatsApp">
-					</div>
-					<div class="form-group">
-						<textarea class="form-control">Your questions for our education consultans</textarea>
-					</div>
-					<div class="bottom"><button class="btn btn-green btn-block">Contact me</button></div>
-				</div><!-- /.form-contact -->
-			</div>
-
-			<div class="col-md-5 col-sm-12 col">
-				<div class="maps">
-					<h3 class="title">MEET US</h3>
-					<div class="img">
-						<img src="/img/map.jpg" alt="">
-					</div>
-					<div class="info">
-						<p>Monday to Friday: <strong>10am - 8pm</strong></p>
-						<p>Saturday: <strong>10am - 1pm</strong></p>
-					</div>
-				</div><!-- /.maps -->
-			</div>
-		</div>
-	</div><!-- /.contact-home -->
-</div>
 @endsection

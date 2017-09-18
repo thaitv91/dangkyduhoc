@@ -83,9 +83,18 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('get-url-delete','Admin\GuideQuestionController@getUrlDelete')->name('admin.guideQuestion.getUrlDelete');
 		Route::post('guide-topic/{id}','Admin\GuideQuestionController@ajax')->name('admin.guideQuestion.ajax');
 	});
-});
 
-Route::resource('/admin/universities', 'Admin\UniversityController');
+	Route::group(['prefix'=>'universities'],function(){
+		Route::get('/', 'Admin\UniversityController@index')->name('admin.universities.index');
+		Route::get('/create', 'Admin\UniversityController@create')->name('admin.universities.create');
+		Route::post('/create','Admin\UniversityController@store')->name('admin.universities.store');
+		Route::get('/edit/{id}', 'Admin\UniversityController@edit')->name('admin.universities.edit');
+		Route::put('/edit/{id}', 'Admin\UniversityController@update')->name('admin.universities.update');
+		Route::get('delete/{id}', 'Admin\UniversityController@destroy')->name('admin.universities.delete');
+		Route::get('get-url-delete','Admin\UniversityController@getUrlDelete')->name('admin.universities.getUrlDelete');
+	});
+});
+	
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
 Route::get('/admin/countries/{country}/edit', 'Admin\CountryController@edit');
 Route::post('/admin/countries/{country}/edit', 'Admin\CountryController@update')->name('countries.update');
@@ -100,9 +109,6 @@ Route::get('/','User\HomeController@index');
 //Route::post('/language/', array('before' => 'csrf', 'as'=>'language-chooser', 'uses' => 'Language\LanguageController@changeLanguage',) );
 
 // html
-Route::get('/html/universities', function() {
-	return view('user.universities');
-});
 
 Route::get('/html/subjects', function() {
 	return view('user.subjects');
@@ -119,4 +125,5 @@ Route::get('/html/careers', function() {
 Route::get('/guide', 'User\GuideController@index')->name('user.guide');
 Route::get('/guide/{slug}','User\GuideController@search')->name('user.guide.search');
 Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('user.search.ajax');
+Route::get('university/{slug}','User\UniversityController@viewDetail')->name('user.university.detail');
 
