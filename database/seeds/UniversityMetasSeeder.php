@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\University;
-
+use Carbon\Carbon;
 class UniversityMetasSeeder extends Seeder
 {
     /**

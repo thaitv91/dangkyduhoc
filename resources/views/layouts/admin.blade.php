@@ -243,18 +243,6 @@ desired effect
         </div>
       </div>
 
-      <!-- search form (Optional) -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
-
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
@@ -262,18 +250,28 @@ desired effect
         <li class="active"><a href="{{ route('admin.countries') }}"><i class="fa fa-link"></i> <span>Countries</span></a></li>
         <li><a href="{{ route('universities.index') }}"><i class="fa fa-link"></i> <span>Universities</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+          <a href="#"><i class="fa fa-link"></i> <span>Guide</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
+            <li><a href="{{ route('admin.guide.index') }}">Guide</a></li>
+            <li><a href="{{ route('admin.guideTopic.index') }}">Guide Topic</a></li>
+            <li><a href="{{ route('admin.guideQuestion.index') }}">Guide Question</a></li>
           </ul>
         </li>
-        <li><a href="{{ route('admin.page.index') }}"><i class="fa fa-link"></i> <span>Page</span></a></li>
-        <li><a href="{{ route('admin.pagefield.index') }}"><i class="fa fa-link"></i> <span>Page Fields</span></a></li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>Page</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('admin.page.index') }}"> Page</a></li>
+            <li><a href="{{ route('admin.pagefield.index') }}">Page Fields</a></li>
+          </ul>
+        </li>
         <li><a href="{{ route('admin.rating.index') }}"><i class="fa fa-link"></i> <span>Rating</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->

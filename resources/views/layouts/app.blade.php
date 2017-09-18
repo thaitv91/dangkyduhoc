@@ -14,6 +14,7 @@
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/slick.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 </head>
 <body>
     <div id="app">
@@ -408,6 +409,8 @@
     <script src="{{ asset('js/test.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
+    
+    @yield('scripts')
 </body>
 </html>
 

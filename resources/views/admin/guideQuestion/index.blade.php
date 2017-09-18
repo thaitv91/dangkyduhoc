@@ -13,7 +13,7 @@
 <div class="box">
 	<div class="box-header">
 		<div class="col-md-11"><h3 class="box-title">Guide Topics</h3></div>
-	<div class="col-md-1"><a href="{{ route('admin.guideTopic.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
+	<div class="col-md-1"><a href="{{ route('admin.guideQuestion.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
 	</div>
 	<!-- /.box-header -->
 	<div class="box-body">
@@ -21,9 +21,9 @@
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>Title Vi</th>
-					<th>Title En</th>
-					<th>Slug</th>
+					<th>Question Vi</th>
+					<th>Question En</th>
+					<th>Topic</th>
 					<th>Fuction</th>
 				</tr>
 			</thead>
@@ -31,11 +31,11 @@
 				<?php foreach ($data as $key => $value): ?>
 					<tr>
 						<td>{{ $key+1 }}</td>
-						<td>{{ $value->title }}</td>
-						<td>{{ $value->title_en }}</td>
-						<td>{{ $value->slug }}</td>
+						<td>{{ $value->question }}</td>
+						<td>{{ $value->question_en }}</td>
+						<td>{{ $value->topic_id }}</td>
 						<td>
-							<a href="{{ route('admin.guideTopic.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
+							<a href="{{ route('admin.guideQuestion.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
 							{{-- <a href="{{ route('admin.guide.editpage',['id'=>$value->id]) }}" class="btn btn-xs btn-info">Edit Page</a> --}}
 	                        <a onclick="confirmDelete({{$value->id}})" class="btn btn-xs btn-danger">Delete</a>
 						</td>
@@ -85,7 +85,7 @@
 <script type="text/javascript">
 	function confirmDelete(id) {
 		$.ajax({
-			url : '{{ route("admin.guideTopic.getUrlDelete") }}',
+			url : '{{ route("admin.guideQuestion.getUrlDelete") }}',
 			data : {id:id},
 		}).done(function(data) {
 			if (data == -1) {

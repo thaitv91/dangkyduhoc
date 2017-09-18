@@ -1,7 +1,5 @@
 @extends("layouts/app")
 
-@section("scripts")
-@endsection
 @section("content")
 <div class="title-page">
 	<div class="container"><h1>{!! $data_field['guide-title'] !!}</h1></div>
@@ -10,8 +8,10 @@
 <div class="container">
 	<div class="search-general">
 		<div class="form">
-			<input type="text" class="form-control" placeholder="Search Guide">
+			<form action="" method="GET">
+			<input type="text" class="form-control" name="search_en" id="search_en" placeholder="Search Guide">
 			<button><i class="sprite-search-2"></i></button>
+			</form>
 		</div>
 	</div><!-- /.search-general -->
 
@@ -144,4 +144,27 @@
 		</div>
 	</div><!-- /.contact-home -->
 </div>
+@endsection
+@section('scripts')
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
+<script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#search_en").autocomplete({
+        source: "search/autocomplete",
+            focus: function( event, ui ) {
+            return false;
+        },
+        select: function( event, ui ) {
+            window.location.href = ui.item.slug;
+        }
+    }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+        var inner_html = '<a href="guide/' + item.slug + '" ><h6>' + item.value + '</h6>';
+        return $( "<li></li>" )
+                .data( "item.autocomplete", item )
+                .append(inner_html)
+                .appendTo( ul );
+    };
+});
+</script>  
 @endsection

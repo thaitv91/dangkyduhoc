@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Carbon\Carbon;
 class PageSeeder extends Seeder
 {
     /**
@@ -11,19 +11,19 @@ class PageSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Page::create(
-       		array(
-       			'title'=>'Home Page', 
-       			'slug'=>'home-page',
-       			'created_at' => Carbon::now(),
-            	'updated_at' => Carbon::now()
-       		),
-       		array(
-       			'title'=>'Guide Page', 
-       			'slug'=>'guide-page',
-       			'created_at' => Carbon::now(),
-            	'updated_at' => Carbon::now()
-       		)
-       	);
+    
+      DB::table('pages')->insert([
+          'title'=>'Home Page', 
+          'slug'=>'home-page',
+          'created_at' => Carbon::now(),
+          'updated_at' => Carbon::now(),
+      ]);
+
+      DB::table('pages')->insert([
+          'title'=>'Guide Page', 
+          'slug'=>'guide-page',
+          'created_at' => Carbon::now(),
+          'updated_at' => Carbon::now()
+      ]);
     }
 }
