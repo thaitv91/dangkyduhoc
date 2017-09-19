@@ -17,19 +17,20 @@
 		<!-- form start -->
 		<form role="form" id="form-edit" method="POST" enctype="multipart/form-data">
 			{{ csrf_field() }}
+			{{ method_field('PUT') }}
 			<div class="col-md-8 col-md-offset-2">
 				<div class="box-body">
 					<div class="form-group row">
 						<label  class="col-md-3" for="name">Name</label>
 						<div class="col-md-9">
-							<input type="text" class="form-control" name="name" id="name" value="{{ old('title') }}">
+							<input type="text" class="form-control" name="name" id="name" value="{{ $university['name'] }}">
 						
 						</div>
 					</div>
 					<div class="form-group row">
 						<label  class="col-md-3" for="name">Name En</label>
 						<div class="col-md-9">
-							<input type="text" class="form-control" name="name_en" id="name_en" value="{{ old('name_en') }}">
+							<input type="text" class="form-control" name="name_en" id="name_en" value="{{ $university['name_en'] }}">
 							
 						</div>
 					</div>
@@ -40,7 +41,7 @@
                               <option disabled selected></option>
                               @if(count($country)!=0)
                                   @foreach($country as $db_country)
-                                  <option value="{{$db_country->id}}" data-tokens="{{$db_country->name}}" >{{$db_country->name }} </option>
+                                  <option @if ($db_country->id == $university['country_id']) selected @endif value="{{$db_country->id}}" data-tokens="{{$db_country->name}}" >{{$db_country->name }} </option>
                                   @endforeach
                                @endif
                               @if(count($country)==0)
@@ -60,7 +61,7 @@
                         <label class="col-md-3">Logo</label>
 						<div class="col-md-9">
 	                        <input type="file" name="logo" value="" id="logo" class="required borrowerImageFile" data-errormsg="PhotoUploadErrorMsg">                
-	                          <img id="previewHolder" alt="" width="170px" height="100px"/>
+	                          <img id="previewHolder" src="{{ Storage::disk('local')->url( $university['logo'] ) }}" alt="" width="170px" height="100px"/>
 	                        <div class="col-md-9">
 	                        	@if($errors->has('logo'))
 		                            <span class="help-block">
@@ -68,8 +69,8 @@
 		                            </span>   
 		                        @endif
 	                    	</div>
-                    	</div>
-               		</div>  
+	                	 </div>
+               		</div>    
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</div>

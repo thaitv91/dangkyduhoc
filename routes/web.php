@@ -93,6 +93,36 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('delete/{id}', 'Admin\UniversityController@destroy')->name('admin.universities.delete');
 		Route::get('get-url-delete','Admin\UniversityController@getUrlDelete')->name('admin.universities.getUrlDelete');
 	});
+
+	Route::group(['prefix'=>'universities-meta'],function(){
+		Route::get('/', 'Admin\UniversityMetaController@index')->name('admin.universityMeta.index');
+		Route::get('/create', 'Admin\UniversityMetaController@create')->name('admin.universityMeta.create');
+		Route::post('/create','Admin\UniversityMetaController@store')->name('admin.universityMeta.store');
+		Route::get('/edit/{id}', 'Admin\UniversityMetaController@edit')->name('admin.universityMeta.edit');
+		Route::put('/edit/{id}', 'Admin\UniversityMetaController@update')->name('admin.universityMeta.update');
+		Route::get('delete/{id}', 'Admin\UniversityMetaController@destroy')->name('admin.universityMeta.delete');
+		Route::get('get-url-delete','Admin\UniversityMetaController@getUrlDelete')->name('admin.universityMeta.getUrlDelete');
+	});
+
+	Route::group(['prefix'=>'universities-ranking'],function(){
+		Route::get('/', 'Admin\UniversityRankingController@index')->name('admin.universityRank.index');
+		Route::get('/create', 'Admin\UniversityRankingController@create')->name('admin.universityRank.create');
+		Route::post('/create','Admin\UniversityRankingController@store')->name('admin.universityRank.store');
+		Route::get('/edit/{id}', 'Admin\UniversityRankingController@edit')->name('admin.universityRank.edit');
+		Route::put('/edit/{id}', 'Admin\UniversityRankingController@update')->name('admin.universityRank.update');
+		Route::get('delete/{id}', 'Admin\UniversityRankingController@destroy')->name('admin.universityRank.delete');
+		Route::get('get-url-delete','Admin\UniversityRankingController@getUrlDelete')->name('admin.universityRank.getUrlDelete');
+	});
+
+	Route::group(['prefix'=>'universities-statistic'],function(){
+		Route::get('/', 'Admin\UniversityStatisticController@index')->name('admin.universityStatistic.index');
+		Route::get('/create', 'Admin\UniversityStatisticController@create')->name('admin.universityStatistic.create');
+		Route::post('/create','Admin\UniversityStatisticController@store')->name('admin.universityStatistic.store');
+		Route::get('/edit/{id}', 'Admin\UniversityStatisticController@edit')->name('admin.universityStatistic.edit');
+		Route::put('/edit/{id}', 'Admin\UniversityStatisticController@update')->name('admin.universityStatistic.update');
+		Route::get('delete/{id}', 'Admin\UniversityStatisticController@destroy')->name('admin.universityStatistic.delete');
+		Route::get('get-url-delete','Admin\UniversityStatisticController@getUrlDelete')->name('admin.universityStatistic.getUrlDelete');
+	});
 });
 	
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
@@ -118,12 +148,10 @@ Route::get('/html/fair', function() {
 	return view('user.fair');
 });
 
-Route::get('/html/careers', function() {
-	return view('user.careers');
-});
 
 Route::get('/guide', 'User\GuideController@index')->name('user.guide');
 Route::get('/guide/{slug}','User\GuideController@search')->name('user.guide.search');
 Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('user.search.ajax');
 Route::get('university/{slug}','User\UniversityController@viewDetail')->name('user.university.detail');
+Route::get('career/{slug}','User\CareerController@viewDetail')->name('user.career.detail');
 

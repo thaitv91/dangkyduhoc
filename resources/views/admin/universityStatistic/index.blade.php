@@ -13,7 +13,7 @@
 <div class="box">
 	<div class="box-header">
 		<div class="col-md-11"><h3 class="box-title">Page</h3></div>
-	<div class="col-md-1"><a href="{{ route('admin.universities.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
+	<div class="col-md-1"><a href="{{ route('admin.universityStatistic.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
 	</div>
 	<!-- /.box-header -->
 	<div class="box-body">
@@ -21,21 +21,23 @@
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>Name</th>
-					<th>Slug</th>
-					<th>Logo</th>
+					<th>University</th>
+					<th>Year Founded</th>
+					<th>Student_population</th>
+					<th>Staff Population</th>
 					<th>Fuction</th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($universites as $key => $value): ?>
+				<?php foreach ($data as $key => $value): ?>
 					<tr>
 						<td>{{ $key+1 }}</td>
-						<td>{{ $value->name }}</td>
-						<td>{{ $value->slug }}</td>
-						<td><img src="{{ Storage::disk('local')->url( $value->logo ) }}" alt=""></td>
+						<td>{{ $value->university['name'] }}</td>
+						<td>{{ $value->year_founded }}</td>
+						<td>{{ $value->student_population }}</td>
+						<td>{{ $value->staff_population }}</td>
 						<td>
-							<a href="{{ route('admin.universities.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
+							<a href="{{ route('admin.universityStatistic.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
 	                        <a onclick="confirmDelete({{$value->id}})" class="btn btn-xs btn-danger">Delete</a>
 						</td>
 					</tr>
@@ -84,7 +86,7 @@
 <script type="text/javascript">
 	function confirmDelete(id) {
 		$.ajax({
-			url : '{{ route("admin.universities.getUrlDelete") }}',
+			url : '{{ route("admin.universityStatistic.getUrlDelete") }}',
 			data : {id:id},
 		}).done(function(data) {
 			if (data == -1) {

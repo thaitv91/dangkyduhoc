@@ -4,24 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Page;
-use App\Models\PageField;
+use App\Models\University;
+use App\Models\UniversityRanking;
+use App\Models\Country;
 use DB;
 use Session;
 use Redirect;
 use Validator;
 use Storage;
 use Log;
-use Illuminate\Support\Facades\Input;
-
-
-class PageController extends Controller
-{   
-    private $page_field;
-
-    public function __construct() {
-        $this->page_field = new PageField;;
-    }
+class UniversityRankingController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
@@ -29,11 +22,11 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::orderBy('id', 'DESC')->get();
-        $data = array(
-            'pages' => $pages
-            );
-        return view( 'admin.page.index', $data);
+        $university_ranking = UniversityRanking::all();
+        $this->viewData = array(
+            'university_ranking' => $university_ranking
+        );
+        return view( 'admin.universityRanking.index', $this->viewData );
     }
 
     /**
@@ -43,7 +36,14 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view( 'admin.page.create');
+        $university = University::all();
+        $country = Country::all();
+        $this->viewData = array(
+            'university' => $university,
+            'country'   => $country
+        );
+
+        return view ( 'admin.universityRanking.create', $this->viewData );
     }
 
     /**
@@ -55,28 +55,28 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        unset($data['_token']);
         try {
             $rules = [
-                'title'               =>'required',                    
-                ];
-            $messages = [
-                'title.required'      =>'Please enter the page!!!',
-                                
+                'university_id' => 'required',
+                'country_slug'  => 'required',
+                'ranking_point' => 'numeric'
             ];
 
-            $validator = Validator::make( $request->all(), $rules, $messages);
+            $messages = [
+                'university_id.required'  =>  'Please choose one university!!!!',
+                'country_slug.required'  =>  'Please choose one country!!!!',
+                'ranking_point.numeric'  =>  'Please choose the correct format!!!!',
+            ];
 
-            if ( $validator->fails() ){
+            $validator = Validator::make( $request->all(), $rules, $messages );
+            if( $validator->fails() ){
                 return redirect()->back()->withInput($data)->withErrors($validator);
-            }else{
+            } else {
                 DB::beginTransaction();
-                $data['slug'] = str_slug( $data['title'] );
-                $pages = Page::create($data);
+                $university_ranking = UniversityRanking::create($data);
                 DB::commit();
                 Session::flash('success','Success!');
-                return redirect(route('admin.page.index'));
-                
+                return redirect(route('admin.universityRank.index'));   
             }
         } catch (Exception $e) {
             Session::flash('error','Opp! Please try again.Error!');
@@ -92,7 +92,7 @@ class PageController extends Controller
      */
     public function show($id)
     {
-       //
+        //
     }
 
     /**
@@ -103,43 +103,18 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        $page = Page::find($id);
-        $data = array(
-            'page' => $page,
+        $university = University::all();
+        $country = Country::all();
+        $data = UniversityRanking::find( $id );
+        $this->viewData = array(
+            'university'  => $university,
+            'country'     => $country,
+            'data'        => $data
         );
-        return view ('admin.page.edit', $data);
+
+        return view( 'admin.universityRanking.edit' , $this->viewData );
     }
 
-    public function editPage($id)
-    {   
-        $fields = PageField::where('page_id', '=', $id)->get();
-         $data = array(
-            'fields' => $fields
-        );
-        return view ('admin.page.editpage', $data);
-    }
-
-    
-    
-    public function updatePage(Request $request, $id)
-    {
-        $data = $request->all();
-        $content =$this->page_field->getLocale();
-        unset( $data['_token']);
-        unset( $data['_method']);
-
-        foreach ( $data as $key => $list ) {  
-            if (Input::hasFile($key)) {
-                $name_img = $list->getClientOriginalName();
-                $list = $request->file( $key )->storeAs( 'public/img/home',$name_img );                 
-            }
-            $datas = PageField::where('slug', $key)->update([ $content => $list]);
-            
-        }  
-
-        Session::flash('success','Success!');
-        return redirect(route('admin.page.index'));
-    }
     /**
      * Update the specified resource in storage.
      *
@@ -149,29 +124,30 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
+        $data = $request ->all();
         try {
             $rules = [
-                'title'           =>'required',    
+                'university_id' => 'required',
+                'country_slug'  => 'required',
+                'ranking_point' => 'numeric'
             ];
 
             $messages = [
-            'title.required'      =>'Please enter the page!!',                    
+                'university_id.required'  =>  'Please choose one university!!!!',
+                'country_slug.required'  =>  'Please choose one country!!!!',
+                'ranking_point.numeric'  =>  'Please enter the correct format!!!!',
             ];
 
-            $validator = Validator::make( $request->all(), $rules, $messages);
-
-            if ( $validator->fails() ){
+            $validator = Validator::make( $request->all(), $rules, $messages );
+            if( $validator->fails() ){
                 return redirect()->back()->withInput($data)->withErrors($validator);
-            }else{
+            } else {
                 DB::beginTransaction();
-                $data['slug'] = str_slug( $data['title'] );
-                $page = Page::where('id', $id)->first();
-                $page->update($data);
+                $university_ranking = UniversityRanking::where('id', $id)->first();
+                $university_ranking->update( $data );
                 DB::commit();
                 Session::flash('success','Success!');
-                return redirect(route('admin.page.index'));
-                
+                return redirect(route('admin.universityRank.index'));   
             }
         } catch (Exception $e) {
             Session::flash('error','Opp! Please try again.Error!');
@@ -187,9 +163,9 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-       DB::beginTransaction();
+        DB::beginTransaction();
         try {
-            Page::find( $id )->delete();
+            UniversityRanking::find( $id )->delete();
             DB::commit();
             Session::flash('success','Success');
             return Redirect::back();
@@ -202,11 +178,10 @@ class PageController extends Controller
         }
     }
 
-
     public function getUrlDelete(Request $request) {
         $id = $request->id;
         if (isset($id)) {
-            return route('admin.page.delete',['id'=>$id]);
+            return route('admin.universityRank.delete',['id'=>$id]);
         }
         return -1;
     }

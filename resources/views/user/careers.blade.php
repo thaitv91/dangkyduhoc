@@ -9,7 +9,7 @@
 
 <div class="container">
 	<div class="about-career">
-		<h2 class="title">ABOUT ACCOUNTANTS</h2>
+		<h2 class="title">{{ $career['name'] }}</h2>
 		<div class="breadcrumb-page">
 			<ul class="list">
 				<li>JOB NATURE</li>
@@ -21,10 +21,7 @@
 		</div><!-- /.breadcrumb-page -->
 
 		<div class="description">
-			<p>If you have a knack for numbers, a good eye for detail and thrive on creating financial order, you might find yourself making a professional statement as an accountant.
-Accountants analyse financial positions, handle revenue streams and oversee all finance-related transactions for corporations. Generally, an accountant's work revolves around maintaining the financial health of organisations and helping to trim the financial fat for processes to ensure minimal inefficiency. 
-Almost all accountants have to contend with an annual surge of work during tax season when corporations and individuals have to file their taxes. You will need to be able to work under considerable pressure during this period with no compromise to the accuracy of your output .
-See, the job entails balancing more than just books.</p>
+			<p>{!! $career['description'] !!}</p>
 		</div>
 	</div><!-- /.about-career -->
 
