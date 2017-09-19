@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 // Admin
 Route::get('admin', 'Admin\DashboardController@index')->name('admin');
 Route::group(['prefix'=>'admin'], function() {
@@ -44,7 +43,7 @@ Route::group(['prefix'=>'admin'], function() {
 	});
 
 	Route::group(['prefix'=>'rating'], function(){
-		Route::get('/', 'Admin\RatingController@index')->name('admin.rating.index');
+		Route::get('/', 'Admin\RatingConrotller@index')->name('admin.rating.index');
 		Route::get('/create', 'Admin\RatingController@create')->name('admin.rating.create');
 		Route::post('/create','Admin\RatingController@store')->name('admin.rating.store');
 		Route::get('/edit/{id}', 'Admin\RatingController@edit')->name('admin.rating.edit');
@@ -83,6 +82,16 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('get-url-delete','Admin\GuideQuestionController@getUrlDelete')->name('admin.guideQuestion.getUrlDelete');
 		Route::post('guide-topic/{id}','Admin\GuideQuestionController@ajax')->name('admin.guideQuestion.ajax');
 	});
+
+	Route::group(['prefix'=>'course'], function() {
+		Route::get('','Admin\CourseController@index')->name('admin.course');
+		Route::get('create', 'Admin\CourseController@create')->name('admin.course.create');
+		Route::post('create', 'Admin\CourseController@store');
+		Route::get('edit/{id?}', 'Admin\CourseController@edit')->name('admin.course.edit');
+		Route::post('edit/{id?}', 'Admin\CourseController@update');
+		Route::get('delete/{id}', 'Admin\CourseController@destroy')->name('admin.course.delete');
+		Route::get('get-url-delete','Admin\CourseController@getUrlDelete')->name('admin.course.getUrlDelete');
+	});
 });
 
 Route::resource('/admin/universities', 'Admin\UniversityController');
@@ -95,7 +104,7 @@ Route::post('/admin/countries/{country}/delete', 'Admin\CountryController@destro
 Auth::routes();
 
 // FrontEnd
-Route::get('/','User\HomeController@index');
+Route::get('/','User\HomeController@index')->name('home');
 //Route::post('/language-chooser', 'Language\LanguageController@changeLanguage');
 //Route::post('/language/', array('before' => 'csrf', 'as'=>'language-chooser', 'uses' => 'Language\LanguageController@changeLanguage',) );
 

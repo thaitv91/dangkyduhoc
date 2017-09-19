@@ -409,7 +409,6 @@
     <script src="{{ asset('js/test.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
-    
     @yield('scripts')
 </body>
 </html>
