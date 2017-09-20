@@ -160,8 +160,8 @@
 					$name_country = $country->name;
 				?>
 				<div class="item">
-					<div class="number"><span>{{ $list_ranking->ranking_point}}</span>@if($list_ranking->ranking_point == 1 )st @elseif($list_ranking->ranking_point == 2) nd @elseif($list_ranking->ranking_point ==3)rd @else th @endif <br/>{{ $list_ranking->ranking_title}}</div>
-					<div class="lbl">{{ $list_ranking->ranking_subject}}<br/>{{ $name_country }}</div>
+					<div class="number"><span>{{ $list_ranking->ranking_point}}</span>@if($list_ranking->ranking_point == 1 )st @elseif($list_ranking->ranking_point == 2) nd @elseif($list_ranking->ranking_point ==3)rd @else th @endif <br/>@if ($locale == 'en') {{ $list_ranking->ranking_title_en}} @else {{ $list_ranking->ranking_title}} @endif </div>
+					<div class="lbl">@if ($locale == 'en') {{ $list_ranking->ranking_subject_en}} @else{{ $list_ranking->ranking_subject }} @endif <br/>{{ $name_country }}</div>
 				</div>
 				@endforeach
 				@endif

@@ -20,6 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" type="text/css" href="{{url('css/multi-select/bootstrap-select.css')}}">
   <link href="{{url('css/toastr.min.css')}}" rel="stylesheet" />
+  <link href="{{url('css/adminStyle.css')}}" rel="stylesheet" />
   <link rel="stylesheet" href="{{url('css/bootstrap-datepicker3.css')}}"/>
 
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -287,6 +288,8 @@ desired effect
             <li><a href="{{ route('admin.universityStatistic.index') }}">University Statistic</a></li>
           </ul>
         </li>
+        <li><a href="{{ route('admin.career.index') }}"><i class="fa fa-link"></i> <span>Careers</span></a></li>
+        <li><a href="{{ route('admin.subject.index') }}"><i class="fa fa-link"></i> <span>Subject</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -413,6 +416,7 @@ desired effect
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/app.min.js"></script>
+<script src="{{asset('build/js/custom.min.js')}}"></script>
  <script src="{{url('js/multi-select/bootstrap-select.js')}}" type="text/javascript"></script>
  <script src="{{ url('js/tinymce/tinymce.min.js') }}"></script> 
  <script type="text/javascript" src="{{url('js/bootstrap-datepicker.min.js')}}"></script>

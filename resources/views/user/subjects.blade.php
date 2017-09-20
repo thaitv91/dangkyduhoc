@@ -4,7 +4,7 @@
 @endsection
 @section("content")
 <div class="title-page">
-	<div class="container"><h1>ACCOUNTING &amp; FINANCE</h1></div>
+	<div class="container"><h1>{{ $subject['name']}}</h1></div>
 </div>
 
 <div class="container">
@@ -12,18 +12,20 @@
 		<img src="/img/subject-img.jpg" alt="">
 		<div class="breadcrumb-page">
 			<ul class="list">
-				<li><a href="#">Accountant</a></li>            
-				<li><a href="#">Auditor</a></li>            
-				<li><a href="#">Financial Analyst</a></li>           
-				<li><a href="#">Financial Adviser</a></li>            
+				@foreach($subject_career as $key => $db_subject_career)
+				<li><a href="#">
+					@if($locale == 'en')
+					{{ $db_subject_career->career['name_en']}}
+					@else {{  $db_subject_career->career['name'] }}
+					@endif
+					</a>
+				</li>            
+				@endforeach            
 			</ul>
 		</div><!-- /.breadcrumb-page -->
 
 		<div class="description">
-			<p>Do you have a knack for numbers and a desire to understand how companies organize and present their financial information? Do you want to acquire the knowledge to cut through the massive amount of financial data that public companies file to better understand the condition of these companies - playing the role of a financial CSI?
-			Alternatively, you may want to know the complexities of how a company allocates their resources financially to reach an objective. A course in Accounting &amp; Finance will give you the tools to understand all these.</p>
-			<p>Accounting is the process of keeping financial records of business transactions and how to prepare statements concerning assets, liabilities, and operating results. These financial statements are presented to the owners, managers, and shareholders to reflect their performance. Accounting is a technical and numbers and oriented field crucial to every business.
-			Finance is the art and science of managing money. You will study the way people, institutions, markets, and countries generate and transfer wealth. Finance encompasses the study of money and other assets, the management of those assets, profiling and managing project risks. The knowledge of Finance is far reaching and to understand finance, a keen understanding of the business and the economy is required.</p>
+			{!! $subject['description'] !!}
 		</div><!-- /.description -->
 	</div><!-- /.subject-detail -->
 

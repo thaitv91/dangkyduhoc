@@ -125,4 +125,5 @@ $('#slider-img-fair').slick({
   });
 
   $('.smoothScroll a').smoothScroll({offset: -100});
+
 });

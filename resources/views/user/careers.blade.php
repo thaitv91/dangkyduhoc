@@ -9,19 +9,35 @@
 
 <div class="container">
 	<div class="about-career">
-		<h2 class="title">{{ $career['name'] }}</h2>
+		<h2 class="title">{{ $careers['name'] }}</h2>
 		<div class="breadcrumb-page">
 			<ul class="list">
-				<li>JOB NATURE</li>
-				<li>rEGULAR HOURS</li>               
-				<li>fIXED PLAY</li>               
-				<li>dESKBOUND</li>               
-				<li>sMART cASUAL</li>
+				@if( $careers['regular_hours'] ==1)
+				<li>regular hours</li>
+				@endif
+				@if( $careers['fixed_pay'] ==1)
+				<li>fixed pay</li>	
+				@endif
+				@if( $careers['variable_pay'] ==1)
+				<li>variable pay</li>	
+				@endif
+				@if( $careers['desk_bound'] ==1)
+				<li>desk bound</li>	
+				@endif
+				@if( $careers['smart_casual'] ==1)
+				<li>smart casual</li>	
+				@endif
+				@if( $careers['on_the_move'] ==1)
+				<li>on the move</li>	
+				@endif
+				@if( $careers['formal_wear'] ==1)
+				<li>formal wear</li>	
+				@endif
 			</ul>
 		</div><!-- /.breadcrumb-page -->
 
 		<div class="description">
-			<p>{!! $career['description'] !!}</p>
+			<p>{!! $careers['description'] !!}</p>
 		</div>
 	</div><!-- /.about-career -->
 

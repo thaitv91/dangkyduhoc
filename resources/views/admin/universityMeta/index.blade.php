@@ -12,7 +12,7 @@
 @section('content')
 <div class="box">
 	<div class="box-header">
-		<div class="col-md-11"><h3 class="box-title">Page</h3></div>
+		<div class="col-md-11"><h3 class="box-title">University Meta</h3></div>
 	<div class="col-md-1"><a href="{{ route('admin.universityMeta.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
 	</div>
 	<!-- /.box-header -->

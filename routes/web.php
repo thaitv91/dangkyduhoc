@@ -123,6 +123,35 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('delete/{id}', 'Admin\UniversityStatisticController@destroy')->name('admin.universityStatistic.delete');
 		Route::get('get-url-delete','Admin\UniversityStatisticController@getUrlDelete')->name('admin.universityStatistic.getUrlDelete');
 	});
+
+	Route::group(['prefix'=>'career'],function(){
+		Route::get('/', 'Admin\CareerController@index')->name('admin.career.index');
+		Route::get('/create', 'Admin\CareerController@create')->name('admin.career.create');
+		Route::post('/create','Admin\CareerController@store')->name('admin.career.store');
+		Route::get('/edit/{id}', 'Admin\CareerController@edit')->name('admin.career.edit');
+		Route::put('/edit/{id}', 'Admin\CareerController@update')->name('admin.career.update');
+		Route::get('delete/{id}', 'Admin\CareerController@destroy')->name('admin.career.delete');
+		Route::get('get-url-delete','Admin\CareerController@getUrlDelete')->name('admin.career.getUrlDelete');
+	});
+
+	Route::group(['prefix'=>'subject'],function(){
+		Route::get('/', 'Admin\SubjectController@index')->name('admin.subject.index');
+		Route::get('/create', 'Admin\SubjectController@create')->name('admin.subject.create');
+		Route::post('/create','Admin\SubjectController@store')->name('admin.subject.store');
+		Route::get('/edit/{id}', 'Admin\SubjectController@edit')->name('admin.subject.edit');
+		Route::put('/edit/{id}', 'Admin\SubjectController@update')->name('admin.subject.update');
+		Route::get('delete/{id}', 'Admin\SubjectController@destroy')->name('admin.subject.delete');
+		Route::get('get-url-delete','Admin\SubjectController@getUrlDelete')->name('admin.subject.getUrlDelete');
+	});
+	Route::group(['prefix'=>'subject-career'],function(){
+		Route::get('/', 'Admin\SubjectCareerController@index')->name('admin.subjectCareer.index');
+		Route::get('/create', 'Admin\SubjectCareerController@create')->name('admin.subjectCareer.create');
+		Route::post('/create','Admin\SubjectCareerController@store')->name('admin.subjectCareer.store');
+		Route::get('/edit/{id}', 'Admin\SubjectCareerController@edit')->name('admin.subjectCareer.edit');
+		Route::put('/edit/{id}', 'Admin\SubjectCareerController@update')->name('admin.subjectCareer.update');
+		Route::get('delete/{id}', 'Admin\SubjectCareerController@destroy')->name('admin.subjectCareer.delete');
+		Route::get('get-url-delete','Admin\SubjectCareerController@getUrlDelete')->name('admin.subjectCareer.getUrlDelete');
+	});
 });
 	
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
@@ -154,4 +183,5 @@ Route::get('/guide/{slug}','User\GuideController@search')->name('user.guide.sear
 Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('user.search.ajax');
 Route::get('university/{slug}','User\UniversityController@viewDetail')->name('user.university.detail');
 Route::get('career/{slug}','User\CareerController@viewDetail')->name('user.career.detail');
+Route::get('subject/{slug}','User\SubjectController@viewDetail')->name('user.subject.detail');
 

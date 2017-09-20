@@ -12,8 +12,8 @@
 @section('content')
 <div class="box">
 	<div class="box-header">
-		<div class="col-md-11"><h3 class="box-title">University Statistic</h3></div>
-	<div class="col-md-1"><a href="{{ route('admin.universityStatistic.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
+		<div class="col-md-11"><h3 class="box-title">Subject Career</h3></div>
+	<div class="col-md-1"><a href="{{ route('admin.subjectCareer.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
 	</div>
 	<!-- /.box-header -->
 	<div class="box-body">
@@ -21,10 +21,8 @@
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>University</th>
-					<th>Year Founded</th>
-					<th>Student_population</th>
-					<th>Staff Population</th>
+					<th>Subject</th>
+					<th>Career</th>
 					<th>Fuction</th>
 				</tr>
 			</thead>
@@ -32,12 +30,10 @@
 				<?php foreach ($data as $key => $value): ?>
 					<tr>
 						<td>{{ $key+1 }}</td>
-						<td>{{ $value->university['name'] }}</td>
-						<td>{{ $value->year_founded }}</td>
-						<td>{{ $value->student_population }}</td>
-						<td>{{ $value->staff_population }}</td>
+						<td>{{ $value->subject['name'] }}</td>
+						<td>{{ $value->career['name'] }}</td>
 						<td>
-							<a href="{{ route('admin.universityStatistic.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
+							<a href="{{ route('admin.subjectCareer.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
 	                        <a onclick="confirmDelete({{$value->id}})" class="btn btn-xs btn-danger">Delete</a>
 						</td>
 					</tr>
@@ -86,7 +82,7 @@
 <script type="text/javascript">
 	function confirmDelete(id) {
 		$.ajax({
-			url : '{{ route("admin.universityStatistic.getUrlDelete") }}',
+			url : '{{ route("admin.subjectCareer.getUrlDelete") }}',
 			data : {id:id},
 		}).done(function(data) {
 			if (data == -1) {
