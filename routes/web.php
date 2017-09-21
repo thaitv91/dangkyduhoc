@@ -169,9 +169,6 @@ Route::get('/','User\HomeController@index');
 
 // html
 
-Route::get('/html/subjects', function() {
-	return view('user.subjects');
-});
 
 Route::get('/html/fair', function() {
 	return view('user.fair');
