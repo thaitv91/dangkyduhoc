@@ -35,4 +35,23 @@ class GuideController extends Controller
             );
         return view('user.guide', $this->viewData);
     }
+
+    public function autocomplete(){
+        $term = Input::get('term');
+    
+        $results = array();
+    
+        $queries = GuideQuestion::where('question_en', 'LIKE', '%'.$term.'%')->get();
+    
+        foreach ($queries as $query)
+        {
+             $results[] = [ 'id' => $query->id, 'value' => $query->question_en, 'slug'=>$query->slug ];
+        }
+        return Response::json($results);
+    }  
+
+    public function search( $slug ){
+        $data = GuideQuestion::where('slug', $slug)->first();
+        dd($data);
+    }
 }
