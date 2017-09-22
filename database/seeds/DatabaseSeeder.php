@@ -15,6 +15,10 @@ class DatabaseSeeder extends Seeder
         // $this->call(UniversityRankingSeeder::class);
         // $this->call(UniversityStatisticSeeder::class);
         // $this->call(CareerSeeder::class);
+        // $this->call(UniversityMetasSeeder::class);
+        // $this->call(PageSeeder::class);
+        // $this->call(HomePageFieldsSeeder::class);
+        // $this->call(GuidePageFieldsSeeder::class);
         // $this->call(CourseSeeder::class);
         // $this->call(CourseCostSeeder::class);
         // $this->call(CourseEntryRequirementSeeder::class);

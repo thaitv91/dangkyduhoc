@@ -736,7 +736,7 @@ class UniversityStatisticSeeder extends Seeder
     	// Monash University
     		$university_name = "Monash University";
     		$university = University::where('name', '=', $university_name)->first(); 
-    		f($university)
+    		if($university)
     		DB::table('university_statistic')->insert([
     			'university_id' => $university->id,
     			'year_founded'	=>	1958,

@@ -58,12 +58,10 @@ class PageController extends Controller
         unset($data['_token']);
         try {
             $rules = [
-                'title'               =>'required',
-                    
+                'title'               =>'required',                    
                 ];
-
             $messages = [
-            'title.required'      =>'Vui lòng nhập!!',
+                'title.required'      =>'Please enter the page!!!',
                                 
             ];
 
@@ -158,7 +156,7 @@ class PageController extends Controller
             ];
 
             $messages = [
-            'title.required'      =>'Vui lòng nhập!!',                    
+            'title.required'      =>'Please enter the page!!',                    
             ];
 
             $validator = Validator::make( $request->all(), $rules, $messages);

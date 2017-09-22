@@ -20,6 +20,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
   <link rel="stylesheet" type="text/css" href="{{url('css/multi-select/bootstrap-select.css')}}">
   <link href="{{url('css/toastr.min.css')}}" rel="stylesheet" />
+  <link href="{{url('css/adminStyle.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{url('css/bootstrap-datepicker3.css')}}"/>
 
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
@@ -248,7 +250,7 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ route('admin.countries') }}"><i class="fa fa-link"></i> <span>Countries</span></a></li>
-        <li><a href="{{ route('universities.index') }}"><i class="fa fa-link"></i> <span>Universities</span></a></li>
+        <li><a href="{{ route('admin.universities.index') }}"><i class="fa fa-link"></i> <span>Universities</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Guide</span>
             <span class="pull-right-container">
@@ -273,6 +275,21 @@ desired effect
           </ul>
         </li>
         <li><a href="{{ route('admin.rating.index') }}"><i class="fa fa-link"></i> <span>Rating</span></a></li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>University</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('admin.universities.index') }}"> University</a></li>
+            <li><a href="{{ route('admin.universityMeta.index') }}">University Meta</a></li>
+            <li><a href="{{ route('admin.universityRank.index') }}">University Ranking</a></li>
+            <li><a href="{{ route('admin.universityStatistic.index') }}">University Statistic</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ route('admin.career.index') }}"><i class="fa fa-link"></i> <span>Careers</span></a></li>
+        <li><a href="{{ route('admin.subject.index') }}"><i class="fa fa-link"></i> <span>Subject</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -399,8 +416,10 @@ desired effect
 <script src="/bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/app.min.js"></script>
+<script src="{{asset('build/js/custom.min.js')}}"></script>
  <script src="{{url('js/multi-select/bootstrap-select.js')}}" type="text/javascript"></script>
  <script src="{{ url('js/tinymce/tinymce.min.js') }}"></script> 
+ <script type="text/javascript" src="{{url('js/bootstrap-datepicker.min.js')}}"></script>
  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
  <script>
       tinymce.PluginManager.add('placeholder', function (editor) {

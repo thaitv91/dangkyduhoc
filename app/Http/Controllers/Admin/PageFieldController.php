@@ -59,8 +59,8 @@ class PageFieldController extends Controller
             ];
 
             $messages = [
-            'title.required'      =>'Vui lòng nhập!!',
-            'page_id.required'      =>'Vui lòng nhập!!',
+            'title.required'      =>'Please enter the title!!',
+            'page_id.required'      =>'Please choose the page!!',
                                    
             ];
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -125,8 +125,8 @@ class PageFieldController extends Controller
                 'page_id'             =>'required',     
             ];
             $messages =[
-                'title.required'      =>'Vui lòng nhập!!',
-                'page_id.required'      =>'Vui lòng nhập!!',
+                'title.required'      =>'Please enter the title!!',
+                'page_id.required'      =>'Please choose the page!!',
             ];
             $validator= Validator::make( $request->all(), $rules, $messages);
             if( $validator->fails()){
