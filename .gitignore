@@ -1,8 +1,8 @@
 /env
-/public/*
+
 /public/storage
-/storage/*.key
-/storage/*
+/storage/logs
+/storage/framework
 /plugins/*
 /vendor
 /.idea
