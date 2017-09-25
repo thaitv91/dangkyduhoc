@@ -172,7 +172,9 @@ Route::get('chatbox', function (){
 });
 
 // html
-
+Route::get('/html/guide-list', function() {
+	return view('user.guide-list');
+});
 
 Route::get('/html/fair', function() {
 	return view('user.fair');
