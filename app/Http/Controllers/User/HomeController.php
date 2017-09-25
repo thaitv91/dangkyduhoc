@@ -26,12 +26,19 @@ class HomeController extends Controller
         $fields = PageField::where('page_id', '=',$page->id)->get();
         foreach ($fields as $field) {
             if ($locale == 'en') {
-                $data_field[$field->slug] = $field->content_en;
+                $title = "Home page";
+                if ($field->slug == 'header-banner' || $field->slug == 'image-right-tools') {
+                    $data_field[$field->slug] = $field->content;
+                } else {
+                    $data_field[$field->slug] = $field->content_en;
+                }
             } else {
+                $title = "Trang chủ";
                 $data_field[$field->slug] = $field->content;
             }
         }
         $this->viewData = array(
+            'title' => $title,
             'data_field' => $data_field,
             'rating'     => $rating,
             'locale'     => $locale

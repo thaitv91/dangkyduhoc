@@ -8,7 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>
+        @if(isset($title))
+        {{ $title }}
+        @else
+            {{ config('app.name', 'Laravel') }}
+        @endif
+    </title>
 
     <!-- Styles -->
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
@@ -149,7 +155,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#"><img src="/img/logo.png" alt="Đăng ký du học" /></a>
+              <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="Đăng ký du học" /></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -239,35 +245,45 @@
                             <a href="#">University 1</a>
                             <a href="#">University 2</a>
                             <div class="recent-uni-spacer"></div>
+                              <?php $uk_school = App\Models\University::where('country_slug', '=', 'UK')->get(); ?>
                             <h4>United Kingdom</h4>
-                            <a href="#">University 1</a>
-                            <a href="#">University 2</a>
-                            <a href="#">University 3</a>
+                              @foreach($uk_school as $school)
+                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
+                              @endforeach
                           </div>
                           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">University 1</a>
-                            <a href="#">University 2</a>
-                            <a href="#">University 3</a>
-                            <h4>Australia</h4>
-                            <a href="#">University 1</a>
-                            <a href="#">University 2</a>
-                            <a href="#">University 3</a>
+                              <h4>Australia</h4>
+                              <?php $au_school = App\Models\University::where('country_slug', '=', 'AU')->get(); ?>
+                              @foreach($au_school as $school)
+                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
+                              @endforeach
+
+                              <h4>United States</h4>
+                              <?php $us_school = App\Models\University::where('country_slug', '=', 'US')->get(); ?>
+                              @foreach($us_school as $school)
+                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
+                              @endforeach
                           </div>
                           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">University 1</a>
-                            <a href="#">University 2</a>
-                            <a href="#">University 3</a>
-                            <a href="#">University 1</a>
-                            <a href="#">University 2</a>
-                            <a href="#">University 3</a>
+                              <h4>Canada</h4>
+                              <?php $ca_school = App\Models\University::where('country_slug', '=', 'CA')->get(); ?>
+                              @foreach($ca_school as $school)
+                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
+                              @endforeach
+
+                              <h4>Switzerland</h4>
+                              <?php $ch_school = App\Models\University::where('country_slug', '=', 'CH')->get(); ?>
+                              @foreach($ch_school as $school)
+                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
+                              @endforeach
+
                           </div>
                           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">University 1</a>
-                            <a href="#">University 2</a>
-                            <a href="#">University 3</a>
-                            <a href="#">University 1</a>
-                            <a href="#">University 2</a>
-                            <a href="#">University 3</a>
+                              <h4>Ireland</h4>
+                              <?php $il_school = App\Models\University::where('country_slug', '=', 'IL')->get(); ?>
+                              @foreach($il_school as $school)
+                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
+                              @endforeach
                           </div>
                       </div>
                   </div>
@@ -278,38 +294,15 @@
                   <div class="container">
                       <h1 class="text-center">See Courses by career</h1>
                       <div class="row">
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <h3>My frequently visited</h3>
-                            <a href="#">Career 1</a>
-                            <a href="#">Career 2</a>
-                            <div class="recent-uni-spacer"></div>
-                            <a href="#">Career 1</a>
-                            <a href="#">Career 2</a>
-                            <a href="#">Career 3</a>
-                          </div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">Career 1</a>
-                            <a href="#">Career 2</a>
-                            <a href="#">Career 3</a>
-                            <a href="#">Career 1</a>
-                            <a href="#">Career 2</a>
-                            <a href="#">Career 3</a>
-                          </div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">Career 1</a>
-                            <a href="#">Career 2</a>
-                            <a href="#">Career 3</a>
-                            <a href="#">Career 1</a>
-                            <a href="#">Career 2</a>
-                            <a href="#">Career 3</a>
-                          </div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">Career 1</a>
-                            <a href="#">Career 2</a>
-                            <a href="#">Career 3</a>
-                            <a href="#">Career 1</a>
-                            <a href="#">Career 2</a>
-                            <a href="#">Career 3</a>
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">My frequently visited</h3>
+                            <a class="col-lg-3 col-md-3 col-sm-3 col-xs-3" href="#">Career 1</a>
+                            <a class="col-lg-3 col-md-3 col-sm-3 col-xs-3" href="#">Career 2</a>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 recent-uni-spacer"></div>
+                              <?php $carrers = App\Models\Career::all(); ?>
+                              @foreach($carrers as $carrer)
+                                  <a class="col-lg-3 col-md-3 col-sm-3 col-xs-3" href="{{ route('user.career.detail', $carrer->slug) }}">{{ $carrer->name }}</a>
+                              @endforeach
                           </div>
                       </div>
                     </div>
@@ -405,6 +398,7 @@
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="{{ asset('js/slick.js') }}"></script>
     <script src="{{ asset('js/jquery.smooth-scroll.js') }}"></script>
     {{-- <script src="{{ asset('js/test.js') }}"></script> --}}

@@ -33,7 +33,7 @@
 					<tr>
 						<td>{{ $key+1 }}</td>
 						<td>{{ $value->name }}</td>
-						<td ><img src="{{ Storage::disk('local')->url($value->avatar) }}" class="img-responsive" style="width: 70px"></td>
+						<td ><img src="{{ $value->avatar }}" class="img-responsive" style="width: 70px"></td>
 						<td>{!! str_limit($value->content , $limit = 100, $end = '...') !!}</td>
 						<td>{!! str_limit($value->content_en , $limit = 100, $end = '...') !!}</td>
 						<td>

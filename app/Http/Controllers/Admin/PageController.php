@@ -13,6 +13,7 @@ use Validator;
 use Storage;
 use Log;
 use Illuminate\Support\Facades\Input;
+use Intervention\Image\ImageManagerStatic as Image;
 
 
 class PageController extends Controller
@@ -119,26 +120,25 @@ class PageController extends Controller
         return view ('admin.page.editpage', $data);
     }
 
-    
-    
     public function updatePage(Request $request, $id)
     {
         $data = $request->all();
         $content =$this->page_field->getLocale();
         unset( $data['_token']);
         unset( $data['_method']);
-
+        //dd($data);
         foreach ( $data as $key => $list ) {  
             if (Input::hasFile($key)) {
-                $name_img = $list->getClientOriginalName();
-                $list = $request->file( $key )->storeAs( 'public/img/home',$name_img );                 
+                $file = $request->file($key);
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $img = Image::make($file)->save( public_path('/images/' . $filename ) );
+                $list = '/images/' . $filename;
             }
             $datas = PageField::where('slug', $key)->update([ $content => $list]);
-            
         }  
 
         Session::flash('success','Success!');
-        return redirect(route('admin.page.index'));
+        return Redirect::back();
     }
     /**
      * Update the specified resource in storage.

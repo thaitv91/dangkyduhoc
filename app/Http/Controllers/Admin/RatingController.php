@@ -10,6 +10,7 @@ use Session;
 use Redirect;
 use Validator;
 use Log;
+use Intervention\Image\ImageManagerStatic as Image;
 class RatingController extends Controller
 {
     /**
@@ -127,8 +128,9 @@ class RatingController extends Controller
                     $rating->update($data);
                 }else{
                     $avatar = $data['avatar'];
-                    $name_img = $avatar->getClientOriginalName();
-                    $data['avatar']= $request->file( 'avatar' )->storeAs( 'public/img/rating',$name_img );  
+                    $filename = 'avatar_' . time() . '_' . $avatar->getClientOriginalName();
+                    Image::make($avatar)->save( public_path('/images/' . $filename ) );
+                    $data['avatar'] = '/images/' . $filename;
                     $rating = Rating::where('id', $id)->first();
                     $rating->update($data);
                 }

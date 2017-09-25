@@ -37,11 +37,11 @@
 					<div class="form-group row">
 						<label class="col-md-3">Country</label>
 						<div class="col-md-9">
-							<select class="selectpicker " id="country_id" name="country_id" title="Choose one of the following..." data-live-search="true" tabindex="-98">
+							<select class="selectpicker " id="country_id" name="country_slug" title="Choose one of the following..." data-live-search="true" tabindex="-98">
                               <option disabled selected></option>
                               @if(count($country)!=0)
                                   @foreach($country as $db_country)
-                                  <option @if ($db_country->id == $university['country_id']) selected @endif value="{{$db_country->id}}" data-tokens="{{$db_country->name}}" >{{$db_country->name }} </option>
+                                  <option @if ($db_country->slug == $university['country_slug']) selected @endif value="{{$db_country->slug}}" data-tokens="{{$db_country->name}}" >{{$db_country->name }} </option>
                                   @endforeach
                                @endif
                               @if(count($country)==0)

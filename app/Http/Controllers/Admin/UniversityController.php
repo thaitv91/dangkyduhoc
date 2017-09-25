@@ -141,13 +141,11 @@ class UniversityController extends Controller
         $data = $request->all();
         try {
             $rules = [
-                'country_id'               =>'required',
-
-                ];
+                'country_slug'               =>'required',
+            ];
 
             $messages = [
-                'country_id.required'      =>'Please choose one country!!',                    
-                                
+                'country_id.required'      =>'Please choose one country!!',
             ];
 
             $validator = Validator::make( $request->all(), $rules, $messages);
@@ -168,7 +166,7 @@ class UniversityController extends Controller
                 }else{
                      $data['slug'] = str_slug( $data['name_en'] );    
                 }
-                $country = Country::where('id', $data['country_id'])->first();
+                $country = Country::where('slug', $data['country_slug'])->first();
                 $data['country_slug'] = $country->slug;
                 $university = University::where('id', $id)->first();
                 $university->update($data);
