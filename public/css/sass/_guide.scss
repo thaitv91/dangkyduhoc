@@ -159,3 +159,169 @@
 .guide-list-page{
 	padding-bottom: 30px;
 }
+
+.left-guide-detail{
+	.search-general{
+		background-color:transparent;
+		padding:0;
+		margin-bottom:15px;
+	}
+	.choose-list-guide{
+		max-width: 100%;
+		margin-bottom: 15px;
+	}
+	.box-category-guide{
+		h3{
+			font-size: 22px;
+		}
+		ul{
+			li{
+				a{
+					font-size: 14px;
+				}
+			}
+		}
+	}
+	.sidebar-nav-fixed{
+		height: 100%;
+    max-height: 64vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+	}
+	.fixed &{
+		position: absolute;
+		left: 15px;
+		right: 15px;
+	}
+}
+
+#guide-detail{
+	padding-bottom: 50px;
+}
+
+.guide-detail-header{
+	@include clearfix();
+	border-bottom:1px dotted #ddd;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	.fblike{
+		float: right;
+	}
+	.category{
+		display: inline-block;
+		a{
+			font-size: 16px;
+			color:$color-link;
+			&:hover{
+				text-decoration:none;
+			}
+		}
+	}
+	&.bottom{
+		border-top:1px dotted #ddd;
+		padding-top: 10px;
+		border-bottom:none;
+		margin-top:35px;
+	}
+}
+
+.content-guide-detail{
+	h1{
+		 font-size: 32px;
+	    line-height: 1.2;
+	    margin: 15px 0;
+	    font-weight: 600;
+	    @include clearfix();
+	    @include screen-size(xs){
+	    	font-size: 22px;
+	    }
+	    .fa{
+	    	color: #9fca24;
+    		font-size: 37px;
+    		float: left;
+    		@include screen-size(xs){
+		    	font-size: 30px;
+		    }
+	    }
+	    span{
+	    	margin-left: 8px;
+	    	float: left;
+    		max-width: 90%;
+	    }
+	}
+}
+
+.faq-answer{
+	margin-left: 41px;
+	@include screen-size(xs){
+		margin-left: 0;
+	}
+	p, li{
+		color: #333;
+	    font-size: 15px;
+	    line-height: 1.7;
+	    margin-bottom: 15px;
+	    margin-top: 15px;
+	}
+	h3{
+		font-size: 26px;
+	   font-weight: 600;
+	   margin-top: 50px;
+	   margin-bottom: 10px;
+	   @include screen-size(xs){
+	   	font-size: 20px;
+	   }
+	}
+	ul, ol{
+		margin-bottom: 30px;
+    	margin-top: 15px;
+	}
+}
+
+.author{
+	@include border-radius(10px);
+    font-size: 15px;
+    margin-top: 60px;
+    max-width: 560px;
+    @include screen-size-max(sm){
+    	text-align: center;
+    	margin-left:auto;
+    	margin-right:auto;
+    }
+    @include screen-size(xs){
+    	background: #eee none repeat scroll 0 0;
+	    padding: 15px;
+    }
+	img{
+		@include border-radius(50%);
+	    display: inline-block;
+	    margin-bottom: 5px;
+	    margin-right: 5px;
+	    max-height: 100px;
+	    max-width: 100px;
+	    width: 100%;
+	}
+	.content{
+		max-width: 360px;
+		@include screen-size-max(sm){
+	    	margin-left:auto;
+	    	margin-right:auto;
+	    }
+		.name{
+			font-weight: 600;
+			max-width: 500px;
+			@include screen-size-max(sm){
+		    	margin-left:auto;
+		    	margin-right:auto;
+		    }
+		}
+		.btn{
+			width: 200px;
+			max-width: 100%;
+		}
+	}
+}
+
+.martop10 {
+    margin-top: 10px;
+}

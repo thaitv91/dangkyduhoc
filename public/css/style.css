@@ -3085,7 +3085,7 @@ a:hover {
   -o-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
-.btn:hover {
+.btn:hover, .btn:focus {
   color: white;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -4638,6 +4638,194 @@ footer .footer-top .social {
 
 .guide-list-page {
   padding-bottom: 30px;
+}
+
+.left-guide-detail .search-general {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 15px;
+}
+.left-guide-detail .choose-list-guide {
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+.left-guide-detail .box-category-guide h3 {
+  font-size: 22px;
+}
+.left-guide-detail .box-category-guide ul li a {
+  font-size: 14px;
+}
+.left-guide-detail .sidebar-nav-fixed {
+  height: 100%;
+  max-height: 64vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.fixed .left-guide-detail {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+}
+
+#guide-detail {
+  padding-bottom: 50px;
+}
+
+.guide-detail-header {
+  border-bottom: 1px dotted #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.guide-detail-header:after, .guide-detail-header:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+.guide-detail-header .fblike {
+  float: right;
+}
+.guide-detail-header .category {
+  display: inline-block;
+}
+.guide-detail-header .category a {
+  font-size: 16px;
+  color: #2f5385;
+}
+.guide-detail-header .category a:hover {
+  text-decoration: none;
+}
+.guide-detail-header.bottom {
+  border-top: 1px dotted #ddd;
+  padding-top: 10px;
+  border-bottom: none;
+  margin-top: 35px;
+}
+
+.content-guide-detail h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 15px 0;
+  font-weight: 600;
+}
+.content-guide-detail h1:after, .content-guide-detail h1:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 767px) {
+  .content-guide-detail h1 {
+    font-size: 22px;
+  }
+}
+.content-guide-detail h1 .fa {
+  color: #9fca24;
+  font-size: 37px;
+  float: left;
+}
+@media screen and (max-width: 767px) {
+  .content-guide-detail h1 .fa {
+    font-size: 30px;
+  }
+}
+.content-guide-detail h1 span {
+  margin-left: 8px;
+  float: left;
+  max-width: 90%;
+}
+
+.faq-answer {
+  margin-left: 41px;
+}
+@media screen and (max-width: 767px) {
+  .faq-answer {
+    margin-left: 0;
+  }
+}
+.faq-answer p, .faq-answer li {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.faq-answer h3 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 767px) {
+  .faq-answer h3 {
+    font-size: 20px;
+  }
+}
+.faq-answer ul, .faq-answer ol {
+  margin-bottom: 30px;
+  margin-top: 15px;
+}
+
+.author {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-top: 60px;
+  max-width: 560px;
+}
+@media screen and (max-width: 991px) {
+  .author {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .author {
+    background: #eee none repeat scroll 0 0;
+    padding: 15px;
+  }
+}
+.author img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  max-height: 100px;
+  max-width: 100px;
+  width: 100%;
+}
+.author .content {
+  max-width: 360px;
+}
+@media screen and (max-width: 991px) {
+  .author .content {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.author .content .name {
+  font-weight: 600;
+  max-width: 500px;
+}
+@media screen and (max-width: 991px) {
+  .author .content .name {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.author .content .btn {
+  width: 200px;
+  max-width: 100%;
+}
+
+.martop10 {
+  margin-top: 10px;
 }
 
 .header-page {

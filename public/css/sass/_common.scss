@@ -35,7 +35,7 @@ a{
     @include border-radius(0);
     color:$white;
     @include transition-value();
-    &:hover{
+    &:hover, &:focus{
         color:$white;
         @include border-radius(8px);
     }

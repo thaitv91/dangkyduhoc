@@ -176,6 +176,10 @@ Route::get('/html/guide-list', function() {
 	return view('user.guide-list');
 });
 
+Route::get('/html/guide-detail', function() {
+	return view('user.guide-detail');
+});
+
 Route::get('/html/fair', function() {
 	return view('user.fair');
 });
