@@ -180,6 +180,10 @@ Route::get('/html/guide-detail', function() {
 	return view('user.guide-detail');
 });
 
+Route::get('/html/apply', function() {
+	return view('user.apply');
+});
+
 Route::get('/html/fair', function() {
 	return view('user.fair');
 });

@@ -3084,6 +3084,7 @@ a:hover {
   -moz-transition: all ease 0.3s;
   -o-transition: all ease 0.3s;
   transition: all ease 0.3s;
+  min-width: 140px;
 }
 .btn:hover, .btn:focus {
   color: white;
@@ -5695,4 +5696,194 @@ a.university_name {
 .about-career .description {
   line-height: 1.7;
   padding-bottom: 30px;
+}
+
+.apply-page {
+  padding-bottom: 50px;
+}
+
+.apply-header-page {
+  margin-bottom: 45px;
+}
+.apply-header-page img {
+  margin: 0 auto 15px;
+  height: 150px;
+  max-width: 100%;
+}
+.apply-header-page h2 {
+  font-size: 17px;
+  line-height: 1.4;
+  margin-top: 15px;
+  padding-top: 0;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.some-courses {
+  margin-bottom: 40px;
+}
+.some-courses h3 {
+  font-size: 28px;
+  margin: 0 0 25px;
+  font-weight: 600;
+}
+.some-courses .list a {
+  display: block;
+  color: #000;
+}
+
+.fine-print h2 {
+  font-weight: 600;
+}
+.fine-print ol {
+  padding-start: 15px;
+  -webkit-padding-start: 15px;
+}
+
+.courses-apply {
+  margin-bottom: 40px;
+}
+
+table.courses {
+  width: 100%;
+  margin-bottom: 30px;
+}
+table.courses .course-status .status {
+  float: left;
+  font-size: 16px;
+  font-weight: 600;
+  width: 24%;
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  table.courses .course-status .status {
+    text-align: left;
+  }
+}
+table.courses td {
+  padding: 10px 0;
+  text-align: center;
+  vertical-align: middle;
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  table.courses td {
+    float: left;
+    width: 100%;
+  }
+}
+table.courses td.priority {
+  color: #2f5385;
+  font-family: UTMBebas, Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  min-width: 50px;
+  width: 6%;
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  table.courses td.priority {
+    width: 100%;
+    text-align: left;
+  }
+}
+table.courses tbody td.header {
+  color: #333;
+  font-size: 18px;
+  padding: 12px 0;
+  text-align: left;
+  width: 54%;
+}
+@media screen and (max-width: 767px) {
+  table.courses tbody tr {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px dotted #ccc;
+  }
+  table.courses tbody tr:last-child {
+    border-bottom: none;
+  }
+}
+table.courses a.remove-button {
+  color: #ccc;
+  font-size: 13px;
+}
+table.courses a.university_name {
+  color: #000;
+  font-weight: 600;
+  letter-spacing: 0;
+  margin-right: 4px;
+  text-decoration: none;
+  font-size: 15px;
+}
+table.courses a.university_name:hover {
+  color: #2f5385;
+}
+
+a.course_name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin-right: 1px;
+}
+
+.classification {
+  color: #888;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  position: relative;
+}
+
+.ir.app {
+  cursor: pointer;
+  height: 34px;
+  margin-bottom: 5px;
+  width: 34px;
+}
+
+.ir {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 0 none;
+  direction: ltr;
+  display: inline-block;
+  line-height: 0;
+  overflow: hidden;
+  text-align: left;
+  text-indent: -999em;
+  vertical-align: middle;
+}
+
+.ir.app.yet {
+  background-image: url("../img/check-courses.png");
+}
+
+#current_app_status {
+  text-align: center;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+#current_app_status .btn {
+  width: 345px;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+#add_course_dialog {
+  background-color: #eaeaea;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  padding: 20px;
+  display: none;
+}
+#add_course_dialog h3 {
+  font-family: UTMBebas, Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.form-control {
+  height: 50px;
 }
