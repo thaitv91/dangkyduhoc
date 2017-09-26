@@ -11,7 +11,7 @@
 		<h2>One simple online form, multiple universities worldwide. Application fees waived!<br>Track your application progress here upon submission.</h2>
 	</div><!-- /.apply-header-page -->
 
-	<div class="some-courses" style="display: none;">
+	<div class="some-courses">
 		<h3 class="text-center">Ready to apply? Start by searching for some courses.</h3>
 		<div class="row list">
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
