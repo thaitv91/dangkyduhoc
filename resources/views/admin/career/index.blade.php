@@ -22,9 +22,7 @@
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
-					<th>Name En/th>
 					<th>Description</th>
-					<th>Description En</th>
 					<th>Fuction</th>
 				</tr>
 			</thead>
