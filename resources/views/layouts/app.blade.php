@@ -10,7 +10,7 @@
 
     <title>
         @if(isset($title))
-        {{ $title }}
+            {{ $title }}
         @else
             {{ config('app.name', 'Laravel') }}
         @endif
@@ -23,143 +23,145 @@
     <link rel="stylesheet" href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <!-- login, register -->
-            <div id="login-partial">
-                <div class="container-fluid bgr-gray" id="login_drawer" style="display: none;">
-                    <div class="container">
-                        <div class="row text-center">
-                            <div class="login_drawers" id="facebook_login">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <span class="login-header">hello!</span>
-                                    </div>
+<?php
+?>
+<div id="app">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <!-- login, register -->
+        <div id="login-partial">
+            <div class="container-fluid bgr-gray" id="login_drawer" style="display: none;">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="login_drawers" id="facebook_login">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <span class="login-header">hello!</span>
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <button class="login_footer sign-up blue_button create-account-screen" data-placement="right" title="New here? Sign up with your email or login using facebook.">REGISTER</button>
-                                    </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <button class="login_footer sign-up blue_button create-account-screen" data-placement="right" title="New here? Sign up with your email or login using facebook.">REGISTER</button>
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <form action="/account/ExternalLogin" id="facebookLoginForm" method="post" name="facebookLoginForm">
-                                            <a href="#">
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <form action="/account/ExternalLogin" id="facebookLoginForm" method="post" name="facebookLoginForm">
+                                        <a href="#">
                                             <div class="blue_button fb-button" data-placement="right" title="Sign in using facebook to skip email verification. Recommended!">SIGN IN WITH <img alt="Facebook login" class="fb-login" src="https://therightustorage.blob.core.windows.net/assets/img/web/fbsmall.svg"></div>
-                                            </a>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <button class="login_footer sign-in-screen blue_button" data-placement="right" title="Already registered? Sign in with your email.">Sign in by Email</button>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
-                                    <div class="form-group">
-                                        <span style="cursor:default; font-size:14px;" class="tip" data-toggle="tooltip" title="" data-html="true" data-placement="bottom" data-original-title="<div class='whysignup'><ul class='reasons'><li>Save course comparisons</li><li>Save your university application progress</li><li>Be notified when you receive a university offer</li><li>Retrieve online consultation history on multiple devices</li></ul></div>">Why register?</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row login_drawers" id="email_login" style="display: none;">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <span class="login-header">Sign in</span>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 martop10 marbot10px">
-                                    <form action="" class="login_form form-inline" id="login_form" method="post" name="login_form">
-                                        <div class="validation-summary-valid" data-valmsg-summary="true">
-                                            <ul>
-                                                <li style="display:none"></li>
-                                            </ul>
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" id="Email" name="Email" placeholder="Your email" type="text" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" id="Password" name="password" placeholder="Your password" type="password" value="">
-                                        </div>
-                                        <button class="btn blue-btn" id="login_button">Sign in</button>
+                                        </a>
                                     </form>
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <a class="login_footer forgot-password-screen" href="#">Forgot password?</a>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <button class="login_footer sign-in-screen blue_button" data-placement="right" title="Already registered? Sign in with your email.">Sign in by Email</button>
                                 </div>
                             </div>
-                            <div class="row login_drawers" id="create_account" style="display: none;">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <span class="login-header">Create a free account</span>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 martop10 marbot10px">
-                                    <form action="" class="register_form form-inline" name="register_form">
-                                        <div class="form-group">
-                                            <input class="form-control" id="newEmail" name="email" placeholder="Your email" type="text" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" id="txtPassword" name="password" placeholder="Your password" type="password" value=""> <input class="form-control confirm hidden" id="txtConfirmPassword" name="confirmPassword" placeholder="Confirm your password" type="password" value="">
-                                        </div>
-                                        <button class="btn blue-btn" id="create_account_button" type="submit">Register</button>
-                                    </form>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <a class="login_footer back-to-login" href="#">Back to Login</a>
-                                </div>
-                            </div>
-                            <div class="login_drawers" id="create_account_success" style="display: none;">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <span class="login-header">Awesome!</span>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <span class="login_hello">We have sent an account activation link to your email.</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="login_drawers col-lg-12 col-centered" id="forgot_password" style="display: none;">
-                                <div class="col-lg-12">
-                                    <span class="login-header">forgot password?</span>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 martop10 marbot10px">
-                                    <form action="" class="forgot_password_form form-inline" id="forgot_password_form" method="post" name="forgot_password_form">
-                                        <div class="validation-summary-valid" data-valmsg-summary="true">
-                                            <ul>
-                                                <li style="display:none"></li>
-                                            </ul>
-                                        </div>
-                                        <div class="form-group">
-                                            <input class="form-control" name="email" placeholder="Your email" type="text" value="">
-                                        </div>
-                                        <button class="btn blue-btn" id="forgot_password_button" type="submit">Reset</button>
-                                    </form>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <a class="login_footer back-to-login" href="#">Back to Login</a>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+                                <div class="form-group">
+                                    <span style="cursor:default; font-size:14px;" class="tip" data-toggle="tooltip" title="" data-html="true" data-placement="bottom" data-original-title="<div class='whysignup'><ul class='reasons'><li>Save course comparisons</li><li>Save your university application progress</li><li>Be notified when you receive a university offer</li><li>Retrieve online consultation history on multiple devices</li></ul></div>">Why register?</span>
                                 </div>
                             </div>
                         </div>
-                    </div><a class="login_footer cancel"><i class="fa fa-chevron-up"></i></a>
-                </div>
-                
+                        <div class="row login_drawers" id="email_login" style="display: none;">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span class="login-header">Sign in</span>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 martop10 marbot10px">
+                                <form action="" class="login_form form-inline" id="login_form" method="post" name="login_form">
+                                    <div class="validation-summary-valid" data-valmsg-summary="true">
+                                        <ul>
+                                            <li style="display:none"></li>
+                                        </ul>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="Email" name="Email" placeholder="Your email" type="text" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="Password" name="password" placeholder="Your password" type="password" value="">
+                                    </div>
+                                    <button class="btn blue-btn" id="login_button">Sign in</button>
+                                </form>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <a class="login_footer forgot-password-screen" href="#">Forgot password?</a>
+                            </div>
+                        </div>
+                        <div class="row login_drawers" id="create_account" style="display: none;">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <span class="login-header">Create a free account</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 martop10 marbot10px">
+                                <form action="" class="register_form form-inline" name="register_form">
+                                    <div class="form-group">
+                                        <input class="form-control" id="newEmail" name="email" placeholder="Your email" type="text" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="txtPassword" name="password" placeholder="Your password" type="password" value=""> <input class="form-control confirm hidden" id="txtConfirmPassword" name="confirmPassword" placeholder="Confirm your password" type="password" value="">
+                                    </div>
+                                    <button class="btn blue-btn" id="create_account_button" type="submit">Register</button>
+                                </form>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <a class="login_footer back-to-login" href="#">Back to Login</a>
+                            </div>
+                        </div>
+                        <div class="login_drawers" id="create_account_success" style="display: none;">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <span class="login-header">Awesome!</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <span class="login_hello">We have sent an account activation link to your email.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login_drawers col-lg-12 col-centered" id="forgot_password" style="display: none;">
+                            <div class="col-lg-12">
+                                <span class="login-header">forgot password?</span>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 martop10 marbot10px">
+                                <form action="" class="forgot_password_form form-inline" id="forgot_password_form" method="post" name="forgot_password_form">
+                                    <div class="validation-summary-valid" data-valmsg-summary="true">
+                                        <ul>
+                                            <li style="display:none"></li>
+                                        </ul>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" name="email" placeholder="Your email" type="text" value="">
+                                    </div>
+                                    <button class="btn blue-btn" id="forgot_password_button" type="submit">Reset</button>
+                                </form>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <a class="login_footer back-to-login" href="#">Back to Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><a class="login_footer cancel"><i class="fa fa-chevron-up"></i></a>
             </div>
-            <!-- e: login, register -->
 
-          <div class="container" id="nav-main">
+        </div>
+        <!-- e: login, register -->
+
+        <div class="container" id="nav-main">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="Đăng ký du học" /></a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="Đăng ký du học" /></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-              <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="{{ route('user.guide') }}">Guide</a></li>
                 <li class="subjectddl slideddl"><a href="#">Subjects <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
                 <li class="universityddl slideddl"><a href="#">Universities <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
@@ -190,16 +192,16 @@
                 </li>
                 <li class="dropdown">
                     <span class="clickable open-user"><i class="sprite-user"></i></span>
-                </li>   
-              </ul>
-          </div><!-- /.container -->
+                </li>
+            </ul>
+        </div><!-- /.container -->
 
-          <div id="slide-panel" class="sub-menu">              
-                <div class="slide-section" id="subject">
-                  <div class="container">
-                      <h1 class="text-center">See Courses by subject</h1>
-                      <div class="row">
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        <div id="slide-panel" class="sub-menu">
+            <div class="slide-section" id="subject">
+                <div class="container">
+                    <h1 class="text-center">See Courses by subject</h1>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <h3>My frequently visited</h3>
                             <a href="#">Subject 1</a>
                             <a href="#">Subject 2</a>
@@ -207,206 +209,115 @@
                             <a href="#">Subject 1</a>
                             <a href="#">Subject 2</a>
                             <a href="#">Subject 3</a>
-                          </div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <a href="#">Subject 1</a>
                             <a href="#">Subject 2</a>
                             <a href="#">Subject 3</a>
                             <a href="#">Subject 1</a>
                             <a href="#">Subject 2</a>
                             <a href="#">Subject 3</a>
-                          </div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <a href="#">Subject 1</a>
                             <a href="#">Subject 2</a>
                             <a href="#">Subject 3</a>
                             <a href="#">Subject 1</a>
                             <a href="#">Subject 2</a>
                             <a href="#">Subject 3</a>
-                          </div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <a href="#">Subject 1</a>
                             <a href="#">Subject 2</a>
                             <a href="#">Subject 3</a>
                             <a href="#">Subject 1</a>
                             <a href="#">Subject 2</a>
                             <a href="#">Subject 3</a>
-                          </div>
-                      </div>
-                  </div>                
-                </div><!-- /.slide-section -->
-
-              <div class="slide-section" id="university">
-                  <div class="container">
-                      <h1 class="text-center">See courses by university</h1>
-                      <div class="row">
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <h3>My frequently visited</h3>
-                            <a href="#">University 1</a>
-                            <a href="#">University 2</a>
-                            <div class="recent-uni-spacer"></div>
-                              <?php $uk_school = App\Models\University::where('country_slug', '=', 'UK')->get(); ?>
-                            <h4>United Kingdom</h4>
-                              @foreach($uk_school as $school)
-                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
-                              @endforeach
-                          </div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                              <h4>Australia</h4>
-                              <?php $au_school = App\Models\University::where('country_slug', '=', 'AU')->get(); ?>
-                              @foreach($au_school as $school)
-                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
-                              @endforeach
-
-                              <h4>United States</h4>
-                              <?php $us_school = App\Models\University::where('country_slug', '=', 'US')->get(); ?>
-                              @foreach($us_school as $school)
-                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
-                              @endforeach
-                          </div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                              <h4>Canada</h4>
-                              <?php $ca_school = App\Models\University::where('country_slug', '=', 'CA')->get(); ?>
-                              @foreach($ca_school as $school)
-                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
-                              @endforeach
-
-                              <h4>Switzerland</h4>
-                              <?php $ch_school = App\Models\University::where('country_slug', '=', 'CH')->get(); ?>
-                              @foreach($ch_school as $school)
-                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
-                              @endforeach
-
-                          </div>
-                          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                              <h4>Ireland</h4>
-                              <?php $il_school = App\Models\University::where('country_slug', '=', 'IL')->get(); ?>
-                              @foreach($il_school as $school)
-                                  <a href="{{ route( 'user.university.detail', $school->slug) }}">{{ $school->name }}</a>
-                              @endforeach
-                          </div>
-                      </div>
-                  </div>
-              </div><!-- /.slide-section -->
-
-
-              <div class="slide-section" id="career">
-                  <div class="container">
-                      <h1 class="text-center">See Courses by career</h1>
-                      <div class="row">
-                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">My frequently visited</h3>
-                            <a class="col-lg-3 col-md-3 col-sm-3 col-xs-3" href="#">Career 1</a>
-                            <a class="col-lg-3 col-md-3 col-sm-3 col-xs-3" href="#">Career 2</a>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 recent-uni-spacer"></div>
-                              <?php $carrers = App\Models\Career::all(); ?>
-                              @foreach($carrers as $carrer)
-                                  <a class="col-lg-3 col-md-3 col-sm-3 col-xs-3" href="{{ route('user.career.detail', $carrer->slug) }}">{{ $carrer->name }}</a>
-                              @endforeach
-                          </div>
-                      </div>
+                        </div>
                     </div>
-                </div><!-- /.slide-section -->
+                </div>
+            </div><!-- /.slide-section -->
+
+            <div class="slide-section" id="university">
+                @include('layouts.menu_university')
+            </div><!-- /.slide-section -->
 
 
-              <div class="closepane" title="Click or scroll to hide">
+            <div class="slide-section" id="career">
+                <div class="container">
+                    <h1 class="text-center">See Courses by career</h1>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <h3>My frequently visited</h3>
+                            <a href="#">Career 1</a>
+                            <a href="#">Career 2</a>
+                            <a href="#">Career 3</a>
+                            <div class="recent-uni-spacer"></div>
+                            <?php
+                            $carrers = App\Models\Career::all();
+                            $count = $carrers->count() + 5;
+                            $one_col = round($count /4) + 1;
+                            $i = 0;
+                            ?>
+                            @foreach($carrers as $carrer)
+                                <?php $i++; ?>
+                                @if( $i <= $one_col - 5)
+                                    <a href="{{ route('user.career.detail', $carrer->slug) }}">{{ $carrer->name }}</a>
+                                @endif
+
+                                @if( $i == $one_col - 5)
+                        </div><div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            @endif
+
+                            @if($i > $one_col - 5 && $i <= (2 * $one_col) - 5)
+                                <a href="{{ route('user.career.detail', $carrer->slug) }}">{{ $carrer->name }}</a>
+                            @endif
+
+                            @if( $i == (2 * $one_col) - 5)
+                        </div><div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            @endif
+
+                            @if($i > (2 * $one_col) - 5 && $i <= (3 * $one_col) - 5)
+                                <a href="{{ route('user.career.detail', $carrer->slug) }}">{{ $carrer->name }}</a>
+                            @endif
+                            @if( $i == (3 *$one_col) - 5)
+                        </div><div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            @endif
+                            @if($i > (3 * $one_col) - 5 && $i <= $count)
+                                <a href="{{ route('user.career.detail', $carrer->slug) }}">{{ $carrer->name }}</a>
+                            @endif
+
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.slide-section -->
+
+
+            <div class="closepane" title="Click or scroll to hide">
                 <i class="fa fa-chevron-up"></i>
             </div>
-          </div><!-- /.sub-menu -->
-        </nav>
+        </div><!-- /.sub-menu -->
+    </nav>
 
-        @yield('content')
+    @yield('content')
 
+    @include('layouts.footer')
 
-        <!-- footer -->
-        <div class="container">
-            <div class="contact-home" id="ask-us-a-question">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col">
-                        <div class="university-guide">
-                            <h3 class="title">UNIVERSITY GUIDE</h3>
-                            <ul>
-                                <li>Choosing a university
-                                <li>Applying to university</li>
-                                <li>Accepting your offer</li>
-                                <li>Finances &amp; Scholarships</li>
-                                <li>Flight &amp; Accomodation</li>
-                                <li>Student visa</li>
-                            </ul>
-                        </div><!-- /.university-guide -->
-                    </div>
+</div>
 
-                    <div class="col-md-4 col-sm-6 col">
-                        <div class="form-contact">
-                            <h3 class="title">HAVE US CONTACT YOU</h3>
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Name">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="WhatsApp">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control">Your questions for our education consultans</textarea>
-                            </div>
-                            <div class="bottom"><button class="btn btn-green btn-block">Contact me</button></div>
-                        </div><!-- /.form-contact -->
-                    </div>
+<!-- Scripts -->
+{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="{{ asset('js/slick.js') }}"></script>
+<script src="{{ asset('js/jquery.smooth-scroll.js') }}"></script>
+{{-- <script src="{{ asset('js/test.js') }}"></script> --}}
+<script src="{{ asset('js/custom.js') }}"></script>
+<script type="text/javascript" src="{{url('js/lang.js')}} "></script>
 
-                    <div class="col-md-5 col-sm-12 col">
-                        <div class="maps">
-                            <h3 class="title">MEET US</h3>
-                            <div class="img">
-                                <img src="/img/map.jpg" alt="">
-                            </div>
-                            <div class="info">
-                                <p>Monday to Friday: <strong>10am - 8pm</strong></p>
-                                <p>Saturday: <strong>10am - 1pm</strong></p>
-                            </div>
-                        </div><!-- /.maps -->
-                    </div>
-                </div>
-            </div><!-- /.contact-home -->
-        </div>
-        <footer>
-            <div class="container text-center footer-top">
-                <p>
-                    <strong>VIETNAM:</strong> Floor 15, TNR Tower, 115 Tran Hung Dao, Hoan Kiem, Ha Noi<br/>
-                    <strong>AUSTRALIA：</strong> Shop 8, Esplanade Busport, Perth 6000<br/>
-                    <strong>SINGAPORE：</strong> #12-05/06 Park Mall, 9 Penang Road, Singapore 238459<br/>
-                    <strong>JAKARTA：</strong> Ruko Financial Center BA2 No 54 Gading Serpong, Tangerang 15810
-                </p>
-                <div class="social">
-                    <a href="#"><i class="sprite-facebook"></i></a>
-                    <a href="#"><i class="sprite-google-plus"></i></a>
-                    <a href="#"><i class="sprite-twitter"></i></a>
-                    <a href="#"><i class="sprite-youtube"></i></a>
-                </div><!-- /.social -->
-            </div><!-- /.footer-top -->
-
-            <div class="footer-bottom text-center">
-                <div class="container">
-                    Copyright 2017 JACK Study Abroad Vietnam. 
-                </div>
-            </div><!-- /.footer-bottom -->
-        </footer>
-        <!-- e: footer -->
-    </div>
-
-    <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/slick.js') }}"></script>
-    <script src="{{ asset('js/jquery.smooth-scroll.js') }}"></script>
-    {{-- <script src="{{ asset('js/test.js') }}"></script> --}}
-    <script src="{{ asset('js/custom.js') }}"></script>
-    <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
-
-    <script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
-    @yield('scripts')
+<script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
+@yield('scripts')
 </body>
 </html>
 
