@@ -62,12 +62,7 @@
 
 	<div class="box-filter progress-filter">
 		<h4 class="title-box">Filters</h4>
-		<div class="bg-alevel">
-			<div class="alevel" style="width: 50%;">
-			</div>
-			<span class="first">EEE</span>
-			<span style="left: 50%;">AAA</span>
-		</div>
+		<div id="fillter-subject"></div>
 	</div><!-- /.box-filter -->
 
 	<div class="filter-result subjects">

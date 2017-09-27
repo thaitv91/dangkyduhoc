@@ -94,6 +94,7 @@ $(document).ready(function() {
 
    
   $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+  $('.tip').tooltip();
 
   $('#slider-img-uni').slick({
     infinite: true,
@@ -156,4 +157,24 @@ $('#slider-img-fair').slick({
   $('#add-course-btn').click(function(){
     $('#add_course_dialog').slideToggle();
   });
+
+  // fillter subject
+  $( "#fillter-subject" ).slider({
+    range: true,
+    min: 0,
+    max: 10,
+    values: [ 0, 10 ],
+    slide: function( event, ui ) {
+        // u could use this function
+        $(".ui-slider-range + a").html(ui.values[ 0 ]);
+        $(".ui-slider-range + a + a").html(ui.values[ 1 ]);
+    },
+    change: function(event, ui) {
+        // or u could use this function
+        $(".min-slider-value + a").html(ui.values[ 0 ]);
+        $(".ui-slider-range + a + a").html(ui.values[ 1 ]);
+    }
+  });
+ $(".ui-slider-range + a").html(0);
+  $(".ui-slider-range + a + a").html(10);
 });
