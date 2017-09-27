@@ -17,6 +17,7 @@
 		<!-- form start -->
 		<form role="form" id="form-edit" method="POST" enctype="multipart/form-data">
 			{{ csrf_field() }}
+			{{ method_field('PUT') }}
 			<div class="col-md-8 col-md-offset-2">
 				<div class="box-body">
 					<div class="form-group row">

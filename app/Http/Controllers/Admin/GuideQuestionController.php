@@ -73,7 +73,13 @@ class GuideQuestionController extends Controller
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
                 DB::beginTransaction();
-                $data['slug'] = str_slug( $data['question_en'] );
+                if($data['question_en']){
+                    $data['slug'] = str_slug( $data['question_en'] );
+                }else if($data['question']){
+                    $data['slug'] = str_slug( $data['question'] ); 
+                }else{
+                     $data['slug'] = str_slug( $data['question_en'] );    
+                }
                 $datas = GuideQuestion::create($data);
                 DB::commit();
                 Session::flash('success','Success!');
@@ -149,7 +155,13 @@ class GuideQuestionController extends Controller
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
                 DB::beginTransaction();
-                $data['slug'] = str_slug( $data['question_en'] );
+                if($data['question_en']){
+                    $data['slug'] = str_slug( $data['question_en'] );
+                }else if($data['question']){
+                    $data['slug'] = str_slug( $data['question'] ); 
+                }else{
+                     $data['slug'] = str_slug( $data['question_en'] );    
+                }
                 $datas = GuideQuestion::where('id', $id)->first();
                 $datas->update($data);
                 DB::commit();
