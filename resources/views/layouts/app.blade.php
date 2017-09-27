@@ -200,41 +200,7 @@
             <div class="slide-section" id="subject">
                 <div class="container">
                     <h1 class="text-center">See Courses by subject</h1>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <h3>My frequently visited</h3>
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <div class="recent-uni-spacer"></div>
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
-                        </div>
-                    </div>
+                    @include('layouts.subject')
                 </div>
             </div><!-- /.slide-section -->
 

@@ -93,31 +93,11 @@
 			<div class="content-guide-detail">
 				<h1>
 					<i class="fa fa-check-circle" aria-hidden="true"></i>
-					<span>What is theRightU?</span>
+					<span>{!! $title !!}</span>
 				</h1>
 
 				<div class="faq-answer">
-					<p>TheRightU is a university admissions consultancy headquartered in Singapore. We partner top universities and colleges from Australia, UK, US, Ireland, Switzerland, New Zealand and Europe, and provide comprehensive university admissions diagnostics and personalised education counselling to students through the innovative use of technology.</p>
-					<h3>The Right Approach</h3>
-					<p>Education is a serious investment of time and money. And it isn’t one-size-fits-all.&nbsp;</p>
-					<p>Our experienced team is here to ensure your application process is hassle-free and you have the best chances of success for admission, maximum credit exemptions, and financial aid (if applicable).&nbsp;</p>
-					<h3>The Right Process</h3>
-					<p>We start by ensuring our team is equipped and stays updated on our knowledge of the education system, visas and life in Australia, UK, Ireland, Canada, USA and Switzerland.&nbsp;</p>
-					<ol>
-						<li>We start by understanding your needs and goals;</li>
-						<li>We guide you to explore options efficiently: we use our proprietary tools to conduct research and suggest the best programs to help you reach your goals;</li>
-						<li>We assist you to collect all the documents you will need for your application;</li>
-						<li>We guide you through the application process (and visa process once you have been accepted by an institution).</li>
-					</ol>
-					<p>Our goal is to ensure every student has the best chances of success to access higher education, flourish, and achieve his/her dreams.</p>
-					<h3>The Right Tools</h3>
-					<ul>
-						<li>Whenever, 24/7, get immediate access to extensive university and course information.</li>
-						<li>Use our handy tools to search and compare courses, and get unbiased advice and a selection of suitable courses that are customised according to your profile and search requirements.</li>
-						<li>Apply online and use our automated tracking tools to keep yourself and your family updated on the application status.</li>
-						<li>Get ready for university by setting up automatic alerts and updates to stay abreast on university activities.</li>
-					</ul>
-					<p>Our platform also enables our counsellors to provide prompt and accurate information and ready online consultation for students.</p>
+					{!! $answer !!}
 				</div><!-- /.faq-answer -->
 
 				<div class="author" id="author">
