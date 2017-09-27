@@ -18,9 +18,9 @@ class AlterCourseInformationTable extends Migration
             $table->string('university_code')->nullable()->change();
             $table->dateTime('upcoming_intakes')->nullable()->change();
             $table->string('course_website')->nullable()->change();
-            $table->string('duration')->nullable()->change();
-            $table->string('about')->nullable()->change();
-            $table->string('will_learn')->nullable()->change();
+            $table->integer('duration')->nullable()->change();
+            $table->text('about')->nullable()->change();
+            $table->text('will_learn')->nullable()->change();
             $table->string('university_information')->nullable()->change();
         });
     }

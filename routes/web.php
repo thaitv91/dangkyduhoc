@@ -109,8 +109,12 @@ Route::get('/','User\HomeController@index')->name('home');
 //Route::post('/language/', array('before' => 'csrf', 'as'=>'language-chooser', 'uses' => 'Language\LanguageController@changeLanguage',) );
 
 Route::get('chatbox', function (){
+	// Session::put('id_chat',Session::getId().time());
 	return view('chatbox');
 });
+
+Route::get('menu', 'HomeController@index')->name('menu');
+Route::get('subject/{subject?}', 'HomeController@subject')->name('subject');
 
 // html
 Route::get('/html/universities', function() {

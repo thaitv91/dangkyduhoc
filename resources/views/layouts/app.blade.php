@@ -194,37 +194,42 @@
                       <h1 class="text-center">See Courses by subject</h1>
                       <div class="row">
                           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            @if (Cookie::get('frequently_visited_subjects') !== null)
                             <h3>My frequently visited</h3>
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
+                            <?php foreach (Cookie::get('frequently_visited_subjects') as $key => $value): ?>
+                                @if ($key < 3)
+                                <a href="{{ route('subject', $value['url']) }}">{{ $value['name'] }}</a>
+                                @endif
+                            <?php endforeach ?>
+                            @endif
                             <div class="recent-uni-spacer"></div>
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
+                            <a href="{{ route('subject', ['subject1']) }}">Subject 1</a>
+                            <a href="{{ route('subject', ['subject2']) }}">Subject 2</a>
+                            <a href="{{ route('subject', ['subject3']) }}">Subject 3</a>
                           </div>
                           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
+                            <a href="{{ route('subject', ['subject4']) }}">Subject 4</a>
+                            <a href="{{ route('subject', ['subject5']) }}">Subject 5</a>
+                            <a href="{{ route('subject', ['subject6']) }}">Subject 6</a>
+                            <a href="{{ route('subject', ['subject7']) }}">Subject 7</a>
+                            <a href="{{ route('subject', ['subject8']) }}">Subject 8</a>
+                            <a href="{{ route('subject', ['subject9']) }}">Subject 9</a>
                           </div>
                           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
+                            <a href="{{ route('subject', ['subject10']) }}">Subject 10</a>
+                            <a href="{{ route('subject', ['subject11']) }}">Subject 11</a>
+                            <a href="{{ route('subject', ['subject12']) }}">Subject 12</a>
+                            <a href="{{ route('subject', ['subject13']) }}">Subject 13</a>
+                            <a href="{{ route('subject', ['subject14']) }}">Subject 14</a>
+                            <a href="{{ route('subject', ['subject15']) }}">Subject 15</a>
                           </div>
                           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
-                            <a href="#">Subject 1</a>
-                            <a href="#">Subject 2</a>
-                            <a href="#">Subject 3</a>
+                            <a href="{{ route('subject', ['subject16']) }}">Subject 16</a>
+                            <a href="{{ route('subject', ['subject17']) }}">Subject 17</a>
+                            <a href="{{ route('subject', ['subject18']) }}">Subject 18</a>
+                            <a href="{{ route('subject', ['subject19']) }}">Subject 19</a>
+                            <a href="{{ route('subject', ['subject20']) }}">Subject 20</a>
+                            <a href="{{ route('subject', ['subject21']) }}">Subject 21</a>
                           </div>
                       </div>
                   </div>                

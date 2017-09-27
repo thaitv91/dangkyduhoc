@@ -49,27 +49,27 @@
 				<div class="box-body">
 					<div class="form-group">
 						<label for="year_tuition_fees">Year Tuition Fees</label>
-						<input type="text" class="form-control" name="year_tuition_fees" id="year_tuition_fees" value="{{ $course->cost->year_tuition_fees }}" required>
+						<input type="number" class="form-control" name="year_tuition_fees" id="year_tuition_fees" value="{{ $course->cost->year_tuition_fees }}" required step=any>
 					</div>
 					<div class="form-group">
 						<label for="day_drink_fees">Drink Fees</label>
-						<input type="text" class="form-control" name="day_drink_fees" id="day_drink_fees" value="{{ $course->cost->day_drink_fees }}" required>
+						<input type="number" class="form-control" name="day_drink_fees" id="day_drink_fees" value="{{ $course->cost->day_drink_fees }}" required>
 					</div>
 					<div class="form-group">
 						<label for="day_food_fees">Food Fees</label>
-						<input type="text" class="form-control" name="day_food_fees" id="day_food_fees" value="{{ $course->cost->day_food_fees }}" required>
+						<input type="number" class="form-control" name="day_food_fees" id="day_food_fees" value="{{ $course->cost->day_food_fees }}" required>
 					</div>
 					<div class="form-group">
 						<label for="day_accommodation_fees">Accommodation Fees</label>
-						<input type="text" class="form-control" name="day_accommodation_fees" id="year_tuition_fees" value="{{ $course->cost->day_accommodation_fees }}" required>
+						<input type="number" class="form-control" name="day_accommodation_fees" id="year_tuition_fees" value="{{ $course->cost->day_accommodation_fees }}" required step=any>
 					</div>
 					<div class="form-group">
 						<label for="day_coffe_fees">Coffe Fees</label>
-						<input type="text" class="form-control" name="day_coffe_fees" id="day_coffe_fees" value="{{ $course->cost->day_coffe_fees }}" required>
+						<input type="number" class="form-control" name="day_coffe_fees" id="day_coffe_fees" value="{{ $course->cost->day_coffe_fees }}" required>
 					</div>
 					<div class="form-group">
 						<label for="day_coffe_fees">Cost per year</label>
-						<input type="text" class="form-control" name="cost_per_year" id="cost_per_year" value="{{ $course->cost->cost_per_year }}" required>
+						<input type="number" class="form-control" name="cost_per_year" id="cost_per_year" value="{{ $course->cost->cost_per_year }}" required step=any>
 					</div>
 				</div>
 				<!-- /.box-body -->
@@ -131,7 +131,7 @@
 					</div>
 					<div class="form-group">
 						<label for="duiration">Duiration</label>
-						<input type="text" class="form-control" name="duiration" id="duiration" value="{{ $course->information->duiration }}">
+						<input type="number" class="form-control" name="duiration" id="duiration" value="{{ $course->information->duiration }}">
 					</div>
 					<div class="form-group">
 						<label for="university_information">University Information</label>
@@ -167,22 +167,24 @@
 							@endif
 							<div class="form-group">
 								<label for="ranking_title">Title</label>
-								<input type="text" class="form-control" name="ranking_title[]" id="ranking_title" value="{{ $ranking->ranking_title }}" required>
+								<input type="text" class="form-control" name="ranking_title[]" id="ranking_title" value="{{ $ranking->ranking_title }}">
 							</div>
 							<div class="form-group">
 								<label for="ranking_point">Ranking Point</label>
-								<input type="text" class="form-control" name="ranking_point[]" id="ranking_point" value="{{ $ranking->ranking_point }}" required>
+								<input type="number" class="form-control" name="ranking_point[]" id="ranking_point" value="{{ $ranking->ranking_point }}" required>
 							</div>
 							<div class="form-group">
 								<label for="ranking_subject">Ranking Subject</label>
-								<input type="text" class="form-control" name="ranking_subject[]" id="ranking_subject" value="{{ $ranking->ranking_subject }}" required>
+								<input type="text" class="form-control" name="ranking_subject[]" id="ranking_subject" value="{{ $ranking->ranking_subject }}">
 							</div>
 							<div class="form-group">
 								<label for="country">Country</label>
-								<select class="form-control" name="country[]" required>
+								<select class="form-control" name="country[]">
 									<?php foreach ($countries as $value): ?>
 										@if ($ranking->country_slug==$value->slug)
 										<option value="{{ $value->slug }}" selected>{{ $value->name }}</option>
+										@elseif ($ranking->country_slug == '')
+										<option selected disabled>-- Select Country --</option>
 										@else
 										<option value="{{ $value->slug }}">{{ $value->name }}</option>
 										@endif
@@ -204,7 +206,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- /.box -->
+		<!-- /.box -->	
 
 		<div class="box box-default">
 			<!-- /.box-header -->
@@ -233,7 +235,7 @@
 	});
 	$('#university').val('{{ $course->university->id }}').trigger('change');
 	$('#upcoming_intakes').datepicker({
-		dateFormat: 'dd/mm/yy',
+		format : 'dd/mm/yyyy',
 	});
 </script>
 <script type="text/javascript">
@@ -247,7 +249,7 @@
 		'</div>'+
 		'<div class="form-group">'+
 		'<label for="ranking_point">Ranking Point</label>'+
-		'<input type="text" class="form-control" name="ranking_point[]" id="ranking_point" value="" required>'+
+		'<input type="number" class="form-control" name="ranking_point[]" id="ranking_point" value="" required>'+
 		'</div>'+
 		'<div class="form-group">'+
 		'<label for="ranking_subject">Ranking Subject</label>'+

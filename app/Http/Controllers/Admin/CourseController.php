@@ -192,7 +192,7 @@ class CourseController extends Controller
                 'course_id'                 =>  $course_id,
                 'course_code'               =>  $request->course_code,
                 'university_code'           =>  $request->university_code,
-                'upcoming_intakes'          =>  isset($request->upcoming_intakes)?Carbon::parse($request->upcoming_intakes):null,
+                'upcoming_intakes'          =>  isset($request->upcoming_intakes)?Carbon::parse(str_replace('/', '-', $request->upcoming_intakes)):null,
                 'course_website'            =>  $request->course_website,
                 'duration'                  =>  $request->duiration,
                 'about'                     =>  $request->about,
