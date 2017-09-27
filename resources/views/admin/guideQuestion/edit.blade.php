@@ -17,12 +17,13 @@
 		<!-- form start -->
 		<form role="form" id="form-edit" method="POST" enctype="multipart/form-data">
 			{{ csrf_field() }}
+			{{ method_field('PUT') }}
 			<div class="col-md-8 col-md-offset-2">
 				<div class="box-body">
 										<div class="form-group row">
 						<label  class="col-md-3" for="name">Question Vi</label>
 						<div class="col-md-9">
-							<input type="text" class="form-control" name="question" id="question" value="{{ old('question') }}">   
+							<input type="text" class="form-control" name="question" id="question" value="{{ $data['question'] }}">   
 							@if($errors->has('question'))
 	                            <span class="help-block">
 	                                <strong class="text-danger">{{$errors->first('question')}}</strong>
@@ -33,7 +34,7 @@
 					<div class="form-group row">
 						<label  class="col-md-3" for="name">Question En</label>
 						<div class="col-md-9">
-							<input type="text" class="form-control" name="question_en" id="question_en" value="{{ old('question_en') }}">  
+							<input type="text" class="form-control" name="question_en" id="question_en" value="{{  $data['question_en'] }}">  
 							@if($errors->has('question_en'))
 	                            <span class="help-block">
 	                                <strong class="text-danger">{{$errors->first('question_en')}}</strong>
@@ -44,7 +45,7 @@
 					<div class="form-group row">
 						<label  class="col-md-3" for="name">Answer Vi</label>
 						<div class="col-md-9">
-							<textarea class="form-control my-editor" rows="15" id="answer" name="answer" value="{{ old('answer') }}"></textarea>    
+							<textarea class="form-control my-editor" rows="15" id="answer" name="answer" value="{{ old('answer') }}">{!! $data['answer'] !!}</textarea>    
 							@if($errors->has('answer'))
 	                            <span class="help-block">
 	                                <strong class="text-danger">{{$errors->first('answer')}}</strong>
@@ -55,7 +56,7 @@
 					<div class="form-group row">
 						<label  class="col-md-3" for="name">Answer En</label>
 						<div class="col-md-9">
-							<textarea class="form-control my-editor" rows="15" id="answer_en" name="answer_en" value="{{ old('answer_en') }}"></textarea>    
+							<textarea class="form-control my-editor" rows="15" id="answer_en" name="answer_en" value="{{ old('answer_en') }}">{!! $data['answer_en'] !!}</textarea>    
 							@if($errors->has('answer_en'))
 	                            <span class="help-block">
 	                                <strong class="text-danger">{{$errors->first('answer_en')}}</strong>
@@ -70,7 +71,7 @@
                               <option disabled selected></option>
                               @if(count($guide)!=0)
                                   @foreach($guide as $db_guide)
-                                  <option value="{{$db_guide->id}}" data-tokens="{{$db_guide->name}}" >{{$db_guide->name }} </option>
+                                  <option @if ($db_guide->id == $guide_select['guide_id']) selected @endif value="{{$db_guide->id}}" data-tokens="{{$db_guide->name}}" >{{$db_guide->name }} </option>
                                   @endforeach
                                @endif
                               @if(count($guide)==0)
@@ -82,8 +83,10 @@
 					<div class="form-group row">
 						<label class="col-md-3">Topic</label>
 						<div class="col-md-9">
-	                     	<select class="form-control" id="topic_id" name="topic_id">	                     
-	                       		<option value="" ></option>         
+	                     	<select class="form-control" id="topic_id" name="topic_id">	   
+	                     	@foreach($topic as $db_topic)                  
+	                       		<option @if ($db_topic->id == $data['topic_id']) selected @endif value="{{$db_topic->id}}" >{{$db_topic->title }}</option> 
+	                       	@endforeach        
 	                     	</select>
 	                     	@if($errors->has('topic_id'))
 	                            <span class="help-block">

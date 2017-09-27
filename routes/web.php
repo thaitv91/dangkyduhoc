@@ -163,7 +163,7 @@ Route::post('/admin/countries/{country}/delete', 'Admin\CountryController@destro
 Auth::routes();
 
 // FrontEnd
-Route::get('/','User\HomeController@index');
+Route::get('/','User\HomeController@index')->name('user.home');
 //Route::post('/language-chooser', 'Language\LanguageController@changeLanguage');
 //Route::post('/language/', array('before' => 'csrf', 'as'=>'language-chooser', 'uses' => 'Language\LanguageController@changeLanguage',) );
 

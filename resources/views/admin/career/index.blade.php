@@ -22,9 +22,7 @@
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
-					<th>Name En/th>
 					<th>Description</th>
-					<th>Description En</th>
 					<th>Fuction</th>
 				</tr>
 			</thead>
@@ -33,9 +31,7 @@
 					<tr>
 						<td>{{ $key+1 }}</td>
 						<td>{{ $value->name }}</td>
-						<td>{{ $value->name_en }}</td>
 						<td>{!! str_limit($value->description , $limit = 100, $end = '...') !!}</td>
-						<td>{!! str_limit($value->description_en , $limit = 100, $end = '...') !!}</td>
 						<td>
 							<a href="{{ route('admin.career.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
 	                        <a onclick="confirmDelete({{$value->id}})" class="btn btn-xs btn-danger">Delete</a>

@@ -163,7 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Cornford\Googlmapper\MapperServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -177,8 +177,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-
+        
     ],
 
     /*
@@ -228,7 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Input' => Illuminate\Support\Facades\Input::class,
-
+        'Mapper'         => Cornford\Googlmapper\Facades\MapperFacade::class,
     ],
 
 ];

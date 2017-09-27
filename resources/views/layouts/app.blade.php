@@ -149,7 +149,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#"><img src="/img/logo.png" alt="Đăng ký du học" /></a>
+              <a class="navbar-brand" href="{{ route('user.home') }}"><img src="/img/logo.png" alt="Đăng ký du học" /></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -366,7 +366,7 @@
                         <div class="maps">
                             <h3 class="title">MEET US</h3>
                             <div class="img">
-                                <img src="/img/map.jpg" alt="">
+                                <div style="width: 477px; height: 172px;">{!! Mapper::render(0)!!}</div>
                             </div>
                             <div class="info">
                                 <p>Monday to Friday: <strong>10am - 8pm</strong></p>

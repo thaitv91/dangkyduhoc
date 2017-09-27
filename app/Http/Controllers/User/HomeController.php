@@ -8,7 +8,7 @@ use App\Models\PageField;
 use App\Models\Page;
 use App\Models\Rating;
 use App;
-
+use Mapper;
 use DB;
 class HomeController extends Controller
 {
@@ -31,10 +31,17 @@ class HomeController extends Controller
                 $data_field[$field->slug] = $field->content;
             }
         }
+
+        Mapper::map(
+            20.999075, 105.798329,
+            [
+            'zoom' => 16, 'markers' => ['title' => 'My Location', 'animation' => 'DROP'], 'clusters' => ['size' => 7, 'center' => true, 'zoom' => 20], 'eventAfterload' =>'circleListener( maps[0].shapes.[0].circle_0);'           
+            ]      
+        );
         $this->viewData = array(
             'data_field' => $data_field,
             'rating'     => $rating,
-            'locale'     => $locale
+            'locale'     => $locale,
             );
         return view('user.homepage', $this->viewData);
     }
