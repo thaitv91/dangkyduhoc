@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Subject;
+use App\Models\Career;
+use App\Models\SubjectCareer;
 use DB;
 use Session;
 use Redirect;
@@ -33,8 +35,12 @@ class SubjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view( 'admin.subject.create' );
+    {   
+        $career = Career::all();
+        $this->view = array(
+            'career'  => $career
+        );
+        return view( 'admin.subject.create',  $this->view );
     }
 
     /**
@@ -46,6 +52,7 @@ class SubjectController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        
         try {
         DB::beginTransaction();
             if($data['name_en']){
@@ -56,6 +63,14 @@ class SubjectController extends Controller
                      $data['slug'] = str_slug( $data['name_en'] );    
                 }
             $subject = Subject::create($data);
+            $subject_id = $subject->id;
+            foreach ($data['career_id'] as $value) {
+                $datas=array(
+                'subject_id' => $subject_id,
+                'career_id'         => $value,
+            );
+            $subject_career = SubjectCareer::create($datas);
+            }
             DB::commit();
             Session::flash('success','Success!');
             return redirect(route('admin.subject.index'));
@@ -87,8 +102,20 @@ class SubjectController extends Controller
     public function edit($id)
     {
         $data = Subject::find( $id );
+        $subject_career = SubjectCareer::where( 'subject_id', $id )->get();
+
+        if (count($subject_career) != 0)
+            foreach ($subject_career as $key => $value) {
+                $career_id[] = $value['career_id']; 
+            }
+                    
+        $career = Career::all();
+        // dd($career_id);
         $this->viewData = array(
-            'data'  => $data
+            'data'  => $data,
+            'subject_career' => $subject_career,
+            'career'  => $career,
+            'career_id' => $career_id
         );
         return view ('admin.subject.edit', $this->viewData );
     }
@@ -114,11 +141,25 @@ class SubjectController extends Controller
                 }
             $subject = Subject::where('id', $id)->first();
             $subject->update($data);
+
+            SubjectCareer::where( 'subject_id', $id )->delete();
+
+            foreach ($data['career_id'] as $value) {
+                $datas=array(
+                'subject_id' => $id,
+                'career_id'         => $value,
+            );
+            $subject_career = SubjectCareer::create($datas);
+            }
             DB::commit();
             Session::flash('success','Success!');
             return redirect(route('admin.subject.index'));
-                
-            
+        foreach ($data['career_id'] as $value) {
+                $datas=array(
+                'subject_id' => $subject_id,
+                'career_id'         => $value,
+            );         
+        }       
         } catch (Exception $e) {
             Session::flash('error','Opp! Please try again.Error!');
             DB::rollback();
