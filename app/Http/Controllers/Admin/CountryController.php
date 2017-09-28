@@ -17,7 +17,7 @@ class CountryController extends Controller
     public function index()
     {
         $countries = Country::all();
-
+        
         $data = [
             'title' => 'Countries',
             'countries' => $countries

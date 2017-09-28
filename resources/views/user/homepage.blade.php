@@ -4,7 +4,7 @@
 @endsection
 @section("content")
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<div class="banner-home" style="background-image: url({{ Storage::disk('local')->url( $data_field['header-banner']) }});">
+<div class="banner-home" style="background-image:url( {{  $data_field['header-banner'] }})">
 	<div class="container">
 		<div class="text">
 			<h1>{!! $data_field['header-slogan1']!!}</h1>
@@ -177,7 +177,7 @@
 			<div class="review-item <?php $class = ($key % 2 == 0) ? 'right' : ''; echo $class; ?>">
 				<div class="avatar-rating">
 					<div class="avatar">
-						<img src="{{ Storage::disk('local')->url($list['avatar']) }}" alt="">
+						<img src="{{ $list['avatar'] }}" alt="">
 					</div>
 					<div class="rating">
 						<?php for ($i = $list['rating']  ; $i--; $i > 0) {?>
@@ -204,7 +204,7 @@
 <div class="let-started text-center">
 	<div class="container">
 		<div class="wrap">
-			<img src="{{ Storage::disk('local')->url( $data_field['image-right-tools']) }}" alt="">
+			<img src="{{ $data_field['image-right-tools'] }}" alt="">
 			<h2 class="title">{!! $data_field['let-started-title'] !!}</h2>
 			<div class="description">
 				<p>{!! $data_field['let-started-content'] !!}</p>
@@ -213,57 +213,4 @@
 		</div>
 	</div>
 </div><!-- /.let-started -->
-
-
-<div class="container">
-	<div class="contact-home">
-		<div class="row">
-			<div class="col-md-3 col-sm-6 col">
-				<div class="university-guide">
-					<h3 class="title">{{ trans('home.university_guide')}}</h3>
-					<ul>
-						<li>Choosing a university
-						<li>Applying to university</li>
-						<li>Accepting your offer</li>
-						<li>Finances & Scholarships</li>
-						<li>Flight & Accomodation</li>
-						<li>Student visa</li>
-					</ul>
-				</div><!-- /.university-guide -->
-			</div>
-
-			<div class="col-md-4 col-sm-6 col">
-				<div class="form-contact">
-					<h3 class="title">{{ trans('home.contact_you')}}</h3>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Name">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Email">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="WhatsApp">
-					</div>
-					<div class="form-group">
-						<textarea class="form-control">Your questions for our education consultans</textarea>
-					</div>
-					<div class="bottom"><button class="btn btn-green btn-block">{{trans('home.contact_me')}}</button></div>
-				</div><!-- /.form-contact -->
-			</div>
-
-			<div class="col-md-5 col-sm-12 col">
-				<div class="maps">
-					<h3 class="title">{{ trans('home.meet_us')}}</h3>
-					<div class="img">
-						<img src="/img/map.jpg" alt="">
-					</div>
-					<div class="info">
-						<p>Monday to Friday: <strong>10am - 8pm</strong></p>
-						<p>Saturday: <strong>10am - 1pm</strong></p>
-					</div>
-				</div><!-- /.maps -->
-			</div>
-		</div>
-	</div><!-- /.contact-home -->
-</div>
 @endsection

@@ -125,4 +125,35 @@ $('#slider-img-fair').slick({
   });
 
   $('.smoothScroll a').smoothScroll({offset: -100});
+
+  // fixed column left guide detail
+  $(window).scroll(function(){
+    if ($('#guide-detail').length){
+      var w_scroll = $(this).scrollTop()
+          content_top = $('#guide-detail').offset().top;
+
+      var top_1 = w_scroll+ 80 - content_top;
+      
+      if (content_top - w_scroll <= 80){
+        $('#content-fixed').addClass('fixed');
+        $('#content-fixed .left-guide-detail').css({
+          top: top_1
+        });
+      }
+      else{
+        $('#content-fixed').removeClass('fixed');
+      }
+
+      var content_contact = $('#ask-us-a-question').offset().top;
+      var top_2 = content_contact - w_scroll;
+      if (top_2 <= 650){
+        $('#content-fixed').removeClass('fixed');
+      }
+    }    
+  });
+
+  // apply
+  $('#add-course-btn').click(function(){
+    $('#add_course_dialog').slideToggle();
+  });
 });

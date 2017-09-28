@@ -73,7 +73,13 @@ class GuideQuestionController extends Controller
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
                 DB::beginTransaction();
-                $data['slug'] = str_slug( $data['question_en'] );
+                if($data['question_en']){
+                    $data['slug'] = str_slug( $data['question_en'] );
+                }else if($data['question']){
+                    $data['slug'] = str_slug( $data['question'] ); 
+                }else{
+                     $data['slug'] = str_slug( $data['question_en'] );    
+                }
                 $datas = GuideQuestion::create($data);
                 DB::commit();
                 Session::flash('success','Success!');
@@ -105,7 +111,18 @@ class GuideQuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $guide = Guide::all();
+        $data = GuideQuestion::find($id);
+        $guide_select = GuideTopic::where('id' , $data['topic_id'])->first();
+        $topic = GuideTopic::where('guide_id', $guide_select['guide_id'])->get();
+        // dd($topic);
+        $this->viewData = array(
+            'guide' => $guide,
+            'data'  => $data,
+            'guide_select' => $guide_select,
+            'topic' => $topic
+        );
+        return view('admin.guideQuestion.edit', $this->viewData);
     }
 
     /**
@@ -117,7 +134,45 @@ class GuideQuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        try {
+            $rules = [
+                'question'               =>'required',
+                'question_en'            =>'required',
+                'topic_id'               =>'required'
+                ];
+
+            $messages = [
+                'question.required'      =>'Please enter the question!!',
+                'question.required'      =>'Please enter the question!!',
+                'topic_id.required'      =>'Please chose the topic!!',
+                                
+            ];
+
+            $validator = Validator::make( $request->all(), $rules, $messages);
+
+            if ( $validator->fails() ){
+                return redirect()->back()->withInput($data)->withErrors($validator);
+            }else{
+                DB::beginTransaction();
+                if($data['question_en']){
+                    $data['slug'] = str_slug( $data['question_en'] );
+                }else if($data['question']){
+                    $data['slug'] = str_slug( $data['question'] ); 
+                }else{
+                     $data['slug'] = str_slug( $data['question_en'] );    
+                }
+                $datas = GuideQuestion::where('id', $id)->first();
+                $datas->update($data);
+                DB::commit();
+                Session::flash('success','Success!');
+                return redirect(route('admin.guideQuestion.index'));
+                
+            }
+        } catch (Exception $e) {
+            Session::flash('error','Opp! Please try again.Error!');
+            DB::rollback();
+        }
     }
 
     /**
@@ -128,7 +183,27 @@ class GuideQuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::beginTransaction();
+        try {
+            GuideQuestion::find( $id )->delete();
+            DB::commit();
+            Session::flash('success','Success');
+            return Redirect::back();
+
+        } catch(\Exception $e) {
+            \Log::info( $e->getMessage() );
+            DB::rollback();
+            Session::flash('error','Error');
+            return Redirect::back();
+        }
+    }
+
+    public function getUrlDelete(Request $request) {
+        $id = $request->id;
+        if (isset($id)) {
+            return route('admin.guideQuestion.delete',['id'=>$id]);
+        }
+        return -1;
     }
 
     public function ajax(Request $request)

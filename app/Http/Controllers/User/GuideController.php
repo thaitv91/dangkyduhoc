@@ -36,88 +36,36 @@ class GuideController extends Controller
         return view('user.guide', $this->viewData);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function autocomplete(){
-    $term = Input::get('term');
+        $term = Input::get('term');
     
-    $results = array();
+        $results = array();
     
-    $queries = GuideQuestion::where('question_en', 'LIKE', '%'.$term.'%')->get();
+        $queries = GuideQuestion::where('question_en', 'LIKE', '%'.$term.'%')->get();
     
-    foreach ($queries as $query)
-    {
-        $results[] = [ 'id' => $query->id, 'value' => $query->question_en, 'slug'=>$query->slug ];
-    }
-            return Response::json($results);
+        foreach ($queries as $query)
+        {
+             $results[] = [ 'id' => $query->id, 'value' => $query->question_en, 'slug'=>$query->slug ];
+        }
+        return Response::json($results);
     }  
 
-    public function search($slug){
-        $data = GuideQuestion::where('slug', $slug)->first();
-        dd($data);
+    public function search( $slug ){
+        $locale = App::getLocale();
+        $guide = GuideQuestion::where('slug', $slug)->first();
+
+        if ($locale == 'en') {
+            $data = [
+                'title' => $guide->question_en,
+                'answer' => $guide->anser_en
+            ];
+        } else {
+            $data = [
+                'title' => $guide->question,
+                'answer' => $guide->answer
+            ];
+        }
+
+        return view('user.guide-detail', $data);
     }
 }
