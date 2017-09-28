@@ -11,8 +11,11 @@
 			<div class="description">
 				{!! $data_field['header-slogan2'] !!}
 			</div>
+			<div class="btn-mobile visible-sm visible-xs">
+				<button class="btn btn-blue open-getstarted">Get Started</button>
+			</div>
 		</div>
-		<div class="free-assessment">
+		<div class="free-assessment hidden-sm hidden-xs">
 			<h2>FREE ASSESSMENT</h2>
 			<div class="description">
 				<p>What is your current qualification?</p>
@@ -132,7 +135,8 @@
 						<p>{!! $data_field['blog-percent-content'] !!}</p>
 					</div>
 					<div class="bottom">
-						<a href="#" class="btn btn-blue btn-block">{{ trans('home.get_started') }}</a>
+						<a href="#" class="btn btn-blue btn-block hidden-xs hidden-sm">{{ trans('home.get_started') }}</a>
+						<span class="btn btn-blue btn-block open-getstarted visible-xs visible-sm clickable">{{ trans('home.get_started') }}</span>						
 					</div>
 				</div><!-- /.blog-item -->
 			</div>

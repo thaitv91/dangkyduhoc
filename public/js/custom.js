@@ -1,5 +1,8 @@
 $(document).ready(function() {
-	$('.slideddl').click(function(){		
+	$('.slideddl').click(function(){
+    $('#left-nav').css({
+      left: -1024
+    });
 		if ($(this).hasClass('subjectddl')){
 			$('.slide-section').hide();
 			$('#subject').show();
@@ -32,6 +35,9 @@ $(document).ready(function() {
 	});
 
 	$('.open-user').click(function(){
+    $('#left-nav').animate({
+      left:-1024
+    });
 		$('#login_drawer').slideDown();
 		$('#nav-main').hide();
 	});
@@ -81,10 +87,10 @@ $(document).ready(function() {
     autoplay: true,
     arrows: false,
     dots: true,
-    responsive:[
+    responsive: [
       {
-        breakpoint: 767,
-        setting:{
+        breakpoint: 1023,
+        settings: {
           slidesToShow: 1,
           slidesToScroll: 1
         }
@@ -177,4 +183,43 @@ $('#slider-img-fair').slick({
   });
  $(".ui-slider-range + a").html(0);
   $(".ui-slider-range + a + a").html(10);
+
+  // compare
+
+
+  $('.cicle-1').circliful({
+        textSize: 28,
+        textStyle: 'font-size: 12px;',
+        textColor: '#666',
+        // text: 'A level',
+        noPercentageSign: true,
+        // replacePercentageByText:'CDD'
+    });
+
+  // homepage
+  $('#closeRightNav').click(function(){
+    $('#right-nav').animate({
+      left: -1024
+    })
+  });
+  $('.open-getstarted').click(function(){
+    $('#right-nav').animate({
+        left: 0
+      })
+  });
+
+  $('#closeLeftNav').click(function(){
+    $('#left-nav').animate({
+      left: -1024
+    })
+  });
+
+  $('#hamburgermenu').click(function(){
+    $('#left-nav').animate({
+      left: 0
+    })
+  });
+  $('#closeSubNav').click(function(){
+    $('#slide-panel').slideUp();
+  });
 });

@@ -102,18 +102,10 @@
 			</div>
 			<div class="col-lg-12 col-md-12 col-xs-12 col-xs-12 feature-row text-center relative" style="background-color: rgb(255, 255, 255);">
 				<div class="feature feature9 pad" data-rowno="9" style="height: 134px;">
-					<div class="circliful gradetype alevel" data-animationstep="0" data-bgcolor="#eee" data-bordersize="5" data-dimension="100" data-fgcolor="#1785BB" data-fontsize="20" data-info="A Level" data-percent="58.3333333333333" data-text="BCC" id="alevel-stat-1517" style="width: 100px;" title="Click to toggle between qualifications">
-						<span class="circle-text" style="line-height: 100px; font-size: 20px;">BCC</span><span class="circle-info-half" style="line-height: 125px;">A Level</span>
-						<canvas height="100" style="width: 100px; height: 100px;" width="100"></canvas>
-					</div>
-					<div class="circliful gradetype gpa hidden" data-animationstep="0" data-bgcolor="#eee" data-bordersize="5" data-dimension="100" data-fgcolor="#61a9dc" data-fontsize="20" data-info="GPA" data-percent="46.6666666666667" data-text="2.4" id="gpa-stat-1517" style="width: 100px;" title="Click to toggle between qualifications">
-						<span class="circle-text" style="line-height: 100px; font-size: 20px;">2.4</span><span class="circle-info-half" style="line-height: 125px;">GPA</span>
-						<canvas height="100" style="width: 100px; height: 100px;" width="100"></canvas>
-					</div>
-					<div class="circliful gradetype ib hidden" data-animationstep="0" data-bgcolor="#eee" data-bordersize="5" data-dimension="100" data-fgcolor="#09B8D6" data-fontsize="20" data-info="IB" data-percent="22.7272727272727" data-text="28" id="ib-stat-1517" style="width: 100px;" title="Click to toggle between qualifications">
-						<span class="circle-text" style="line-height: 100px; font-size: 20px;">28</span><span class="circle-info-half" style="line-height: 125px;">IB</span>
-						<canvas height="100" style="width: 100px; height: 100px;" width="100"></canvas>
-					</div>
+					<div id="alevel-stat-24221" data-toggle="tooltip" data-original-title="Click to toggle between qualifications" data-bordersize="5" data-animationstep="0" data-dimension="100" data-text="CDD" data-info="A Level" data-fontsize="20" data-percent="33.3333333333333" data-fgcolor="#1785BB" data-bgcolor="#eee" class="circliful gradetype alevel" style="width: 100px;">
+        			</div>
+
+					<div class="cicle-1" data-percent="58" data-animation="1" data-animationStep="5" data-foregroundBorderWidth="15" data-backgroundBorderWidth="15" data-replacePercentageByText="CDD" data-text="A level"></div>
 					<div class="clearBoth"></div>
 				</div>
 			</div>
@@ -223,5 +215,7 @@
 @section('scripts')
 {{-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
 <script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script> --}}
+<script type="text/javascript">
 
+</script>
 @endsection

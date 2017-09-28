@@ -15,6 +15,9 @@ body{
 	font-size: 14px;
 	@include Opensans();
     padding-top: 80px;
+    @include screen-size(xs){
+        padding-top: 40px;
+    }
 }
 a{
     color:$color-link;
