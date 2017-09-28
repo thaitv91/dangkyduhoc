@@ -168,7 +168,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
+        // Laravel\Socialite\SocialiteServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -229,7 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Input' => Illuminate\Support\Facades\Input::class,
         // 'Pusher' => Pusher\Pusher::class,
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        // 'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Image' => Intervention\Image\Facades\Image::class,
     ],
 

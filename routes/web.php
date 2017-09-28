@@ -92,8 +92,6 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('delete/{id}', 'Admin\CourseController@destroy')->name('admin.course.delete');
 		Route::get('get-url-delete','Admin\CourseController@getUrlDelete')->name('admin.course.getUrlDelete');
 	});
-});
-
 
 	Route::group(['prefix'=>'universities'],function(){
 		Route::get('/', 'Admin\UniversityController@index')->name('admin.universities.index');
@@ -154,6 +152,7 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('delete/{id}', 'Admin\SubjectController@destroy')->name('admin.subject.delete');
 		Route::get('get-url-delete','Admin\SubjectController@getUrlDelete')->name('admin.subject.getUrlDelete');
 	});
+
 	Route::group(['prefix'=>'subject-career'],function(){
 		Route::get('/', 'Admin\SubjectCareerController@index')->name('admin.subjectCareer.index');
 		Route::get('/create', 'Admin\SubjectCareerController@create')->name('admin.subjectCareer.create');
