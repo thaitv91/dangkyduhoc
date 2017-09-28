@@ -224,3 +224,7 @@ Route::group(['prefix'=>'message'], function() {
 	Route::get('send-message', 'Admin\MessageController@sendMessage')->name('sendMessage');
 	Route::get('new-message', 'Admin\MessageController@createFormChat')->name('createFormChat');
 });
+
+// contact
+Route::post('contact', 'User\ContactController@postContact')->name('postContact');
+
