@@ -108,9 +108,8 @@ Route::get('/','User\HomeController@index')->name('home');
 //Route::post('/language-chooser', 'Language\LanguageController@changeLanguage');
 //Route::post('/language/', array('before' => 'csrf', 'as'=>'language-chooser', 'uses' => 'Language\LanguageController@changeLanguage',) );
 
-Route::get('chatbox', function (){
-	return view('chatbox');
-});
+Route::get('menu', 'HomeController@index')->name('menu');
+Route::get('subject/{subject?}', 'HomeController@subject')->name('subject');
 
 // html
 Route::get('/html/universities', function() {
@@ -133,3 +132,23 @@ Route::get('/guide', 'User\GuideController@index')->name('user.guide');
 Route::get('/guide/{slug}','User\GuideController@search')->name('user.guide.search');
 Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('user.search.ajax');
 
+//Chat-box
+Route::group(['prefix'=>'message'], function() {
+
+	Route::group(['prefix'=>'guest'], function() {
+		Route::get('', function() {
+			return view('message.chat');
+		});
+		Route::get('get-history-message', 'Admin\MessageController@getHistoryMessage')->name('getHistoryMessage');
+	});
+
+	Route::group(['prefix'=>'admin'], function() {
+		Route::get('', function() {
+			return view('message.chat_admin');
+		});
+		Route::get('get-history-message/{chat_session}', 'Admin\MessageController@getHistoryMessageAdmin')->name('getHistoryMessageAdmin');
+	});
+
+	Route::get('send-message', 'Admin\MessageController@sendMessage')->name('sendMessage');
+	Route::get('new-message', 'Admin\MessageController@createFormChat')->name('createFormChat');
+});

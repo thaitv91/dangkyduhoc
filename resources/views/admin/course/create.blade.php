@@ -50,27 +50,27 @@
 				<div class="box-body">
 					<div class="form-group">
 						<label for="year_tuition_fees">Year Tuition Fees</label>
-						<input type="text" class="form-control" name="year_tuition_fees" id="year_tuition_fees" value="" required>
+						<input type="number" class="form-control" name="year_tuition_fees" id="year_tuition_fees" value="" required step=any>
 					</div>
 					<div class="form-group">
 						<label for="day_drink_fees">Drink Fees</label>
-						<input type="text" class="form-control" name="day_drink_fees" id="day_drink_fees" value="" required>
+						<input type="number" class="form-control" name="day_drink_fees" id="day_drink_fees" value="" required>
 					</div>
 					<div class="form-group">
 						<label for="day_food_fees">Food Fees</label>
-						<input type="text" class="form-control" name="day_food_fees" id="day_food_fees" value="" required>
+						<input type="number" class="form-control" name="day_food_fees" id="day_food_fees" value="" required>
 					</div>
 					<div class="form-group">
 						<label for="day_accommodation_fees">Accommodation Fees</label>
-						<input type="text" class="form-control" name="day_accommodation_fees" id="year_tuition_fees" value="" required>
+						<input type="number" class="form-control" name="day_accommodation_fees" id="year_tuition_fees" value="" required step=any>
 					</div>
 					<div class="form-group">
 						<label for="day_coffe_fees">Coffe Fees</label>
-						<input type="text" class="form-control" name="day_coffe_fees" id="day_coffe_fees" value="" required>
+						<input type="number" class="form-control" name="day_coffe_fees" id="day_coffe_fees" value="" required>
 					</div>
 					<div class="form-group">
 						<label for="day_coffe_fees">Cost per year</label>
-						<input type="text" class="form-control" name="cost_per_year" id="cost_per_year" value="" required>
+						<input type="number" class="form-control" name="cost_per_year" id="cost_per_year" value="" required step=any>
 					</div>
 				</div>
 				<!-- /.box-body -->
@@ -163,15 +163,15 @@
 				<div class="box-body ranking">
 					<div class="form-group">
 						<label for="ranking_title">Title</label>
-						<input type="text" class="form-control" name="ranking_title[]" id="ranking_title" value="" required>
+						<input type="text" class="form-control" name="ranking_title[]" id="ranking_title" value="">
 					</div>
 					<div class="form-group">
 						<label for="ranking_point">Ranking Point</label>
-						<input type="text" class="form-control" name="ranking_point[]" id="ranking_point" value="" required>
+						<input type="number" class="form-control" name="ranking_point[]" id="ranking_point" value="">
 					</div>
 					<div class="form-group">
 						<label for="ranking_subject">Ranking Subject</label>
-						<input type="text" class="form-control" name="ranking_subject[]" id="ranking_subject" value="" required>
+						<input type="text" class="form-control" name="ranking_subject[]" id="ranking_subject" value="">
 					</div>
 					<div class="form-group">
 						<label for="country">Country</label>
@@ -219,7 +219,7 @@
 		placeholder : '-- Select University --'
 	});
 	$('#upcoming_intakes').datepicker({
-		dateFormat: 'dd/mm/yy',
+		format : 'dd/mm/yyyy',
 	});
 </script>
 <script type="text/javascript">
@@ -233,7 +233,7 @@
 					'</div>'+
 					'<div class="form-group">'+
 						'<label for="ranking_point">Ranking Point</label>'+
-						'<input type="text" class="form-control" name="ranking_point[]" id="ranking_point" value="" required>'+
+						'<input type="number" class="form-control" name="ranking_point[]" id="ranking_point" value="" required>'+
 					'</div>'+
 					'<div class="form-group">'+
 						'<label for="ranking_subject">Ranking Subject</label>'+
@@ -252,11 +252,9 @@
 				'</div>';
 
 		$('.ranking').append(html);
-		console.log(html);
 	}
 
 	function removeRanking(index) {
-		console.log(index);
 		$(index).parent().removeClass('box-body');
 		$(index).parent().empty();
 	}
