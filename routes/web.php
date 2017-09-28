@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 // Admin
 Route::get('admin', 'Admin\DashboardController@index')->name('admin');
 Route::group(['prefix'=>'admin'], function() {
@@ -44,7 +43,7 @@ Route::group(['prefix'=>'admin'], function() {
 	});
 
 	Route::group(['prefix'=>'rating'], function(){
-		Route::get('/', 'Admin\RatingController@index')->name('admin.rating.index');
+		Route::get('/', 'Admin\RatingConrotller@index')->name('admin.rating.index');
 		Route::get('/create', 'Admin\RatingController@create')->name('admin.rating.create');
 		Route::post('/create','Admin\RatingController@store')->name('admin.rating.store');
 		Route::get('/edit/{id}', 'Admin\RatingController@edit')->name('admin.rating.edit');
@@ -82,6 +81,16 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('delete/{id}', 'Admin\GuideQuestionController@destroy')->name('admin.guideQuestion.delete');
 		Route::get('get-url-delete','Admin\GuideQuestionController@getUrlDelete')->name('admin.guideQuestion.getUrlDelete');
 		Route::post('guide-topic/{id}','Admin\GuideQuestionController@ajax')->name('admin.guideQuestion.ajax');
+	});
+
+	Route::group(['prefix'=>'course'], function() {
+		Route::get('','Admin\CourseController@index')->name('admin.course');
+		Route::get('create', 'Admin\CourseController@create')->name('admin.course.create');
+		Route::post('create', 'Admin\CourseController@store');
+		Route::get('edit/{id?}', 'Admin\CourseController@edit')->name('admin.course.edit');
+		Route::post('edit/{id?}', 'Admin\CourseController@update');
+		Route::get('delete/{id}', 'Admin\CourseController@destroy')->name('admin.course.delete');
+		Route::get('get-url-delete','Admin\CourseController@getUrlDelete')->name('admin.course.getUrlDelete');
 	});
 
 	Route::group(['prefix'=>'universities'],function(){
@@ -143,6 +152,7 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('delete/{id}', 'Admin\SubjectController@destroy')->name('admin.subject.delete');
 		Route::get('get-url-delete','Admin\SubjectController@getUrlDelete')->name('admin.subject.getUrlDelete');
 	});
+
 	Route::group(['prefix'=>'subject-career'],function(){
 		Route::get('/', 'Admin\SubjectCareerController@index')->name('admin.subjectCareer.index');
 		Route::get('/create', 'Admin\SubjectCareerController@create')->name('admin.subjectCareer.create');
@@ -163,13 +173,12 @@ Route::post('/admin/countries/{country}/delete', 'Admin\CountryController@destro
 Auth::routes();
 
 // FrontEnd
-Route::get('/','User\HomeController@index');
+Route::get('/','User\HomeController@index')->name('home');
 //Route::post('/language-chooser', 'Language\LanguageController@changeLanguage');
 //Route::post('/language/', array('before' => 'csrf', 'as'=>'language-chooser', 'uses' => 'Language\LanguageController@changeLanguage',) );
 
-Route::get('chatbox', function (){
-	return view('chatbox');
-});
+Route::get('menu', 'HomeController@index')->name('menu');
+Route::get('subject/{subject?}', 'HomeController@subject')->name('subject');
 
 // html
 Route::get('/html/guide-list', function() {
@@ -194,6 +203,27 @@ Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('us
 Route::get('university/{slug}','User\UniversityController@viewDetail')->name('user.university.detail');
 Route::get('career/{slug}','User\CareerController@viewDetail')->name('user.career.detail');
 Route::get('subject/{slug}','User\SubjectController@viewDetail')->name('user.subject.detail');
+
+//Chat-box
+Route::group(['prefix'=>'message'], function() {
+
+	Route::group(['prefix'=>'guest'], function() {
+		Route::get('', function() {
+			return view('message.chat');
+		});
+		Route::get('get-history-message', 'Admin\MessageController@getHistoryMessage')->name('getHistoryMessage');
+	});
+
+	Route::group(['prefix'=>'admin'], function() {
+		Route::get('', function() {
+			return view('message.chat_admin');
+		});
+		Route::get('get-history-message/{chat_session}', 'Admin\MessageController@getHistoryMessageAdmin')->name('getHistoryMessageAdmin');
+	});
+
+	Route::get('send-message', 'Admin\MessageController@sendMessage')->name('sendMessage');
+	Route::get('new-message', 'Admin\MessageController@createFormChat')->name('createFormChat');
+});
 
 // contact
 Route::post('contact', 'User\ContactController@postContact')->name('postContact');
