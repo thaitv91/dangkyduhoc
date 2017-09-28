@@ -195,3 +195,6 @@ Route::get('university/{slug}','User\UniversityController@viewDetail')->name('us
 Route::get('career/{slug}','User\CareerController@viewDetail')->name('user.career.detail');
 Route::get('subject/{slug}','User\SubjectController@viewDetail')->name('user.subject.detail');
 
+// contact
+Route::post('contact', 'User\ContactController@postContact')->name('postContact');
+
