@@ -151,7 +151,7 @@
 						<p>{!! $data_field['blog-scholarships-content'] !!}</p>
 					</div>
 					<div class="bottom">
-						<a href="#" class="btn btn-blue btn-block">{{ trans('home.chat_us') }}</a>
+						<span class="btn btn-blue btn-block open-chat clickable">{{ trans('home.chat_us') }}</span>
 					</div>
 				</div><!-- /.blog-item -->
 			</div>

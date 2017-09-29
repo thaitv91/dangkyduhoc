@@ -508,6 +508,79 @@
         <!-- e: footer -->
     </div>
 
+
+    <!-- chat with us -->
+    <div id="chatButton" class="chatButton tip bounce open-chat" title="" data-placement="left" style="display: block;" data-original-title="Need the right advice? We're available to help!">
+        <div class="textDiv">
+            <div class="chatlogo">
+                <i class="fa fa-comment gtt-chat" aria-hidden="true" data-placement="left" alt="Do you have questions? Our education consultants are available to help." data-original-title="" title=""></i>
+            </div>
+        </div>
+    </div><!-- /#chatButton -->
+
+    <div class="chatContainer">
+        <link href="/Content/chat?v=A-oD5qWeV8kpnwb40eMj157dJReI-DLMO0HEHmuDCds1" rel="stylesheet">
+        <div class="header connected" id="chatheader">
+            <center>
+                <img alt="Education consultant is online" class="consultant-img tip" data-original-title="You are now receiving support from Michelle of theRightU. You may also email us your questions to hello@therightu.com" data-placement="bottom" src="https://therightustorage.blob.core.windows.net/assets/img/web/team/MN.jpg" title="You are now receiving support from Michelle of theRightU. You may also email us your questions to hello@therightu.com">
+            </center>
+            <div class="loader" id="loader" style="display: none;"></div>
+        </div>
+        <div class="closeBtn" onclick="javascript: closeChat();" title="Minimise chat window">
+            <i class="fa fa-angle-right"></i>
+        </div>
+        <div class="divChat" id="divChat" style="display: block;">
+            <div class="divNoExist" id="divNoExist" style="display:none;">
+                <span id="info"></span>
+            </div>
+            <div class="chatArea">
+                <div class="messageArea" id="divMessage">
+                    <div class="innerArea ps-container" data-ps-id="62c389ed-9734-8530-9bfc-aa2b41611964" id="innerArea">
+                        <div id="loadMore" onclick="javascript: LoadEarlier();" style="display: none;">
+                            Show earlier conversations
+                        </div>
+                        
+                        <div class="clearBoth"></div>
+                        <div class="chatrow AdminUser GreetMsg theRightU" title="Sent on 29 Sep 10:40am">
+                            <div class="clearBoth"></div>
+                            <div class="chatinfo fullwidth">
+                                <div class="float-left">
+                                    Dr Chan Khai Leok
+                                </div>
+                            </div>
+                            <div class="chatMsg" data-timesent="29 Sep 10:40am">
+                                Good morning! How can we help you?
+                            </div>
+                        </div>
+                        <div class="clearBoth"></div>
+                        <div class="chatrow User" title="Sent on 29 Sep 2:38pm"><div class="clearBoth"></div><div class="chatMsg" data-timesent="29 Sep 2:38pm">hello
+                        </div></div>
+                        <div class="clearBoth"></div>
+
+                        <div class="chatrow AdminUser" title="Sent on 29 Sep 2:38pm"><div class="clearBoth"></div><div class="chatinfo fullwidth"><div class="float-left">Kevin</div></div><div class="chatMsg" data-timesent="29 Sep 2:38pm">Hi, how may we address you?</div></div>
+                        <div class="clearBoth"></div>
+
+                        <div class="chatrow AdminUser" id="typing">
+                            <div class="clearBoth"></div>
+                            <div class="chatMsg loading"></div>
+                        </div>
+                        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+                            <div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div>
+                        </div>
+                        <div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;">
+                            <div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearBoth"></div>
+                <div class="chatInput">
+                    <textarea cols="30" id="txtMsg" maxlength="1000" placeholder=" &nbsp;Ask your education consultant a question." rows="4" style="font-family:'Lato', FontAwesome"></textarea> <input id="btnSendMsg" type="button" value="Send">
+                </div>
+            </div>
+        </div>
+    </div><!-- /.chatContainer -->
+    <!-- e: chat with us -->
+
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

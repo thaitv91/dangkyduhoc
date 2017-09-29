@@ -222,4 +222,18 @@ $('#slider-img-fair').slick({
   $('#closeSubNav').click(function(){
     $('#slide-panel').slideUp();
   });
+
+  // chat 
+  $('.open-chat').click(function(){
+    $('.chatContainer').animate({
+      right:0
+    });
+    $('.chatButton').hide();
+  });
+  $('.closeBtn').click(function(){
+    $('.chatContainer').animate({
+      right:-540
+    });
+    $('.chatButton').show();
+  });
 });
