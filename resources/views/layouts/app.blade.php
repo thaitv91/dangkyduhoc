@@ -381,22 +381,13 @@
                     <li class="navlink">
                         <a href="/guide"><span>Guide</span></a>
                     </li>
-                    <li class="uniddl slideddl navlink visible-lg visible-md">
+                    <li class="uni-dropdown universityddl slideddl visible-sm visible-xs navlink">
                         <a><span>Universities</span></a>
                     </li>
-                    <li class="uni-dropdown visible-sm visible-xs navlink">
-                        <a><span>Universities</span></a>
-                    </li>
-                    <li class="subjectddl slideddl navlink visible-lg visible-md">
+                    <li class="subjects-dropdown subjectddl slideddl visible-sm visible-xs navlink">
                         <a><span>Subjects</span></a>
                     </li>
-                    <li class="subjects-dropdown visible-sm visible-xs navlink">
-                        <a><span>Subjects</span></a>
-                    </li>
-                    <li class="careerddl slideddl navlink visible-lg visible-md">
-                        <a><span>Careers</span></a>
-                    </li>
-                    <li class="careers-dropdown visible-sm visible-xs navlink">
+                    <li class="careers-dropdown careerddl slideddl visible-sm visible-xs navlink">
                         <a><span>Careers</span></a>
                     </li>
                     <li class="navlink">
@@ -519,7 +510,6 @@
     </div><!-- /#chatButton -->
 
     <div class="chatContainer">
-        <link href="/Content/chat?v=A-oD5qWeV8kpnwb40eMj157dJReI-DLMO0HEHmuDCds1" rel="stylesheet">
         <div class="header connected" id="chatheader">
             <center>
                 <img alt="Education consultant is online" class="consultant-img tip" data-original-title="You are now receiving support from Michelle of theRightU. You may also email us your questions to hello@therightu.com" data-placement="bottom" src="https://therightustorage.blob.core.windows.net/assets/img/web/team/MN.jpg" title="You are now receiving support from Michelle of theRightU. You may also email us your questions to hello@therightu.com">

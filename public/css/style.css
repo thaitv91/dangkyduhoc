@@ -7010,7 +7010,7 @@ a.course_name {
 .chatContainer {
   position: fixed;
   top: 0;
-  right: -540px;
+  right: -1024px;
   width: 25%;
   min-width: 540px;
   max-width: 540px;
