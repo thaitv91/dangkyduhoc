@@ -196,6 +196,9 @@ Route::get('/html/course-detail', function() {
 	return view('user.course-detail');
 });
 
+Route::get('/html/search', function() {
+	return view('user.search');
+});
 Route::get('/guide', 'User\GuideController@index')->name('user.guide');
 Route::get('/guide/{slug}','User\GuideController@search')->name('user.guide.search');
 Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('user.search.ajax');
