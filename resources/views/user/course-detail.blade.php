@@ -444,26 +444,6 @@
 				
 			</div><!-- /.item -->
 		</div><!-- /.list-courses -->
-
-		<div class="pagging text-center">
-			<ul class="pagination">
-		    <li>
-		      <a href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo; Back</span>
-		      </a>
-		    </li>
-		    <li class="active"><a href="#">1</a></li>
-		    <li><a href="#">2</a></li>
-		    <li><a href="#">3</a></li>
-		    <li><a href="#">4</a></li>
-		    <li><a href="#">5</a></li>
-		    <li>
-		      <a href="#" aria-label="Next">
-		        <span aria-hidden="true">Next &raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</div><!-- /.pagging -->
 	</div><!-- /.filter-result -->
 
 	<div class="filter-result">
@@ -690,26 +670,6 @@
 				
 			</div><!-- /.item -->
 		</div><!-- /.list-courses -->
-
-		<div class="pagging text-center">
-			<ul class="pagination">
-		    <li>
-		      <a href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo; Back</span>
-		      </a>
-		    </li>
-		    <li class="active"><a href="#">1</a></li>
-		    <li><a href="#">2</a></li>
-		    <li><a href="#">3</a></li>
-		    <li><a href="#">4</a></li>
-		    <li><a href="#">5</a></li>
-		    <li>
-		      <a href="#" aria-label="Next">
-		        <span aria-hidden="true">Next &raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</div><!-- /.pagging -->
 	</div><!-- /.filter-result -->
 </div>
 
