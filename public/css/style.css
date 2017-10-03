@@ -7572,3 +7572,163 @@ a.course_name {
 .float-right {
   float: right;
 }
+
+.course-detail-header img.page-course-uni-logo {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  height: 115px;
+  margin-right: 15px;
+  margin-bottom: 24px;
+  border: 1px solid #ccc;
+}
+.course-detail-header h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.course-detail-header h4 {
+  display: inline-block;
+  font-size: 19px;
+  font-weight: 400;
+  margin: 0;
+}
+.course-detail-header .compare-btn, .course-detail-header .apply-btn {
+  float: right;
+}
+.course-detail-header .apply-btn {
+  margin-right: 10px;
+}
+
+.martop5px {
+  margin-top: 5px;
+}
+
+.course_details {
+  margin-right: -7px;
+  margin-left: -7px;
+}
+.course_details .col {
+  padding-right: 7px;
+  padding-left: 7px;
+}
+.course_details .info_box_item {
+  display: table;
+  font-weight: 100;
+  list-style: outside none none;
+  margin-left: 0;
+  padding: 10px 15px;
+  width: 100%;
+  border-bottom: 1px solid #ebebeb;
+}
+.course_details .info_box_item:last-child {
+  border-bottom: 0;
+}
+.course_details .info_box_item.undergraduate .right {
+  font-size: 30px;
+}
+.course_details .info_box_item .grade-type {
+  max-width: 85px;
+}
+.course_details .info_box_item .smaller {
+  font-weight: 100;
+  font-size: 15px;
+}
+.course_details .info_box_item .header {
+  display: table-cell;
+  font-size: 15px;
+  font-weight: 100;
+  padding: 0;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.course_details .info_box_item div.right {
+  font-size: 25px;
+  padding: 0;
+  text-transform: uppercase;
+}
+.course_details .info_box_item div.right.scholarship {
+  float: right;
+  font-size: 14px;
+  max-width: 87%;
+  text-transform: none;
+}
+.course_details span {
+  display: table-cell;
+  vertical-align: middle;
+}
+.course_details span.display-table-row {
+  display: table-row;
+}
+.course_details .rank-name {
+  font-size: 15px;
+}
+.course_details .course-rank {
+  font-size: 27px;
+  line-height: 1;
+  width: 60px;
+}
+.course_details .box-ranking .title-box {
+  padding: 13px 15px;
+}
+.course_details .box-ranking i {
+  font-size: 25px;
+}
+.course_details .duration {
+  min-height: 108px;
+  text-align: center;
+}
+.course_details .duration .number {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1;
+}
+.course_details .duration #years {
+  display: table-row;
+}
+.course_details .graduate-in {
+  min-height: 130px;
+  text-align: center;
+}
+.course_details .graduate-in i {
+  font-size: 40px;
+}
+.course_details .graduate-in span {
+  font-size: 20px;
+  line-height: 1.2;
+}
+.course_details a {
+  font-size: 25px;
+  line-height: 28px;
+  text-decoration: none;
+  color: #000;
+}
+
+.about-course h2 {
+  font-size: 25px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin: 0 0 15px;
+  font-family: UTMBebas, Arial, Helvetica, sans-serif;
+}
+
+.rowsec {
+  padding-bottom: 40px;
+  padding-top: 50px;
+}
+
+#askus {
+  background: #eee none repeat scroll 0 0;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px;
+  margin-top: 40px;
+}
+#askus p {
+  font-size: 19px;
+  margin-bottom: 0;
+  max-width: none;
+}
