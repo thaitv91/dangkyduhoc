@@ -165,7 +165,6 @@
 		$.ajax({
 			url : '{{ route("sendMessage") }}',
 			data : {
-				time : "{{ time() }}",
 				messages : messages,
 				send_from : "admin",
 				send_to : $(txt).parent().parent().find('ul').attr('id').split('-')[2],

@@ -11,7 +11,7 @@ class MessageController extends Controller
 {
     public function sendMessage(Request $request) {
     	
-    	event(new SendMessage($request->time, $request->messages, $request->send_from, $request->send_to));
+    	event(new SendMessage($request->messages, $request->send_from, $request->send_to));
     }
 
     public function createFormChat(Request $request) {
