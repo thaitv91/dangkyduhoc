@@ -123,7 +123,7 @@
 
 @endsection
 
-@push('scripts')
+@section('scripts')
 <script type="text/javascript">
 	$('#dob').datepicker({
 		autoclose : true,
@@ -147,4 +147,4 @@
 		readURL(this);
 	});
 </script>
-@endpush
+@endsection

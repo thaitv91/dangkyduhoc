@@ -4,15 +4,18 @@
 @endsection
 @section("content")
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<div class="banner-home" style="background-image: url({{ Storage::disk('local')->url( $data_field['header-banner']) }});">
+<div class="banner-home" style="background-image:url( {{  $data_field['header-banner'] }})">
 	<div class="container">
 		<div class="text">
 			<h1>{!! $data_field['header-slogan1']!!}</h1>
 			<div class="description">
 				{!! $data_field['header-slogan2'] !!}
 			</div>
+			<div class="btn-mobile visible-sm visible-xs">
+				<button class="btn btn-blue open-getstarted">Get Started</button>
+			</div>
 		</div>
-		<div class="free-assessment">
+		<div class="free-assessment hidden-sm hidden-xs">
 			<h2>FREE ASSESSMENT</h2>
 			<div class="description">
 				<p>What is your current qualification?</p>
@@ -132,7 +135,8 @@
 						<p>{!! $data_field['blog-percent-content'] !!}</p>
 					</div>
 					<div class="bottom">
-						<a href="#" class="btn btn-blue btn-block">{{ trans('home.get_started') }}</a>
+						<a href="#" class="btn btn-blue btn-block hidden-xs hidden-sm">{{ trans('home.get_started') }}</a>
+						<span class="btn btn-blue btn-block open-getstarted visible-xs visible-sm clickable">{{ trans('home.get_started') }}</span>						
 					</div>
 				</div><!-- /.blog-item -->
 			</div>
@@ -147,7 +151,7 @@
 						<p>{!! $data_field['blog-scholarships-content'] !!}</p>
 					</div>
 					<div class="bottom">
-						<a href="#" class="btn btn-blue btn-block">{{ trans('home.chat_us') }}</a>
+						<span class="btn btn-blue btn-block open-chat clickable">{{ trans('home.chat_us') }}</span>
 					</div>
 				</div><!-- /.blog-item -->
 			</div>
@@ -177,7 +181,7 @@
 			<div class="review-item <?php $class = ($key % 2 == 0) ? 'right' : ''; echo $class; ?>">
 				<div class="avatar-rating">
 					<div class="avatar">
-						<img src="{{ Storage::disk('local')->url($list['avatar']) }}" alt="">
+						<img src="{{ $list['avatar'] }}" alt="">
 					</div>
 					<div class="rating">
 						<?php for ($i = $list['rating']  ; $i--; $i > 0) {?>
@@ -204,7 +208,7 @@
 <div class="let-started text-center">
 	<div class="container">
 		<div class="wrap">
-			<img src="{{ Storage::disk('local')->url( $data_field['image-right-tools']) }}" alt="">
+			<img src="{{ $data_field['image-right-tools'] }}" alt="">
 			<h2 class="title">{!! $data_field['let-started-title'] !!}</h2>
 			<div class="description">
 				<p>{!! $data_field['let-started-content'] !!}</p>
@@ -213,5 +217,4 @@
 		</div>
 	</div>
 </div><!-- /.let-started -->
-
 @endsection

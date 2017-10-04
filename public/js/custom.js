@@ -1,5 +1,8 @@
 $(document).ready(function() {
-	$('.slideddl').click(function(){		
+	$('.slideddl').click(function(){
+    $('#left-nav').css({
+      left: -1024
+    });
 		if ($(this).hasClass('subjectddl')){
 			$('.slide-section').hide();
 			$('#subject').show();
@@ -32,6 +35,9 @@ $(document).ready(function() {
 	});
 
 	$('.open-user').click(function(){
+    $('#left-nav').animate({
+      left:-1024
+    });
 		$('#login_drawer').slideDown();
 		$('#nav-main').hide();
 	});
@@ -81,10 +87,10 @@ $(document).ready(function() {
     autoplay: true,
     arrows: false,
     dots: true,
-    responsive:[
+    responsive: [
       {
-        breakpoint: 767,
-        setting:{
+        breakpoint: 1023,
+        settings: {
           slidesToShow: 1,
           slidesToScroll: 1
         }
@@ -94,6 +100,7 @@ $(document).ready(function() {
 
    
   $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+  $('.tip').tooltip();
 
   $('#slider-img-uni').slick({
     infinite: true,
@@ -126,4 +133,107 @@ $('#slider-img-fair').slick({
 
   $('.smoothScroll a').smoothScroll({offset: -100});
 
+  // fixed column left guide detail
+  $(window).scroll(function(){
+    if ($('#guide-detail').length){
+      var w_scroll = $(this).scrollTop()
+          content_top = $('#guide-detail').offset().top;
+
+      var top_1 = w_scroll+ 80 - content_top;
+      
+      if (content_top - w_scroll <= 80){
+        $('#content-fixed').addClass('fixed');
+        $('#content-fixed .left-guide-detail').css({
+          top: top_1
+        });
+      }
+      else{
+        $('#content-fixed').removeClass('fixed');
+      }
+
+      var content_contact = $('#ask-us-a-question').offset().top;
+      var top_2 = content_contact - w_scroll;
+      if (top_2 <= 650){
+        $('#content-fixed').removeClass('fixed');
+      }
+    }    
+  });
+
+  // apply
+  $('#add-course-btn').click(function(){
+    $('#add_course_dialog').slideToggle();
+  });
+
+  // fillter subject
+  $( "#fillter-subject" ).slider({
+    range: true,
+    min: 0,
+    max: 10,
+    values: [ 0, 10 ],
+    slide: function( event, ui ) {
+        // u could use this function
+        $(".ui-slider-range + a").html(ui.values[ 0 ]);
+        $(".ui-slider-range + a + a").html(ui.values[ 1 ]);
+    },
+    change: function(event, ui) {
+        // or u could use this function
+        $(".min-slider-value + a").html(ui.values[ 0 ]);
+        $(".ui-slider-range + a + a").html(ui.values[ 1 ]);
+    }
+  });
+ $(".ui-slider-range + a").html(0);
+  $(".ui-slider-range + a + a").html(10);
+
+  // compare
+
+
+  $('.cicle-1').circliful({
+        textSize: 28,
+        textStyle: 'font-size: 12px;',
+        textColor: '#666',
+        // text: 'A level',
+        noPercentageSign: true,
+        // replacePercentageByText:'CDD'
+    });
+
+  // homepage
+  $('#closeRightNav').click(function(){
+    $('#right-nav').animate({
+      left: -1024
+    })
+  });
+  $('.open-getstarted').click(function(){
+    $('#right-nav').animate({
+        left: 0
+      })
+  });
+
+  $('#closeLeftNav').click(function(){
+    $('#left-nav').animate({
+      left: -1024
+    })
+  });
+
+  $('#hamburgermenu').click(function(){
+    $('#left-nav').animate({
+      left: 0
+    })
+  });
+  $('#closeSubNav').click(function(){
+    $('#slide-panel').slideUp();
+  });
+
+  // chat 
+  $('.open-chat').click(function(){
+    $('.chatContainer').animate({
+      right:0
+    });
+    $('.chatButton').hide();
+  });
+  $('.closeBtn').click(function(){
+    $('.chatContainer').animate({
+      right:-540
+    });
+    $('.chatButton').show();
+  });
 });

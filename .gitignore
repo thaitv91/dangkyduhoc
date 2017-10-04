@@ -19,4 +19,4 @@ yarn-error.log
 /public/images/videos/
 /public/bower_components/*
 /public/bower_components/
-/resources/views/layouts/*
+

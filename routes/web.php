@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 // Admin
 Route::get('admin', 'Admin\DashboardController@index')->name('admin');
 Route::group(['prefix'=>'admin'], function() {
@@ -84,6 +83,16 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::post('guide-topic/{id}','Admin\GuideQuestionController@ajax')->name('admin.guideQuestion.ajax');
 	});
 
+	Route::group(['prefix'=>'course'], function() {
+		Route::get('','Admin\CourseController@index')->name('admin.course');
+		Route::get('create', 'Admin\CourseController@create')->name('admin.course.create');
+		Route::post('create', 'Admin\CourseController@store');
+		Route::get('edit/{id?}', 'Admin\CourseController@edit')->name('admin.course.edit');
+		Route::post('edit/{id?}', 'Admin\CourseController@update');
+		Route::get('delete/{id}', 'Admin\CourseController@destroy')->name('admin.course.delete');
+		Route::get('get-url-delete','Admin\CourseController@getUrlDelete')->name('admin.course.getUrlDelete');
+	});
+
 	Route::group(['prefix'=>'universities'],function(){
 		Route::get('/', 'Admin\UniversityController@index')->name('admin.universities.index');
 		Route::get('/create', 'Admin\UniversityController@create')->name('admin.universities.create');
@@ -143,6 +152,7 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('delete/{id}', 'Admin\SubjectController@destroy')->name('admin.subject.delete');
 		Route::get('get-url-delete','Admin\SubjectController@getUrlDelete')->name('admin.subject.getUrlDelete');
 	});
+
 	Route::group(['prefix'=>'subject-career'],function(){
 		Route::get('/', 'Admin\SubjectCareerController@index')->name('admin.subjectCareer.index');
 		Route::get('/create', 'Admin\SubjectCareerController@create')->name('admin.subjectCareer.create');
@@ -171,6 +181,18 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::put('/edit/{id}', 'Admin\MapLocationController@update')->name('admin.mapLocation.update');
 		Route::get('delete/{id}', 'Admin\MapLocationController@destroy')->name('admin.mapLocation.delete');
 		Route::get('get-url-delete','Admin\MapLocationController@getUrlDelete')->name('admin.mapLocation.getUrlDelete');
+
+	Route::group(['prefix'=>'slider'], function() {
+		Route::get('', 'Admin\SliderController@index')->name('admin.slider');
+		Route::get('create', 'Admin\SliderController@create')->name('admin.slider.create');
+		Route::post('create', 'Admin\SliderController@store');
+		Route::get('edit/{id}', 'Admin\SliderController@edit')->name('admin.slider.edit');
+		Route::post('edit/{id}', 'Admin\SliderController@update');
+		Route::get('delete/{id}', 'Admin\SliderController@destroy')->name('admin.slider.delete');
+		Route::get('get-image', 'Admin\SliderController@getImage')->name('admin.slider.getImage');
+		Route::post('image-upload', 'Admin\SliderController@uploadImage')->name('admin.slider.uploadImage');
+		Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.slider.removeImage');
+
 	});
 });
 	
@@ -183,17 +205,41 @@ Route::post('/admin/countries/{country}/delete', 'Admin\CountryController@destro
 Auth::routes();
 
 // FrontEnd
-Route::get('/','User\HomeController@index');
+Route::get('/','User\HomeController@index')->name('home');
 //Route::post('/language-chooser', 'Language\LanguageController@changeLanguage');
 //Route::post('/language/', array('before' => 'csrf', 'as'=>'language-chooser', 'uses' => 'Language\LanguageController@changeLanguage',) );
 
-// html
+Route::get('menu', 'HomeController@index')->name('menu');
+//Route::get('subject/{subject?}', 'HomeController@subject')->name('subject');
 
+// html
+Route::get('/html/guide-list', function() {
+	return view('user.guide-list');
+});
+
+Route::get('/html/guide-detail', function() {
+	return view('user.guide-detail');
+});
+
+Route::get('/html/apply', function() {
+	return view('user.apply');
+});
 
 Route::get('/html/fair', function() {
 	return view('user.fair');
 });
 
+Route::get('/html/compare', function() {
+	return view('user.compare');
+});
+
+Route::get('/html/course-detail', function() {
+	return view('user.course-detail-html');
+});
+
+Route::get('/html/search', function() {
+	return view('user.search');
+});
 Route::get('/guide', 'User\GuideController@index')->name('user.guide');
 Route::get('/guide/{slug}','User\GuideController@search')->name('user.guide.search');
 Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('user.search.ajax');
@@ -201,4 +247,30 @@ Route::get('university/{slug}','User\UniversityController@viewDetail')->name('us
 Route::get('get-marker', 'User\UniversityController@getMarker')->name('getMarker');
 Route::get('career/{slug}','User\CareerController@viewDetail')->name('user.career.detail');
 Route::get('subject/{slug}','User\SubjectController@viewDetail')->name('user.subject.detail');
+
+//Chat-box
+Route::group(['prefix'=>'message'], function() {
+
+	Route::group(['prefix'=>'guest'], function() {
+		Route::get('', function() {
+			return view('message.chat');
+		});
+		Route::get('get-history-message', 'Admin\MessageController@getHistoryMessage')->name('getHistoryMessage');
+	});
+
+	Route::group(['prefix'=>'admin'], function() {
+		Route::get('', function() {
+			return view('message.chat_admin');
+		});
+		Route::get('get-history-message/{chat_session}', 'Admin\MessageController@getHistoryMessageAdmin')->name('getHistoryMessageAdmin');
+	});
+
+	Route::get('send-message', 'Admin\MessageController@sendMessage')->name('sendMessage');
+	Route::get('new-message', 'Admin\MessageController@createFormChat')->name('createFormChat');
+});
+
+// contact
+Route::post('contact', 'User\ContactController@postContact')->name('postContact');
+
+Route::get('/course/{slug}', 'User\AjaxController@getCourseDetail');
 

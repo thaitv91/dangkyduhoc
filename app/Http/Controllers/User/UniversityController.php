@@ -36,6 +36,13 @@ class UniversityController extends Controller
             $meta['about'] = $meta->about;
             $meta['campus'] = $meta->campus;
       } 
+  
+      $slider = $university->slider()->first();
+		  $images = array();
+
+		  if (count($slider) != 0)
+			  $images = $slider->images;
+  
       $this->viewData = array(
         'university' => $university,
         'statistic' => $statistic,
@@ -44,6 +51,7 @@ class UniversityController extends Controller
         'locale'  => $locale,
         'markers' => $markers,
         'map_university' => $map_university,
+        'images'	=>	$images,
       ); 
 
       return view( 'user.universities' , $this->viewData );

@@ -37,11 +37,11 @@
 					<div class="form-group row">
 						<label class="col-md-3">Country</label>
 						<div class="col-md-9">
-							<select class="selectpicker " id="country_id" name="country_id" title="Choose one of the following..." data-live-search="true" tabindex="-98">
+							<select class="selectpicker " id="country_id" name="country_slug" title="Choose one of the following..." data-live-search="true" tabindex="-98">
                               <option disabled selected></option>
                               @if(count($country)!=0)
                                   @foreach($country as $db_country)
-                                  <option @if ($db_country->id == $university['country_id']) selected @endif value="{{$db_country->id}}" data-tokens="{{$db_country->name}}" >{{$db_country->name }} </option>
+                                  <option @if ($db_country->slug == $university['country_slug']) selected @endif value="{{$db_country->slug}}" data-tokens="{{$db_country->name}}" >{{$db_country->name }} </option>
                                   @endforeach
                                @endif
                               @if(count($country)==0)
@@ -54,14 +54,27 @@
 	                            </span>   
 	                        @endif
 						</div>
+					</div>
 
+					<div class="form-group row">
+						<label class="col-md-3">Image</label>
+						<div class="col-md-9">
+							<select class="selectpicker" id="image" name="image" title="Choose one of the following..." data-live-search="true" tabindex="-98">
+								@if(count($images)==0)
+									<option value=""><em>(Empty)</em></option>
+								@endif
+								<?php foreach ($images as $key => $value): ?>
+									<option @if ($value->id == $university['slider_id']) selected @endif  value="{{ $value->id }}">{{ $value->name }}</option>
+								<?php endforeach ?>
+							</select>
+						</div>
 					</div>
 
 					<div class="form-group row">
                         <label class="col-md-3">Logo</label>
 						<div class="col-md-9">
 	                        <input type="file" name="logo" value="" id="logo" class="required borrowerImageFile" data-errormsg="PhotoUploadErrorMsg">                
-	                          <img id="previewHolder" src="{{ Storage::disk('local')->url( $university['logo'] ) }}" alt="" width="170px" height="100px"/>
+	                          <img id="previewHolder" src="{{ asset($university->logo) }}" alt="" width="170px" height="100px"/>
 	                        <div class="col-md-9">
 	                        	@if($errors->has('logo'))
 		                            <span class="help-block">

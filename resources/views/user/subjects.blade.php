@@ -13,10 +13,12 @@
 		<div class="breadcrumb-page">
 			<ul class="list">
 				@foreach($subject_career as $key => $db_subject_career)
-				<li><a href="#">
+                    <?php $subject_slug = App\Models\Subject::where('id', '=', $db_subject_career->subject_id)->first()->slug ?>
+				<li><a href="{{ route('user.career.detail', $subject_slug) }}">
 					@if($locale == 'en')
-					{{ $db_subject_career->career['name_en']}}
-					@else {{  $db_subject_career->career['name'] }}
+						{{ $db_subject_career->career['name_en']}}
+					@else
+						{{  $db_subject_career->career['name'] }}
 					@endif
 					</a>
 				</li>            
@@ -62,12 +64,7 @@
 
 	<div class="box-filter progress-filter">
 		<h4 class="title-box">Filters</h4>
-		<div class="bg-alevel">
-			<div class="alevel" style="width: 50%;">
-			</div>
-			<span class="first">EEE</span>
-			<span style="left: 50%;">AAA</span>
-		</div>
+		<div id="fillter-subject"></div>
 	</div><!-- /.box-filter -->
 
 	<div class="filter-result subjects">

@@ -37,6 +37,7 @@
 						<td>
 							<a href="{{ route('admin.universities.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
 	                        <a onclick="confirmDelete({{$value->id}})" class="btn btn-xs btn-danger">Delete</a>
+	                        <a href="{{ route('user.university.detail',['slug'=>$value->slug]) }}" class="btn btn-xs btn-info">View</a>
 						</td>
 					</tr>
 				<?php endforeach ?>

@@ -24,13 +24,13 @@
 						<div class="neo">
 							<span class="icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span><br/>
 							TEF Gold Award
-						<div class="neo">
+						</div>
 					</li>
 					<li class="hidden-xs">
 						<div class="neo">
 							<span class="icon"><i class="fa fa-certificate" aria-hidden="true"></i></span><br/>
 							Triple Crown Accredited
-						<div class="neo">
+						</div>
 					</li>
 					<li>
 						<a href="#apply-online" class="neo link-scroll">
@@ -52,10 +52,13 @@
 	<div class="uni-info">
 		<div class="img">
 			<div class="slider" id="slider-img-uni">
-				<div class="item-img"><img src="/img/uni-img.jpg" alt=""></div>
-				<div class="item-img"><img src="/img/uni-img.jpg" alt=""></div>
-				<div class="item-img"><img src="/img/uni-img.jpg" alt=""></div>
-				<div class="item-img"><img src="/img/uni-img.jpg" alt=""></div>
+				@if (count($images) == 0)
+				<div class="item-img"><img src="{{ asset('img/uni-img.jpg') }}" alt=""></div>
+				@endif
+
+				@foreach ($images as $image)
+				<div class="item-img"><img src="{{ asset(str_replace('\\','/',$image->url)) }}" alt=""></div>
+				@endforeach
 			</div>
 		</div>
 		<div class="info">
@@ -104,10 +107,10 @@
 		</ul>
 
 		<div class="social">
-	      <a href="#"><i class="sprite-facebook"></i></a>
-	      <a href="#"><i class="sprite-google-plus"></i></a>
-	      <a href="#"><i class="sprite-twitter"></i></a>
-	      <a href="#"><i class="sprite-youtube"></i></a>
+	      <a href="{{ $meta->facebook }}"><i class="sprite-facebook"></i></a>
+	      <a href="{{ $meta->flickr }}"><i class="sprite-google-plus"></i></a>
+	      <a href="{{ $meta->twitter }}"><i class="sprite-twitter"></i></a>
+	      <a href="{{ $meta->youtube }}"><i class="sprite-youtube"></i></a>
 	   </div><!-- /.social -->
 	</div><!-- /.breadcrumb-page -->
 

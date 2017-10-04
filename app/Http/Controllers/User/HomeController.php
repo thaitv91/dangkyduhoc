@@ -10,7 +10,6 @@ use App\Models\Rating;
 use App\Models\Map;
 use App;
 
-use DB;
 class HomeController extends Controller
 {
     /**
@@ -20,19 +19,26 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $locale = App::getLocale();       
+        $locale = App::getLocale();
         $rating = Rating::all();
         $page = Page::where('slug', '=', 'home-page')->first();
         $fields = PageField::where('page_id', '=',$page->id)->get();
         foreach ($fields as $field) {
             if ($locale == 'en') {
-                $data_field[$field->slug] = $field->content_en;
+                $title = "Home page";
+                if ($field->slug == 'header-banner' || $field->slug == 'image-right-tools') {
+                    $data_field[$field->slug] = $field->content;
+                } else {
+                    $data_field[$field->slug] = $field->content_en;
+                }
             } else {
+                $title = "Trang chủ";
                 $data_field[$field->slug] = $field->content;
             }
         }
         // dd(json_encode($data_location));
         $this->viewData = array(
+            'title' => $title,
             'data_field' => $data_field,
             'rating'     => $rating,
             'locale'     => $locale,

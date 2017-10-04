@@ -44,6 +44,7 @@
 							<textarea class="form-control my-editor" rows="5" id="description_en" name="description_en" value="">{{ $data['description_en'] }}</textarea>    
 	                    </div>
 					</div>
+          
 					<div class="form-group row">
 						<label class="col-md-3">Career</label>
 						<div class="col-md-9">
@@ -69,6 +70,15 @@
 	                        @endif
 						</div>
 					</div>
+          
+					<div class="form-group row">
+						<label  class="col-md-3" for="name">Banner</label>
+						<div class="col-md-9">
+							<input type="file" name="avatar" value="" id="avatar" class="required borrowerImageFile" data-errormsg="PhotoUploadErrorMsg">
+
+							<img id="previewHolder" src="{{ $data['banner'] }}" alt="" width="170px" height="100px"/>
+						</div>
+					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</div>
@@ -84,10 +94,28 @@
 </div>
 
 @endsection
-{{-- @section('scripts')
-	<script>
-	$('#regular_hours').on('change', function(){
-   		this.value = this.checked ? 1 : 0;
-	}).change();
-</script>
-@endsection --}}
+ @section('scripts')
+	{{--<script>--}}
+		{{--$('#regular_hours').on('change', function(){--}}
+			{{--this.value = this.checked ? 1 : 0;--}}
+		{{--}).change();--}}
+	{{--</script>--}}
+
+	<script type="text/javascript">
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$('#previewHolder').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+				console.log(reader);
+			}
+		}
+
+		$("#avatar").change(function() {
+			readURL(this);
+		});
+	</script>
+@endsection
