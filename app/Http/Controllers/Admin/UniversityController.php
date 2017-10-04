@@ -9,6 +9,7 @@ use App\Models\UniversityMetas;
 use App\Models\UniversityRanking;
 use App\Models\UniversityStatistic;
 use App\Models\Country;
+use App\Models\Slider;
 use DB;
 use Session;
 use Redirect;
@@ -41,9 +42,11 @@ class UniversityController extends Controller
     {
 
         $country = Country::all();
-        $this->viewData  = array(
-            'country'  => $country
-        );
+        $images = Slider::all();
+        $this->viewData = array(
+            'country'    => $country,
+            'images'      => $images,
+         );
 
         return view('admin.universities.create', $this->viewData);
     }
@@ -88,6 +91,7 @@ class UniversityController extends Controller
                 $logo = $data['logo'];
                 $name_logo = $logo->getClientOriginalName();
                 $data['logo']= $request->file( 'logo' )->storeAs( 'public/img/university',$name_logo );
+                $data['slider_id'] = $data['image'];
                 $university = University::create($data);
                 DB::commit();
                 Session::flash('success','Success!');
@@ -122,9 +126,11 @@ class UniversityController extends Controller
     {
         $university = University::find($id);
         $country = Country::all();
+        $images = Slider::all();
         $this->viewData = array(
             'university' => $university,
-            'country'    => $country
+            'country'    => $country,
+            'images'      => $images,
          );
         return view('admin.universities.edit', $this->viewData);
     }
@@ -168,6 +174,7 @@ class UniversityController extends Controller
                 }
                 $country = Country::where('slug', $data['country_slug'])->first();
                 $data['country_slug'] = $country->slug;
+                $data['slider_id'] = $data['image'];
                 $university = University::where('id', $id)->first();
                 $university->update($data);
                  

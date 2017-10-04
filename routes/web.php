@@ -43,7 +43,7 @@ Route::group(['prefix'=>'admin'], function() {
 	});
 
 	Route::group(['prefix'=>'rating'], function(){
-		Route::get('/', 'Admin\RatingConrotller@index')->name('admin.rating.index');
+		Route::get('/', 'Admin\RatingController@index')->name('admin.rating.index');
 		Route::get('/create', 'Admin\RatingController@create')->name('admin.rating.create');
 		Route::post('/create','Admin\RatingController@store')->name('admin.rating.store');
 		Route::get('/edit/{id}', 'Admin\RatingController@edit')->name('admin.rating.edit');
@@ -161,6 +161,18 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::put('/edit/{id}', 'Admin\SubjectCareerController@update')->name('admin.subjectCareer.update');
 		Route::get('delete/{id}', 'Admin\SubjectCareerController@destroy')->name('admin.subjectCareer.delete');
 		Route::get('get-url-delete','Admin\SubjectCareerController@getUrlDelete')->name('admin.subjectCareer.getUrlDelete');
+	});
+
+	Route::group(['prefix'=>'slider'], function() {
+		Route::get('', 'Admin\SliderController@index')->name('admin.slider');
+		Route::get('create', 'Admin\SliderController@create')->name('admin.slider.create');
+		Route::post('create', 'Admin\SliderController@store');
+		Route::get('edit/{id}', 'Admin\SliderController@edit')->name('admin.slider.edit');
+		Route::post('edit/{id}', 'Admin\SliderController@update');
+		Route::get('delete/{id}', 'Admin\SliderController@destroy')->name('admin.slider.delete');
+		Route::get('get-image', 'Admin\SliderController@getImage')->name('admin.slider.getImage');
+		Route::post('image-upload', 'Admin\SliderController@uploadImage')->name('admin.slider.uploadImage');
+		Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.slider.removeImage');
 	});
 });
 	

@@ -54,10 +54,9 @@
 	<div class="uni-info">
 		<div class="img">
 			<div class="slider" id="slider-img-uni">
-				<div class="item-img"><img src="/img/uni-img.jpg" alt=""></div>
-				<div class="item-img"><img src="/img/uni-img.jpg" alt=""></div>
-				<div class="item-img"><img src="/img/uni-img.jpg" alt=""></div>
-				<div class="item-img"><img src="/img/uni-img.jpg" alt=""></div>
+				@foreach ($images as $image)
+				<div class="item-img"><img src="{{ asset(str_replace('\\','/',$image->url)) }}" alt=""></div>
+				@endforeach
 			</div>
 		</div>
 		<div class="info">

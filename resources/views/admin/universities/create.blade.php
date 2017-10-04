@@ -53,7 +53,20 @@
 	                            </span>   
 	                        @endif
 						</div>
+					</div>
 
+					<div class="form-group row">
+						<label class="col-md-3">Image</label>
+						<div class="col-md-9">
+							<select class="selectpicker" id="image" name="image" title="Choose one of the following..." data-live-search="true" tabindex="-98">
+								@if(count($images)==0)
+									<option value=""><em>(Empty)</em></option>
+								@endif
+								<?php foreach ($images as $key => $value): ?>
+									<option value="{{ $value->id }}">{{ $value->name }}</option>
+								<?php endforeach ?>
+							</select>
+						</div>
 					</div>
 
 					<div class="form-group row">
