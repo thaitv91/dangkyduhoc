@@ -16,6 +16,7 @@ use Redirect;
 use Validator;
 use Storage;
 use Log;
+use Intervention\Image\ImageManagerStatic as Image;
 class UniversityController extends Controller
 {
     /**
@@ -23,6 +24,12 @@ class UniversityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $image;
+
+    public function __construct() {
+        $this->image = new FileController;
+    }
+
     public function index()
     {
         $universites = University::all();
@@ -88,9 +95,12 @@ class UniversityController extends Controller
 
                 $country = Country::where('id', $data['country_id'])->first();
                 $data['country_slug'] = $country->slug;
+                //Upload logo
                 $logo = $data['logo'];
-                $name_logo = $logo->getClientOriginalName();
-                $data['logo']= $request->file( 'logo' )->storeAs( 'public/img/university',$name_logo );
+                $folder = 'image/university/logo';
+                $logo = $this->image->uploadImage($folder, $logo);
+                $data['logo'] = $folder.'/'.$logo;
+                // $data['logo']= $request->file( 'logo' )->storeAs( 'public/img/university',$name_logo );
                 $data['slider_id'] = $data['image'];
                 $university = University::create($data);
                 DB::commit();
@@ -162,8 +172,9 @@ class UniversityController extends Controller
                 DB::beginTransaction();
                 if($request->hasFile('logo')){
                     $logo = $data['logo'];
-                    $name_logo = $logo->getClientOriginalName();
-                    $data['logo']= $request->file( 'logo' )->storeAs( 'public/img/university',$name_logo );    
+                    $folder = 'image/university/logo';
+                    $logo = $this->image->uploadImage($folder, $logo);
+                    $data['logo'] = $folder.'/'.$logo;
                 }
                 if($data['name_en']){
                     $data['slug'] = str_slug( $data['name_en'] );
@@ -177,7 +188,7 @@ class UniversityController extends Controller
                 $data['slider_id'] = $data['image'];
                 $university = University::where('id', $id)->first();
                 $university->update($data);
-                 
+                
                 DB::commit();
                 Session::flash('success','Success!');
                 return redirect(route('admin.universities.index'));    

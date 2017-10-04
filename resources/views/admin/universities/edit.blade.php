@@ -74,7 +74,7 @@
                         <label class="col-md-3">Logo</label>
 						<div class="col-md-9">
 	                        <input type="file" name="logo" value="" id="logo" class="required borrowerImageFile" data-errormsg="PhotoUploadErrorMsg">                
-	                          <img id="previewHolder" src="{{ Storage::disk('local')->url( $university['logo'] ) }}" alt="" width="170px" height="100px"/>
+	                          <img id="previewHolder" src="{{ asset($university->logo) }}" alt="" width="170px" height="100px"/>
 	                        <div class="col-md-9">
 	                        	@if($errors->has('logo'))
 		                            <span class="help-block">
