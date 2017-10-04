@@ -51,7 +51,21 @@ class GuideController extends Controller
     }  
 
     public function search( $slug ){
-        $data = GuideQuestion::where('slug', $slug)->first();
-        dd($data);
+        $locale = App::getLocale();
+        $guide = GuideQuestion::where('slug', $slug)->first();
+
+        if ($locale == 'en') {
+            $data = [
+                'title' => $guide->question_en,
+                'answer' => $guide->anser_en
+            ];
+        } else {
+            $data = [
+                'title' => $guide->question,
+                'answer' => $guide->answer
+            ];
+        }
+
+        return view('user.guide-detail', $data);
     }
 }

@@ -5,36 +5,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Starter</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" type="text/css" href="{{url('css/multi-select/bootstrap-select.css')}}">
-  <link href="{{url('css/toastr.min.css')}}" rel="stylesheet" />
-  <link href="{{url('css/adminStyle.css')}}" rel="stylesheet" />
-  <link rel="stylesheet" href="{{url('css/bootstrap-datepicker3.css')}}"/>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>AdminLTE 2 | Starter</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- Bootstrap 3.3.6 -->
+	<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+	<!-- Datepicker -->
+	<link rel="stylesheet" href="{{ asset('plugins/datepicker/datepicker3.css') }}">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{url('css/multi-select/bootstrap-select.css')}}">
+	<link href="{{url('css/toastr.min.css')}}" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+	<link rel="stylesheet" href="{{ url('plugins/datatables/dataTables.bootstrap.css') }}">
+	<link rel="stylesheet" href="{{ url('plugins/datatables/jquery.dataTables.css') }}">
+
+	<link href="{{url('css/toastr.min.css')}}" rel="stylesheet" />
+	<link href="{{url('css/adminStyle.css')}}" rel="stylesheet" />
+	<link rel="stylesheet" href="{{url('css/bootstrap-datepicker3.css')}}"/>
 
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
-  -->
-  <link rel="stylesheet" href="/dist/css/skins/skin-blue.min.css">
+    -->
+    <link rel="stylesheet" href="{{ asset('dist/css/skins/skin-blue.min.css') }}">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+<![endif]-->
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -57,261 +65,303 @@ desired effect
 |---------------------------------------------------------|
 -->
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+	<div class="wrapper">
 
-  <!-- Main Header -->
-  <header class="main-header">
+		<!-- Main Header -->
+		<header class="main-header">
 
-    <!-- Logo -->
-    <a href="/" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
-    </a>
+			<!-- Logo -->
+			<a href="index2.html" class="logo">
+				<!-- mini logo for sidebar mini 50x50 pixels -->
+				<span class="logo-mini"><b>A</b>LT</span>
+				<!-- logo for regular state and mobile devices -->
+				<span class="logo-lg"><b>Admin</b>LTE</span>
+			</a>
 
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top" role="navigation">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
-    </nav>
-  </header>
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+			<!-- Header Navbar -->
+			<nav class="navbar navbar-static-top" role="navigation">
+				<!-- Sidebar toggle button-->
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+					<span class="sr-only">Toggle navigation</span>
+				</a>
+				<!-- Navbar Right Menu -->
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<!-- Messages: style can be found in dropdown.less-->
+						<li class="dropdown messages-menu">
+							<!-- Menu toggle button -->
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-envelope-o"></i>
+								<span class="label label-success">4</span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="header">You have 4 messages</li>
+								<li>
+									<!-- inner menu: contains the messages -->
+									<ul class="menu">
+										<li><!-- start message -->
+											<a href="#">
+												<div class="pull-left">
+													<!-- User Image -->
+													<img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+												</div>
+												<!-- Message title and timestamp -->
+												<h4>
+													Support Team
+													<small><i class="fa fa-clock-o"></i> 5 mins</small>
+												</h4>
+												<!-- The message -->
+												<p>Why not buy a new awesome theme?</p>
+											</a>
+										</li>
+										<!-- end message -->
+									</ul>
+									<!-- /.menu -->
+								</li>
+								<li class="footer"><a href="#">See All Messages</a></li>
+							</ul>
+						</li>
+						<!-- /.messages-menu -->
 
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar Menu -->
-      <ul class="sidebar-menu">
-        <li class="header">HEADER</li>
-        <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="{{ route('admin.countries') }}"><i class="fa fa-link"></i> <span>Countries</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Guide</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('admin.guide.index') }}">Guide</a></li>
-            <li><a href="{{ route('admin.guideTopic.index') }}">Guide Topic</a></li>
-            <li><a href="{{ route('admin.guideQuestion.index') }}">Guide Question</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Page</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('admin.page.index') }}"> Page</a></li>
-            <li><a href="{{ route('admin.pagefield.index') }}">Page Fields</a></li>
-          </ul>
-        </li>
-        <li><a href="{{ route('admin.rating.index') }}"><i class="fa fa-link"></i> <span>Rating</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>University</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('admin.universities.index') }}"> University</a></li>
-            <li><a href="{{ route('admin.universityMeta.index') }}">University Meta</a></li>
-            <li><a href="{{ route('admin.universityRank.index') }}">University Ranking</a></li>
-            <li><a href="{{ route('admin.universityStatistic.index') }}">University Statistic</a></li>
-          </ul>
-        </li>
-        <li><a href="{{ route('admin.career.index') }}"><i class="fa fa-link"></i> <span>Careers</span></a></li>
-        <li><a href="{{ route('admin.subject.index') }}"><i class="fa fa-link"></i> <span>Subject</span></a></li>
-      </ul>
-      <!-- /.sidebar-menu -->
-    </section>
-    <!-- /.sidebar -->
-  </aside>
+						<!-- Logo -->
+						<a href="/" class="logo">
+							<!-- mini logo for sidebar mini 50x50 pixels -->
+							<span class="logo-mini"><b>A</b>LT</span>
+							<!-- logo for regular state and mobile devices -->
+							<span class="logo-lg"><b>Admin</b>LTE</span>
+						</a>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
-    </section>
+						<!-- Header Navbar -->
+						<nav class="navbar navbar-static-top" role="navigation">
+							<!-- Sidebar toggle button-->
+							<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+								<span class="sr-only">Toggle navigation</span>
+							</a>
+						</nav>
+					</header>
+					<!-- Left side column. contains the logo and sidebar -->
+					<aside class="main-sidebar">
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-          @yield('content')
-      </div>
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+						<!-- sidebar: style can be found in sidebar.less -->
+						<section class="sidebar">
+							<!-- Sidebar Menu -->
+							<ul class="sidebar-menu">
+								<li class="header">HEADER</li>
+								<!-- Optionally, you can add icons to the links -->
+								<li class="active"><a href="{{ route('admin.countries') }}"><i class="fa fa-link"></i> <span>Countries</span></a></li>
+								<li class="treeview">
+									<a href="#"><i class="fa fa-link"></i> <span>Guide</span>
+										<span class="pull-right-container">
+											<i class="fa fa-angle-left pull-right"></i>
+										</span>
+									</a>
+									<ul class="treeview-menu">
+										<li><a href="{{ route('admin.guide.index') }}">Guide</a></li>
+										<li><a href="{{ route('admin.guideTopic.index') }}">Guide Topic</a></li>
+										<li><a href="{{ route('admin.guideQuestion.index') }}">Guide Question</a></li>
+									</ul>
+								</li>
+								<li class="treeview">
+									<a href="#"><i class="fa fa-link"></i> <span>Page</span>
+										<span class="pull-right-container">
+											<i class="fa fa-angle-left pull-right"></i>
+										</span>
+									</a>
+									<ul class="treeview-menu">
+										<li><a href="{{ route('admin.page.index') }}"> Page</a></li>
+										<li><a href="{{ route('admin.pagefield.index') }}">Page Fields</a></li>
+									</ul>
+								</li>
+								<li><a href="{{ route('admin.rating.index') }}"><i class="fa fa-link"></i> <span>Rating</span></a></li>
+								<li class="treeview">
+									<a href="#"><i class="fa fa-link"></i> <span>University</span>
+										<span class="pull-right-container">
+											<i class="fa fa-angle-left pull-right"></i>
+										</span>
+									</a>
+									<ul class="treeview-menu">
+										<li><a href="{{ route('admin.universities.index') }}"> University</a></li>
+										<li><a href="{{ route('admin.universityMeta.index') }}">University Meta</a></li>
+										<li><a href="{{ route('admin.universityRank.index') }}">University Ranking</a></li>
+										<li><a href="{{ route('admin.universityStatistic.index') }}">University Statistic</a></li>
+									</ul>
+								</li>
+								<li><a href="{{ route('admin.career.index') }}"><i class="fa fa-link"></i> <span>Careers</span></a></li>
+								<li><a href="{{ route('admin.subject.index') }}"><i class="fa fa-link"></i> <span>Subject</span></a></li>
+							</ul>
+							<!-- /.sidebar-menu -->
+						</section>
+						<!-- /.sidebar -->
+					</aside>
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="pull-right hidden-xs">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
-  </footer>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+					<li class="active">Here</li>
+				</ol>
+			</section>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane active" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:;">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					@yield('content')
+				</div>
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
 
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+		<!-- Main Footer -->
+		<footer class="main-footer">
+			<!-- To the right -->
+			<div class="pull-right hidden-xs">
+				Anything you want
+			</div>
+			<!-- Default to the left -->
+			<strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+		</footer>
 
-                <p>Will be 23 on April 24th</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Create the tabs -->
+			<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+				<li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+				<li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<!-- Home tab content -->
+				<div class="tab-pane active" id="control-sidebar-home-tab">
+					<h3 class="control-sidebar-heading">Recent Activity</h3>
+					<ul class="control-sidebar-menu">
+						<li>
+							<a href="javascript:;">
+								<i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:;">
-              <h4 class="control-sidebar-subheading">
-                Custom Template Design
-                <span class="pull-right-container">
-                  <span class="label label-danger pull-right">70%</span>
-                </span>
-              </h4>
+								<div class="menu-info">
+									<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
 
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
+									<p>Will be 23 on April 24th</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<!-- /.control-sidebar-menu -->
 
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-          <h3 class="control-sidebar-heading">General Settings</h3>
+					<h3 class="control-sidebar-heading">Tasks Progress</h3>
+					<ul class="control-sidebar-menu">
+						<li>
+							<a href="javascript:;">
+								<h4 class="control-sidebar-subheading">
+									Custom Template Design
+									<span class="pull-right-container">
+										<span class="label label-danger pull-right">70%</span>
+									</span>
+								</h4>
 
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Report panel usage
-              <input type="checkbox" class="pull-right" checked>
-            </label>
+								<div class="progress progress-xxs">
+									<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<!-- /.control-sidebar-menu -->
 
-            <p>
-              Some information about this general settings option
-            </p>
-          </div>
-          <!-- /.form-group -->
-        </form>
-      </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
+				</div>
+				<!-- /.tab-pane -->
+				<!-- Stats tab content -->
+				<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+				<!-- /.tab-pane -->
+				<!-- Settings tab content -->
+				<div class="tab-pane" id="control-sidebar-settings-tab">
+					<form method="post">
+						<h3 class="control-sidebar-heading">General Settings</h3>
+
+						<div class="form-group">
+							<label class="control-sidebar-subheading">
+								Report panel usage
+								<input type="checkbox" class="pull-right" checked>
+							</label>
+
+							<p>
+								Some information about this general settings option
+							</p>
+						</div>
+						<!-- /.form-group -->
+					</form>
+				</div>
+				<!-- /.tab-pane -->
+			</div>
+		</aside>
+		<!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-</div>
-<!-- ./wrapper -->
+  	immediately after the control sidebar -->
+  	<div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
 
-<!-- REQUIRED JS SCRIPTS -->
+  <!-- REQUIRED JS SCRIPTS -->
 
-<!-- jQuery 2.2.3 -->
-<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/dist/js/app.min.js"></script>
-<script src="{{asset('build/js/custom.min.js')}}"></script>
- <script src="{{url('js/multi-select/bootstrap-select.js')}}" type="text/javascript"></script>
- <script src="{{ url('js/tinymce/tinymce.min.js') }}"></script> 
- <script type="text/javascript" src="{{url('js/bootstrap-datepicker.min.js')}}"></script>
- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
- <script>
-      tinymce.PluginManager.add('placeholder', function (editor) {
-          editor.on('init', function () {
-              var label = new Label;
-              onBlur();
-              tinymce.DOM.bind(label.el, 'click', onFocus);
-              editor.on('focus', onFocus);
-              editor.on('blur', onBlur);
-              editor.on('change', onBlur);
-              editor.on('setContent', onBlur);
-              function onFocus() { if (!editor.settings.readonly === true) { label.hide(); } editor.execCommand('mceFocus', false); }
-              function onBlur() { if (editor.getContent() == '') { label.show(); } else { label.hide(); } }
-          });
-          var Label = function () {
-              var placeholder_text = editor.getElement().getAttribute("placeholder") || editor.settings.placeholder;
-              var placeholder_attrs = editor.settings.placeholder_attrs || { style: { position: 'absolute', top: '2px', left: 0, color: '#aaaaaa', padding: '.25%', margin: '5px', width: '80%', 'font-size': '17px !important;', overflow: 'hidden', 'white-space': 'pre-wrap' } };
-              var contentAreaContainer = editor.getContentAreaContainer();
-              tinymce.DOM.setStyle(contentAreaContainer, 'position', 'relative');
-              this.el = tinymce.DOM.add(contentAreaContainer, "label", placeholder_attrs, placeholder_text);
-          }
-          Label.prototype.hide = function () { tinymce.DOM.setStyle(this.el, 'display', 'none'); }
-          Label.prototype.show = function () { tinymce.DOM.setStyle(this.el, 'display', ''); }
-      });
-      tinymce.init({
-          selector: 'textarea.my-editor',
-          menubar: false,
-          plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table contextmenu paste code'
-          ],
-          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-          content_css: [
-              '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-              '//www.tinymce.com/css/codepen.min.css'
-            ],
-          // setup: function(ed) {
-          //       ed.on('keyup', function(e) {
-          //           // check_submit();
-          //       });
-          //   }
-        });
+  <!-- jQuery 2.2.3 -->
+  <script src="{{ asset('plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+  <!-- Bootstrap 3.3.6 -->
+  <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+  <!-- AdminLTE App -->
+  <script src="/dist/js/app.min.js"></script>
+  <script src="{{asset('build/js/custom.min.js')}}"></script>
+  <script src="{{url('js/multi-select/bootstrap-select.js')}}" type="text/javascript"></script>
+  <script src="{{ url('js/tinymce/tinymce.min.js') }}"></script> 
+  <script type="text/javascript" src="{{url('js/bootstrap-datepicker.min.js')}}"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script>
+  	tinymce.PluginManager.add('placeholder', function (editor) {
+  		editor.on('init', function () {
+  			var label = new Label;
+  			onBlur();
+  			tinymce.DOM.bind(label.el, 'click', onFocus);
+  			editor.on('focus', onFocus);
+  			editor.on('blur', onBlur);
+  			editor.on('change', onBlur);
+  			editor.on('setContent', onBlur);
+  			function onFocus() { if (!editor.settings.readonly === true) { label.hide(); } editor.execCommand('mceFocus', false); }
+  			function onBlur() { if (editor.getContent() == '') { label.show(); } else { label.hide(); } }
+  		});
+  		var Label = function () {
+  			var placeholder_text = editor.getElement().getAttribute("placeholder") || editor.settings.placeholder;
+  			var placeholder_attrs = editor.settings.placeholder_attrs || { style: { position: 'absolute', top: '2px', left: 0, color: '#aaaaaa', padding: '.25%', margin: '5px', width: '80%', 'font-size': '17px !important;', overflow: 'hidden', 'white-space': 'pre-wrap' } };
+  			var contentAreaContainer = editor.getContentAreaContainer();
+  			tinymce.DOM.setStyle(contentAreaContainer, 'position', 'relative');
+  			this.el = tinymce.DOM.add(contentAreaContainer, "label", placeholder_attrs, placeholder_text);
+  		}
+  		Label.prototype.hide = function () { tinymce.DOM.setStyle(this.el, 'display', 'none'); }
+  		Label.prototype.show = function () { tinymce.DOM.setStyle(this.el, 'display', ''); }
+  	});
+  	tinymce.init({
+  		selector: 'textarea.my-editor',
+  		menubar: false,
+  		plugins: [
+  		'advlist autolink lists link image charmap print preview anchor',
+  		'searchreplace visualblocks code fullscreen',
+  		'insertdatetime media table contextmenu paste code'
+  		],
+  		toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+  		content_css: [
+  		'//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+  		'//www.tinymce.com/css/codepen.min.css'
+  		],
+  	});
 
   </script>
-    <script>  
-            @if ( Session::has('success'))  
-            toastr.success('{{ session('success')}}');  
-            @endif
-        </script>
-@yield('scripts')
+  <script>  
+  	@if ( Session::has('success'))  
+  	toastr.success('{{ session('success')}}');  
+  	@endif
+  </script>
+  @yield('scripts')
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. Slimscroll is required when using the
-     fixed layout. -->
+ Both of these plugins are recommended to enhance the
+ user experience. Slimscroll is required when using the
+ fixed layout. -->
 </body>
 
 </html>

@@ -50,7 +50,7 @@
 					<div class="form-group row">
 						<label  class="col-md-3" for="name">Content</label>
 						<div class="col-md-9">
-							<textarea class="form-control my-editor" rows="7" id="content" name="content" ">{!! $data['content'] !!}</textarea>    
+							<textarea class="form-control my-editor" rows="7" id="content" name="content">{!! $data['content'] !!}</textarea>
 							@if($errors->has('content'))
 	                            <span class="help-block">
 	                                <strong class="text-danger">{{$errors->first('content')}}</strong>

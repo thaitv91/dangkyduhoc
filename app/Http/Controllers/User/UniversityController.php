@@ -30,6 +30,7 @@ class UniversityController extends Controller
             $meta['campus'] = $meta->campus;
       } 
       $this->viewData = array(
+          'title' => $university['name'],
         'university' => $university,
         'statistic' => $statistic,
         'meta'  => $meta,

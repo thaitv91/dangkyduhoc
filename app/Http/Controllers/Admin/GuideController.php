@@ -65,6 +65,13 @@ class GuideController extends Controller
             }else{
                 DB::beginTransaction();
                 $data['slug'] = str_slug( $data['name'] );
+                if($data['question_en']){
+                    $data['slug'] = str_slug( $data['question_en'] );
+                }else if($data['question']){
+                    $data['slug'] = str_slug( $data['question'] ); 
+                }else{
+                     $data['slug'] = str_slug( $data['question_en'] );    
+                }
                 $pages = Guide::create($data);
                 DB::commit();
                 Session::flash('success','Success!');

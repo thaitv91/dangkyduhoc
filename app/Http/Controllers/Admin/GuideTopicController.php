@@ -69,8 +69,13 @@ class GuideTopicController extends Controller
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
                 DB::beginTransaction();
-                $data['slug'] = str_slug( $data['title_en'] );
-                $datas = GuideTopic::create($data);
+                if($data['title_en']){
+                    $data['slug'] = str_slug( $data['title_en'] );
+                }else if($data['title']){
+                    $data['slug'] = str_slug( $data['title'] ); 
+                }else{
+                     $data['slug'] = str_slug( $data['title_en'] );    
+                }                $datas = GuideTopic::create($data);
                 DB::commit();
                 Session::flash('success','Success!');
                 return redirect(route('admin.guideTopic.index'));
@@ -120,7 +125,41 @@ class GuideTopicController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        dd($data);
+        try {
+            $rules = [
+                'title'               =>'required',
+                'title_en'               =>'required',  
+                ];
+
+            $messages = [
+                'title.required'      =>'Please enter the title!!',
+                'title_en.required'      =>'Please enter the title!!',                            
+            ];
+
+            $validator = Validator::make( $request->all(), $rules, $messages);
+
+            if ( $validator->fails() ){
+                return redirect()->back()->withInput($data)->withErrors($validator);
+            }else{
+                DB::beginTransaction();
+                if($data['title_en']){
+                    $data['slug'] = str_slug( $data['title_en'] );
+                }else if($data['title']){
+                    $data['slug'] = str_slug( $data['title'] ); 
+                }else{
+                     $data['slug'] = str_slug( $data['title_en'] );    
+                }
+                $datas = GuideTopic::where('id', $id)->first();
+                $datas->update($data);
+                DB::commit();
+                Session::flash('success','Success!');
+                return redirect(route('admin.guideTopic.index'));
+                
+            }
+        } catch (Exception $e) {
+            Session::flash('error','Opp! Please try again.Error!');
+            DB::rollback();
+        }
     }
 
     /**
@@ -131,6 +170,26 @@ class GuideTopicController extends Controller
      */
     public function destroy($id)
     {
-        //
+       DB::beginTransaction();
+        try {
+            GuideTopic::find( $id )->delete();
+            DB::commit();
+            Session::flash('success','Success');
+            return Redirect::back();
+
+        } catch(\Exception $e) {
+            \Log::info( $e->getMessage() );
+            DB::rollback();
+            Session::flash('error','Error');
+            return Redirect::back();
+        }
+    }
+
+    public function getUrlDelete(Request $request) {
+        $id = $request->id;
+        if (isset($id)) {
+            return route('admin.guideTopic.delete',['id'=>$id]);
+        }
+        return -1;
     }
 }
