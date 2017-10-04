@@ -4,14 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Guide;
+use App\Models\University;
+use App\Models\Map;
+use App\Models\MapLocation;
 use DB;
 use Session;
 use Redirect;
 use Validator;
-use Storage;
 use Log;
-class GuideController extends Controller
+class MapLocationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,11 +21,11 @@ class GuideController extends Controller
      */
     public function index()
     {
-        $data = Guide::orderBy('id', 'DESC')->get();
+        $data = MapLocation::all();
         $this->viewData = array(
             'data' => $data
-            );
-        return view( 'admin.guide.index', $this->viewData);
+        );
+        return view ('admin.mapLocation.index', $this->viewData);
     }
 
     /**
@@ -34,7 +35,11 @@ class GuideController extends Controller
      */
     public function create()
     {
-        return view( 'admin.guide.create');
+        $map = Map::all();
+        $this->viewData = array(
+            'map' => $map
+        );
+        return view ('admin.mapLocation.create', $this->viewData);
     }
 
     /**
@@ -46,16 +51,23 @@ class GuideController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        unset($data['_token']);
         try {
             $rules = [
-                'name'               =>'required',
-                    
+                'name'             =>'required',
+                'lat'               =>'required|numeric',
+                'lng'               =>'required|numeric',
+                'type'              =>'required',
+                'map_id'              =>'required'
                 ];
 
             $messages = [
-                'name.required'      =>'Please enter the name!!',
-                                
+                'name.required'          =>'Please enter the name!!',
+                'lat.required'            =>'Please enter the lat!!',
+                'lat.numeric'             =>'please enter a valid lat format!!',
+                'lng.required'            =>'Please enter the long!!',
+                'lng.numeric'            =>'please enter a valid lat format!!',  
+                'type.required'          =>'Please choose one type!!',         
+                'map_id.required'          =>'Please choose one map!!',         
             ];
 
             $validator = Validator::make( $request->all(), $rules, $messages);
@@ -63,12 +75,11 @@ class GuideController extends Controller
             if ( $validator->fails() ){
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
-                DB::beginTransaction();
-                $data['slug'] = str_slug( $data['name'] );
-                $pages = Guide::create($data);
-                DB::commit();
-                Session::flash('success','Success!');
-                return redirect(route('admin.guide.index'));
+            DB::beginTransaction();
+            $mapLocation = MapLocation::create($data);
+            DB::commit();
+            Session::flash('success','Success!');
+            return redirect(route('admin.mapLocation.index'));
                 
             }
         } catch (Exception $e) {
@@ -85,7 +96,7 @@ class GuideController extends Controller
      */
     public function show($id)
     {
-        //
+       //
     }
 
     /**
@@ -96,11 +107,13 @@ class GuideController extends Controller
      */
     public function edit($id)
     {
-        $data = Guide::find($id);
+        $map = Map::all();
+        $data = MapLocation::find( $id );
         $this->viewData = array(
-            'data' => $data,
+            'map' => $map,
+            'data' => $data
         );
-        return view ('admin.guide.edit', $this->viewData);
+        return view ('admin.mapLocation.edit', $this->viewData);
     }
 
     /**
@@ -115,11 +128,21 @@ class GuideController extends Controller
         $data = $request->all();
         try {
             $rules = [
-                'name'           =>'required',    
-            ];
+                'name'             =>'required',
+                'lat'               =>'required|numeric',
+                'lng'               =>'required|numeric',
+                'type'              =>'required',
+                'map_id'              =>'required'
+                ];
 
             $messages = [
-                'name.required'      =>'Please enter the name!!',                    
+                'name.required'          =>'Please enter the name!!',
+                'lat.required'            =>'Please enter the lat!!',
+                'lat.numeric'             =>'please enter a valid lat format!!',
+                'lng.required'            =>'Please enter the long!!',
+                'lng.numeric'            =>'please enter a valid lat format!!',  
+                'type.required'          =>'Please choose one type!!',         
+                'map_id.required'          =>'Please choose one map!!',         
             ];
 
             $validator = Validator::make( $request->all(), $rules, $messages);
@@ -127,13 +150,12 @@ class GuideController extends Controller
             if ( $validator->fails() ){
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
-                DB::beginTransaction();
-                $data['slug'] = str_slug( $data['name'] );
-                $page = Guide::where('id', $id)->first();
-                $page->update($data);
-                DB::commit();
-                Session::flash('success','Success!');
-                return redirect(route('admin.guide.index'));
+            DB::beginTransaction();
+            $mapLocation = MapLocation::where('id', $id)->first();
+            $mapLocation->update($data);
+            DB::commit();
+            Session::flash('success','Success!');
+            return redirect(route('admin.mapLocation.index'));
                 
             }
         } catch (Exception $e) {
@@ -152,7 +174,7 @@ class GuideController extends Controller
     {
         DB::beginTransaction();
         try {
-            Guide::find( $id )->delete();
+            MapLocation::find( $id )->delete();
             DB::commit();
             Session::flash('success','Success');
             return Redirect::back();
@@ -168,7 +190,7 @@ class GuideController extends Controller
     public function getUrlDelete(Request $request) {
         $id = $request->id;
         if (isset($id)) {
-            return route('admin.guide.delete',['id'=>$id]);
+            return route('admin.mapLocation.delete',['id'=>$id]);
         }
         return -1;
     }

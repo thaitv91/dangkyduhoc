@@ -163,6 +163,25 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('get-url-delete','Admin\SubjectCareerController@getUrlDelete')->name('admin.subjectCareer.getUrlDelete');
 	});
 
+	Route::group(['prefix'=>'map'],function(){
+		Route::get('/', 'Admin\MapController@index')->name('admin.map.index');
+		Route::get('/create', 'Admin\MapController@create')->name('admin.map.create');
+		Route::post('/create','Admin\MapController@store')->name('admin.map.store');
+		Route::get('/edit/{id}', 'Admin\MapController@edit')->name('admin.map.edit');
+		Route::put('/edit/{id}', 'Admin\MapController@update')->name('admin.map.update');
+		Route::get('delete/{id}', 'Admin\MapController@destroy')->name('admin.map.delete');
+		Route::get('get-url-delete','Admin\MapController@getUrlDelete')->name('admin.map.getUrlDelete');
+	});
+	
+	Route::group(['prefix'=>'map-location'],function(){
+		Route::get('/', 'Admin\MapLocationController@index')->name('admin.mapLocation.index');
+		Route::get('/create', 'Admin\MapLocationController@create')->name('admin.mapLocation.create');
+		Route::post('/create','Admin\MapLocationController@store')->name('admin.mapLocation.store');
+		Route::get('/edit/{id}', 'Admin\MapLocationController@edit')->name('admin.mapLocation.edit');
+		Route::put('/edit/{id}', 'Admin\MapLocationController@update')->name('admin.mapLocation.update');
+		Route::get('delete/{id}', 'Admin\MapLocationController@destroy')->name('admin.mapLocation.delete');
+		Route::get('get-url-delete','Admin\MapLocationController@getUrlDelete')->name('admin.mapLocation.getUrlDelete');
+
 	Route::group(['prefix'=>'slider'], function() {
 		Route::get('', 'Admin\SliderController@index')->name('admin.slider');
 		Route::get('create', 'Admin\SliderController@create')->name('admin.slider.create');
@@ -173,6 +192,7 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::get('get-image', 'Admin\SliderController@getImage')->name('admin.slider.getImage');
 		Route::post('image-upload', 'Admin\SliderController@uploadImage')->name('admin.slider.uploadImage');
 		Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.slider.removeImage');
+
 	});
 });
 	
@@ -224,6 +244,7 @@ Route::get('/guide', 'User\GuideController@index')->name('user.guide');
 Route::get('/guide/{slug}','User\GuideController@search')->name('user.guide.search');
 Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('user.search.ajax');
 Route::get('university/{slug}','User\UniversityController@viewDetail')->name('user.university.detail');
+Route::get('get-marker', 'User\UniversityController@getMarker')->name('getMarker');
 Route::get('career/{slug}','User\CareerController@viewDetail')->name('user.career.detail');
 Route::get('subject/{slug}','User\SubjectController@viewDetail')->name('user.subject.detail');
 

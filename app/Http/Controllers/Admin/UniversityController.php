@@ -9,6 +9,7 @@ use App\Models\UniversityMetas;
 use App\Models\UniversityRanking;
 use App\Models\UniversityStatistic;
 use App\Models\Country;
+use App\Models\Map;
 use App\Models\Slider;
 use DB;
 use Session;
@@ -49,10 +50,12 @@ class UniversityController extends Controller
     {
 
         $country = Country::all();
+        $map = Map::all();
         $images = Slider::all();
         $this->viewData = array(
             'country'    => $country,
             'images'      => $images,
+            'map' => $map
          );
 
         return view('admin.universities.create', $this->viewData);
@@ -71,10 +74,12 @@ class UniversityController extends Controller
             $rules = [
                 'country_id'               =>'required',
                 'logo'                     =>'required',
+                'map_id'                   =>'required'
                 ];
 
             $messages = [
                 'country_id.required'      =>'Please choose one country!!',                    
+                'map_id.required'           =>'Please choose one map!!',                    
                 'logo.required'            =>'Please choose the logo!!',                    
             ];
 
@@ -133,13 +138,15 @@ class UniversityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        $map = Map::all();
         $university = University::find($id);
         $country = Country::all();
         $images = Slider::all();
         $this->viewData = array(
             'university' => $university,
             'country'    => $country,
+            'map' => $map,
             'images'      => $images,
          );
         return view('admin.universities.edit', $this->viewData);
@@ -157,11 +164,14 @@ class UniversityController extends Controller
         $data = $request->all();
         try {
             $rules = [
-                'country_slug'               =>'required',
-            ];
+                'country_id'               =>'required',
+                'map_id'                   =>'required'
+                ];
 
             $messages = [
-                'country_id.required'      =>'Please choose one country!!',
+                'country_id.required'      =>'Please choose one country!!',                    
+                'map_id.required'      =>'Please choose one country!!',                              
+                'country_slug'               =>'required',
             ];
 
             $validator = Validator::make( $request->all(), $rules, $messages);
