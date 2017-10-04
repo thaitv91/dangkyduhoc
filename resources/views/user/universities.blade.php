@@ -54,6 +54,10 @@
 	<div class="uni-info">
 		<div class="img">
 			<div class="slider" id="slider-img-uni">
+				@if (count($images) == 0)
+				<div class="item-img"><img src="{{ asset('img/uni-img.jpg') }}" alt=""></div>
+				@endif
+
 				@foreach ($images as $image)
 				<div class="item-img"><img src="{{ asset(str_replace('\\','/',$image->url)) }}" alt=""></div>
 				@endforeach
