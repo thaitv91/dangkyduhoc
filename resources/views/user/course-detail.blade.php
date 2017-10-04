@@ -11,10 +11,10 @@
                <img src="https://therightustorage.blob.core.windows.net/assets/University/B070_winchester_logo.jpg" class="page-course-uni-logo" alt="University of Winchester" title="University of Winchester">
             </div>
             <div class="text">
-               <h1>Accounting &amp; Finance, <span class="doube-degree"></span><span class="font-wt-400">BA (Hons)</span></h1>
-               <h4><a href="/university/university-of-winchester">University of Winchester</a> </h4>&nbsp;
+               <h1>{{ $course->name }}</h1>
+               <h4><a href="/university/{{ $university->slug }}">{{ $university->name }}</a> </h4>&nbsp;
                <div class="martop5px">
-                   <h4 class="text-normal country-name">United Kingdom</h4>
+                   <h4 class="text-normal country-name">{{ $country->name }}</h4>
                </div>
            </div>
 			</div>
@@ -33,69 +33,59 @@
 	</div><!-- /.course-detail-header -->
 
 	<div class="row course_details">
+		@if($ranking)
 		<div class="col-lg-4 col-md-4 col-sm-6 col">
 			<div class="box-ranking left">
 				<h4 class="title-box">COURSE RANKINGS</h4>
-				<div class="info_box_item clearfix">
-                <span class="left rank-name">
-                	Accounting and finance<br>
-                  <span id="country" class="display-inline smaller">UK</span>
-                  <span class="display-inline smaller tip" title="" data-original-title="Guardian University Ranking 2018"> / Guardian</span>
-                </span>
-                <span id="course-rank" class="right course-rank">64<sup>th</sup></span>
-            </div>
 
-            <div class="info_box_item clearfix">
-                <span class="left rank-name">
-                  Overall<br>
-                  <span id="country" class="display-inline smaller">UK</span>
-                  <span class="display-inline smaller tip" title="" data-original-title="Complete University Guide 2018"> / CUG</span>
-                </span>
-                <span id="course-rank" class="right course-rank">85<sup>th</sup></span>
-            </div>
-            <div class="info_box_item clearfix">
-                <span class="left rank-name">
-                    Overall<br>
-                     <span id="country" class="display-inline smaller">UK</span>
-                    <span class="display-inline smaller tip" title="" data-original-title="Guardian University Ranking 2018"> / Guardian</span>
-                </span>
-                <span id="course-rank" class="right course-rank">90<sup>th</sup></span>
-            </div>
+				@foreach($ranking as $rank)
+					<div class="info_box_item clearfix">
+						<span class="left rank-name">
+							{{ $rank->ranking_title }}<br>
+							<span id="country" class="display-inline smaller">{{ $rank->country_slug }}</span>
+							<span class="display-inline smaller tip" title="" data-original-title="Complete University Guide 2018"> / {{ $rank->ranking_subject }}</span>
+						</span>
+						<span id="course-rank" class="right course-rank">{{ $rank->ranking_point }}<sup>th</sup></span>
+					</div>
+				@endforeach
+
 			</div><!-- /.box-ranking -->
 		</div>
+		@endif
+
 		<div class="col-lg-4 col-md-4 col-sm-6 col">
 			<div class="box-ranking left">
 				<h4 class="title-box">Costs</h4>
 				<div class="info_box_item">
                <span>Tuition fees</span>
-               <span class="right">S$20.2K</span>
+               <span class="right">S${{ $cost->year_tuition_fees }}K</span>
             </div>
             <div class="info_box_item living marbot0">
                <span class="living-header">Food &amp; accommodation</span>
-               <span class="right">S$15.9K</span>
+               <span class="right">S${{ $fa = ($cost->day_food_fees + $cost->day_drink_fees + $cost->day_accommodation_fees + $cost->day_coffe_fees) * 600 /1000 }}K</span>
             </div>
             <div class="info_box_item basic_city_cost">
                <div class="row">
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-beer" aria-hidden="true"></i></span>
-                       S$6
+                       S${{ $cost->day_drink_fees }}
                    </div>
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-cutlery" aria-hidden="true"></i></span>
-                       S$9
+                       S${{ $cost->day_food_fees }}
                    </div>
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-film" aria-hidden="true"></i></span>
-                       S$17
+                       S${{ $cost->day_accommodation_fees }}
                    </div>
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-coffee" aria-hidden="true"></i></span>
-                       S$4
+                       S${{ $cost->day_coffe_fees }}
                    </div>
                </div>
             </div>
             <div class="info_box_item total_cost clearfix">
-               <span>COST PER YEAR</span><span class="totalcost right">S$36.2K</span>
+               <span>COST PER YEAR</span><span class="totalcost right">S${{ $fa + $cost->year_tuition_fees }}K</span>
             </div>
 			</div><!-- /.box-ranking -->
 		</div>
@@ -104,15 +94,15 @@
 				<h4 class="title-box">Entry requirements</h4>
 				<div class="info_box_item undergraduate">
                 <span class="type rank-name smaller grade-type">A Level</span>
-                <span class="right">BCC</span>
+                <span class="right">{{ $requirement->level }}</span>
             </div>
             <div class="info_box_item undergraduate">
                 <span class="type rank-name smaller grade-type">Diploma</span>
-                <span class="right">2.24</span>
+                <span class="right">{{ $requirement->diploma }}</span>
             </div>
             <div class="info_box_item undergraduate">
                 <span class="type rank-name smaller grade-type">International Baccalaureate</span>
-                <span class="right">26</span>
+                <span class="right">{{ $requirement->international_baccalaureate }}</span>
             </div>
 			</div><!-- /.box-ranking -->
 		</div>
@@ -138,16 +128,16 @@
 				<h4 class="title-box">INFORMATION</h4>
 				<div class="info_box_item clearfix">
                <div class="header">Course<br>Code</div>
-               <div class="right">NN34</div>
+               <div class="right">{{ $information->course_code }}</div>
             </div>
             <div class="info_box_item clearfix">
                <div class="header">Upcoming<br>Intakes</div>
-               <div class="right">Sep 2018<br></div>
+               <div class="right">{{ \Carbon\Carbon::parse($information->upcoming_intakes)->format('F Y') }}<br></div>
             </div>
             <div class="info_box_item clearfix">
                <div class="header">Course<br>WEBSITE (EXTERNAL)</div>
                <div class="right">
-                   <a class="external_link" href="http://www.winchester.ac.uk/Studyhere/Pages/ba-hons-accounting-and-finance.aspx" target="_blank">
+                   <a class="external_link" href="{{ $information->course_website }}" target="_blank">
                        <i class="fa fa-link"></i>
                    </a>
                </div>
@@ -163,7 +153,7 @@
             <div class="info_box_item clearfix">
                  <div class="header">University<br>INFORMATION</div>
                  <div class="right">
-                     <a href="/university/university-of-winchester">
+                     <a href="/university/{{ $university->slug }}">
                          <i class="fa fa-link"></i>
                      </a>
                  </div>
@@ -171,7 +161,7 @@
              <div class="info_box_item clearfix">
                  <div class="header">Local<br>Hotline</div>
                  <div class="right">
-                     +65 6333 1300
+                     {{ $university->universityMeta()->first()->phone }}
                  </div>
              </div>
 			</div><!-- /.box-ranking -->
@@ -180,7 +170,7 @@
 			<div class="box-ranking left">
 				<h4 class="title-box">Duration</h4>
 				<div class="info_box_item duration">
-               <span class="number">3</span>
+               <span class="number">{{ $information->duration }}</span>
                <span id="years">
                    years
                </span>
@@ -190,7 +180,7 @@
                <span class="display-table-row">
                    Graduate
                    <br>
-                   2020
+				   {{ \Carbon\Carbon::parse($information->upcoming_intakes)->format('Y') + $information->duration }}
                </span>
            </div>
 			</div><!-- /.box-ranking -->
@@ -200,10 +190,16 @@
 	<div class="about-course rowsec">
 		<h2>About the course</h2>
 		<div class="description">
-			<p>
-         	Accounting and Finance at Winchester has been designed to develop a systematic understanding of current issues in accounting to meet the needs of those entering the profession in the twenty-first century.
-         </p>
+			{!! $information->about !!}
 		</div>
+
+		@if($information->will_learn)
+		<h2>Will Learn</h2>
+		<div class="description">
+			{!! $information->will_learn !!}
+		</div>
+		@endif
+		
 		<div id="askus">
           <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
               <h2>GOT QUESTIONS?</h2>

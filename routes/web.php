@@ -43,7 +43,7 @@ Route::group(['prefix'=>'admin'], function() {
 	});
 
 	Route::group(['prefix'=>'rating'], function(){
-		Route::get('/', 'Admin\RatingConrotller@index')->name('admin.rating.index');
+		Route::get('/', 'Admin\RatingController@index')->name('admin.rating.index');
 		Route::get('/create', 'Admin\RatingController@create')->name('admin.rating.create');
 		Route::post('/create','Admin\RatingController@store')->name('admin.rating.store');
 		Route::get('/edit/{id}', 'Admin\RatingController@edit')->name('admin.rating.edit');
@@ -178,7 +178,7 @@ Route::get('/','User\HomeController@index')->name('home');
 //Route::post('/language/', array('before' => 'csrf', 'as'=>'language-chooser', 'uses' => 'Language\LanguageController@changeLanguage',) );
 
 Route::get('menu', 'HomeController@index')->name('menu');
-Route::get('subject/{subject?}', 'HomeController@subject')->name('subject');
+//Route::get('subject/{subject?}', 'HomeController@subject')->name('subject');
 
 // html
 Route::get('/html/guide-list', function() {
@@ -202,7 +202,7 @@ Route::get('/html/compare', function() {
 });
 
 Route::get('/html/course-detail', function() {
-	return view('user.course-detail');
+	return view('user.course-detail-html');
 });
 
 Route::get('/html/search', function() {
@@ -238,4 +238,6 @@ Route::group(['prefix'=>'message'], function() {
 
 // contact
 Route::post('contact', 'User\ContactController@postContact')->name('postContact');
+
+Route::get('/course/{slug}', 'User\AjaxController@getCourseDetail');
 
