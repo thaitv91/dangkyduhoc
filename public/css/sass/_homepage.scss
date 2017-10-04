@@ -7,8 +7,23 @@
 	padding:50px 0;
 	overflow: hidden;
 	margin-bottom: 75px;
+	@include screen-size-max(sm){
+		min-height: 380px;
+	}
+	@include screen-size(xs){
+		background-image: none !important;
+		min-height: 1px;
+		margin-bottom: 30px;
+	}
 	.container{
 		position: relative;
+		min-height: 500px;
+		@include screen-size-max(sm){
+			min-height: 380px;
+		}
+		@include screen-size(xs){
+			min-height: 1px;
+		}
 	}
 	.text{
 		text-align: center;
@@ -18,6 +33,18 @@
 		bottom: 0;
 		left: 50%;
 		@include transform(translateX(-50%));
+		@include screen-size(md){
+			left: 0;
+			@include transform(translateX(0));
+		}
+		@include screen-size-max(sm){
+			max-width: 100%;
+			width: 90%;
+		}
+		@include screen-size(xs){
+			position: static;
+			@include transform(translateX(0));
+		}
 		h1{
 			color:$color-1;
 			text-transform: uppercase;
@@ -25,11 +52,20 @@
 			font-size: 40px;
 			@include UTMBebas();
 			font-weight: normal;
+			@include screen-size-max(md){
+				font-size: 28px;
+			}
 		}
 		.description{
 			font-size: 18px;
 			line-height: 1.7;
+			@include screen-size-max(md){
+				font-size: 16px;
+			}
 		}
+	}
+	.btn-mobile{
+		margin-top: 15px;
 	}
 }
 
@@ -41,6 +77,9 @@
 	text-align: left;
 	padding: 23px 15px 30px 30px;
 	position: relative;
+	@include screen-size(md){
+		width: 250px;
+	}
 	&:after{
 		content: "";
 		display: block;
@@ -117,26 +156,46 @@
 .steps-guide{
 	background:url(../img/line.jpg) repeat-y top center;
 	margin-bottom: 110px;
+	@include screen-size(xs){
+		background:none;
+		margin-bottom: 30px;
+	}
 	.step{
 		@include clearfix();
 		position: relative;
 		margin-bottom: 32px;
+		@include screen-size(xs){
+			margin-bottom: 0;
+		}
 		.step-icon{
 			width: 50%;
 			float: left;
 			padding-right: 75px;
 			text-align: right;
+			@include screen-size(xs){
+				display: none;
+			}
 		}
 		.step-text{
 			width: 50%;
 			float: right;
 			padding-left: 74px;
+			@include screen-size(xs){
+				width: auto;
+				float: none;
+				padding-left: 0;
+			}
 			.text-box{
 				position: relative;
 				border:1px solid #eaeaea;
 				position: relative;
 				padding: 38px 62px;
 				min-height: 165px;
+				@include screen-size(xs){
+					padding: 20px 15px;
+					border:none;
+					min-height: 1px;
+				}
 				&:before, &:after{
 					content: "";
 					display: block;
@@ -146,6 +205,9 @@
 					top:0;
 					@include transform(translateY(-50%));
 					top:50%;
+					@include screen-size(xs){
+						display: none;
+					}
 				}
 				&:before{
 					border-top: 15px solid transparent;
@@ -183,6 +245,11 @@
 			text-transform: uppercase;
 			font-size: 20px;
 			padding-top: 13px;
+			@include screen-size(xs){
+				position: static;
+				@include transform(translateX(0));
+				margin: auto;
+			}
 			span{
 				display: block;
 				@include UTMBebas();
@@ -214,8 +281,15 @@
 					float: left;
 					padding-left: 0;
 					padding-right: 75px;
+					@include screen-size(xs){
+						float: none;
+						padding-right: 0;
+					}
 					.text-box{
 						text-align: right;
+						@include screen-size(xs){
+							text-align: left;
+						}
 						&:after{
 							border-left: 13px solid #fff;
 							border-right: none;
@@ -402,7 +476,7 @@
 .blog-home{
 	padding-bottom: 50px;
 	.row{
-		@include screen-size-min(md){
+		@include screen-size(lg){
 			margin-left: -45px;
 			margin-right: -45px;
 			.col-md-4{
@@ -418,10 +492,16 @@
 		border-bottom: 11px solid $color-link;
 		font-size: 36px;
 		margin-bottom: 22px;
+		@include screen-size(xs){
+			font-size: 34px;
+		}
 		h2{
 			font-size: 60px;
 			margin:0 0 -5px;
 			color:$color-link;
+			@include screen-size(xs){
+				font-size: 50px;
+			}
 		}
 	}
 	.description{
@@ -434,6 +514,11 @@
 	background-color: #f7f7f7;
 	padding: 90px 0;
 	margin-bottom: 78px;
+	overflow: hidden;
+	@include screen-size(xs){
+		padding: 30px 0;
+		margin-bottom: 55px;
+	}
 	.slider{
 		margin: 0 -25px;
 		.slick-dots{
@@ -474,6 +559,10 @@
 		text-align: center;
 		float: left;
 		width: 186px;
+		@include screen-size(xs){
+			float: none;
+			margin:auto auto 20px;
+		}
 	}
 	.rating{
 		color:#2db04a;
@@ -498,6 +587,12 @@
 		border-left:2px solid #e1e1e1;
 		position: relative;
 		padding-left: 20px;
+		@include screen-size(xs){
+			margin-left: 0;
+			border:none;
+			padding-left: 0;
+			border:none;
+		}
 		&:before, &:after{
 			content: "";
 			display: block;
@@ -506,6 +601,9 @@
 			position: absolute;
 			top:50%;
 			@include transform(translateY(-50%));
+			@include screen-size(xs){
+				display: none;
+			}
 		}
 		&:before{
 			border-top:10px solid transparent;
@@ -525,6 +623,9 @@
 	&.right{
 		.avatar-rating{
 			float: right;
+			@include screen-size(xs){
+				float: none;
+			}
 		}
 		.text{
 			margin-left: 0;
@@ -534,6 +635,12 @@
 			border-right:2px solid #e1e1e1;
 			padding-left: 0;
 			padding-right: 20px;
+			@include screen-size(xs){
+				text-align: left;
+				border:none;
+				padding-right: 0;
+				margin-right: 0;
+			}
 			&:before{
 				border-right:none;
 				border-left:10px solid #e1e1e1;
@@ -555,6 +662,9 @@
 
 .let-started{
 	margin-bottom: 70px;
+	@include screen-size(xs){
+		margin-bottom: 45px;
+	}
 	img{
 		display: block;
 		margin: auto auto 44px;
@@ -577,6 +687,10 @@
 	border:1px solid #e5e5e5;
 	padding: 43px 50px 20px;
 	margin-bottom: 65px;
+	@include screen-size(xs){
+		padding: 35px 20px 20px;
+		margin-bottom: 50px;
+	}
 	h3{
 		margin: 0 0 26px;
 		color:$color-link;

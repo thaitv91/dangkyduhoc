@@ -26,13 +26,13 @@
 						<div class="neo">
 							<span class="icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span><br/>
 							TEF Gold Award
-						<div class="neo">
+						</div>
 					</li>
 					<li class="hidden-xs">
 						<div class="neo">
 							<span class="icon"><i class="fa fa-certificate" aria-hidden="true"></i></span><br/>
 							Triple Crown Accredited
-						<div class="neo">
+						</div>
 					</li>
 					<li>
 						<a href="#apply-online" class="neo link-scroll">
@@ -105,10 +105,10 @@
 		</ul>
 
 		<div class="social">
-	      <a href="#"><i class="sprite-facebook"></i></a>
-	      <a href="#"><i class="sprite-google-plus"></i></a>
-	      <a href="#"><i class="sprite-twitter"></i></a>
-	      <a href="#"><i class="sprite-youtube"></i></a>
+	      <a href="{{ $meta->facebook }}"><i class="sprite-facebook"></i></a>
+	      <a href="{{ $meta->flickr }}"><i class="sprite-google-plus"></i></a>
+	      <a href="{{ $meta->twitter }}"><i class="sprite-twitter"></i></a>
+	      <a href="{{ $meta->youtube }}"><i class="sprite-youtube"></i></a>
 	   </div><!-- /.social -->
 	</div><!-- /.breadcrumb-page -->
 

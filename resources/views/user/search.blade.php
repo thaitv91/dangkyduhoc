@@ -1,39 +1,18 @@
 @extends("layouts/app")
 
-@section("scripts")
-@endsection
 @section("content")
 <div class="title-page">
-	<div class="container"><h1>{{ $subject['name']}}</h1></div>
+	<div class="container"><h1>a</h1></div>
 </div>
 
 <div class="container">
-	<div class="subject-detail">
-		<img src="/img/subject-img.jpg" alt="">
-		<div class="breadcrumb-page">
-			<ul class="list">
-				@foreach($subject_career as $key => $db_subject_career)
-                    <?php $subject_slug = App\Models\Subject::where('id', '=', $db_subject_career->subject_id)->first()->slug ?>
-				<li><a href="{{ route('user.career.detail', $subject_slug) }}">
-					@if($locale == 'en')
-						{{ $db_subject_career->career['name_en']}}
-					@else
-						{{  $db_subject_career->career['name'] }}
-					@endif
-					</a>
-				</li>            
-				@endforeach            
-			</ul>
-		</div><!-- /.breadcrumb-page -->
-
-		<div class="description">
-			{!! $subject['description'] !!}
-		</div><!-- /.description -->
-	</div><!-- /.subject-detail -->
-
 	<div class="box-filter">
 		<h4 class="title-box">Filters</h4>
 		<div class="tags">
+			<div class="item">
+				<span class="tag"><input type="checkbox" id="checkbox-1"><label for="checkbox-1">Undergraduate</label></span>                   
+				<span class="tag"><input type="checkbox" id="checkbox-2"><label for="checkbox-2">Postgraduate</label></span>                     
+			</div>
 			<div class="item">
 				<span class="tag"><input type="checkbox" id="checkbox-1"><label for="checkbox-1">Australia</label></span>                   
 				<span class="tag"><input type="checkbox" id="checkbox-2"><label for="checkbox-2">Canada</label></span>                     
@@ -67,8 +46,28 @@
 		<div id="fillter-subject"></div>
 	</div><!-- /.box-filter -->
 
-	<div class="filter-result subjects">
-		<h4 class="title-box"><span>Accounting &amp; Finance</span></h4>
+	<div class="filter-result search">
+		<div class="clearfix header-sort">
+			<div class="pull-left">
+				<h4 class="title-box">
+					<span>Accounting &amp; Finance</span>
+				</h4>
+			</div>
+
+			<div class="pull-right">
+				<div id="course-sort-select" class="dropdown display-inline otherfilter">
+                <button class="btn btn-default dropdown-toggle gtt-sortby" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Sort courses by">
+                    <span>Sort courses by</span>&nbsp;
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                    <li class="filter-cost"><a data-sortby="Fees" data-hightolow="False" onclick="javascript: toggleFilter('filter-cost');"><span>Tuition fee - Low to high</span></a></li>
+                    <li class="filter-years"><a data-sortby="Duration" data-hightolow="False" onclick="javascript: toggleFilter('filter-years');"><span>Duration - Short to long</span></a></li>
+                     <li class="filter-grades"><a data-sortby="Grades" data-hightolow="False" onclick="javascript: toggleFilter('filter-grades');"><span>Entry grade - Low to high</span></a></li>
+                </ul>
+            </div>
+			</div>
+		</div>
 		<div class="list-courses">
 			<div class="row item">
 				<div class="uni-logo-col col-lg-1 col-md-1 col-sm-2 col-xs-3 col-no-pad-right">
@@ -291,79 +290,15 @@
 				
 			</div><!-- /.item -->
 		</div><!-- /.list-courses -->
-
-		<div class="pagging text-center">
-			<ul class="pagination">
-		    <li>
-		      <a href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo; Back</span>
-		      </a>
-		    </li>
-		    <li class="active"><a href="#">1</a></li>
-		    <li><a href="#">2</a></li>
-		    <li><a href="#">3</a></li>
-		    <li><a href="#">4</a></li>
-		    <li><a href="#">5</a></li>
-		    <li>
-		      <a href="#" aria-label="Next">
-		        <span aria-hidden="true">Next &raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
-		</div><!-- /.pagging -->
 	</div><!-- /.filter-result -->
 </div>
 
 
-<div class="container">
-	<div class="contact-home">
-		<div class="row">
-			<div class="col-md-3 col-sm-6 col">
-				<div class="university-guide">
-					<h3 class="title">UNIVERSITY GUIDE</h3>
-					<ul>
-						<li>Choosing a university
-						<li>Applying to university</li>
-						<li>Accepting your offer</li>
-						<li>Finances & Scholarships</li>
-						<li>Flight & Accomodation</li>
-						<li>Student visa</li>
-					</ul>
-				</div><!-- /.university-guide -->
-			</div>
 
-			<div class="col-md-4 col-sm-6 col">
-				<div class="form-contact">
-					<h3 class="title">HAVE US CONTACT YOU</h3>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Name">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Email">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="WhatsApp">
-					</div>
-					<div class="form-group">
-						<textarea class="form-control">Your questions for our education consultans</textarea>
-					</div>
-					<div class="bottom"><button class="btn btn-green btn-block">Contact me</button></div>
-				</div><!-- /.form-contact -->
-			</div>
 
-			<div class="col-md-5 col-sm-12 col">
-				<div class="maps">
-					<h3 class="title">MEET US</h3>
-					<div class="img">
-						<img src="/img/map.jpg" alt="">
-					</div>
-					<div class="info">
-						<p>Monday to Friday: <strong>10am - 8pm</strong></p>
-						<p>Saturday: <strong>10am - 1pm</strong></p>
-					</div>
-				</div><!-- /.maps -->
-			</div>
-		</div>
-	</div><!-- /.contact-home -->
-</div>
+@endsection
+@section('scripts')
+{{-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
+<script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script> --}}
+
 @endsection

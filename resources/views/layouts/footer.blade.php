@@ -20,20 +20,25 @@
             <div class="col-md-4 col-sm-6 col">
                 <div class="form-contact">
                     <h3 class="title">HAVE US CONTACT YOU</h3>
-                    <form action="" method="post">
+                    <form action="{{ route('postContact') }}" method="post">
+                        {{ csrf_field() }}
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Name">
+                            <input class="form-control" name="name" type="text" placeholder="Name">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Email">
+                            <input class="form-control" name="email" type="email" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="WhatsApp">
+                            <input class="form-control" name="whatsapp" type="text" placeholder="WhatsApp">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control">Your questions for our education consultans</textarea>
+                            <textarea class="form-control" name="question" placeholder="Your questions for our education consultans"></textarea>
                         </div>
                         <div class="bottom"><button class="btn btn-green btn-block">Contact me</button></div>
+
+                        @if(Session::has('message-contact'))
+                            <div class="alert alert-info">{{ Session::get('message-contact') }}</div>
+                        @endif
                     </form>
                 </div><!-- /.form-contact -->
             </div>

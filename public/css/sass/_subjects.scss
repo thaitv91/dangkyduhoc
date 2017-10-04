@@ -59,6 +59,39 @@
 	}
 }
 
+#fillter-subject{
+	width: 786px;
+	max-width: 100%;
+	height: 13px;
+	background: #cdcdcd;
+	@include border-radius(7px);
+	position: relative;
+	border:none;
+	.ui-slider-range{
+		height: 13px;
+		background: $color-3;
+		@include border-radius(7px);
+	}
+	a{
+		height: 42px;
+		min-width: 55px;
+		line-height: 40px;
+		padding: 0 5px;
+		cursor: pointer;
+		text-align: center;
+		@include border-radius(21px);
+		border:1px solid #eaeaea;
+		background: $white;
+		top:-15px;
+		&:hover, &:focus{
+			text-decoration: none;
+		}
+		&:last-child{
+			margin-left: -22px;
+		}
+	}
+}
+
 .col-no-pad-right{
 	padding-right: 0;
 }
