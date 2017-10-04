@@ -136,7 +136,6 @@
 		$.ajax({
 			url : '{{ route("sendMessage") }}',
 			data : {
-				time : "{{ time() }}",
 				messages : messages,
 				send_from : "{{ Auth::check()?'user_'.Auth::user()->id:Cookie::get('chat_session', Session::getId()) }}",
 				send_to : 'admin',

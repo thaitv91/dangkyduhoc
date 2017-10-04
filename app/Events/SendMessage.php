@@ -24,9 +24,9 @@ class SendMessage implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($time, $message, $send_from, $send_to)
+    public function __construct($message, $send_from, $send_to)
     {
-        $this->time = $time;
+        $this->time = time();
         $this->message = $message;
         $this->send_from = $send_from;
         $this->send_to = $send_to;
