@@ -1,7 +1,5 @@
 @extends("layouts/app")
 
-@section("scripts")
-@endsection
 @section("content")
 <div class="title-page">
 	<div class="container"><h1>ACCOUNTING &amp; FINANCE</h1></div>
@@ -61,34 +59,34 @@
 			</div>
 		</div>
 		<div class="info">
-			<h3>Information</h3>
+			<h3>{{ trans('university.info') }}</h3>
 			<div class="item">
-				<div class="lbl">Year <br/>Founded</div>
+				<div class="lbl">{{ trans('university.year') }} <br/>{{ trans('university.founded') }}</div>
 				<div class="right">{{ $statistic['year_founded']}}</div>
 			</div>
 
 			<div class="item">
-				<div class="lbl">Student<br/> Population</div>
+				<div class="lbl">{{ trans('university.student') }}<br/> {{ trans('university.population') }}</div>
 				<div class="right">{{ $statistic['student_population']}}</div>
 			</div>
 
 			<div class="item">
-				<div class="lbl">Staff<br/> Population</div>
+				<div class="lbl">{{ trans('university.staff') }}<br/> {{ trans('university.population') }}</div>
 				<div class="right">{{ $statistic['staff_population']}}</div>
 			</div>
 
 			<div class="item">
-				<div class="lbl">Male to Female<br/> Ratio</div>
+				<div class="lbl">{{ trans('university.male_female') }}<br/> {{ trans('university.ratio') }}</div>
 				<div class="right">{{ $statistic['male_number']}} : {{ $statistic['female_number']}}</div>
 			</div>
 
 			<div class="item">
-				<div class="lbl">International<br/> Students</div>
+				<div class="lbl">{{ trans('university.international') }}<br/> {{ trans('university.students') }}</div>
 				<div class="right">{{ $statistic['international_students']}}%</div>
 			</div>
 
 			<div class="item">
-				<div class="lbl">Local<br/> Hotline</div>
+				<div class="lbl">{{ trans('university.local') }}<br/> {{ trans('university.hotline') }}</div>
 				<div class="right">{{ $meta->phone}}</div>
 			</div>
 		</div><!-- /.info -->
@@ -96,12 +94,12 @@
 
 	<div class="breadcrumb-page smoothScroll hidden-sm hidden-xs">
 		<ul class="list">
-			<li><a href="#about-us" class="link-scroll">About us</a></li>            
-			<li><a href="#apply-online" class="link-scroll">Courses</a></li>            
-			<li><a href="#rankings" class="link-scroll">Rankings</a></li>           
-			<li><a href="#scholarships" class="link-scroll">Scholarships</a></li>            
-			<li><a href="#campuses" class="link-scroll">Campuses</a></li>            
-			<li><a href="#ask-us-a-question" class="link-scroll">Ask us a question</a></li>            
+			<li><a href="#about-us" class="link-scroll">{{ trans('university.about_us') }}</a></li>            
+			<li><a href="#apply-online" class="link-scroll">{{ trans('university.courses') }}</a></li>            
+			<li><a href="#rankings" class="link-scroll">{{ trans('university.rankings') }}</a></li>           
+			<li><a href="#scholarships" class="link-scroll">{{ trans('university.scholarships') }}</a></li>            
+			<li><a href="#campuses" class="link-scroll">{{ trans('university.campuses') }}</a></li>            
+			<li><a href="#ask-us-a-question" class="link-scroll">{{ trans('university.ask_question') }}</a></li>            
 			<li>{{ $meta->phone}}</li>
 		</ul>
 
@@ -116,7 +114,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="box about" id="about-us">
-				<h4 class="title-box">About the University</h4>
+				<h4 class="title-box">{{ trans('university.about_university') }}</h4>
 				<div class="description">
 					{!! $meta->about !!}
 				</div>
@@ -125,34 +123,35 @@
 
 		<div class="col-md-6">
 			<div class="box our-campuses" id="campuses">
-				<h4 class="title-box">Our campuses</h4>
+				<h4 class="title-box">{{ trans('university.our_campuses') }}</h4>
 				<div class="description">
 					{!! $meta->campus !!}
 				</div>
 
 				<div class="tags">
-					<a href="#"><i class="fa fa-mobile"></i> Cửa hàng tiện lợi</a>
-					<a href="#"><i class="fa fa-credit-card"></i> Ngân hàng</a>
-					<a href="#"><i class="fa fa-coffee"></i> Quán cà phê</a>
-					<a href="#"><i class="fa fa-cutlery"></i> Nhà hàng</a>
-					<a href="#"><i class="fa fa-mobile"></i> Mua sắm</a>
-					<a href="#"><i class="fa fa-tree"></i> Công viên</a>
-					<a href="#"><i class="fa fa-medkit"></i> Tiệm thuốc</a>
-					<a href="#"><i class="fa fa-bus"></i> Trạm dừng xe buýt</a>
-					<a href="#"><i class="fa fa-"></i> Sân bay</a>
+					<a href="#" id="store-map" onclick="getMarker('store'); return false;"><i class="fa fa-mobile"></i> {{ trans('university.grocery_store') }}</a>
+					<a href="#" id="bank-map" onclick="getMarker('bank'); return false;"><i class="fa fa-credit-card"></i> {{ trans('university.bank') }}</a>
+					<a href="#" id="coffee-map" onclick="getMarker('coffee'); return false;"><i class="fa fa-coffee"></i>{{ trans('university.coffee_shop') }}</a>
+					<a href="#" onclick="getMarker('restaurant'); return false;"><i class="fa fa-cutlery" ></i> {{ trans('university.restaurant') }}</a>
+					<a href="#" onclick="getMarker('shopping'); return false;"><i class="fa fa-mobile" ></i>{{ trans('university.shopping') }}</a>
+					<a href="#" onclick="getMarker('park'); return false;"><i class="fa fa-tree" ></i>{{ trans('university.park') }}</a>
+					<a href="#" onclick="getMarker('pharmacies'); return false;"><i class="fa fa-medkit" ></i> {{ trans('university.pharmacies') }}</a>
+					<a href="#" onclick="getMarker('bus_stop'); return false;"><i class="fa fa-bus" ></i>{{ trans('university.bus_stop') }}</a>
+					<a href="#" onclick="getMarker('airport'); return false;"><i class="fa fa-plane" ></i>{{ trans('university.airport') }}</a>
 				</div><!-- /.tags -->
 			</div><!-- /.our-campuses -->
 		</div><!-- /.col-md-6 -->
 	</div>
 
 	<div class="map-uni">
-		<img src="/img/map-uni.jpg" alt="">
+		{{-- <img src="/img/map-uni.jpg" alt=""> 1200 423 --}}
+		<div id="map-uni" style="width: 1200 px;height: 423px;"></div>
 	</div><!-- /.map-uni -->
 
 	<div class="row">
 		<div class="col-md-6">
 			<div class="box-ranking left" id="rankings">
-				<h4 class="title-box">Rankings</h4>
+				<h4 class="title-box">{{ trans('university.rankings') }}</h4>
 				@if($ranking)
 				@foreach( $ranking as $list_ranking)
 				<?php $slug_country  = $list_ranking->country_slug; 
@@ -170,7 +169,7 @@
 
 		<div class="col-md-6">
 			<div class="box-ranking right" id="scholarships">
-				<h4 class="title-box">Scholarships</h4>
+				<h4 class="title-box">{{ trans('university.scholarships') }}</h4>
 				<div class="item">
 					<div class="number">PhD Studentship</div>
 					<div class="lbl">Up to £30000 for tuition and living<br/>3 available</div>
@@ -436,4 +435,83 @@
 	</div><!-- /.filter-result -->
 </div>
 
+@endsection
+@section('scripts')
+	<script type="text/javascript">
+    var universitys = [];
+
+    function initMapUniver() {
+        var map = new google.maps.Map(document.getElementById('map-uni'), {
+          zoom: 16,
+          center: {lat: {{ $map_university['lat'] }}, lng: {{ $map_university['lng']}} },
+          gestureHandling: 'greedy'
+        });
+        setMarkers2(map);
+      }
+      @foreach ($markers as $location)
+          var temp = [];
+          temp.push("{{ $location[0] }}");
+          temp.push({{$location[1]}});
+          temp.push({{$location[2]}});
+          universitys.push(temp);
+      @endforeach
+
+      console.log(universitys);
+
+      function setMarkers2(map) {
+        var image = {
+          url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          size: new google.maps.Size(20, 32),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(0, 32)
+        };
+        for (var i = 0; i < universitys.length; i++) {
+          var university = universitys[i];
+          console.log(university[1]);
+          var features = [
+          {
+            position: new google.maps.LatLng(university[1], university[2]), 
+          },
+          ];
+          features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: image,
+            map: map,
+
+          });
+          var infowindow = new google.maps.InfoWindow({
+          	content: university[0],
+          });
+         google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                  infowindow.setContent(universitys[i][0]);
+                  infowindow.open(map, marker);
+                }
+              })(marker, i));
+        });
+      }
+  	}
+
+	function getMarker(location) {
+		$.ajax({
+			url : "{{ route('getMarker') }}",
+			data : {location : location, university_id : "{{ $university->id }}"}
+		}).done(function (data) {
+			for (var i = 0; i < data.length; i++) {
+				for (var j = 0; j < data[i].length; j++) {
+					if(j > 0 && j != data[i].length-1){
+						data[i][j] = parseFloat(data[i][j]);
+					}
+				}
+				var universitys = data;
+			}
+			window.universitys = universitys;	
+			console.log(universitys);
+			//window.setMarkers2(map);
+			window.initMapUniver();
+		});
+		
+	}
+	</script>
 @endsection

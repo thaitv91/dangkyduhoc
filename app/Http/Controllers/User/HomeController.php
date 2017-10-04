@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\PageField;
 use App\Models\Page;
 use App\Models\Rating;
+use App\Models\Map;
 use App;
 
 use DB;
@@ -19,8 +20,7 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $locale = App::getLocale();
-        
+        $locale = App::getLocale();       
         $rating = Rating::all();
         $page = Page::where('slug', '=', 'home-page')->first();
         $fields = PageField::where('page_id', '=',$page->id)->get();
@@ -31,10 +31,11 @@ class HomeController extends Controller
                 $data_field[$field->slug] = $field->content;
             }
         }
+        // dd(json_encode($data_location));
         $this->viewData = array(
             'data_field' => $data_field,
             'rating'     => $rating,
-            'locale'     => $locale
+            'locale'     => $locale,
             );
         return view('user.homepage', $this->viewData);
     }

@@ -366,7 +366,8 @@
                         <div class="maps">
                             <h3 class="title">MEET US</h3>
                             <div class="img">
-                                <img src="/img/map.jpg" alt="">
+                                {{-- <img src="/img/map.jpg" alt=""> --}}
+                                 <div id="map" style="width: 478;height: 173px;"></div>
                             </div>
                             <div class="info">
                                 <p>Monday to Friday: <strong>10am - 8pm</strong></p>
@@ -410,8 +411,72 @@
     {{-- <script src="{{ asset('js/test.js') }}"></script> --}}
     <script src="{{ asset('js/custom.js') }}"></script>
     <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
-
     <script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
+   
+    <script type="text/javascript">
+        function initialize() {
+          initMap();
+          initMapUniver();
+        }
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat: {{ $footer_lat }}, lng: {{ $footer_long }} },
+          gestureHandling: 'greedy'
+        });
+
+        setMarkers(map);      }
+
+     var stations = [];
+
+      @foreach ($footer_location as $location)
+          var temp = [];
+          temp.push("{{ $location[0] }}");
+          temp.push({{$location[1]}});
+          temp.push({{$location[2]}});
+          temp.push({{$location[3]}});
+          stations.push(temp);
+      @endforeach
+
+      // console.log(beaches);          
+
+      function setMarkers(map) {
+        var image = {
+          url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          size: new google.maps.Size(20, 32),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(0, 32)
+        };
+        for (var i = 0; i < stations.length; i++) {
+          var station = stations[i];
+        var features = [
+          {
+            position: new google.maps.LatLng(station[1], station[2]), 
+          },
+          ];
+          features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: image,
+            map: map,
+          });
+          var infowindow = new google.maps.InfoWindow({
+            content: station[0],
+          });
+         google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                  infowindow.setContent(stations[i][0]);
+                  infowindow.open(map, marker);
+                }
+              })(marker, i));
+        });
+        }
+
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0mK4AeH9grAllE4tl8Mm6IbM_yPIF0lg&callback=initialize">
+    </script>
     @yield('scripts')
 </body>
 </html>

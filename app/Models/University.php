@@ -9,7 +9,7 @@ class University extends Model
     protected $table = "university";   
 
     protected $fillable = [
-        'name', 'name_en', 'slug', 'country_id', 'logo', 'country_slug'
+        'name', 'name_en', 'slug', 'country_id', 'logo', 'country_slug', 'map_id'
     ];
 
     public function country(){
@@ -26,5 +26,9 @@ class University extends Model
 
     public function universityStatistic(){
         return $this->hasMany('App\Models\UniversityStatistic','university_id');
+    }
+
+    public function map(){
+        return $this->hasMany('App\Models\Map','university_id');
     }
 }

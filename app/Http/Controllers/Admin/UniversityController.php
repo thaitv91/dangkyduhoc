@@ -9,6 +9,7 @@ use App\Models\UniversityMetas;
 use App\Models\UniversityRanking;
 use App\Models\UniversityStatistic;
 use App\Models\Country;
+use App\Models\Map;
 use DB;
 use Session;
 use Redirect;
@@ -41,8 +42,10 @@ class UniversityController extends Controller
     {
 
         $country = Country::all();
+        $map = Map::all();
         $this->viewData  = array(
-            'country'  => $country
+            'country'  => $country,
+            'map' => $map
         );
 
         return view('admin.universities.create', $this->viewData);
@@ -61,10 +64,12 @@ class UniversityController extends Controller
             $rules = [
                 'country_id'               =>'required',
                 'logo'                     =>'required',
+                'map_id'                   =>'required'
                 ];
 
             $messages = [
                 'country_id.required'      =>'Please choose one country!!',                    
+                'map_id.required'           =>'Please choose one map!!',                    
                 'logo.required'            =>'Please choose the logo!!',                    
             ];
 
@@ -119,12 +124,14 @@ class UniversityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        $map = Map::all();
         $university = University::find($id);
         $country = Country::all();
         $this->viewData = array(
             'university' => $university,
-            'country'    => $country
+            'country'    => $country,
+            'map' => $map
          );
         return view('admin.universities.edit', $this->viewData);
     }
@@ -142,11 +149,12 @@ class UniversityController extends Controller
         try {
             $rules = [
                 'country_id'               =>'required',
-
+                'map_id'                   =>'required'
                 ];
 
             $messages = [
                 'country_id.required'      =>'Please choose one country!!',                    
+                'map_id.required'      =>'Please choose one country!!',                    
                                 
             ];
 

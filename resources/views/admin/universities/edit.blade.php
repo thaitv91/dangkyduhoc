@@ -11,7 +11,7 @@
 	<div class="box box-primary">
 
 		<div class="box-header with-border">
-			<h3 class="box-title">Create</h3>
+			<h3 class="box-title">Edit</h3>
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
@@ -70,7 +70,28 @@
 		                        @endif
 	                    	</div>
 	                	 </div>
-               		</div>    
+               		</div>
+               		<div class="form-group row">
+						<label class="col-md-3">Map</label>
+						<div class="col-md-9">
+							<select class="selectpicker " id="map_id" name="map_id" title="Choose one of the following..." data-live-search="true" tabindex="-98">
+                              <option disabled selected></option>
+                              @if(count($map)!=0)
+                                  @foreach($map as $db_map)
+                                  <option @if($db_map->id == $university['map_id']) selected @endif value="{{$db_map->id}}" data-tokens="{{$db_map->title}}" >{{$db_map->title }} </option>
+                                  @endforeach
+                               @endif
+                              @if(count($map)==0)
+                              <option value=""><em>(Don't have)</em></option>
+                             @endif
+                           </select>
+                           @if($errors->has('map_id'))
+	                            <span class="help-block">
+	                                <strong class="text-danger">{{$errors->first('map_id')}}</strong>
+	                            </span>   
+	                        @endif
+						</div>
+					</div>    
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</div>
