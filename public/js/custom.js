@@ -186,15 +186,55 @@ $('#slider-img-fair').slick({
 
   // compare
 
+  $('.circliful').circliful({});
 
-  $('.cicle-1').circliful({
-        textSize: 28,
-        textStyle: 'font-size: 12px;',
-        textColor: '#666',
-        // text: 'A level',
-        noPercentageSign: true,
-        // replacePercentageByText:'CDD'
-    });
+  $('.chart').each(function(){
+    var feeValue = $(this).find('.fee').attr('data-value')
+        feeTitle = $(this).find('.fee').attr('data-title')
+        feeprefix = $(this).find('.fee').attr('data-prefix')
+        feepostfix = $(this).find('.fee').attr('data-postfix');
+
+    var livingExpensesValue = $(this).find('.living-expenses').attr('data-value')
+        livingExpensesTitle = $(this).find('.living-expenses').attr('data-title')
+        livingExpensesprefix = $(this).find('.living-expenses').attr('data-prefix')
+        livingExpensespostfix = $(this).find('.living-expenses').attr('data-postfix');
+    $(this).drawDoughnutChart([
+        { title: feeTitle, value: parseInt(feeValue), color: "#A3CA5A", prefix: feeprefix, postfix: feepostfix },
+        { title: livingExpensesTitle, value: parseInt(livingExpensesValue), color: "#4484B3", prefix: livingExpensesprefix, postfix: livingExpensespostfix}
+    ]);
+  });
+  function AlignDiv() {
+        var maxHeight = 0;
+        var totalFeature = 21;
+        for (var i = 1; i <= totalFeature; i++) {
+            maxHeight = 0;
+            $('.feature' + i).each(function () { maxHeight = Math.max(maxHeight, $(this).height()); }).height(maxHeight);
+        }
+    }
+
+    // function AdjustHeight() {
+    //     if (!isMobile()) {
+    //         var winHeight = $(window).height();
+    //         var h = winHeight - $('#headerMenu').height();
+    //         $('#page_compare.compare-div').height(h);
+    //     }
+    // }
+    AlignDiv();
+    // AdjustHeight();
+
+    function BindRowHighlight() {
+        $(".feature-row").not(".feature-row-top").on("mouseenter", function () {
+            var rowid = $(this).children('.feature').attr("data-rowno");
+            $(".feature" + rowid).parent().not(".first-col").not(".feature-row-top").css("background-color", "#F8F8F8");
+        });
+        $(".feature-row").not(".feature-row-top").on("mouseleave", function () {
+            var rowid = $(this).children('.feature').attr("data-rowno");
+            $(".feature" + rowid).parent().not(".first-col").not(".feature-row-top").css("background-color", "#FFF");
+        });
+    }
+    BindRowHighlight();
+  // e: compare
+
 
   // homepage
   $('#closeRightNav').click(function(){

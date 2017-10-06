@@ -3176,6 +3176,14 @@ img {
   color: #fff;
 }
 
+sub, sup {
+  font-size: 60%;
+  line-height: 0;
+  position: relative;
+  text-transform: lowercase;
+  vertical-align: baseline;
+}
+
 .sprite-facebook {
   background-image: url('/../img/sprites-scce62d711f.png');
   background-position: 0 -81px;
@@ -6635,7 +6643,6 @@ a.course_name {
 #page_compare .compare-col .feature-row {
   display: table;
   background-color: #fff;
-  min-height: 40px;
   font-size: 17px;
 }
 #page_compare .compare-col .feature-row.small {
@@ -6858,6 +6865,27 @@ a.course_name {
 .details .info_box_item .course-rank {
   line-height: 1;
   width: 60px;
+}
+
+.compare-cicle-1 {
+  position: relative;
+  width: 200px;
+  margin: auto;
+}
+.compare-cicle-1 span {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.compare-cicle-1 .circletext {
+  font-size: 20px;
+  top: 77px;
+}
+.compare-cicle-1 .circle-info-half {
+  top: 100px;
+  font-size: 12px;
 }
 
 @-webkit-keyframes bounce {

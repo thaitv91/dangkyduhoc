@@ -270,6 +270,93 @@
 
     @include('layouts.footer')
 
+<<<<<<< HEAD
+=======
+    <!-- chat with us -->
+    <div id="chatButton" class="chatButton tip bounce open-chat" title="" data-placement="left" style="display: block;" data-original-title="Need the right advice? We're available to help!">
+        <div class="textDiv">
+            <div class="chatlogo">
+                <i class="fa fa-comment gtt-chat" aria-hidden="true" data-placement="left" alt="Do you have questions? Our education consultants are available to help." data-original-title="" title=""></i>
+            </div>
+        </div>
+    </div><!-- /#chatButton -->
+
+    <div class="chatContainer">
+        <div class="header connected" id="chatheader">
+            <center>
+                <img alt="Education consultant is online" class="consultant-img tip" data-original-title="You are now receiving support from Michelle of theRightU. You may also email us your questions to hello@therightu.com" data-placement="bottom" src="https://therightustorage.blob.core.windows.net/assets/img/web/team/MN.jpg" title="You are now receiving support from Michelle of theRightU. You may also email us your questions to hello@therightu.com">
+            </center>
+            <div class="loader" id="loader" style="display: none;"></div>
+        </div>
+        <div class="closeBtn" title="Minimise chat window">
+            <i class="fa fa-angle-right"></i>
+        </div>
+        <div class="divChat" id="divChat" style="display: block;">
+            <div class="divNoExist" id="divNoExist" style="display:none;">
+                <span id="info"></span>
+            </div>
+            <div class="chatArea">
+                <div class="messageArea" id="divMessage">
+                    <div class="innerArea ps-container" data-ps-id="62c389ed-9734-8530-9bfc-aa2b41611964" id="innerArea">
+                        <div id="loadMore" onclick="javascript: LoadEarlier();" style="display: none;">
+                            Show earlier conversations
+                        </div>
+                        
+                        <div class="clearBoth"></div>
+                        <div class="chatrow AdminUser GreetMsg theRightU" title="Sent on 29 Sep 10:40am">
+                            <div class="clearBoth"></div>
+                            <div class="chatinfo fullwidth">
+                                <div class="float-left">
+                                    Dr Chan Khai Leok
+                                </div>
+                            </div>
+                            <div class="chatMsg" data-timesent="29 Sep 10:40am">
+                                Good morning! How can we help you?
+                            </div>
+                        </div>
+                        <div class="clearBoth"></div>
+                        <div class="chatrow User" title="Sent on 29 Sep 2:38pm"><div class="clearBoth"></div><div class="chatMsg" data-timesent="29 Sep 2:38pm">hello
+                        </div></div>
+                        <div class="clearBoth"></div>
+
+                    <div class="col-md-5 col-sm-12 col">
+                        <div class="maps">
+                            <h3 class="title">MEET US</h3>
+                            <div class="img">
+                                {{-- <img src="/img/map.jpg" alt=""> --}}
+                                 <div id="map" style="width: 478;height: 173px;"></div>
+                            </div>
+                            <div class="info">
+                                <p>Monday to Friday: <strong>10am - 8pm</strong></p>
+                                <p>Saturday: <strong>10am - 1pm</strong></p>
+                            </div>
+                        </div><!-- /.maps -->
+                        
+                        <div class="chatrow AdminUser" title="Sent on 29 Sep 2:38pm"><div class="clearBoth"></div><div class="chatinfo fullwidth"><div class="float-left">Kevin</div></div><div class="chatMsg" data-timesent="29 Sep 2:38pm">Hi, how may we address you?</div></div>
+                        <div class="clearBoth"></div>
+
+                        <div class="chatrow AdminUser" id="typing">
+                            <div class="clearBoth"></div>
+                            <div class="chatMsg loading"></div>
+                        </div>
+                        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+                            <div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div>
+                        </div>
+                        <div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;">
+                            <div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearBoth"></div>
+                <div class="chatInput">
+                    <textarea cols="30" id="txtMsg" maxlength="1000" placeholder=" &nbsp;Ask your education consultant a question." rows="4" style="font-family:'Lato', FontAwesome"></textarea> <input id="btnSendMsg" type="button" value="Send">
+                </div>
+            </div>
+        </div>
+    </div><!-- /.chatContainer -->
+    <!-- e: chat with us -->
+
+>>>>>>> 32ba1b7535f33f6965c316ea5872cdfc1ccae8c4
 </div>
 
 <!-- Scripts -->
@@ -278,6 +365,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="{{ asset('js/slick.js') }}"></script>
 <script src="{{ asset('js/jquery.smooth-scroll.js') }}"></script>
+<<<<<<< HEAD
+=======
+<!-- <script src="{{ asset('js/jquery.circliful.js') }}"></script> -->
+<script src="{{ asset('js/compare.js') }}"></script>
+<script src="{{ asset('js/jquery.donutchart.js') }}"></script>
+>>>>>>> 32ba1b7535f33f6965c316ea5872cdfc1ccae8c4
 <script src="{{ asset('js/custom.js') }}"></script>
 <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
 
