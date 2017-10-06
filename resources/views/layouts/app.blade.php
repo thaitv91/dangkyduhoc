@@ -391,7 +391,7 @@
             </center>
             <div class="loader" id="loader" style="display: none;"></div>
         </div>
-        <div class="closeBtn" onclick="javascript: closeChat();" title="Minimise chat window">
+        <div class="closeBtn" title="Minimise chat window">
             <i class="fa fa-angle-right"></i>
         </div>
         <div class="divChat" id="divChat" style="display: block;">
@@ -468,7 +468,9 @@
 <script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
 <script src="{{ asset('js/slick.js') }}"></script>
 <script src="{{ asset('js/jquery.smooth-scroll.js') }}"></script>
-<script src="{{ asset('js/jquery.circliful.js') }}"></script>
+<!-- <script src="{{ asset('js/jquery.circliful.js') }}"></script> -->
+<script src="{{ asset('js/compare.js') }}"></script>
+<script src="{{ asset('js/jquery.donutchart.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

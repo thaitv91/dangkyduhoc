@@ -120,3 +120,11 @@ img{
         }
     }
 }
+
+sub, sup {
+    font-size: 60%;
+    line-height: 0;
+    position: relative;
+    text-transform: lowercase;
+    vertical-align: baseline;
+}
