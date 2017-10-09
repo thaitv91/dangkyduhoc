@@ -174,6 +174,24 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::post('image-upload', 'Admin\SliderController@uploadImage')->name('admin.slider.uploadImage');
 		Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.slider.removeImage');
 	});
+
+	Route::group(['prefix'=>'contact'], function() {
+		Route::get('', 'Admin\ContactController@index')->name('admin.contact');
+		Route::get('show/{id}', 'Admin\ContactController@show')->name('admin.contact.show');
+		Route::get('destroy/{id}', 'Admin\ContactController@destroy')->name('admin.contact.destroy');
+		Route::get('detail/{id}', 'Admin\ContactController@detail')->name('admin.contact.detail');
+		Route::get('reply/{id}', 'Admin\ContactController@reply')->name('admin.contact.reply');
+	});
+
+	Route::group(['prefix'=>'custom-field'], function() {
+		Route::get('', 'Admin\CustomFieldController@index')->name('admin.customField');
+		Route::get('create', 'Admin\CustomFieldController@create')->name('admin.customField.create');
+		Route::get('edit/{id}', 'Admin\CustomFieldController@edit')->name('admin.customField.edit');
+		Route::get('destroy/{id}', 'Admin\CustomFieldController@destroy')->name('admin.customField.destroy');
+		Route::get('get-slug', 'Admin\CustomFieldController@getSlug')->name('admin.customField.getSlug');
+		Route::post('create', 'Admin\CustomFieldController@store');
+		Route::post('edit/{id}', 'Admin\CustomFieldController@update');
+	});
 });
 	
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');

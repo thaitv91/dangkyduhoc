@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\PageField;
 use App\Models\Page;
 use App\Models\Rating;
+use App\Models\CustomField;
 use App;
 
 class HomeController extends Controller
@@ -37,11 +38,14 @@ class HomeController extends Controller
                 $data_field[$field->slug] = $field->content;
             }
         }
+        $custom_field = CustomField::first();
+
         $this->viewData = array(
-            'title' => $title,
-            'data_field' => $data_field,
-            'rating'     => $rating,
-            'locale'     => $locale
+            'title'         => $title,
+            'data_field'    => $data_field,
+            'rating'        => $rating,
+            'locale'        => $locale,
+            'custom_field'        => $custom_field,
             );
         return view('user.homepage', $this->viewData);
     }

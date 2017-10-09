@@ -100,7 +100,6 @@ class UniversityController extends Controller
                 $folder = 'image/university/logo';
                 $logo = $this->image->uploadImage($folder, $logo);
                 $data['logo'] = $folder.'/'.$logo;
-                // $data['logo']= $request->file( 'logo' )->storeAs( 'public/img/university',$name_logo );
                 $data['slider_id'] = $data['image'];
                 $university = University::create($data);
                 DB::commit();
