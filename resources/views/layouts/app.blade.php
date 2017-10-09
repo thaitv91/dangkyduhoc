@@ -421,19 +421,7 @@
                         <div class="chatrow User" title="Sent on 29 Sep 2:38pm"><div class="clearBoth"></div><div class="chatMsg" data-timesent="29 Sep 2:38pm">hello
                         </div></div>
                         <div class="clearBoth"></div>
-
-                    <div class="col-md-5 col-sm-12 col">
-                        <div class="maps">
-                            <h3 class="title">MEET US</h3>
-                            <div class="img">
-                                {{-- <img src="/img/map.jpg" alt=""> --}}
-                                 <div id="map" style="width: 478;height: 173px;"></div>
-                            </div>
-                            <div class="info">
-                                <p>Monday to Friday: <strong>10am - 8pm</strong></p>
-                                <p>Saturday: <strong>10am - 1pm</strong></p>
-                            </div>
-                        </div><!-- /.maps -->
+                    
                         
                         <div class="chatrow AdminUser" title="Sent on 29 Sep 2:38pm"><div class="clearBoth"></div><div class="chatinfo fullwidth"><div class="float-left">Kevin</div></div><div class="chatMsg" data-timesent="29 Sep 2:38pm">Hi, how may we address you?</div></div>
                         <div class="clearBoth"></div>
