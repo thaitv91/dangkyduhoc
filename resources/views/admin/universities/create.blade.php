@@ -83,6 +83,28 @@
 	                    	</div>
                     	</div>
                		</div>  
+               		<div class="form-group row">
+						<label class="col-md-3">Map</label>
+						<div class="col-md-9">
+							<select class="selectpicker " id="map_id" name="map_id" title="Choose one of the following..." data-live-search="true" tabindex="-98">
+                              <option disabled selected></option>
+                              @if(count($map)!=0)
+                                  @foreach($map as $db_map)
+                                  <option value="{{$db_map->id}}" data-tokens="{{$db_map->title}}" >{{$db_map->title }} </option>
+                                  @endforeach
+                               @endif
+                              @if(count($map)==0)
+                              <option value=""><em>(Don't have)</em></option>
+                             @endif
+                           </select>
+                           @if($errors->has('map_id'))
+	                            <span class="help-block">
+	                                <strong class="text-danger">{{$errors->first('map_id')}}</strong>
+	                            </span>   
+	                        @endif
+						</div>
+
+					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</div>

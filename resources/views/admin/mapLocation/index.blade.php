@@ -12,8 +12,8 @@
 @section('content')
 <div class="box">
 	<div class="box-header">
-		<div class="col-md-11"><h3 class="box-title">University</h3></div>
-	<div class="col-md-1"><a href="{{ route('admin.universities.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
+		<div class="col-md-11"><h3 class="box-title">Subject</h3></div>
+	<div class="col-md-1"><a href="{{ route('admin.mapLocation.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
 	</div>
 	<!-- /.box-header -->
 	<div class="box-body">
@@ -22,22 +22,21 @@
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
-					<th>Slug</th>
-					{{-- <th>Logo</th> --}}
-					<th>Fuction</th>
+					<th>Lat</th>
+					<th>Long</th>
+					<th>Function</th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($universites as $key => $value): ?>
+				<?php foreach ($data as $key => $value): ?>
 					<tr>
 						<td>{{ $key+1 }}</td>
 						<td>{{ $value->name }}</td>
-						<td>{{ $value->slug }}</td>
-						{{-- <td><img src="{{ Storage::disk('local')->url( $value->logo ) }}" alt=""></td> --}}
+						<td>{{ $value->lat }}</td>
+						<td>{{ $value->lng }}</td>
 						<td>
-							<a href="{{ route('admin.universities.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
+							<a href="{{ route('admin.mapLocation.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
 	                        <a onclick="confirmDelete({{$value->id}})" class="btn btn-xs btn-danger">Delete</a>
-	                        <a href="{{ route('user.university.detail',['slug'=>$value->slug]) }}" class="btn btn-xs btn-info">View</a>
 						</td>
 					</tr>
 				<?php endforeach ?>
@@ -85,7 +84,7 @@
 <script type="text/javascript">
 	function confirmDelete(id) {
 		$.ajax({
-			url : '{{ route("admin.universities.getUrlDelete") }}',
+			url : '{{ route("admin.mapLocation.getUrlDelete") }}',
 			data : {id:id},
 		}).done(function(data) {
 			if (data == -1) {

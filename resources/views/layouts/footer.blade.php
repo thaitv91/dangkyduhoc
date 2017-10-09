@@ -48,7 +48,7 @@
                 <div class="maps">
                     <h3 class="title">MEET US</h3>
                     <div class="img">
-                        <img src="/img/map.jpg" alt="">
+                        <div id="map" style="width: 478;height: 173px;"></div>
                     </div>
                     <div class="info">
                         <!-- <p>Monday to Friday: <strong>10am - 8pm</strong></p>
