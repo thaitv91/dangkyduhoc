@@ -181,6 +181,7 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::put('/edit/{id}', 'Admin\MapLocationController@update')->name('admin.mapLocation.update');
 		Route::get('delete/{id}', 'Admin\MapLocationController@destroy')->name('admin.mapLocation.delete');
 		Route::get('get-url-delete','Admin\MapLocationController@getUrlDelete')->name('admin.mapLocation.getUrlDelete');
+	});
 
 	Route::group(['prefix'=>'slider'], function() {
 		Route::get('', 'Admin\SliderController@index')->name('admin.slider');
