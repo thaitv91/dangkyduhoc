@@ -196,7 +196,6 @@ Route::group(['prefix'=>'admin'], function() {
 
 	});
 });
-	
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
 Route::get('/admin/countries/{country}/edit', 'Admin\CountryController@edit');
 Route::post('/admin/countries/{country}/edit', 'Admin\CountryController@update')->name('countries.update');
@@ -274,4 +273,3 @@ Route::group(['prefix'=>'message'], function() {
 Route::post('contact', 'User\ContactController@postContact')->name('postContact');
 
 Route::get('/course/{slug}', 'User\AjaxController@getCourseDetail');
-
