@@ -6718,6 +6718,7 @@ a.course_name {
 #page_compare .feature.feature1 a:hover {
   text-decoration: none;
   color: #007bb9 !important;
+  cursor: pointer;
 }
 #page_compare .feature.feature1 h2 {
   margin-top: 10px;

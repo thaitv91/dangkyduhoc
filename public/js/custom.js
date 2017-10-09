@@ -233,6 +233,7 @@ $('#slider-img-fair').slick({
         });
     }
     BindRowHighlight();
+    $('.compare-div').sortable();
   // e: compare
 
 
