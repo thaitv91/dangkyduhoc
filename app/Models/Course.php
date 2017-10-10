@@ -10,6 +10,10 @@ class Course extends Model
     protected $table = 'course';
     protected $guarded = array();
 
+    protected $fillable = [
+        'name', 'slug'
+    ];
+
     public function university() {
     	return $this->belongsTo('App\Models\University', 'university_id');
     }
