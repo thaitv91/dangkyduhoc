@@ -29,11 +29,12 @@ class CourseSeeder extends Seeder
 			$slug = str_replace('file://home/home/ninhhoang/data_course/', '', $slug);
 			$course_slug = str_replace('.html', '', $slug);
 
-			$course_name = $value->course->name;
+			 $course_name = explode(', ', $value->course->name);
 			$university = DB::table('university')->where('slug', $university_slug)->first();
 			if (count($university)) {
 				DB::table('course')->insert([
-					'name'			=>	$course_name,
+					'name'          =>  $course_name[0],
+                    'classification'=>  $course_name[1],
 					'slug'			=>	$course_slug,
 					'university_id'	=>	$university->id,
 					'created_at'	=>	Carbon::now(),

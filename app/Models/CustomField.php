@@ -3,13 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Storage;
-use App;
-class PageField extends Model
+
+class CustomField extends Model
 {
-    protected $fillable = [
-        'title', 'type', 'page_id', 'content', 'slug', 'content_en'
-    ];
+    protected $fillable = array('name', 'slug', 'content', 'content_en', 'type');
 
     public function render() {
         $locale = App::getLocale();

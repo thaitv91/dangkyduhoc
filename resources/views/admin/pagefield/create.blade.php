@@ -23,9 +23,9 @@
 						<label  class="col-md-3" for="name">Title</label>
 						<div class="col-md-9">
 							<input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
-							@if($errors->has('title'))
+							@if($errors->has('name'))
 	                            <span class="help-block">
-	                                <strong class="text-danger">{{$errors->first('title')}}</strong>
+	                                <strong class="text-danger">{{$errors->first('name')}}</strong>
 	                            </span>   
 	                        @endif
 						</div>
@@ -34,9 +34,9 @@
 						<label  class="col-md-3" for="name">Content</label>
 						<div class="col-md-9">
 							<textarea class="form-control my-editor" rows="5" id="content" name="content" value="{{ old('content') }}"></textarea>    
-							@if($errors->has('content'))
+							@if($errors->has('slug'))
 	                            <span class="help-block">
-	                                <strong class="text-danger">{{$errors->first('content')}}</strong>
+	                                <strong class="text-danger">{{$errors->first('slug')}}</strong>
 	                            </span>   
 	                        @endif
 	                    </div>
@@ -94,5 +94,12 @@
 	</div>
 	<!-- /.box -->
 </div>
+@endsection
 
+@section('scripts')
+<script type="text/javascript">
+	@if (count($errors) > 0)
+	toastr.error('{{ $errors->first() }}');
+	@endif
+</script>
 @endsection
