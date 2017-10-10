@@ -254,8 +254,6 @@ Route::group(['prefix'=>'admin'], function() {
 
         });
     });
-
-	});
 });
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
 Route::get('/admin/countries/{country}/edit', 'Admin\CountryController@edit');
