@@ -30,6 +30,7 @@ class GuideController extends Controller
             }
         }
         $this->viewData = array(
+            'title' => 'Guide',
             'data_field' => $data_field,
             'locale'     => $locale
             );

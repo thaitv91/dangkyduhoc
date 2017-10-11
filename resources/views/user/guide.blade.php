@@ -18,7 +18,7 @@
 	<div class="list-guides">
 		<div class="row">
 			<div class="col-md-3 col-sm-6">
-				<a class="tile-guide bg-light-blue" href="#">
+				<a class="tile-guide bg-light-blue" href="{!! trim($data_field['about-therightu-link'], '</p>') !!}">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-1"></i></div>
 						{!! $data_field['about-therightu'] !!}
@@ -27,7 +27,7 @@
 			</div>
 
 			<div class="col-md-3 col-sm-6">
-				<a class="tile-guide bg-brown" href="#">
+				<a class="tile-guide bg-brown" href="{!! trim($data_field['choosing-university-link'], '</p>') !!}">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-2"></i></div>
 						{!! $data_field['choosing-university'] !!}
@@ -36,7 +36,7 @@
 			</div>
 
 			<div class="col-md-3 col-sm-6">
-				<a class="tile-guide bg-dark-blue" href="#">
+				<a class="tile-guide bg-dark-blue" href="{!! trim($data_field['apply-to-university-link'], '</p>') !!}">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-3"></i></div>
 						{!! $data_field['apply-to-university'] !!}
@@ -45,7 +45,7 @@
 			</div>
 
 			<div class="col-md-3 col-sm-6">
-				<a class="tile-guide bg-light-brown" href="#">
+				<a class="tile-guide bg-light-brown" href="{!! trim($data_field['accept-offer-link'], '</p>') !!}">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-4"></i></div>
 						{!! $data_field['accept-offer'] !!}
@@ -54,7 +54,7 @@
 			</div>
 
 			<div class="col-md-3 col-sm-6">
-				<a class="tile-guide bg-dark-blue" href="#">
+				<a class="tile-guide bg-dark-blue" href="{!! trim($data_field['finances-scholarships-link'], '</p>') !!}">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-5"></i></div>
 						{!! $data_field['finances-scholarships'] !!}
@@ -63,7 +63,7 @@
 			</div>
 
 			<div class="col-md-3 col-sm-6">
-				<a class="tile-guide bg-light-violet" href="#">
+				<a class="tile-guide bg-light-violet" href="{!! trim($data_field['flight-accomodation-link'], '</p>') !!}">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-6"></i></div>
 						{!! $data_field['flight-accomodation'] !!}
@@ -72,7 +72,7 @@
 			</div>
 
 			<div class="col-md-3 col-sm-6">
-				<a class="tile-guide bg-dark-orange" href="#">
+				<a class="tile-guide bg-dark-orange" href="{!! trim($data_field['student-visa-link'], '</p>') !!}">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-7"></i></div>
 						{!! $data_field['student-visa'] !!}
@@ -81,7 +81,7 @@
 			</div>
 
 			<div class="col-md-3 col-sm-6">
-				<a class="tile-guide bg-light-orange" href="#">
+				<a class="tile-guide bg-light-orange" href="{!! trim($data_field['online-consultation-link'], '</p>') !!}">
 					<div class="content">
 						<div class="icon"><i class="sprite-guide-8"></i></div>
 						{!! $data_field['online-consultation'] !!}
