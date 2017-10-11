@@ -18,7 +18,7 @@
 	<div class="choose-list-guide">
 		<select class="form-control">
 			@foreach($guide_list as $category)
-                <option>
+                <option value="/guide/category/{{ $category->slug }}">
                     @if($locale == 'en')
                         {{ $category->name_en }}
                     @else
