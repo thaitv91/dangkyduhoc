@@ -69,4 +69,28 @@ class GuideController extends Controller
 
         return view('user.guide-detail', $data);
     }
+
+    public function  guideCategory($slug) {
+        $locale = App::getLocale();
+        $guide_category = App\Models\Guide::where('slug', $slug)->first();
+
+        $guide_list = App\Models\Guide::all();
+        if (isset($_GET['debug'])) {
+            dd($guide_category);
+        }
+        if ($locale == 'en') {
+            $title = $guide_category->name_en;
+        } else {
+            $title = $guide_category->name;
+        }
+
+        $data = [
+            'title' => $title,
+            'guide_category' => $guide_category,
+            'guide_list' => $guide_list,
+            'locale' => $locale
+        ];
+
+        return view('user.guide-list', $data);
+    }
 }

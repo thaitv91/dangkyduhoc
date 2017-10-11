@@ -30,6 +30,15 @@
                         @endif
 					</div>
 					<div class="form-group">
+						<label for="name">Name English</label>
+						<input type="text" class="form-control" name="name_en" id="name" value="{{ $data['name_en'] }}">
+						@if($errors->has('name_en'))
+							<span class="help-block">
+                                <strong class="text-danger">{{$errors->first('name_en')}}</strong>
+                            </span>
+						@endif
+					</div>
+					<div class="form-group">
 						<button type="submit" class="btn btn-primary">Update</button>
 					</div>
 				</div>
