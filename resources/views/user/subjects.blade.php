@@ -13,15 +13,15 @@
 		<div class="breadcrumb-page">
 			<ul class="list">
 				@foreach($subject_career as $key => $db_subject_career)
-                    <?php $subject_slug = App\Models\Subject::where('id', '=', $db_subject_career->subject_id)->first()->slug ?>
-				<li><a href="{{ route('user.career.detail', $subject_slug) }}">
-					@if($locale == 'en')
-						{{ $db_subject_career->career['name_en']}}
-					@else
-						{{  $db_subject_career->career['name'] }}
-					@endif
-					</a>
-				</li>            
+                    <?php $subject_slug = App\Models\Career::where('id', '=', $db_subject_career->career_id)->first()['slug'] ?>
+					<li><a href="{{ route('user.career.detail', $subject_slug) }}">
+						@if($locale == 'en')
+							{{ $db_subject_career->career['name_en']}}
+						@else
+							{{  $db_subject_career->career['name'] }}
+						@endif
+						</a>
+					</li>
 				@endforeach            
 			</ul>
 		</div><!-- /.breadcrumb-page -->
