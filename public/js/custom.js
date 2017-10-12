@@ -277,4 +277,17 @@ $('#slider-img-fair').slick({
     });
     $('.chatButton').show();
   });
+
+  // guide list
+  $('.choose-list-guide select').change(function(){
+    var val = $(this).val();
+    location.href = $(this).val();
+
+  });
+  $('.choose-list-guide select option').each(function(){
+    console.log(location.href);
+    if($(this).val() == window.location.href - location.protocol){
+      $(this).prop("selected", "selected");
+    }
+  });
 });
