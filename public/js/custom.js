@@ -284,9 +284,13 @@ $('#slider-img-fair').slick({
     location.href = $(this).val();
 
   });
+
+  function cutFromString(oldStr, fullStr) {
+    return fullStr.split(oldStr).join('');
+  }
   $('.choose-list-guide select option').each(function(){
-    console.log(location.href);
-    if($(this).val() == window.location.href - location.protocol){
+    var val = cutFromString((location.protocol + "//" + location.host), window.location.href);
+    if($(this).val() == val){
       $(this).prop("selected", "selected");
     }
   });
