@@ -49,13 +49,14 @@ class GuideController extends Controller
         unset($data['_token']);
         try {
             $rules = [
-                'name'               =>'required',
-                    
-                ];
+                'name'  =>'required',
+                'name_en' =>'required',
+            ];
 
             $messages = [
-                'name.required'      =>'Please enter the name!!',
-                                
+                'name.required' =>'Please enter the name!!',
+                'name_en.required' =>'Please enter the name!!',
+
             ];
 
             $validator = Validator::make( $request->all(), $rules, $messages);
@@ -64,7 +65,14 @@ class GuideController extends Controller
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
                 DB::beginTransaction();
-                $data['slug'] = str_slug( $data['name'] );
+                $data['slug'] = str_slug( $data['name_en'] );
+                if($data['question_en']){
+                    $data['slug'] = str_slug( $data['question_en'] );
+                }else if($data['question']){
+                    $data['slug'] = str_slug( $data['question'] ); 
+                }else{
+                     $data['slug'] = str_slug( $data['question_en'] );    
+                }
                 $pages = Guide::create($data);
                 DB::commit();
                 Session::flash('success','Success!');
@@ -115,11 +123,13 @@ class GuideController extends Controller
         $data = $request->all();
         try {
             $rules = [
-                'name'           =>'required',    
+                'name' =>'required',
+                'name_en' =>'required',
             ];
 
             $messages = [
-                'name.required'      =>'Please enter the name!!',                    
+                'name.required' =>'Please enter the name!!',
+                'name.required' =>'Please enter the name!!',
             ];
 
             $validator = Validator::make( $request->all(), $rules, $messages);
@@ -128,7 +138,7 @@ class GuideController extends Controller
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
                 DB::beginTransaction();
-                $data['slug'] = str_slug( $data['name'] );
+                $data['slug'] = str_slug( $data['name_en'] );
                 $page = Guide::where('id', $id)->first();
                 $page->update($data);
                 DB::commit();

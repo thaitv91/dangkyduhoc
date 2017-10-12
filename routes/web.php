@@ -301,6 +301,7 @@ Route::get('/html/search', function() {
 });
 Route::get('/guide', 'User\GuideController@index')->name('user.guide');
 Route::get('/guide/{slug}','User\GuideController@search')->name('user.guide.search');
+Route::get('/guide/category/{slug}','User\GuideController@guideCategory')->name('user.guide.category');
 Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('user.search.ajax');
 Route::get('university/{slug}','User\UniversityController@viewDetail')->name('user.university.detail');
 Route::get('get-marker', 'User\UniversityController@getMarker')->name('getMarker');
