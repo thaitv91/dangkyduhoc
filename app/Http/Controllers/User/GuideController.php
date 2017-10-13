@@ -29,6 +29,7 @@ class GuideController extends Controller
                 $data_field[$field->slug] = $field->content;
             }
         }
+
         $this->viewData = array(
             'title' => 'Guide',
             'data_field' => $data_field,
@@ -55,17 +56,26 @@ class GuideController extends Controller
         $locale = App::getLocale();
         $guide = GuideQuestion::where('slug', $slug)->first();
 
+        $topic = App\Models\GuideTopic::where('id', '=', $guide->topic_id)->first();
+        $guide_category = App\Models\Guide::where('id', $topic->guide_id)->first();
+        $topics = App\Models\GuideTopic::where('guide_id', '=', $guide_category->id)->get();
+        $guide_list = App\Models\Guide::all();
+
         if ($locale == 'en') {
-            $data = [
-                'title' => $guide->question_en,
-                'answer' => $guide->anser_en
-            ];
+            $title = $guide->question_en;
+            $answer = $guide->anser_en;
         } else {
-            $data = [
-                'title' => $guide->question,
-                'answer' => $guide->answer
-            ];
+            $title = $guide->question;
+            $answer = $guide->answer;
         }
+
+        $data = [
+            'title' => $title,
+            'answer' => $answer,
+            'guide_list' => $guide_list,
+            'locale' => $locale,
+            'topics' => $topics
+        ];
 
         return view('user.guide-detail', $data);
     }
@@ -77,7 +87,7 @@ class GuideController extends Controller
         $topics = App\Models\GuideTopic::where('guide_id', '=', $guide_category->id)->get();
 
         $guide_list = App\Models\Guide::all();
-        
+
         if ($locale == 'en') {
             $title = $guide_category->name_en;
         } else {

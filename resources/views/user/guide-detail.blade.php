@@ -20,61 +20,46 @@
 
 				<div class="choose-list-guide">
 					<select class="form-control">
-						<option>GIỚI THIỆU THERIGHTU</option>
-						<option>CHỌN TRƯỜNG ĐẠI HỌC</option>
-						<option>ÁP DỤNG CHO TRƯỜNG ĐẠI HỌC</option>
-						<option>CHẤP NHẬN YÊU CẦU CỦA BẠN</option>
-						<option>HỌC PHÍ &amp; HỌC BỔNG</option>
-						<option>CHUYẾN BAY &amp; CHỖ Ở</option>
-						<option>Visa của học sinh</option>
-						<option>Tư vẫn trực tuyến</option>
+						@foreach($guide_list as $category)
+							<option value="/guide/category/{{ $category->slug }}">
+								@if($locale == 'en')
+									{{ $category->name_en }}
+								@else
+									{{ $category->name }}
+								@endif
+							</option>
+						@endforeach
 					</select>
 				</div><!-- /.choose-list-guide -->
 
 				<div class="sidebar-nav-fixed">
-					<div class="box-category-guide">
-						<h3>General</h3>
-						<ul>
-							<li><a href="#">What is theRightU?</a></li>
-							<li><a href="#">What services do theRightU provide?</a></li>
-							<li><a href="#">What services do theRightU provide?</a></li>
-							<li><a href="#">How do I Search and Compare courses?</a></li>
-							<li><a href="#">What is MULTI-APPLY?</a></li>
-						</ul>
-					</div><!-- /.box-category-guide -->
-
-					<div class="box-category-guide">
-						<h3>Account</h3>
-						<ul>
-							<li><a href="#">What is theRightU?</a></li>
-							<li><a href="#">What services do theRightU provide?</a></li>
-							<li><a href="#">What services do theRightU provide?</a></li>
-							<li><a href="#">How do I Search and Compare courses?</a></li>
-							<li><a href="#">What is MULTI-APPLY?</a></li>
-						</ul>
-					</div><!-- /.box-category-guide -->
-
-					<div class="box-category-guide">
-						<h3>Support</h3>
-						<ul>
-							<li><a href="#">What is theRightU?</a></li>
-							<li><a href="#">What services do theRightU provide?</a></li>
-							<li><a href="#">What services do theRightU provide?</a></li>
-							<li><a href="#">How do I Search and Compare courses?</a></li>
-							<li><a href="#">What is MULTI-APPLY?</a></li>
-						</ul>
-					</div><!-- /.box-category-guide -->
-
-					<div class="box-category-guide">
-						<h3>Stories from our students</h3>
-						<ul>
-							<li><a href="#">What is theRightU?</a></li>
-							<li><a href="#">What services do theRightU provide?</a></li>
-							<li><a href="#">What services do theRightU provide?</a></li>
-							<li><a href="#">How do I Search and Compare courses?</a></li>
-							<li><a href="#">What is MULTI-APPLY?</a></li>
-						</ul>
-					</div><!-- /.box-category-guide -->
+					@foreach($topics as $topic)
+						<div class="box-category-guide">
+							<h3>
+								@if($locale == 'en')
+									{{ $topic->title_en }}
+								@else
+									{{ $topic->title }}
+								@endif
+							</h3>
+							<?php
+							$questions = \App\Models\GuideQuestion::where('topic_id', '=', $topic->id)->get();
+							?>
+							<ul>
+								@foreach($questions as $question)
+									<li>
+										<a href="/guide/{{ $question->slug }}">
+											@if($locale == 'en')
+												{{ $question->question_en }}
+											@else
+												{{ $question->question }}
+											@endif
+										</a>
+									</li>
+								@endforeach
+							</ul>
+						</div><!-- /.box-category-guide -->
+					@endforeach
 				</div><!-- /.sidebar-nav-fixed -->
 			</div><!-- /.left-guide-detail -->
 		</div><!-- ./col-md-4 -->
@@ -142,5 +127,23 @@
 @section('scripts')
 {{-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
 <script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script> --}}
-
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#search_en").autocomplete({
+			source: "/search/autocomplete",
+			focus: function( event, ui ) {
+				return false;
+			},
+			select: function( event, ui ) {
+				window.location.href = ui.item.slug;
+			}
+		}).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+			var inner_html = '<a href="/guide/' + item.slug + '" ><h6>' + item.value + '</h6>';
+			return $( "<li></li>" )
+					.data( "item.autocomplete", item )
+					.append(inner_html)
+					.appendTo( ul );
+		};
+	});
+</script>
 @endsection
