@@ -2,7 +2,14 @@
 
 @section("content")
 <div class="title-page">
-	<div class="container"><h1>UNIVERSITY GUIDE</h1></div>
+	<div class="container"><h1>
+			@if($locale == 'en')
+				{{ $guide_category->name_en }}
+			@else
+				{{ $guide_category->name }}
+			@endif
+		</h1>
+	</div>
 </div>
 
 <div class="container guide-list-page">
@@ -29,49 +36,33 @@
 		</select>
 	</div><!-- /.choose-list-guide -->
 
-	<div class="box-category-guide">
-		<h3>General</h3>
-		<ul>
-			<li><a href="#">What is theRightU?</a></li>
-			<li><a href="#">What services do theRightU provide?</a></li>
-			<li><a href="#">What services do theRightU provide?</a></li>
-			<li><a href="#">How do I Search and Compare courses?</a></li>
-			<li><a href="#">What is MULTI-APPLY?</a></li>
-		</ul>
-	</div><!-- /.box-category-guide -->
-
-	<div class="box-category-guide">
-		<h3>Account</h3>
-		<ul>
-			<li><a href="#">What is theRightU?</a></li>
-			<li><a href="#">What services do theRightU provide?</a></li>
-			<li><a href="#">What services do theRightU provide?</a></li>
-			<li><a href="#">How do I Search and Compare courses?</a></li>
-			<li><a href="#">What is MULTI-APPLY?</a></li>
-		</ul>
-	</div><!-- /.box-category-guide -->
-
-	<div class="box-category-guide">
-		<h3>Support</h3>
-		<ul>
-			<li><a href="#">What is theRightU?</a></li>
-			<li><a href="#">What services do theRightU provide?</a></li>
-			<li><a href="#">What services do theRightU provide?</a></li>
-			<li><a href="#">How do I Search and Compare courses?</a></li>
-			<li><a href="#">What is MULTI-APPLY?</a></li>
-		</ul>
-	</div><!-- /.box-category-guide -->
-
-	<div class="box-category-guide">
-		<h3>Stories from our students</h3>
-		<ul>
-			<li><a href="#">What is theRightU?</a></li>
-			<li><a href="#">What services do theRightU provide?</a></li>
-			<li><a href="#">What services do theRightU provide?</a></li>
-			<li><a href="#">How do I Search and Compare courses?</a></li>
-			<li><a href="#">What is MULTI-APPLY?</a></li>
-		</ul>
-	</div><!-- /.box-category-guide -->
+	@foreach($topics as $topic)
+		<div class="box-category-guide">
+			<h3>
+				@if($locale == 'en')
+					{{ $topic->title_en }}
+				@else
+					{{ $topic->title }}
+				@endif
+			</h3>
+			<?php
+				$questions = \App\Models\GuideQuestion::where('topic_id', '=', $topic->id)->get();
+			?>
+			<ul>
+				@foreach($questions as $question)
+					<li>
+						<a href="/guide/{{ $question->slug }}">
+							@if($locale == 'en')
+								{{ $question->question_en }}
+							@else
+								{{ $question->question }}
+							@endif
+						</a>
+					</li>
+				@endforeach
+			</ul>
+		</div><!-- /.box-category-guide -->
+	@endforeach
 </div>
 
 

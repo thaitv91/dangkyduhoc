@@ -74,10 +74,10 @@ class GuideController extends Controller
         $locale = App::getLocale();
         $guide_category = App\Models\Guide::where('slug', $slug)->first();
 
+        $topics = App\Models\GuideTopic::where('guide_id', '=', $guide_category->id)->get();
+
         $guide_list = App\Models\Guide::all();
-        if (isset($_GET['debug'])) {
-            dd($guide_category);
-        }
+        
         if ($locale == 'en') {
             $title = $guide_category->name_en;
         } else {
@@ -88,7 +88,8 @@ class GuideController extends Controller
             'title' => $title,
             'guide_category' => $guide_category,
             'guide_list' => $guide_list,
-            'locale' => $locale
+            'locale' => $locale,
+            'topics' => $topics
         ];
 
         return view('user.guide-list', $data);
