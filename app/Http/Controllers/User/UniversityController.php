@@ -22,10 +22,7 @@ class UniversityController extends Controller
       $ranking = UniversityRanking::where( 'university_id', $university->id )->get();
       $locale = App::getLocale();
      
-      $map_university = Map::where('id', $university->map_id)->first(); 
-        $markers = array();       
-            $temp = [$university->name , $map_university['lat'], $map_university['lng']];
-            array_push($markers, $temp);
+       $map_university = Map::where('id', $university->map_id)->first();
 
       if ($locale == 'en') {
             $university['name']= $university->name_en;
@@ -38,10 +35,10 @@ class UniversityController extends Controller
       } 
   
       $slider = $university->slider()->first();
-		  $images = array();
+      $images = array();
 
-		  if (count($slider) != 0)
-			  $images = $slider->images;
+      if (count($slider) != 0)
+        $images = $slider->images;
   
       $this->viewData = array(
         'university' => $university,
@@ -49,24 +46,10 @@ class UniversityController extends Controller
         'meta'  => $meta,
         'ranking' => $ranking,
         'locale'  => $locale,
-        'markers' => $markers,
         'map_university' => $map_university,
-        'images'	=>	$images,
+        'images'  =>  $images,
       ); 
 
       return view( 'user.universities' , $this->viewData );
-    }
-
-    public function getMarker( Request $request ) {
-      $location = $request->location;
-      $university_id = $request->university_id;
-      $university = University::where('id', $university_id)->first();
-        $location_map = MapLocation::where('map_id', $university->map_id )->where('type', $location)->get();
-        $markers = array(); 
-        foreach ($location_map as $key => $location) {
-            $temp = [$location->name, $location->lat, $location->lng, $key+1];
-            array_push($markers, $temp);
-        }
-      return $markers;
     }
 }
