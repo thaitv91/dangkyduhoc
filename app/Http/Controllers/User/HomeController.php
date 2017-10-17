@@ -10,6 +10,7 @@ use App\Models\Rating;
 use App\Models\CustomField;
 use App\Models\Map;
 use App;
+use DB;
 
 class HomeController extends Controller
 {

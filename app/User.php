@@ -48,4 +48,8 @@ class User extends Authenticatable
     {   
         $this->notify(new MailResetPassword($token));
     }
+
+    public function courseComparison() {
+        return $this->belongsToMany('App\Models\Course', 'user_comparisons', 'user_id', 'course_id');
+    }
 }

@@ -26,9 +26,9 @@
 
 					<div class="form-group">
 						<label for="university">University</label>
-						<select type="text" class="form-control" name="university" id="university" required="required" value="" required>
+						<select type="text" class="form-control" name="university" id="university" required>
 							<?php foreach ($universities as $key => $value): ?>
-								<option value="{{ $value->id }}">{{ $value->name }}</option>
+								<option value="{{ $value->id }}" @if($course->university_id == $value->id) selected @endif>{{ $value->name }}</option>
 							<?php endforeach ?>
 						</select>
 					</div>
@@ -49,27 +49,27 @@
 				<div class="box-body">
 					<div class="form-group">
 						<label for="year_tuition_fees">Year Tuition Fees</label>
-						<input type="number" class="form-control" name="year_tuition_fees" id="year_tuition_fees" value="{{ $course->cost->year_tuition_fees }}" required step=any>
+						<input type="number" class="form-control" name="year_tuition_fees" id="year_tuition_fees" value="{{ $course->cost?$course->cost->year_tuition_fees:'' }}" required step=any>
 					</div>
 					<div class="form-group">
 						<label for="day_drink_fees">Drink Fees</label>
-						<input type="number" class="form-control" name="day_drink_fees" id="day_drink_fees" value="{{ $course->cost->day_drink_fees }}" required>
+						<input type="number" class="form-control" name="day_drink_fees" id="day_drink_fees" value="{{ $course->cost?$course->cost->day_drink_fees:'' }}" required>
 					</div>
 					<div class="form-group">
 						<label for="day_food_fees">Food Fees</label>
-						<input type="number" class="form-control" name="day_food_fees" id="day_food_fees" value="{{ $course->cost->day_food_fees }}" required>
+						<input type="number" class="form-control" name="day_food_fees" id="day_food_fees" value="{{ $course->cost?$course->cost->day_food_fees:'' }}" required>
 					</div>
 					<div class="form-group">
 						<label for="day_accommodation_fees">Accommodation Fees</label>
-						<input type="number" class="form-control" name="day_accommodation_fees" id="year_tuition_fees" value="{{ $course->cost->day_accommodation_fees }}" required step=any>
+						<input type="number" class="form-control" name="day_accommodation_fees" id="year_tuition_fees" value="{{ $course->cost?$course->cost->day_accommodation_fees:'' }}" required step=any>
 					</div>
 					<div class="form-group">
 						<label for="day_coffe_fees">Coffe Fees</label>
-						<input type="number" class="form-control" name="day_coffe_fees" id="day_coffe_fees" value="{{ $course->cost->day_coffe_fees }}" required>
+						<input type="number" class="form-control" name="day_coffe_fees" id="day_coffe_fees" value="{{ $course->cost?$course->cost->day_coffe_fees:'' }}" required>
 					</div>
 					<div class="form-group">
 						<label for="day_coffe_fees">Cost per year</label>
-						<input type="number" class="form-control" name="cost_per_year" id="cost_per_year" value="{{ $course->cost->cost_per_year }}" required step=any>
+						<input type="number" class="form-control" name="cost_per_year" id="cost_per_year" value="{{ $course->cost?$course->cost->cost_per_year:'' }}" required step=any>
 					</div>
 				</div>
 				<!-- /.box-body -->
@@ -88,15 +88,15 @@
 				<div class="box-body">
 					<div class="form-group">
 						<label for="diploma">Diploma</label>
-						<input type="text" class="form-control" name="diploma" id="diploma" value="{{ $course->requirement->diploma }}" required>
+						<input type="text" class="form-control" name="diploma" id="diploma" value="{{ $course->requirement?$course->requirement->diploma:'' }}" required>
 					</div>
 					<div class="form-group">
 						<label for="level">Level</label>
-						<input type="text" class="form-control" name="level" id="level" value="{{ $course->requirement->level }}" required>
+						<input type="text" class="form-control" name="level" id="level" value="{{ $course->requirement?$course->requirement->level:'' }}" required>
 					</div>
 					<div class="form-group">
 						<label for="international_baccalaureate">International Baccalaureate</label>
-						<input type="text" class="form-control" name="international_baccalaureate" id="international_baccalaureate" value="{{ $course->requirement->international_baccalaureate }}" required>
+						<input type="text" class="form-control" name="international_baccalaureate" id="international_baccalaureate" value="{{ $course->requirement?$course->requirement->international_baccalaureate:'' }}" required>
 					</div>
 				</div>
 				<!-- /.box-body -->
@@ -115,35 +115,35 @@
 				<div class="box-body">
 					<div class="form-group">
 						<label for="course_code">Course Code</label>
-						<input type="text" class="form-control" name="course_code" id="course_code" value="{{ $course->information->course_code }}" required>
+						<input type="text" class="form-control" name="course_code" id="course_code" value="{{ $course->information?$course->information->course_code:'' }}" required>
 					</div>
 					<div class="form-group">
 						<label for="university_code">University Code</label>
-						<input type="text" class="form-control" name="university_code" id="university_code" value="{{ $course->information->university_code }}">
+						<input type="text" class="form-control" name="university_code" id="university_code" value="{{ $course->information?$course->information->university_code:'' }}">
 					</div>
 					<div class="form-group">
 						<label for="upcoming_intakes">Upcoming Intakes</label>
-						<input type="text" class="form-control" name="upcoming_intakes" id="upcoming_intakes" value="{{ Carbon\Carbon::parse($course->information->upcoming_intakes)->format('d/m/Y') }}">
+						<input type="text" class="form-control" name="upcoming_intakes" id="upcoming_intakes" value="{{ $course->information?Carbon\Carbon::parse($course->information->upcoming_intakes)->format('d/m/Y'):'' }}">
 					</div>
 					<div class="form-group">
 						<label for="course_website">Course Website</label>
-						<input type="text" class="form-control" name="course_website" id="course_website" value="{{ $course->information->course_website }}">
+						<input type="text" class="form-control" name="course_website" id="course_website" value="{{ $course->information?$course->information->course_website:'' }}">
 					</div>
 					<div class="form-group">
 						<label for="duiration">Duiration</label>
-						<input type="number" class="form-control" name="duiration" id="duiration" value="{{ $course->information->duiration }}">
+						<input type="number" class="form-control" name="duiration" id="duiration" value="{{ $course->information?$course->information->duiration:'' }}">
 					</div>
 					<div class="form-group">
 						<label for="university_information">University Information</label>
-						<input type="text" class="form-control" name="university_information" id="university_information" value="{{ $course->information->university_information }}">
+						<input type="text" class="form-control" name="university_information" id="university_information" value="{{ $course->information?$course->information->university_information:'' }}">
 					</div>
 					<div class="form-group">
 						<label for="about">About</label>
-						<textarea class="form-control" name="about" id="about">{{ $course->information->about }}</textarea>
+						<textarea class="form-control" name="about" id="about">{{ $course->information?$course->information->about:'' }}</textarea>
 					</div>
 					<div class="form-group">
 						<label for="will_learn">Will Learn</label>
-						<textarea class="form-control" name="will_learn" id="will_learn">{{ $course->information->will_learn }}</textarea>
+						<textarea class="form-control" name="will_learn" id="will_learn">{{ $course->information?$course->information->will_learn:'' }}</textarea>
 					</div>
 				</div>
 				<!-- /.box-body -->
@@ -206,7 +206,28 @@
 				</div>
 			</div>
 		</div>
-		<!-- /.box -->	
+		<!-- /.box -->
+
+		<div class="box box-default">
+			<div class="box-header with-border">
+				<h3 class="box-title">Subject</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="col-md-8 col-md-offset-2">
+				<div class="box-body">
+					<select class="form-control" name="subject">
+						<?php foreach ($subjects as $key => $subject): ?>
+						<option value="{{ $subject->slug }}" @if($subject->slug==$course->subject_slug) selected  @endif>{{ $subject->name }}</option>
+						<?php endforeach ?>
+					</select>
+				</div>
+				<!-- /.box-body -->
+			</div>
+			<hr>
+			<div class="box-footer">
+			</div>
+		</div>
+		<!-- /.box -->
 
 		<div class="box box-default">
 			<!-- /.box-header -->
@@ -230,13 +251,13 @@
 
 @section('scripts')
 <script type="text/javascript">
-	$('#university').select2({
-		placeholder : '-- Select University --',
-	});
-	$('#university').val('{{ $course->university->id }}').trigger('change');
-	$('#upcoming_intakes').datepicker({
-		format : 'dd/mm/yyyy',
-	});
+	// $('#university').select2({
+	// 	placeholder : '-- Select University --',
+	// });
+	// $('#university').val('{{ $course->university->id }}').trigger('change');
+	// $('#upcoming_intakes').datepicker({
+	// 	format : 'dd/mm/yyyy',
+	// });
 </script>
 <script type="text/javascript">
 	function addRanking() {

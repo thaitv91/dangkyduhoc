@@ -13,7 +13,7 @@ class University extends Model
     ];
 
     public function country(){
-    	return $this->belongsTo('App\Models\Country','country_id');
+    	return $this->belongsTo('App\Models\Country','country_slug', 'slug');
     }
 
     public function universityMeta(){

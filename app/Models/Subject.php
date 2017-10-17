@@ -15,4 +15,8 @@ class Subject extends Model
     public function subjectCareer(){
     	return $this->hasMany('App\Models\SubjectCareer','subject_id');
     }
+
+    public function courses() {
+    	return $this->hasMany('App\Models\Course', 'subject_slug', 'slug');
+    }
 }

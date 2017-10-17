@@ -11,7 +11,7 @@ class Course extends Model
     protected $guarded = array();
 
     protected $fillable = [
-        'name', 'slug'
+        'name', 'slug', 'subject_slug', 'university_id',
     ];
 
     public function university() {
@@ -32,5 +32,29 @@ class Course extends Model
 
     public function requirement() {
     	return $this->hasOne('App\Models\CourseRequirement','course_id');
+    }
+
+    public function country() {
+        $university = $this->university()->first();
+
+        if ($university) {
+            $country = $university->country()->first();
+            if ($country) 
+                return $country->name;
+        }
+
+        return null;
+    }
+
+    public function costLiving() {
+        $cost = $this->cost()->first();
+        $sum = 0;
+
+        if ($cost) {
+            $sum = $cost->day_drink_fees + $cost->day_food_fees + $cost->day_accommodation_fees + $cost->day_coffe_fees;
+            $sum *= 0.6;
+        }
+
+        return $sum;
     }
 }

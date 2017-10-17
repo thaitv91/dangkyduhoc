@@ -11,6 +11,7 @@ use App\Models\CourseCost;
 use App\Models\CourseInformation;
 use App\Models\CourseRanking;
 use App\Models\CourseRequirement;
+use App\Models\Subject;
 use Carbon\Carbon;
 use DB, Redirect, Session;
 
@@ -38,7 +39,8 @@ class CourseController extends Controller
         //
         $universities = University::where('id', '>', 0)->get();
         $countries = Country::select('slug','name')->get();
-        return view('admin.course.create', compact(['universities', 'countries']));
+        $subjects = Subject::all();
+        return view('admin.course.create', compact(['universities', 'countries', 'subjects']));
     }
 
     /**
@@ -52,11 +54,11 @@ class CourseController extends Controller
         //
         DB::beginTransaction();
         $university = University::where('id',$request->university)->first();
-
         try {
             $data_course = array(
             'name'          =>  $request->name,
             'university_id' =>  $request->university,
+            'subject_slug'  =>  $request->subject,
             );
             $course = Course::create($data_course);
 
@@ -142,10 +144,11 @@ class CourseController extends Controller
         $course = Course::where('id',$id)->first();
         $universities = University::all();
         $countries = Country::all();
+        $subjects = Subject::all();
 
         if (count($course) == 0) return Redirect::route('admin.course');
 
-        return view('admin.course.edit',compact(['course', 'universities', 'countries']));
+        return view('admin.course.edit',compact(['course', 'universities', 'countries', 'subjects']));
     }
 
     /**
@@ -165,6 +168,7 @@ class CourseController extends Controller
             $data_course = array(
             'name'          =>  $request->name,
             'university_id' =>  $request->university,
+            'subject_slug'  =>  $request->subject,
             );
             Course::where('id',$id)->update($data_course);
             $course_id = $id;
@@ -263,5 +267,11 @@ class CourseController extends Controller
             return route('admin.course.delete',['id'=>$id]);
         }
         return -1;
+    }
+
+    public function nullSubjectSlugList() {
+        $data = Course::where('subject_slug', '')->paginate(10);
+
+        return view('admin.course.null_subject_slug', compact(['data']));
     }
 }

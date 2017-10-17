@@ -91,6 +91,7 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::post('edit/{id?}', 'Admin\CourseController@update');
 		Route::get('delete/{id}', 'Admin\CourseController@destroy')->name('admin.course.delete');
 		Route::get('get-url-delete','Admin\CourseController@getUrlDelete')->name('admin.course.getUrlDelete');
+		Route::get('null-subject-slug', 'Admin\CourseController@nullSubjectSlugList')->name('admin.course.nullSubjectSlugList');
 	});
 
 	Route::group(['prefix'=>'universities'],function(){
@@ -269,6 +270,9 @@ Route::get('/','User\HomeController@index')->name('home');
 //Route::post('/language/', array('before' => 'csrf', 'as'=>'language-chooser', 'uses' => 'Language\LanguageController@changeLanguage',) );
 
 Route::get('menu', 'HomeController@index')->name('menu');
+Route::get('home', function() {
+	return view('home');
+});
 //Route::get('subject/{subject?}', 'HomeController@subject')->name('subject');
 
 // html
@@ -289,7 +293,7 @@ Route::get('/html/fair', function() {
 });
 
 Route::get('/html/compare', function() {
-	return view('user.compare');
+	return view('user.compare_html');
 });
 
 Route::get('/html/course-detail', function() {
@@ -307,7 +311,8 @@ Route::get('university/{slug}','User\UniversityController@viewDetail')->name('us
 Route::get('get-marker', 'User\UniversityController@getMarker')->name('getMarker');
 Route::get('career/{slug}','User\CareerController@viewDetail')->name('user.career.detail');
 Route::get('subject/{slug}','User\SubjectController@viewDetail')->name('user.subject.detail');
-
+Route::get('subject/cookie/set','User\SubjectController@setCookie')->name('user.subject.setCookie');
+Route::get('compare', 'User\CourseController@compare')->name('user.course.compare');
 //Chat-box
 Route::group(['prefix'=>'message'], function() {
 
