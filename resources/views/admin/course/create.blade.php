@@ -194,6 +194,27 @@
 		<!-- /.box -->
 
 		<div class="box box-default">
+			<div class="box-header with-border">
+				<h3 class="box-title">Subject</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="col-md-8 col-md-offset-2">
+				<div class="box-body">
+					<select class="form-control" name="subject">
+						<?php foreach ($subjects as $key => $subject): ?>
+						<option value="{{ $subject->slug }}">{{ $subject->name }}</option>
+						<?php endforeach ?>
+					</select>
+				</div>
+				<!-- /.box-body -->
+			</div>
+			<hr>
+			<div class="box-footer">
+			</div>
+		</div>
+		<!-- /.box -->
+
+		<div class="box box-default">
 			<!-- /.box-header -->
 			<div class="col-md-8 col-md-offset-2">
 				<div class="box-body">

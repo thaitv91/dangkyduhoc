@@ -76,10 +76,10 @@
 
         <!-- Socialite -->
         <div class="social">
-            <a href="{{ App\Models\CustomField::where('slug','facebook')->first()->content }}"><i class="sprite-facebook"></i></a>
-            <a href="{{ App\Models\CustomField::where('slug','google-plus')->first()->content }}"><i class="sprite-google-plus"></i></a>
-            <a href="{{ App\Models\CustomField::where('slug','twitter')->first()->content }}"><i class="sprite-twitter"></i></a>
-            <a href="{{ App\Models\CustomField::where('slug','youtube')->first()->content }}"><i class="sprite-youtube"></i></a>
+            <a href="{{ count(App\Models\CustomField::where('slug','facebook')->first())?App\Models\CustomField::where('slug','facebook')->first()->content:'' }}"><i class="sprite-facebook"></i></a>
+            <a href="{{ count(App\Models\CustomField::where('slug','google-plus')->first())?App\Models\CustomField::where('slug','google-plus')->first()->content:'' }}"><i class="sprite-google-plus"></i></a>
+            <a href="{{ count(App\Models\CustomField::where('slug','twitter')->first())?App\Models\CustomField::where('slug','twitter')->first()->content:'' }}"><i class="sprite-twitter"></i></a>
+            <a href="{{ count(App\Models\CustomField::where('slug','youtube')->first())?App\Models\CustomField::where('slug','youtube')->first()->content:'' }}"><i class="sprite-youtube"></i></a>
         </div><!-- /.social -->
     </div><!-- /.footer-top -->
 
