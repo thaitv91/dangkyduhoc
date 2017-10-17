@@ -132,15 +132,15 @@
 				</div>
 
 				<div class="tags">
-					<a href="#" id="store-map" onclick="getMarker('store'); return false;"><i class="fa fa-mobile"></i> {{ trans('university.grocery_store') }}</a>
-					<a href="#" id="bank-map" onclick="getMarker('bank'); return false;"><i class="fa fa-credit-card"></i> {{ trans('university.bank') }}</a>
-					<a href="#" id="coffee-map" onclick="getMarker('coffee'); return false;"><i class="fa fa-coffee"></i>{{ trans('university.coffee_shop') }}</a>
-					<a href="#" onclick="getMarker('restaurant'); return false;"><i class="fa fa-cutlery" ></i> {{ trans('university.restaurant') }}</a>
-					<a href="#" onclick="getMarker('shopping'); return false;"><i class="fa fa-mobile" ></i>{{ trans('university.shopping') }}</a>
-					<a href="#" onclick="getMarker('park'); return false;"><i class="fa fa-tree" ></i>{{ trans('university.park') }}</a>
-					<a href="#" onclick="getMarker('pharmacies'); return false;"><i class="fa fa-medkit" ></i> {{ trans('university.pharmacies') }}</a>
-					<a href="#" onclick="getMarker('bus_stop'); return false;"><i class="fa fa-bus" ></i>{{ trans('university.bus_stop') }}</a>
-					<a href="#" onclick="getMarker('airport'); return false;"><i class="fa fa-plane" ></i>{{ trans('university.airport') }}</a>
+					<a href="#" id="store-map" onclick="initMapMaker('convenience_store'); return false;"><i class="fa fa-mobile"></i> {{ trans('university.grocery_store') }}</a>
+					<a href="#" id="bank-map" onclick="initMapMaker('bank'); return false;"><i class="fa fa-credit-card"></i> {{ trans('university.bank') }}</a>
+					<a href="#" id="coffee-map" onclick="initMapMaker('cafe'); return false;"><i class="fa fa-coffee"></i>{{ trans('university.coffee_shop') }}</a>
+					<a href="#" onclick="initMapMaker('restaurant'); return false;"><i class="fa fa-cutlery" ></i> {{ trans('university.restaurant') }}</a>
+					<a href="#" onclick="initMapMaker('shopping_mall'); return false;"><i class="fa fa-mobile" ></i>{{ trans('university.shopping') }}</a>
+					<a href="#" onclick="initMapMaker('park'); return false;"><i class="fa fa-tree" ></i>{{ trans('university.park') }}</a>
+					<a href="#" onclick="initMapMaker('pharmacy'); return false;"><i class="fa fa-medkit" ></i> {{ trans('university.pharmacies') }}</a>
+					<a href="#" onclick="initMapMaker('bus_station'); return false;"><i class="fa fa-bus" ></i>{{ trans('university.bus_stop') }}</a>
+					<a href="#" onclick="initMapMaker('airport'); return false;"><i class="fa fa-plane" ></i>{{ trans('university.airport') }}</a>
 				</div><!-- /.tags -->
 			</div><!-- /.our-campuses -->
 		</div><!-- /.col-md-6 -->
@@ -440,81 +440,68 @@
 
 @endsection
 @section('scripts')
-	<script type="text/javascript">
-    var universitys = [];
+	@section('scripts')
+	<script>
+	var map;
+      var infowindow;
 
-    function initMapUniver() {
-        var map = new google.maps.Map(document.getElementById('map-uni'), {
-          zoom: 16,
-          center: {lat: {{ $map_university['lat'] }}, lng: {{ $map_university['lng']}} },
+      function initMapUniver() {
+        var pyrmont = {lat: {{ $map_university['lat'] }}, lng: {{ $map_university['lng']}}};
+
+        map = new google.maps.Map(document.getElementById('map-uni'), {
+          center: pyrmont,
+          zoom: 15,
           gestureHandling: 'greedy'
         });
-        setMarkers2(map);
-      }
-      @foreach ($markers as $location)
-          var temp = [];
-          temp.push("{{ $location[0] }}");
-          temp.push({{$location[1]}});
-          temp.push({{$location[2]}});
-          universitys.push(temp);
-      @endforeach
-
-      console.log(universitys);
-
-      function setMarkers2(map) {
         var image = {
           url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
           size: new google.maps.Size(20, 32),
           origin: new google.maps.Point(0, 0),
           anchor: new google.maps.Point(0, 32)
         };
-        for (var i = 0; i < universitys.length; i++) {
-          var university = universitys[i];
-          console.log(university[1]);
-          var features = [
-          {
-            position: new google.maps.LatLng(university[1], university[2]), 
-          },
-          ];
-          features.forEach(function(feature) {
-          var marker = new google.maps.Marker({
-            position: feature.position,
-            icon: image,
-            map: map,
+        var marker = new google.maps.Marker({
+          position: pyrmont,
+          map: map,
+          icon:image
+        });
+    	}
+    
+    function initMapMaker(type){
+    	var type = type;
+    	var pyrmont = {lat: {{ $map_university['lat'] }}, lng: {{ $map_university['lng']}}};
+        map = new google.maps.Map(document.getElementById('map-uni'), {
+          center: pyrmont,
+          zoom: 12,
+          gestureHandling: 'greedy',
+        });
+         infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: pyrmont,
+          radius: 2000,
+          type: type,
+        }, callback);
 
-          });
-          var infowindow = new google.maps.InfoWindow({
-          	content: university[0],
-          });
-         google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                return function() {
-                  infowindow.setContent(universitys[i][0]);
-                  infowindow.open(map, marker);
-                }
-              })(marker, i));
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
         });
       }
-  	}
-
-	function getMarker(location) {
-		$.ajax({
-			url : "{{ route('getMarker') }}",
-			data : {location : location, university_id : "{{ $university->id }}"}
-		}).done(function (data) {
-			for (var i = 0; i < data.length; i++) {
-				for (var j = 0; j < data[i].length; j++) {
-					if(j > 0 && j != data[i].length-1){
-						data[i][j] = parseFloat(data[i][j]);
-					}
-				}
-				var universitys = data;
-			}
-			window.universitys = universitys;	
-			console.log(universitys);
-			//window.setMarkers2(map);
-			window.initMapUniver();
-		});
-		
-	}
-	</script>
+    }
+	</script> 
 @endsection
