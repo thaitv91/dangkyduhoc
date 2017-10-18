@@ -310,8 +310,13 @@ Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('us
 Route::get('university/{slug}','User\UniversityController@viewDetail')->name('user.university.detail');
 Route::get('career/{slug}','User\CareerController@viewDetail')->name('user.career.detail');
 Route::get('subject/{slug}','User\SubjectController@viewDetail')->name('user.subject.detail');
-Route::get('subject/cookie/set','User\SubjectController@setCookie')->name('user.subject.setCookie');
+Route::get('subject/cookie-compare/set','User\SubjectController@setCookie')->name('user.subject.setCookie');
+Route::get('subject/cookie-apply/set','User\SubjectController@setCookieApplyCourse')->name('user.subject.setCookieApplyCourse');
 Route::get('compare', 'User\CourseController@compare')->name('user.course.compare');
+Route::get('apply', 'User\CourseController@apply')->name('user.course.apply');
+Route::get('get-university', 'User\CourseController@getUniversity')->name('user.apply.getUniversity');
+Route::get('get-course', 'User\CourseController@getCourse')->name('user.apply.getCourse');
+Route::get('add-course', 'User\CourseController@addCourse')->name('user.apply.addCourse');
 //Chat-box
 Route::group(['prefix'=>'message'], function() {
 

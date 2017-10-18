@@ -52,4 +52,8 @@ class User extends Authenticatable
     public function courseComparison() {
         return $this->belongsToMany('App\Models\Course', 'user_comparisons', 'user_id', 'course_id');
     }
+
+    public function applyCourse() {
+        return $this->belongsToMany('App\Models\Course', 'apply_courses', 'user_id', 'course_id');
+    }
 }

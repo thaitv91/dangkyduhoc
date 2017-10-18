@@ -127,6 +127,17 @@ desired effect
                 </li>
                 <li><a href="{{ route('admin.career.index') }}"><i class="fa fa-link"></i> <span>Careers</span></a></li>
                 <li><a href="{{ route('admin.subject.index') }}"><i class="fa fa-link"></i> <span>Subject</span></a></li>
+                <li>
+                    <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    Logout
+                    </a>
+                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
+
             </ul>
             <!-- /.sidebar-menu -->
         </section>
