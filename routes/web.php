@@ -319,6 +319,7 @@ Route::get('apply', 'User\CourseController@apply')->name('user.course.apply');
 Route::get('get-university', 'User\CourseController@getUniversity')->name('user.apply.getUniversity');
 Route::get('get-course', 'User\CourseController@getCourse')->name('user.apply.getCourse');
 Route::get('add-course', 'User\CourseController@addCourse')->name('user.apply.addCourse');
+
 //Chat-box
 Route::group(['prefix'=>'message'], function() {
 
@@ -344,3 +345,6 @@ Route::group(['prefix'=>'message'], function() {
 Route::post('contact', 'User\ContactController@postContact')->name('postContact');
 
 Route::get('/course/{slug}', 'User\AjaxController@getCourseDetail');
+
+// ajax
+Route::post('/course/similar', 'User\AjaxController@getSimilar');
