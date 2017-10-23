@@ -19,6 +19,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $subject;
+
+    public function __construct() {
+        $this->subject = new SubjectController;
+    }
+
     public function index()
     {   
         $locale = App::getLocale();
@@ -48,6 +54,16 @@ class HomeController extends Controller
             'custom_field'        => $custom_field,
             );
         return view('user.homepage', $this->viewData);
+    }
+
+    public function getCourseCount() {
+        $compare_course = $this->subject->getCourseId();
+        //$apply_course = $this->subject->getApplyCourseId();
+
+        return array (
+            'compare_count'     =>  count($compare_course),
+            //'apply_count'      =>  count($apply_course),
+        );
     }
 
 }

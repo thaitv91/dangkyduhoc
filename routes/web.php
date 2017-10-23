@@ -312,6 +312,7 @@ Route::get('career/{slug}','User\CareerController@viewDetail')->name('user.caree
 Route::get('subject/{slug}','User\SubjectController@viewDetail')->name('user.subject.detail');
 Route::get('subject/cookie/set','User\SubjectController@setCookie')->name('user.subject.setCookie');
 Route::get('compare', 'User\CourseController@compare')->name('user.course.compare');
+Route::get('get-course-count', 'User\HomeController@getCourseCount')->name('getCourseCount');
 //Chat-box
 Route::group(['prefix'=>'message'], function() {
 
@@ -337,3 +338,6 @@ Route::group(['prefix'=>'message'], function() {
 Route::post('contact', 'User\ContactController@postContact')->name('postContact');
 
 Route::get('/course/{slug}', 'User\AjaxController@getCourseDetail');
+
+// ajax
+Route::post('/course/similar', 'User\AjaxController@getSimilar');

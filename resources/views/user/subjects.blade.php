@@ -69,47 +69,66 @@
 		<h4 class="title-box"><span>Accounting &amp; Finance</span></h4>
 		<div class="list-courses">
 			<?php foreach ($courses as $key => $course): ?>
-			<div class="row item">
-				<div class="uni-logo-col col-lg-1 col-md-1 col-sm-2 col-xs-3 col-no-pad-right">
-					<div class="uni-logo">
-						<img src="/img/B085_bathspa_logo.jpg" alt=""/>
-					</div>
-				</div>
-				<div class="col-lg-11 col-md-11 col-sm-10 col-xs-9">
+            <?php
+            $university = \App\Models\University::where('id', '=', $course->university_id)->first();
+            ?>
+            <div id="{{ $university->slug }}" class="uni">
+			    <div class="row item">
+                    <div class="uni-logo-col col-lg-1 col-md-1 col-sm-2 col-xs-3 col-no-pad-right">
+                        <div class="uni-logo">
+                            <img src="/img/B085_bathspa_logo.jpg" alt=""/>
+                        </div>
+                    </div>
+                    <div class="col-lg-11 col-md-11 col-sm-10 col-xs-9">
 					<div class="row">
 						<div class="col-lg-4 col-md-4 col-sm-7 col-xs-12">
 							<div class="uni-name">
-								<a class="course_name" href="">{{ $course->name }}</a>
-								<div class="classification">BSc (Hons)</div>
+                                <?php
+                                    $explode = explode(', ', $course->name);
+                                    $similar = $course->cost;
+                                    $course_info = \App\Models\CourseInformation::where('course_id', '=', $course->id)->first();
+                                    $course_requi = \App\Models\CourseRequirement::where('course_id', '=', $course->id)->first();
+                                ?>
+								<a class="course_name" href="/course/{{ $course->slug }}">{{ $explode[0] }}</a>
+								<div class="classification">{{ $explode[1] }}</div>
 								<div class="uni-name-sec">
-	                        <a class="university_name" href="#">{{ $course->university->name }}</a>
-	                    </div>
+									<a class="university_name" href="/university/{{ $course->university->slug }}">{{ $course->university->name }}</a>
+								</div>
 								<div class="visible-sm visible-xs">
-			                     <span class="inline-block-sm margin-right10-sm">S$22.7K / year</span>
-			                     <span class="inline-block-sm margin-right10-sm">3 years</span>
-			                     <span class="inline-block-sm">BBB</span>
+			                     <span class="inline-block-sm margin-right10-sm">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}K / year</span>
+			                     <span class="inline-block-sm margin-right10-sm">{!! $course_info->duration !!} years</span>
+			                     <span class="inline-block-sm">{{ $course_requi->level }}</span>
 			               </div>
-			               <div class="see-similar">
-                            See 46 similar <i class="fa fa-chevron-down"></i>
-                        </div>
+			               <div class="see-similar" data="{{ $course->slug }}" _token="{{ csrf_token() }}">
+							   <?php
+							   		$similar_count = App\Models\Course::where('university_id', '=', $course->university_id)
+										->where('subject_slug', '=', $subject->slug)
+										->where('id', '<>', $course->id)
+										->count();
+							   ?>
+                                See {{ $similar_count }} similar <i class="fa fa-chevron-down"></i>
+                            </div>
+                            <div class="hide-see-similar" style="display:none; color: #2db04a; cursor: pointer;">
+                                Hide {{ $similar_count }} similar <i class="fa fa-chevron-down"></i>
+                            </div>
 							</div><!-- /.uni-name -->
 						</div>
 
 						<div class="course-stats col-lg-8 col-md-8 col-sm-5 col-xs-12">
 							<div class="pull-right">
 								<div class="cell hidden-sm hidden-xs">
-									<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">S$22.7K</span>
+									<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}K</span>
 									<span class="sub-tip display-block">per year</span>
 								</div>
 
 								<div class="cell hidden-sm hidden-xs">
-		                     <span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Chat with us for a free advance standing assessment.">3</span>
+		                     <span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Chat with us for a free advance standing assessment.">{!! $course_info->duration !!}</span>
 		                     <span class="sub-tip display-block">years</span>
 		                  </div>
 
 		                  <div class="cell hidden-sm hidden-xs">
 		                     <span rel="a_levels" class="tip display-block" title=""  data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Click to toggle between entry requirements for different qualifications">	
-		                     	BBB
+		                     	{{ $course_requi->level }}
 		                     </span>
 		                     <span class="sub-tip display-block">grade</span>
 		                  </div>
@@ -176,67 +195,15 @@
 						</div>
 					</div>
 				</div>
+                </div>
 			</div><!-- /.item -->
 			<?php endforeach ?>
 		</div><!-- /.list-courses -->
 
 		<div class="pagging text-center">
-			{{ $courses->links() }}
+
 		</div><!-- /.pagging -->
 	</div><!-- /.filter-result -->
-</div>
-
-
-<div class="container">
-	<div class="contact-home">
-		<div class="row">
-			<div class="col-md-3 col-sm-6 col">
-				<div class="university-guide">
-					<h3 class="title">UNIVERSITY GUIDE</h3>
-					<ul>
-						<li>Choosing a university
-						<li>Applying to university</li>
-						<li>Accepting your offer</li>
-						<li>Finances & Scholarships</li>
-						<li>Flight & Accomodation</li>
-						<li>Student visa</li>
-					</ul>
-				</div><!-- /.university-guide -->
-			</div>
-
-			<div class="col-md-4 col-sm-6 col">
-				<div class="form-contact">
-					<h3 class="title">HAVE US CONTACT YOU</h3>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Name">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="Email">
-					</div>
-					<div class="form-group">
-						<input class="form-control" type="text" placeholder="WhatsApp">
-					</div>
-					<div class="form-group">
-						<textarea class="form-control">Your questions for our education consultans</textarea>
-					</div>
-					<div class="bottom"><button class="btn btn-green btn-block">Contact me</button></div>
-				</div><!-- /.form-contact -->
-			</div>
-
-			<div class="col-md-5 col-sm-12 col">
-				<div class="maps">
-					<h3 class="title">MEET US</h3>
-					<div class="img">
-						<img src="/img/map.jpg" alt="">
-					</div>
-					<div class="info">
-						<p>Monday to Friday: <strong>10am - 8pm</strong></p>
-						<p>Saturday: <strong>10am - 1pm</strong></p>
-					</div>
-				</div><!-- /.maps -->
-			</div>
-		</div>
-	</div><!-- /.contact-home -->
 </div>
 @endsection
 
@@ -254,6 +221,7 @@
 			url : '{{ route("user.subject.setCookie") }}',
 			data : {id : id},
 		}).done(function (data) {
+            getCourseCount();
 			if (data == 1) {
 				toastr.success('Added to comparison');
 				compare_number++;
@@ -265,5 +233,29 @@
 			return false;
 		});
 	}
+
+	$('.see-similar').click(function(){
+		var slug = $(this).attr('data')
+		var _token = $(this).attr('_token')
+        $(this).css('display', 'none');
+        $(this).parent().find('.hide-see-similar').css('display', 'block');
+        var element  = $(this).parents(".uni");
+		$.ajax({
+            dataType: 'html',
+            type: 'POST',
+            url:'/course/similar/',
+            data: {slug: slug, _token: _token},
+
+            success: function (data) {
+                element.append(data);
+            }
+        });
+	})
+
+    $('.hide-see-similar').click(function () {
+        $(this).css('display', 'none');
+        $(this).parent().find('.see-similar').css('display', 'block');
+        $(this).parents(".uni").find('.similar-item').css('display', 'none');
+    });
 </script>
 @endsection

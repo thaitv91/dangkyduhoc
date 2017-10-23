@@ -23,6 +23,7 @@
     <link href="{{ asset('css/slick.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 <body>
     <div id="app">
@@ -178,7 +179,7 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="#">Compare <span class="top compareInfo badge">15</span></a></li>
+                  <li><a href="{{ route('user.course.compare') }}">Compare <span class="top compareInfo badge" id="compare-count"> - </span></a></li>
                 <li><a href="#">Apply <span class="top compareInfo badge">15</span></a></li>
                 <li class="li-search">
                     <span class="clickable open-search" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="sprite-search"></i></span>
@@ -461,11 +462,11 @@
 <script src="{{ asset('js/jquery.donutchart.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script type="text/javascript">
         function initialize() {
           initMap();
-          initMapUniver();
+          //initMapUniver();
         }
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -521,11 +522,22 @@
         }
 
       }
+
+        function getCourseCount() {
+            $.ajax({
+                url : "{{ route('getCourseCount') }}",
+            }).done(function(data) {
+                console.log(data);
+                $('#compare-count').text(data.compare_count);
+                $('#apply-count').text(data.apply_count);
+            });
+        }
+
+        getCourseCount();
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0mK4AeH9grAllE4tl8Mm6IbM_yPIF0lg&libraries=places&callback=initialize">
     </script>
-    @yield('scripts')
     @yield('scripts')
 </body>
 </html>

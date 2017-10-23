@@ -10,6 +10,7 @@ use App, Auth;
 use Illuminate\Http\Response;
 use Cookie;
 use App\Models\UserComparison;
+use App\Models\Course;
 
 class SubjectController extends Controller
 {
@@ -17,6 +18,10 @@ class SubjectController extends Controller
 		$locale = App::getLocale();
 		$subject = Subject::where( 'slug' , $slug )->first();
 		$subject_career = SubjectCareer::where('subject_id', $subject['id'])->get();
+        $courses = Course::where('subject_slug', '=', $slug)
+            ->groupBy('university_id')
+            ->get();
+
 		if ($locale == 'en') {
 			$subject['name']= $subject->name_en;
 			$subject['description'] = $subject->description_en;
@@ -28,10 +33,14 @@ class SubjectController extends Controller
 			'subject' 			=> $subject,
 			'locale'			=> $locale,
 			'subject_career' 	=> $subject_career,
-			'courses'			=> $subject->courses()->paginate(10),
+			//'courses'			=> $subject->courses()->paginate(10),
+			'courses'			=> $courses,
 			'course_id'			=> json_encode($this->getCourseId()), // Get courses from cookie
 		);
 
+        if (isset($_GET['debug'])) {
+            dd($courses);
+        }
 		return view( 'user.subjects' , $this->viewData );
 	}
 
