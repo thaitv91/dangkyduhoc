@@ -273,7 +273,11 @@
 		$('#compareDiv_'+id).remove();
 		$.ajax({
 			url : $(input).attr('href'),
+		}).done(function() {
+			getCourseCount();
 		});
 	}
+
+
 </script>
 @endsection

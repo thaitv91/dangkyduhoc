@@ -11,9 +11,16 @@ use App\Models\CustomField;
 use App\Models\Map;
 use App;
 use DB;
+use Cookie;
 
 class HomeController extends Controller
 {
+
+    private $subject;
+
+    public function __construct() {
+        $this->subject = new SubjectController;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -46,8 +53,18 @@ class HomeController extends Controller
             'rating'        => $rating,
             'locale'        => $locale,
             'custom_field'        => $custom_field,
+            // 'course_count'  =>  json_encode($this->getCourseCount()),
             );
         return view('user.homepage', $this->viewData);
     }
 
+    public function getCourseCount() {
+        $compare_course = $this->subject->getCourseId();
+        $apply_course = $this->subject->getApplyCourseId();
+
+        return array (
+            'compare_count'     =>  count($compare_course),
+            'apply_count'      =>  count($apply_course),
+        );
+    }
 }

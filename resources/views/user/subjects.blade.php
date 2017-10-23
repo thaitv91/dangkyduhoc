@@ -254,6 +254,7 @@
 			url : '{{ route("user.subject.setCookie") }}',
 			data : {id : id},
 		}).done(function (data) {
+			getCourseCount();
 			if (data == 1) {
 				toastr.success('Added to comparison');
 				compare_number++;
@@ -288,6 +289,7 @@
 			url : "{{ route('user.subject.setCookieApplyCourse') }}",
 			data : {id : id},
 		}).done(function(data) {
+			getCourseCount();
 			if (data == 1) {
 				toastr.success('Course Added.');
 				apply_course_number++;
@@ -298,5 +300,6 @@
 			return false;
 		})
 	}
+
 </script>
 @endsection

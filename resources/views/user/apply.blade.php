@@ -239,7 +239,6 @@
 				$('#universities').append("<option selected disabled>Choose a university</option>");
 				$('#course').append("<option selected disabled>Choose a course</option>");
 				$('#add_course_dialog').slideToggle();
-				toastr.success('Added course successfully.');
 			});
 			apply($('#course').val());
 		} else {
@@ -254,11 +253,11 @@
 		}).done(function(data) {
 			if (data == 1) {
 				toastr.success('Course Added.');
-				apply_course_number++;
 			} else {
 				toastr.warning('Course Unselected');
-				apply_course_number--;
 			}
+
+			getCourseCount();
 			return false;
 		})
 	}
@@ -271,5 +270,16 @@
 			apply($(index).data('course-id'));
 		}
 	}
+
+
+	// function getCourseCount() {
+ //       $.ajax({
+ //            url : "{{ route('getCourseCount') }}",
+ //        }).done(function(data) {
+ //            $('#compare-count').text(data.compare_count);
+ //            $('#apply-count').text(data.apply_count);
+ //        });
+ //    }
+
 </script>
 @endsection
