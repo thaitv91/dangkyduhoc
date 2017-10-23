@@ -459,6 +459,7 @@
 <!-- <script src="{{ asset('js/jquery.circliful.js') }}"></script> -->
 <script src="{{ asset('js/compare.js') }}"></script>
 <script src="{{ asset('js/jquery.donutchart.js') }}"></script>
+<script src="{{ asset('js/dropzonescripts.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
