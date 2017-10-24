@@ -341,3 +341,4 @@ Route::get('/course/{slug}', 'User\AjaxController@getCourseDetail');
 
 // ajax
 Route::post('/course/similar', 'User\AjaxController@getSimilar');
+Route::post('/course/filter', 'User\AjaxController@postFilter');
