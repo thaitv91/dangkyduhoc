@@ -294,4 +294,11 @@ $('#slider-img-fair').slick({
       $(this).prop("selected", "selected");
     }
   });
+
+  $('#dropzone').dropzone({ url: "/file/post" });
+
+  function openRegister(){
+    $('#login_drawer').slideDown();
+    $('#nav-main').hide();
+  }
 });
