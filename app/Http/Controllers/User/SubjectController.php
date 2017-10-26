@@ -30,6 +30,7 @@ class SubjectController extends Controller
 			$subject['description'] = $subject->description;
 		}
 		$this->viewData = array(
+		    'title' => $subject['name'],
 			'subject' 			=> $subject,
 			'locale'			=> $locale,
 			'subject_career' 	=> $subject_career,
