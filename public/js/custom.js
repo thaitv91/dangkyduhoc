@@ -295,7 +295,7 @@ $('#slider-img-fair').slick({
     }
   });
 
-  $('#dropzone').dropzone({ url: "/file/post" });
+  // $('#dropzone').dropzone({ url: "/file/post" });
 
   function openRegister(){
     $('#login_drawer').slideDown();

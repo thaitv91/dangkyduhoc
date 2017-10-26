@@ -57,4 +57,8 @@ class Course extends Model
 
         return $sum;
     }
+
+    public function apply() {
+        return $this->hasMany('App\Models\AppyCourse', 'course_id');
+    }
 }

@@ -315,7 +315,20 @@ Route::get('get-course-count', 'User\HomeController@getCourseCount')->name('getC
 Route::get('subject/cookie-compare/set','User\SubjectController@setCookie')->name('user.subject.setCookie');
 Route::get('subject/cookie-apply/set','User\SubjectController@setCookieApplyCourse')->name('user.subject.setCookieApplyCourse');
 Route::get('compare', 'User\CourseController@compare')->name('user.course.compare');
-Route::get('apply', 'User\CourseController@apply')->name('user.course.apply');
+
+Route::group(['prefix'=>'apply'], function() {
+	Route::get('', 'User\CourseController@apply')->name('user.course.apply');
+	Route::post('', 'User\ApplyCourseController@applyCourse')->name('user.course.applyCourse');
+	Route::post('submit-personal-detail', 'User\ApplyCourseController@storePersonalDetail')->name('user.apply.storePersonalDetail');
+	Route::post('submit-education-work', 'User\ApplyCourseController@storeEducationAndWork')->name('user.apply.storeEducationAndWork');
+	Route::post('submit-verification', 'User\ApplyCourseController@storeVerification')->name('user.apply.storeVerification');
+	Route::post('submit-document', 'User\ApplyCourseController@storeDocument')->name('user.apply.storeDocument');
+	Route::post('submit', 'User\ApplyCourseController@submit')->name('user.apply.submit');
+
+	Route::post('upload-file', 'User\ApplyCourseController@uploadFile')->name('user.apply.uploadFile');
+	Route::post('remove-file', 'User\ApplyCourseController@removeFile')->name('user.apply.removeFile');
+	Route::get('get-file', 'User\ApplyCourseController@getFile')->name('user.apply.getFile');
+});
 Route::get('get-university', 'User\CourseController@getUniversity')->name('user.apply.getUniversity');
 Route::get('get-course', 'User\CourseController@getCourse')->name('user.apply.getCourse');
 Route::get('add-course', 'User\CourseController@addCourse')->name('user.apply.addCourse');

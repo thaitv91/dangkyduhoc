@@ -26,11 +26,6 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    private $subject;
-
-    public function __construct() {
-        $this->subject = new SubjectController;
-    }
 
     public function index()
     {   
