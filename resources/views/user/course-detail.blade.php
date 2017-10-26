@@ -112,15 +112,19 @@
 		<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col">
 			<div class="box-ranking left">
 				<h4 class="title-box">Scholarships</h4>
-				<div class="info_box_item scholarship-item clearfix">
-                <div class="header scholarship tip" data-html="true" title="" data-original-title="Available for all subjects &lt;/br&gt;Available for levels: &lt;/br&gt; Undergraduate (Bachelor)&lt;/br&gt;Postgraduate (Honours)&lt;/br&gt;Postgraduate (Masters by coursework)&lt;/br&gt;Postgraduate (Masters by research)&lt;/br&gt;Postgraduate (MBA)&lt;/br&gt;PhD &lt;/br&gt;">British Council IELTS Prize 2017</div>
-                <div class="right scholarship">Up to $12000 for tuition <br>6 available</div>
-            </div>
-
-            <div class="info_box_item scholarship-item clearfix">
-                <div class="header scholarship tip" data-html="true" title="" data-original-title="Available for all subjects &lt;/br&gt;Available for levels: &lt;/br&gt; Undergraduate (Bachelor)&lt;/br&gt;Postgraduate (Honours)&lt;/br&gt;Postgraduate (Masters by coursework)&lt;/br&gt;Postgraduate (Masters by research)&lt;/br&gt;Postgraduate (MBA)&lt;/br&gt;PhD &lt;/br&gt;">UNESCO Fellowship Programmes</div>
-                <div class="right scholarship">Up to 100% for tuition and living expenses <br>Limited quantity</div>
-            </div>
+				@foreach($scholarships as $scholarship)
+                    @if($locale == 'en')
+                        <div class="info_box_item scholarship-item clearfix">
+                            <div class="header scholarship tip" data-html="true" title="" >{{ $scholarship->title_en }}</div>
+                            <div class="right scholarship">{{ $scholarship->description_en }} <br>{!! $scholarship->quantity_en  !!}</div>
+                        </div>
+                    @else
+                        <div class="info_box_item scholarship-item clearfix">
+                            <div class="header scholarship tip" data-html="true" title="" >{{ $scholarship->title }}</div>
+                            <div class="right scholarship">{{ $scholarship->description }} <br>{!! $scholarship->quantity  !!}</div>
+                        </div>
+                    @endif
+				@endforeach
 			</div><!-- /.box-ranking -->
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col">

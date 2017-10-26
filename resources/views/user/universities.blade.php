@@ -173,50 +173,19 @@
 		<div class="col-md-6">
 			<div class="box-ranking right" id="scholarships">
 				<h4 class="title-box">{{ trans('university.scholarships') }}</h4>
-				<div class="item">
-					<div class="number">PhD Studentship</div>
-					<div class="lbl">Up to £30000 for tuition and living<br/>3 available</div>
-				</div>
-
-				<div class="item">
-					<div class="number">British Council IELTS Prize 2017</div>
-					<div class="lbl">Up to $12000 for tuition<br/>6 available</div>
-				</div>
-
-				<div class="item">
-					<div class="number">Postgraduate Research Schilarship</div>
-					<div class="lbl">£7000 for tuition<br/>10 available</div>
-				</div>
-
-				<div class="item">
-					<div class="number">Aston University 50th Anniversary<br/>Taught Postgraduate Scholarship</div>
-					<div class="lbl">Up to £5000 for tuition<br/>More than 50 available</div>
-				</div>
-
-				<div class="item">
-					<div class="number">Aston Business Schoold Scholarship<br/>Award Scheme 2016</div>
-					<div class="lbl">£1000 for tuition<br/>Limited quantity</div>
-				</div>
-
-				<div class="item">
-					<div class="number">MBA Scholarship 2015/2016</div>
-					<div class="lbl">Up to £6000 for tuition<br/>Limited quantity</div>
-				</div>
-
-				<div class="item">
-					<div class="number">British Chevening Scholarships</div>
-					<div class="lbl">100% for tuition and living expenses<br/>Limited quantity</div>
-				</div>
-
-				<div class="item">
-					<div class="number">UNESCO Fellowship Programmes</div>
-					<div class="lbl">Up to 100% for tuition and living expenses<br/>Limited quantity</div>
-				</div>
-
-				<div class="item">
-					<div class="number">Aston Alumni Bursaries</div>
-					<div class="lbl">20% for tuition<br/>Unlimited quantity</div>
-				</div>
+				@foreach($scholarships as $scholarship)
+					@if($locale == 'en')
+						<div class="item">
+							<div class="number">{{ $scholarship->title_en }}</div>
+							<div class="lbl">{{ $scholarship->description_en }}<br/>{!! $scholarship->quantity_en !!}</div>
+						</div>
+					@else
+						<div class="item">
+							<div class="number">{{ $scholarship->title }}</div>
+							<div class="lbl">{{ $scholarship->description }}<br/>{!! $scholarship->quantity  !!}</div>
+						</div>
+					@endif
+				@endforeach
 			</div><!-- /.box-ranking -->
 		</div><!-- /.col-md-6 -->
 	</div>
@@ -224,216 +193,168 @@
 	<div class="undergraduate-courses" id="apply-online">
 		<h4 class="title-box">Undergraduate courses</h4>
 		<div class="tags">
-			<span class="tag"><input type="checkbox" id="checkbox-1"><label for="checkbox-1">Accounting &amp; Finance</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-2"><label for="checkbox-2">Bioengineering</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-3"><label for="checkbox-3">Biological Science</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-4"><label for="checkbox-4">Business Studies</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-5"><label for="checkbox-5">Chemical Engineering</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-6"><label for="checkbox-6">Chemistry Civil</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-8"><label for="checkbox-7">Engineering</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-9"><label for="checkbox-8">Computer</label></span>
-
-			<span class="tag"><input type="checkbox" id="checkbox-10"><label for="checkbox-10">Accounting &amp; Finance</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-11"><label for="checkbox-11">Bioengineering</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-12"><label for="checkbox-12">Biological Science</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-13"><label for="checkbox-13">Business Studies</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-14"><label for="checkbox-14">Chemical Engineering</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-15"><label for="checkbox-15">Chemistry Civil</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-16"><label for="checkbox-16">Engineering</label></span>
-			<span class="tag"><input type="checkbox" id="checkbox-17"><label for="checkbox-17">Computer</label></span>
+			<?php $count = 0; ?>
+			@foreach($subjects_slug as $subject_slug)
+				<?php
+					$subject = \App\Models\Subject::where('slug', '=', $subject_slug->subject_slug)->first();
+					if ($locale == 'en') {
+						$name = $subject['name_en'];
+					} else {
+						$name = $subject['name'];
+					}
+					$count++
+				?>
+				@if($subject)
+					<span class="tag"><input _token="{{ csrf_token() }}" class="filter-subject" type="radio" name="subject" value="{{ $subject_slug->subject_slug }}" id="subject-{{ $count }}"
+											 @if($count ==  1)
+												 checked
+											 @endif
+						subjname="{{ $name }}"><label for="subject-{{ $count }}">{{ $name }}</label></span>
+				@endif
+			@endforeach
 		</div><!-- /.tags -->
 	</div><!-- /.undergraduate-courses -->
 
 	<div class="filter-result">
-		<h4 class="title-box">Accounting &amp; Finance</h4>
+		<h4 class="title-box">{{ $subject_first_name }}</h4>
 		<div class="list-courses">
-			<div class="row item">
-				<div class="col-lg-5 col-md-4 col-sm-7 col-xs-12">
-					<div class="uni-name">
-						<a class="course_name" href="#">Accounting and Finance</a>
-						<div class="classification">BSc (Hons)</div>
-						<div class="visible-sm visible-xs">
-                        <span class="inline-block-sm margin-right10-sm">S$22.7K / year</span>
-                        <span class="inline-block-sm margin-right10-sm">3 years</span>
-                        <span class="inline-block-sm">BBB</span>
-                  </div>
-					</div><!-- /.uni-name -->
-				</div>
-
-				<div class="course-stats col-lg-7 col-md-8 col-sm-5 col-xs-12">
-					<div class="pull-right">
-						<div class="cell hidden-sm hidden-xs">
-							<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">S$22.7K</span>
-							<span class="sub-tip display-block">per year</span>
-						</div>
-
-						<div class="cell hidden-sm hidden-xs">
-                     <span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Chat with us for a free advance standing assessment.">3</span>
-                     <span class="sub-tip display-block">years</span>
-                  </div>
-
-                  <div class="cell hidden-sm hidden-xs">
-                     <span rel="a_levels" class="tip display-block" title=""  data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Click to toggle between entry requirements for different qualifications">	
-                     	BBB
-                     </span>
-                     <span class="sub-tip display-block">grade</span>
-                  </div>
-
-                  <div class="cell hidden-sm hidden-xs course-progression">
-			                <div class="see-pathways tip" title="" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Can't meet the minimum grades? Click to see available pathways to progress into Bangor University.">
-			                    <i class="fa fa-arrow-up"></i>
-			                    <span class="sub-tip display-block">5 pathways</span>
-			                </div>
-			        </div>
-
-			        <div class="cell_1">
-                     <div class="compare" title="Add to compare">
-                         <div class="compare-btn">
-                             <input id="compare_1" data-courseid="1" type="checkbox" class="compare-btn compareCheckbox">
-                             <label for="compare_1" class="compare-label  btn btn-green">Compare <i class="fa fa-check"></i></label>
-                         </div>
-                     </div>
-                 </div>
-
-                    <div class="cell_1">
-                           <div id="apply_1425" class="btn btn-green apply-btn" onclick="javascript:apply('1');">
-                                APPLY
-                           </div>
-                           <div id="selected_1425" class="btn btn-green apply-add-btn hide" onclick="javascript:unselect('1');" title="Remove from university application?">
-                                ADDED  <i class="fa fa-check"></i>
-                           </div>
-                    </div>
+			@foreach ($courses as $key => $course)
+				<div class="row item">
+					<div class="col-lg-4 col-md-4 col-sm-7 col-xs-12">
+						<div class="uni-name">
+							<?php
+							$explode = explode(', ', $course->name);
+							$similar = $course->cost;
+							$course_info = \App\Models\CourseInformation::where('course_id', '=', $course->id)->first();
+							$course_requi = \App\Models\CourseRequirement::where('course_id', '=', $course->id)->first();
+							?>
+							<a class="course_name" href="/course/{{ $course->slug }}">{{ $explode[0] }}</a>
+							<div class="classification">{{ $explode[1] }}</div>
+							<div class="visible-sm visible-xs">
+								<span class="inline-block-sm margin-right10-sm">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}K / year</span>
+								<span class="inline-block-sm margin-right10-sm">{!! $course_info->duration !!} years</span>
+								<span class="inline-block-sm">{{ $course_requi->level }}</span>
+							</div>
+						</div><!-- /.uni-name -->
 					</div>
-				</div>
+
+					<div class="course-stats col-lg-8 col-md-8 col-sm-5 col-xs-12">
+						<div class="pull-right">
+							<div class="cell hidden-sm hidden-xs">
+								<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}K</span>
+								<span class="sub-tip display-block">per year</span>
+							</div>
+
+							<div class="cell hidden-sm hidden-xs">
+								<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Chat with us for a free advance standing assessment.">{!! $course_info->duration !!}</span>
+								<span class="sub-tip display-block">years</span>
+							</div>
+
+							<div class="cell hidden-sm hidden-xs">
+					 <span rel="a_levels" class="tip display-block" title=""  data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Click to toggle between entry requirements for different qualifications">
+						{{ $course_requi->level }}
+					 </span>
+								<span class="sub-tip display-block">grade</span>
+							</div>
+
+							<div class="cell hidden-sm hidden-xs course-progression">
+								<div class="see-pathways tip" title="" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Can't meet the minimum grades? Click to see available pathways to progress into Bangor University.">
+									<i class="fa fa-arrow-up"></i>
+									<span class="sub-tip display-block">5 pathways</span>
+								</div>
+							</div>
+
+							<div class="cell_1">
+								<div class="compare" title="Add to compare">
+									<div class="compare-btn">
+										<input id="compare_{{ $course->id }}" data-courseid="{{ $course->id }}" type="checkbox" class="compare-btn compareCheckbox" onclick="compare({{ $course->id }})">
+										<label id="label_compare_{{ $course->id }}" for="compare_{{ $course->id }}" class="compare-label btn btn-green">Compare <i class="fa fa-check"></i></label>
+									</div>
+								</div>
+							</div>
+
+							<div class="cell_1">
+								<div id="apply_2" class="btn btn-green apply-btn" onclick="javascript:apply('2');">
+									APPLY
+								</div>
+								<div id="selected_1425" class="btn btn-green apply-add-btn hide" onclick="javascript:unselect('2');" title="Remove from university application?">
+									ADDED  <i class="fa fa-check"></i>
+								</div>
+							</div>
+						</div>
+					</div>
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<div id="" class="arrow-box">
 						<div class="tree">
-							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                         <div class="info">
-                             <h1>Pathway programmes available</h1>
-                         </div>
-                     </div>
-                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
-                         <div class="info">
-                             <a class="whichroute"><i class="fa fa-question-circle" aria-hidden="true"></i> Which pathway should I choose?</a>
-                             <div id="faq-list" class="martop10">
-                                 <ul>
-                                     <li>
-                                         <a href="/guide/pathways-to-university-what-is-foundation-program" target="_blank">What is Foundation Program?</a>
-                                     </li>
-                                     <li>
-                                         <a href="/guide/pathways-to-university-what-is-diploma" target="_blank">What is Diploma?</a>
-                                     </li>
-                                     <li>
-                                         <a class="openchat gtt-chat">Ask an education consultant</a>
-                                     </li>
-                                 </ul>
-                             </div>
-                         </div>
-                     </div>
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	                         <div class="info">
+	                             <h1>Pathway programmes available</h1>
+	                         </div>
+	                     </div>
+	                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+	                         <div class="info">
+	                             <a class="whichroute"><i class="fa fa-question-circle" aria-hidden="true"></i> Which pathway should I choose?</a>
+	                             <div id="faq-list" class="martop10">
+	                                 <ul>
+	                                     <li>
+	                                         <a href="/guide/pathways-to-university-what-is-foundation-program" target="_blank">What is Foundation Program?</a>
+	                                     </li>
+	                                     <li>
+	                                         <a href="/guide/pathways-to-university-what-is-diploma" target="_blank">What is Diploma?</a>
+	                                     </li>
+	                                     <li>
+	                                         <a class="openchat gtt-chat">Ask an education consultant</a>
+	                                     </li>
+	                                 </ul>
+	                             </div>
+	                         </div>
+	                     </div>
 
-                     <div id="diagram" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                     	svg
-                     </div>
-						</div>
-					</div><!-- /.arrow_box -->
-				</div>
-			</div><!-- /.item -->
+	                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	                     	<div class="diagram-svg">
+	                     		<div class="list-pathway">
+	                     			<div class="pathway">
+	                     				<h3><a href="#">Bellerbys College</a></h3>
+	                     				<p><a href="#">Foundation Pathway</a></p>
+	                     				<p>9 months duration</p>
+	                     			</div><!-- /.pathway -->
 
-			<div class="row item">
-				<div class="col-lg-5 col-md-4 col-sm-7 col-xs-12">
-					<div class="uni-name">
-						<a class="course_name" href="#">Accounting and Finance</a>
-						<div class="classification">BSc (Hons)</div>
-						<div class="visible-sm visible-xs">
-                     <span class="inline-block-sm margin-right10-sm">S$22.7K / year</span>
-                     <span class="inline-block-sm margin-right10-sm">3 years</span>
-                     <span class="inline-block-sm">BBB</span>
-               </div>
-					</div><!-- /.uni-name -->
-				</div>
+	                     			<div class="pathway">
+	                     				<h3><a href="#">Bellerbys College</a></h3>
+	                     				<p><a href="#">Foundation Pathway</a></p>
+	                     				<p>9 months duration</p>
+	                     			</div><!-- /.pathway -->
 
-				<div class="course-stats col-lg-7 col-md-8 col-sm-5 col-xs-12">
-					<div class="pull-right">
-						<div class="cell hidden-sm hidden-xs">
-							<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">S$22.7K</span>
-							<span class="sub-tip display-block">per year</span>
-						</div>
+	                     			<div class="pathway">
+	                     				<h3><a href="#">Bellerbys College</a></h3>
+	                     				<p><a href="#">Foundation Pathway</a></p>
+	                     				<p>9 months duration</p>
+	                     			</div><!-- /.pathway -->
 
-						<div class="cell hidden-sm hidden-xs">
-                     <span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Chat with us for a free advance standing assessment.">3</span>
-                     <span class="sub-tip display-block">years</span>
-                  </div>
+	                     			<div class="pathway">
+	                     				<h3><a href="#">Bellerbys College</a></h3>
+	                     				<p><a href="#">Foundation Pathway</a></p>
+	                     				<p>9 months duration</p>
+	                     			</div><!-- /.pathway -->
+	                     		</div><!-- /.list-pathway -->
 
-                  <div class="cell hidden-sm hidden-xs">
-                     <span rel="a_levels" class="tip display-block" title=""  data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Click to toggle between entry requirements for different qualifications">	
-                     	BBB
-                     </span>
-                     <span class="sub-tip display-block">grade</span>
-                  </div>
-
-                  <div class="cell hidden-sm hidden-xs course-progression">
-			                <div class="see-pathways tip" title="" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Can't meet the minimum grades? Click to see available pathways to progress into Bangor University.">
-			                    <i class="fa fa-arrow-up"></i>
-			                    <span class="sub-tip display-block">5 pathways</span>
-			                </div>
-			        </div>
-
-			        <div class="cell_1">
-                     <div class="compare" title="Add to compare">
-                         <div class="compare-btn">
-                             <input id="compare_2" data-courseid="1" type="checkbox" class="compare-btn compareCheckbox">
-                             <label for="compare_2" class="compare-label  btn btn-green">Compare <i class="fa fa-check"></i></label>
-                         </div>
-                     </div>
-                 </div>
-
-                    <div class="cell_1">
-                           <div id="apply_2" class="btn btn-green apply-btn" onclick="javascript:apply('2');">
-                                APPLY
-                           </div>
-                           <div id="selected_1425" class="btn btn-green apply-add-btn hide" onclick="javascript:unselect('2');" title="Remove from university application?">
-                                ADDED  <i class="fa fa-check"></i>
-                           </div>
-                    </div>
-					</div>
-				</div>
-
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div id="" class="arrow-box">
-						<div class="tree">
-							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                         <div class="info">
-                             <h1>Pathway programmes available</h1>
-                         </div>
-                     </div>
-                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
-                         <div class="info">
-                             <a class="whichroute"><i class="fa fa-question-circle" aria-hidden="true"></i> Which pathway should I choose?</a>
-                             <div id="faq-list" class="martop10">
-                                 <ul>
-                                     <li>
-                                         <a href="/guide/pathways-to-university-what-is-foundation-program" target="_blank">What is Foundation Program?</a>
-                                     </li>
-                                     <li>
-                                         <a href="/guide/pathways-to-university-what-is-diploma" target="_blank">What is Diploma?</a>
-                                     </li>
-                                     <li>
-                                         <a class="openchat gtt-chat">Ask an education consultant</a>
-                                     </li>
-                                 </ul>
-                             </div>
-                         </div>
-                     </div>
-
-                     <div id="diagram" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                     	svg
+	                     		<div class="university-pathway">
+	                     			<img src="/img/THERIGHTU_U.svg">
+	                     			<div class="text">
+	                     				<h3><a href="#">Swansea University</a></h3>
+		                     			<p><a href="#">Accounting &amp; Finance</a></p>
+		                     			<p>BSc(Hons)</p>
+	                     			</div>
+	                     		</div><!-- /.university-pathway -->
+	                     	</div><!-- /.diagram-svg -->
+	                     </div>
                      </div>
 						</div>
 					</div><!-- /.arrow_box -->
 				</div>
-			</div><!-- /.item -->
+			@endforeach
 		</div><!-- /.list-courses -->
 	</div><!-- /.filter-result -->
 </div>
@@ -441,12 +362,11 @@
 @endsection
 @section('scripts')
 	@section('scripts')
-	<script>
-	var map;
-      var infowindow;
-
-      function initMapUniver() {
-        var pyrmont = {lat: {{ $map_university['lat'] }}, lng: {{ $map_university['lng']}}};
+	<script type="text/javascript">
+		var map;
+		var infowindow;
+		function initMapUniver() {
+        var pyrmont = {lat:'{{ $map_university['lat'] }}', lng:'{{ $map_university['lng']}}'};
 
         map = new google.maps.Map(document.getElementById('map-uni'), {
           center: pyrmont,
@@ -465,10 +385,9 @@
           icon:image
         });
     	}
-    
-    function initMapMaker(type){
+		function initMapMaker(type){
     	var type = type;
-    	var pyrmont = {lat: {{ $map_university['lat'] }}, lng: {{ $map_university['lng']}}};
+    	var pyrmont = {lat: "{{ $map_university['lat'] }}", lng: "{{ $map_university['lng']}}" };
         map = new google.maps.Map(document.getElementById('map-uni'), {
           center: pyrmont,
           zoom: 12,
@@ -503,5 +422,40 @@
         });
       }
     }
+		function compare(id) {
+			$.ajax({
+				url : '{{ route("user.subject.setCookie") }}',
+				data : {id : id},
+			}).done(function (data) {
+				getCourseCount();
+				if (data == 1) {
+					toastr.success('Added to comparison');
+					compare_number++;
+				} else {
+					toastr.warning('Removed to comparison');
+					$('#compare_'+value+' i').prop('checked', false);
+					compare_number--;
+				}
+				return false;
+			});
+		}
+
+		$('.filter-subject').click(function () {
+			var slug = $(this).val();
+			var _token = $(this).attr('_token');
+			var subjname = $(this).attr('subjname');
+			$('.filter-result .title-box').text(subjname);
+			var university_id = '{{ $university->id }}';
+			$.ajax({
+				dataType: 'html',
+				type: 'POST',
+				url:'/course/filter-subject/',
+				data: {slug: slug, _token: _token, university_id: university_id},
+
+				success: function (data) {
+					$('.list-courses').html(data);
+				}
+			});
+		});
 	</script> 
 @endsection
