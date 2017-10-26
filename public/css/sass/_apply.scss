@@ -155,8 +155,14 @@ a.course_name {
 .ir.app.yet {
     background-image: url("../img/check-courses.png");
 }
+.ir.app.done {
+    background-image: url("../img/done.png");
+}
+.ir.app.problem{
+	background-image: url("../img/problem.png");
+}
 
-#current_app_status{
+#current_app_status, .btn-bottom-apply-success{
 	text-align: center;
 	 padding-bottom: 30px;
     padding-top: 30px;
