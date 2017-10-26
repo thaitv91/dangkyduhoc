@@ -5809,7 +5809,7 @@ a.course_name {
 .arrow-box .tree {
   position: relative;
   width: 100%;
-  min-height: 320px;
+  padding-bottom: 25px;
 }
 .arrow-box .tree .info {
   font-size: 15px;
@@ -8777,4 +8777,109 @@ input[type=button].add, input[type=button].del {
     -o-transform: scale(1);
     transform: scale(1);
   }
+}
+
+.diagram-svg {
+  font-size: 0;
+}
+.diagram-svg .list-pathway {
+  width: 50%;
+  text-align: right;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  border-right: 1px dashed #000;
+}
+.diagram-svg .university-pathway {
+  width: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  position: relative;
+  padding-left: 12%;
+}
+.diagram-svg .university-pathway:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 20%;
+  height: 1px;
+  border-top: 1px dashed #000;
+}
+.diagram-svg .university-pathway:after {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f0da";
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  margin: -10px 0 0;
+  font-size: 20px;
+}
+.diagram-svg .university-pathway img {
+  width: 42px;
+  height: 42px;
+  float: left;
+}
+.diagram-svg .university-pathway .text {
+  margin-left: 55px;
+}
+.diagram-svg .pathway {
+  margin-bottom: 20px;
+  padding-right: 25%;
+  position: relative;
+}
+.diagram-svg .pathway:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 20%;
+  height: 1px;
+  border-top: 1px dashed #000;
+}
+.diagram-svg .pathway:first-child:before {
+  content: "";
+  display: block;
+  width: 1px;
+  position: absolute;
+  top: 0;
+  bottom: 50%;
+  background-color: #e8e8e8;
+  right: -1px;
+}
+.diagram-svg .pathway:last-child {
+  margin-bottom: 0;
+}
+.diagram-svg .pathway:last-child:before {
+  content: "";
+  display: block;
+  width: 1px;
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  background-color: #e8e8e8;
+  right: -1px;
+}
+.diagram-svg h3, .diagram-svg p {
+  margin: 0 0 2px;
+}
+.diagram-svg h3:last-child, .diagram-svg p:last-child {
+  margin-bottom: 0;
+}
+.diagram-svg h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.diagram-svg h3 a {
+  color: #2f5385;
+}
+.diagram-svg p a {
+  color: #000;
 }

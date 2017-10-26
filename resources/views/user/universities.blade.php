@@ -284,39 +284,75 @@
 						</div>
 					</div>
 
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div id="" class="arrow-box">
-							<div class="tree">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div id="" class="arrow-box">
+						<div class="tree">
+							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-									<div class="info">
-										<h1>Pathway programmes available</h1>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
-									<div class="info">
-										<a class="whichroute"><i class="fa fa-question-circle" aria-hidden="true"></i> Which pathway should I choose?</a>
-										<div id="faq-list" class="martop10">
-											<ul>
-												<li>
-													<a href="/guide/pathways-to-university-what-is-foundation-program" target="_blank">What is Foundation Program?</a>
-												</li>
-												<li>
-													<a href="/guide/pathways-to-university-what-is-diploma" target="_blank">What is Diploma?</a>
-												</li>
-												<li>
-													<a class="openchat gtt-chat">Ask an education consultant</a>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
+	                         <div class="info">
+	                             <h1>Pathway programmes available</h1>
+	                         </div>
+	                     </div>
+	                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+	                         <div class="info">
+	                             <a class="whichroute"><i class="fa fa-question-circle" aria-hidden="true"></i> Which pathway should I choose?</a>
+	                             <div id="faq-list" class="martop10">
+	                                 <ul>
+	                                     <li>
+	                                         <a href="/guide/pathways-to-university-what-is-foundation-program" target="_blank">What is Foundation Program?</a>
+	                                     </li>
+	                                     <li>
+	                                         <a href="/guide/pathways-to-university-what-is-diploma" target="_blank">What is Diploma?</a>
+	                                     </li>
+	                                     <li>
+	                                         <a class="openchat gtt-chat">Ask an education consultant</a>
+	                                     </li>
+	                                 </ul>
+	                             </div>
+	                         </div>
+	                     </div>
 
-								<div id="diagram" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-									svg
-								</div>
-							</div>
-						</div><!-- /.arrow_box -->
-					</div>
+	                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	                     	<div class="diagram-svg">
+	                     		<div class="list-pathway">
+	                     			<div class="pathway">
+	                     				<h3><a href="#">Bellerbys College</a></h3>
+	                     				<p><a href="#">Foundation Pathway</a></p>
+	                     				<p>9 months duration</p>
+	                     			</div><!-- /.pathway -->
+
+	                     			<div class="pathway">
+	                     				<h3><a href="#">Bellerbys College</a></h3>
+	                     				<p><a href="#">Foundation Pathway</a></p>
+	                     				<p>9 months duration</p>
+	                     			</div><!-- /.pathway -->
+
+	                     			<div class="pathway">
+	                     				<h3><a href="#">Bellerbys College</a></h3>
+	                     				<p><a href="#">Foundation Pathway</a></p>
+	                     				<p>9 months duration</p>
+	                     			</div><!-- /.pathway -->
+
+	                     			<div class="pathway">
+	                     				<h3><a href="#">Bellerbys College</a></h3>
+	                     				<p><a href="#">Foundation Pathway</a></p>
+	                     				<p>9 months duration</p>
+	                     			</div><!-- /.pathway -->
+	                     		</div><!-- /.list-pathway -->
+
+	                     		<div class="university-pathway">
+	                     			<img src="/img/THERIGHTU_U.svg">
+	                     			<div class="text">
+	                     				<h3><a href="#">Swansea University</a></h3>
+		                     			<p><a href="#">Accounting &amp; Finance</a></p>
+		                     			<p>BSc(Hons)</p>
+	                     			</div>
+	                     		</div><!-- /.university-pathway -->
+	                     	</div><!-- /.diagram-svg -->
+	                     </div>
+                     </div>
+						</div>
+					</div><!-- /.arrow_box -->
 				</div>
 			@endforeach
 		</div><!-- /.list-courses -->
