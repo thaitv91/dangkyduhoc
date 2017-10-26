@@ -196,6 +196,18 @@ Route::group(['prefix'=>'admin'], function() {
 		Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.slider.removeImage');
 	});
 
+	Route::group(['prefix'=>'scholarship'], function() {
+		Route::get('', 'Admin\ScholarshipController@index')->name('admin.scholarship');
+		Route::get('create', 'Admin\ScholarshipController@getCreate')->name('admin.scholarship.create');
+		Route::post('create', 'Admin\ScholarshipController@postCreate')->name('admin.scholarship.create.post');
+//		Route::get('edit/{id}', 'Admin\SliderController@edit')->name('admin.slider.edit');
+//		Route::post('edit/{id}', 'Admin\SliderController@update');
+//		Route::get('delete/{id}', 'Admin\SliderController@destroy')->name('admin.slider.delete');
+//		Route::get('get-image', 'Admin\SliderController@getImage')->name('admin.slider.getImage');
+//		Route::post('image-upload', 'Admin\SliderController@uploadImage')->name('admin.slider.uploadImage');
+//		Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.slider.removeImage');
+	});
+
 	Route::group(['prefix'=>'contact'], function() {
 		Route::get('', 'Admin\ContactController@index')->name('admin.contact');
 		Route::get('show/{id}', 'Admin\ContactController@show')->name('admin.contact.show');
@@ -342,3 +354,4 @@ Route::get('/course/{slug}', 'User\AjaxController@getCourseDetail');
 // ajax
 Route::post('/course/similar', 'User\AjaxController@getSimilar');
 Route::post('/course/filter', 'User\AjaxController@postFilter');
+Route::post('/course/filter-subject', 'User\AjaxController@postFilterSubject');
