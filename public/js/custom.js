@@ -1,33 +1,38 @@
 $(document).ready(function() {
 	$('.slideddl').click(function(){
     $('#left-nav').css({
-      left: -1024
+      left: -1124
     });
-		if ($(this).hasClass('subjectddl')){
-			$('.slide-section').hide();
-			$('#subject').show();
-		}
-		else if ($(this).hasClass('universityddl')){
-			$('.slide-section').hide();
-			$('#university').show();
-			if ($('#slide-panel').css('display') == 'block'){
-				console.log('123');
-				$('#slide-panel').css({
-					display:'block',
-					height: 'auto'
-				});
-			}
-		}
-		else if ($(this).hasClass('careerddl')){
-			$('.slide-section').hide();
-			$('#career').show();
-		}
+    if ($(this).hasClass('open')){
+        $("#slide-panel").slideUp();
+        $('.slide-section').hide();
+        $(this).removeClass('open');
+    }
+    else{
+      $('.slideddl').removeClass('open')
+      $(this).addClass('open');
+      if ($(this).hasClass('subjectddl')){
+        $("#slide-panel").slideDown();
+        $('.slide-section').hide();
+        $('#subject').show();
+      }
+      else if ($(this).hasClass('universityddl')){
+        $("#slide-panel").slideDown();
+        $('.slide-section').hide();
+        $('#university').show();
+      }
+      else if ($(this).hasClass('careerddl')){
+        $("#slide-panel").slideDown();
+        $('.slide-section').hide();
+        $('#career').show();
+      }
 
-		// $("#slide-panel").animate({
-  //        height: 'toggle'
-  //    });
-  $("#slide-panel").slideToggle();
-	});
+      // $("#slide-panel").slideToggle();
+    }
+    
+  });
+
+  
 
 	$('.closepane').click(function(){		
 		$("#slide-panel").slideUp();
@@ -36,7 +41,7 @@ $(document).ready(function() {
 
 	$('.open-user').click(function(){
     $('#left-nav').animate({
-      left:-1024
+      left:-1124
     });
 		$('#login_drawer').slideDown();
 		$('#nav-main').hide();
@@ -240,7 +245,7 @@ $('#slider-img-fair').slick({
   // homepage
   $('#closeRightNav').click(function(){
     $('#right-nav').animate({
-      left: -1024
+      left: -1124
     })
   });
   $('.open-getstarted').click(function(){
@@ -251,7 +256,7 @@ $('#slider-img-fair').slick({
 
   $('#closeLeftNav').click(function(){
     $('#left-nav').animate({
-      left: -1024
+      left: -1124
     })
   });
 
@@ -301,4 +306,13 @@ $('#slider-img-fair').slick({
     $('#login_drawer').slideDown();
     $('#nav-main').hide();
   }
+
+  $(window).scroll(function(){
+    if ($(this).scrollTop()){
+      $('body').addClass('fixed-header');
+    }
+    else{
+       $('body').removeClass('fixed-header');
+    }
+  });
 });
