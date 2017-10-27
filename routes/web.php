@@ -279,6 +279,11 @@ Route::group(['prefix'=>'admin'], function() {
 
         });
     });
+
+    Route::group(['prefix'=>'apply-course'], function() {
+    	Route::get('', 'Admin\ApplyCourseController@index')->name('admin.applyCourse');
+    	Route::get('information/{user_id?}', 'Admin\ApplyCourseController@information')->name('admin.applyCourse.information');
+    });
 });
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
 Route::get('/admin/countries/{country}/edit', 'Admin\CountryController@edit');
@@ -309,7 +314,7 @@ Route::get('/html/guide-detail', function() {
 });
 
 Route::get('/html/apply', function() {
-	return view('user.apply');
+	return view('user.apply_html');
 });
 
 Route::get('/html/fair', function() {
@@ -327,6 +332,11 @@ Route::get('/html/course-detail', function() {
 Route::get('/html/search', function() {
 	return view('user.search');
 });
+
+Route::get('/html/confirmation', function() {
+	return view('user.confirmation');
+});
+
 Route::get('/guide', 'User\GuideController@index')->name('user.guide');
 Route::get('/guide/{slug}','User\GuideController@search')->name('user.guide.search');
 Route::get('/guide/category/{slug}','User\GuideController@guideCategory')->name('user.guide.category');
@@ -334,9 +344,30 @@ Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('us
 Route::get('university/{slug}','User\UniversityController@viewDetail')->name('user.university.detail');
 Route::get('career/{slug}','User\CareerController@viewDetail')->name('user.career.detail');
 Route::get('subject/{slug}','User\SubjectController@viewDetail')->name('user.subject.detail');
-Route::get('subject/cookie/set','User\SubjectController@setCookie')->name('user.subject.setCookie');
-Route::get('compare', 'User\CourseController@compare')->name('user.course.compare');
+//COMPARE AND APPLY COURSE
 Route::get('get-course-count', 'User\HomeController@getCourseCount')->name('getCourseCount');
+Route::get('subject/cookie-compare/set','User\SubjectController@setCookie')->name('user.subject.setCookie');
+Route::get('subject/cookie-apply/set','User\SubjectController@setCookieApplyCourse')->name('user.subject.setCookieApplyCourse');
+Route::get('compare', 'User\CourseController@compare')->name('user.course.compare');
+
+Route::group(['prefix'=>'apply'], function() {
+	Route::get('', 'User\CourseController@apply')->name('user.course.apply');
+	Route::get('confirmation', 'User\ApplyCourseController@confirmation')->name('user.apply.confirmation');
+	Route::post('', 'User\ApplyCourseController@applyCourse')->name('user.course.applyCourse');
+	Route::post('submit-personal-detail', 'User\ApplyCourseController@storePersonalDetail')->name('user.apply.storePersonalDetail');
+	Route::post('submit-education-work', 'User\ApplyCourseController@storeEducationAndWork')->name('user.apply.storeEducationAndWork');
+	Route::post('submit-verification', 'User\ApplyCourseController@storeVerification')->name('user.apply.storeVerification');
+	Route::post('submit-document', 'User\ApplyCourseController@storeDocument')->name('user.apply.storeDocument');
+	Route::post('submit', 'User\ApplyCourseController@submit')->name('user.apply.submit');
+
+	Route::post('upload-file', 'User\ApplyCourseController@uploadFile')->name('user.apply.uploadFile');
+	Route::post('remove-file', 'User\ApplyCourseController@removeFile')->name('user.apply.removeFile');
+	Route::get('get-file', 'User\ApplyCourseController@getFile')->name('user.apply.getFile');
+});
+Route::get('get-university', 'User\CourseController@getUniversity')->name('user.apply.getUniversity');
+Route::get('get-course', 'User\CourseController@getCourse')->name('user.apply.getCourse');
+Route::get('add-course', 'User\CourseController@addCourse')->name('user.apply.addCourse');
+
 //Chat-box
 Route::group(['prefix'=>'message'], function() {
 

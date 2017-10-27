@@ -266,7 +266,6 @@
 <script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script> --}}
 <script type="text/javascript">
 	var compare_number = {{ count($courses) }}; // Number of comparison course
-	console.log(compare_number);
 	function removeCourse(input) {
 		compare_number--;
 		var id = $(input).data('courseid');
@@ -277,5 +276,7 @@
 			getCourseCount();
 		});
 	}
+
+
 </script>
 @endsection

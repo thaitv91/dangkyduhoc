@@ -6415,12 +6415,20 @@ a.course_name {
   background-image: url("../img/check-courses.png");
 }
 
-#current_app_status {
+.ir.app.done {
+  background-image: url("../img/done.png");
+}
+
+.ir.app.problem {
+  background-image: url("../img/problem.png");
+}
+
+#current_app_status, .btn-bottom-apply-success {
   text-align: center;
   padding-bottom: 30px;
   padding-top: 30px;
 }
-#current_app_status .btn {
+#current_app_status .btn, .btn-bottom-apply-success .btn {
   width: 345px;
   max-width: 100%;
   margin-bottom: 10px;

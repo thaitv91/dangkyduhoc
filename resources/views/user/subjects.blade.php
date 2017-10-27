@@ -150,10 +150,10 @@
 		                 </div>
 
 		                    <div class="cell_1">
-		                           <div id="apply_2" class="btn btn-green apply-btn" onclick="javascript:apply('2');">
+		                           <div id="apply_{{ $course->id }}" class="btn btn-green apply-btn" onclick="apply({{ $course->id }}, 'add')">
 		                                APPLY
 		                           </div>
-		                           <div id="selected_1425" class="btn btn-green apply-add-btn hide" onclick="javascript:unselect('2');" title="Remove from university application?">
+		                           <div id="selected_{{ $course->id }}" class="btn btn-green apply-add-btn hide" onclick="apply({{ $course->id }}, 'remove')" title="Remove from university application?">
 		                                ADDED  <i class="fa fa-check"></i>
 		                           </div>
 		                    </div>
@@ -211,7 +211,7 @@
 <script type="text/javascript">
 	//Selected compare course
 	<?php echo "var course_ids = ".$course_id.";" ?>
-	var compare_number = course_ids.length;
+	var compare_number = course_ids.length; // Number of comparison course
 
 	$.each(course_ids, function(index, value) {
 		$('#compare_'+value).prop('checked', true);
@@ -221,7 +221,7 @@
 			url : '{{ route("user.subject.setCookie") }}',
 			data : {id : id},
 		}).done(function (data) {
-            getCourseCount();
+			getCourseCount();
 			if (data == 1) {
 				toastr.success('Added to comparison');
 				compare_number++;
@@ -232,6 +232,40 @@
 			}
 			return false;
 		});
+	}
+
+	// APPLY
+	<?php echo "var apply_course_id = ".$apply_course_id.";" ?>
+	var apply_course_number = apply_course_id.length; // Number of apply course
+
+	$.each(apply_course_id, function(index, value) {
+		$('#apply_'+value).addClass('hide');
+		$('#selected_'+value).removeClass('hide');
+	});
+
+	function apply(id, type) {
+		if (type == 'add') {
+			$('#apply_'+id).addClass('hide');
+			$('#selected_'+id).removeClass('hide');
+		} else {
+			$('#apply_'+id).removeClass('hide');
+			$('#selected_'+id).addClass('hide');
+		}
+
+		$.ajax({
+			url : "{{ route('user.subject.setCookieApplyCourse') }}",
+			data : {id : id},
+		}).done(function(data) {
+			getCourseCount();
+			if (data == 1) {
+				toastr.success('Course Added.');
+				apply_course_number++;
+			} else {
+				toastr.warning('Course Unselected');
+				apply_course_number--;
+			}
+			return false;
+		})
 	}
 
 	$('.see-similar').click(function(){

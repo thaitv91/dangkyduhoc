@@ -42,8 +42,8 @@ class User extends Authenticatable
     }
 
     /**
- * Send a password reset email to the user
- */
+    * Send a password reset email to the user
+    */
     public function sendPasswordResetNotification($token)
     {   
         $this->notify(new MailResetPassword($token));
@@ -51,5 +51,37 @@ class User extends Authenticatable
 
     public function courseComparison() {
         return $this->belongsToMany('App\Models\Course', 'user_comparisons', 'user_id', 'course_id');
+    }
+
+    public function applyCourse() {
+        return $this->belongsToMany('App\Models\Course', 'apply_courses', 'user_id', 'course_id');
+    }
+
+    /*
+    *Apply courese
+    */
+
+    public function personalDetail() {
+        return $this->hasOne('App\Models\ApplyCoursePersonalDetail', 'user_id');
+    }
+
+    public function education() {
+        return $this->hasMany('App\Models\ApplyCourseEducationBackground', 'user_id');
+    }
+
+    public function workExperience() {
+        return $this->hasMany('App\Models\ApplyCourseWorkExperience', 'user_id');
+    }
+
+    public function englishProficiency() {
+        return $this->hasMany('App\Models\ApplyCourseEnglishProficiency', 'user_id');
+    }
+
+    public function additionalDetail() {
+        return $this->hasOne('App\Models\ApplyCourseAdditionalDetail');
+    }
+
+    public function document() {
+        return $this->hasMany('App\Models\ApplyCourseDocument', 'user_id'); 
     }
 }
