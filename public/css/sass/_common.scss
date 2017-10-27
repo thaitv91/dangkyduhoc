@@ -128,3 +128,9 @@ sub, sup {
     text-transform: lowercase;
     vertical-align: baseline;
 }
+
+.invalid {
+    background-color: #f0dddd!important;
+    padding: 3px;
+    border-radius: 5px;
+}
