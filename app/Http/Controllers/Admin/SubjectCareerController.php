@@ -72,12 +72,12 @@ class SubjectCareerController extends Controller
             if ( $validator->fails() ){
                 return redirect()->back()->withInput($data)->withErrors($validator);
             }else{
-            DB::beginTransaction();
-            $subject_career = SubjectCareer::create($data);
-            DB::commit();
-            Session::flash('success','Success!');
-            return redirect(route('admin.subjectCareer.index'));
-                
+                DB::beginTransaction();
+                $subject_career = SubjectCareer::create($data);
+                DB::commit();
+                Session::flash('success','Success!');
+                return Redirect::back();
+                    
             }
         } catch (Exception $e) {
             Session::flash('error','Opp! Please try again.Error!');

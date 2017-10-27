@@ -30,11 +30,19 @@ class UniversityController extends Controller
             ->groupBy('subject_slug')
             ->get();
 
-        $subject_first = App\Models\Subject::where('slug', '=', $subjects_slug[0]->subject_slug)->first();
+        if (isset($_GET['debug'])) {
+            dd($subjects_slug);
+        }
 
-        $courses_of_first_subject = Course::where('university_id', '=', $university->id)
-            ->where('subject_slug', '=', $subjects_slug[0]->subject_slug)
-            ->get();
+        if ($subjects_slug->count() > 0) {
+            $subject_first = App\Models\Subject::where('slug', '=', $subjects_slug[0]->subject_slug)->first();
+            $courses_of_first_subject = Course::where('university_id', '=', $university->id)
+                ->where('subject_slug', '=', $subjects_slug[0]->subject_slug)
+                ->get();
+        } else {
+            $subject_first = null;
+            $courses_of_first_subject = null;
+        }
 
         // scholarship
         $courses_slug = Course::where('university_id', '=', $university->id)
@@ -47,20 +55,20 @@ class UniversityController extends Controller
         }
 
         $scholarships = App\Models\Scholarships::whereIn('course_slug', $course_slug_arr)->get();
-
-        if (isset($_GET['debug'])) {
-            dd($scholarships);
+        if (! $meta) {
+            $meta = new UniversityMetas();
+            $meta->university_id = $university->id;
+            $meta->save();
         }
-
         if ($locale == 'en') {
             $university['name']= $university->name_en;
-            $meta['about'] = $meta->about_en;
-            $meta['campus'] = $meta->campus_en;
+            $meta['about'] = $meta ? $meta->about : '';
+            $meta['campus'] = $meta ? $meta->campus : '';
             $subject_first_name = $subject_first['name_en'];
         } else {
             $university['name'] = $university->name;
-            $meta['about'] = $meta->about;
-            $meta['campus'] = $meta->campus;
+            $meta['about'] = $meta ? $meta->about : '';
+            $meta['campus'] = $meta ? $meta->campus : '';
             $subject_first_name = $subject_first['name'];
         }
 
