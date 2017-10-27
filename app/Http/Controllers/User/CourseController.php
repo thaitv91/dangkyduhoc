@@ -23,7 +23,8 @@ class CourseController extends Controller
     	$course_ids = $this->subject->getCourseId();
     	$cookie = Cookie::queue(Cookie::forever('compare_course_id', json_encode($course_ids)));
     	$courses = Course::whereIn('id', $course_ids)->get();
-    	return view('user.compare', compact(['courses']))->withCookie($cookie);
+        $apply_course_id = $this->getApplyCourseId();
+    	return view('user.compare', compact(['courses', 'apply_course_id']))->withCookie($cookie);
     }
 
     public function apply() {
@@ -59,6 +60,7 @@ class CourseController extends Controller
     	return $data;
     }
 
+    //Get all course compare
     public function getCourse(Request $request) {
         $data = Course::where('university_id', $request->university_id)
                 ->whereNotIn('id', $this->getApplyCourseId())
@@ -71,11 +73,13 @@ class CourseController extends Controller
         return $data;
     }
 
+    //Add new course into view apply
     public function addCourse(Request $request) {
     	$data = $request->all();
     	return view('includes.user.apply_course', compact(['data']));
     }
 
+    //Get all coure apply
     public function getApplyCourseId() {
     	$course_id = $this->subject->getApplyCourseId();
 

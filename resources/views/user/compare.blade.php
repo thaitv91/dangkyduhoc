@@ -1,8 +1,6 @@
 @extends("layouts/app")
 
 @section("content")
-
-
 <div class="compare-page compare-div page" id="page_compare">
 	@if (count($courses))
 	<div class="compare-div sortablediv ui-sortable">
@@ -243,10 +241,10 @@
 
 			<div class="col-lg-12 col-md-12 col-xs-12 col-xs-12 feature-row feature-row-apply relative">
 				<div class="feature feature15 feature-apply" style="height: 41px;">
-					<div class="course-apply-button btn btn-blue btn-block" id="apply_1517" onclick="javascript:apply('1517');" title="Add to my university application">
+					<div class="course-apply-button btn btn-blue btn-block" id="apply_{{ $course->id }}" onclick="javascript:apply('{{ $course->id }}', 'add');" title="Add to my university application">
 						APPLY
 					</div>
-					<div class="course-selected-button btn btn-blue btn-block hide" id="selected_1517" onclick="javascript:unselect('1517');" title="Remove from application?">
+					<div class="course-apply-button btn btn-blue btn-block hidden" id="apply_added_{{ $course->id }}" onclick="javascript:apply('{{ $course->id }}');" title="Add to my university application">
 						ADDED
 					</div>
 				</div>
@@ -265,9 +263,7 @@
 {{-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
 <script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script> --}}
 <script type="text/javascript">
-	var compare_number = {{ count($courses) }}; // Number of comparison course
 	function removeCourse(input) {
-		compare_number--;
 		var id = $(input).data('courseid');
 		$('#compareDiv_'+id).remove();
 		$.ajax({
@@ -277,6 +273,35 @@
 		});
 	}
 
+	// APPLY
+	<?php echo "var apply_course_id = ".json_encode($apply_course_id).";" ?>
 
+	$.each(apply_course_id, function(index, value) {
+		$('#apply_'+value).addClass('hidden');
+		$('#apply_added_'+value).removeClass('hidden');
+	});
+
+	function apply(id, type) {
+		if (type == 'add') {
+			$('#apply_'+id).addClass('hidden');
+			$('#apply_added_'+id).removeClass('hidden');
+		} else {
+			$('#apply_'+id).removeClass('hidden');
+			$('#apply_added_'+id).addClass('hidden');
+		}
+
+		$.ajax({
+			url : "{{ route('user.subject.setCookieApplyCourse') }}",
+			data : {id : id},
+		}).done(function(data) {
+			getCourseCount();
+			if (data == 1) {
+				toastr.success('Course Added.');
+			} else {
+				toastr.warning('Course Unselected');
+			}
+			return false;
+		})
+	}
 </script>
 @endsection
