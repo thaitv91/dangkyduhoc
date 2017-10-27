@@ -4,12 +4,11 @@
 @endsection
 @section("content")
 <div class="title-page">
-	<div class="container"><h1>ACCOUNTANT</h1></div>
+	<div class="container"><h1>{{ $careers['name'] }}</h1></div>
 </div>
 
 <div class="container">
 	<div class="about-career">
-		<h2 class="title">{{ $careers['name'] }}</h2>
 		<div class="breadcrumb-page">
 			<ul class="list">
 				@if( $careers['regular_hours'] ==1)
@@ -44,31 +43,31 @@
 	<div class="box-filter">
 		<h4 class="title-box">Filters</h4>
 		<div class="tags">
-			<div class="item">
-				<span class="tag"><input type="checkbox" id="checkbox-1"><label for="checkbox-1">Australia</label></span>                   
-				<span class="tag"><input type="checkbox" id="checkbox-2"><label for="checkbox-2">Canada</label></span>                     
-				<span class="tag"><input type="checkbox" id="checkbox-3"><label for="checkbox-3">Ireland</label></span>                 
-				<span class="tag"><input type="checkbox" id="checkbox-4"><label for="checkbox-4">Switzerland</label></span>               
-				<span class="tag"><input type="checkbox" id="checkbox-5"><label for="checkbox-5">United kingdom</label></span>                 
-				<span class="tag"><input type="checkbox" id="checkbox-6"><label for="checkbox-6">United Dtates</label></span>
+			<div class="item filter-country">
+				<span class="tag"><input _token="{{ csrf_token() }}" type="checkbox" value="AU" id="checkbox-1" checked _token="{{ csrf_token() }}"><label for="checkbox-1">Australia</label></span>
+				<span class="tag"><input _token="{{ csrf_token() }}" type="checkbox" value="CA" id="checkbox-2" checked><label for="checkbox-2">Canada</label></span>
+				<span class="tag"><input _token="{{ csrf_token() }}" type="checkbox" value="IL" id="checkbox-3" checked><label for="checkbox-3">Ireland</label></span>
+				<span class="tag"><input _token="{{ csrf_token() }}" type="checkbox" value="CH" id="checkbox-4" checked><label for="checkbox-4">Switzerland</label></span>
+				<span class="tag"><input _token="{{ csrf_token() }}" type="checkbox" value="UK" id="checkbox-5" checked><label for="checkbox-5">United kingdom</label></span>
+				<span class="tag"><input _token="{{ csrf_token() }}" type="checkbox" value="US" id="checkbox-6" checked><label for="checkbox-6">United States</label></span>
 			</div>
-			<div class="item">
-				<span class="tag"><input type="checkbox" id="checkbox-7"><label for="checkbox-7">2 year or less</label></span>
-				<span class="tag"><input type="checkbox" id="checkbox-8"><label for="checkbox-8">3 years</label></span>
-				<span class="tag"><input type="checkbox" id="checkbox-9"><label for="checkbox-9">4 years</label></span>
-				<span class="tag"><input type="checkbox" id="checkbox-10"><label for="checkbox-10">5 years or more</label></span>
+			<div class="item filter-year">
+				<span class="tag"><input _token="{{ csrf_token() }}" checked value="2" type="checkbox" id="checkbox-7"><label for="checkbox-7">2 year or less</label></span>
+				<span class="tag"><input _token="{{ csrf_token() }}" checked value="3" type="checkbox" id="checkbox-8"><label for="checkbox-8">3 years</label></span>
+				<span class="tag"><input _token="{{ csrf_token() }}" checked value="4" type="checkbox" id="checkbox-9"><label for="checkbox-9">4 years</label></span>
+				<span class="tag"><input _token="{{ csrf_token() }}" checked value="5" type="checkbox" id="checkbox-10"><label for="checkbox-10">5 years or more</label></span>
 			</div>
-			<div class="item">
-				<span class="tag"><input type="checkbox" id="checkbox-11"><label for="checkbox-11">A level</label></span>
-				<span class="tag"><input type="checkbox" id="checkbox-12"><label for="checkbox-12">Diploma</label></span>
-				<span class="tag"><input type="checkbox" id="checkbox-13"><label for="checkbox-13">International Baccalaureate</label></span>
-				<span class="tag"><input type="checkbox" id="checkbox-14"><label for="checkbox-14">O Level</label></span>
-			</div>
-			<div class="item">
-				<span class="tag"><input type="checkbox" id="checkbox-15"><label for="checkbox-15">Relevant courses</label></span>
-				<span class="tag"><input type="checkbox" id="checkbox-16"><label for="checkbox-16">Top ranking courses</label></span>
-				<span class="tag"><input type="checkbox" id="checkbox-17"><label for="checkbox-17">Popular courses</label></span>
-			</div>
+			{{--<div class="item">--}}
+			{{--<span class="tag"><input type="checkbox" id="checkbox-11"><label for="checkbox-11">A level</label></span>--}}
+			{{--<span class="tag"><input type="checkbox" id="checkbox-12"><label for="checkbox-12">Diploma</label></span>--}}
+			{{--<span class="tag"><input type="checkbox" id="checkbox-13"><label for="checkbox-13">International Baccalaureate</label></span>--}}
+			{{--<span class="tag"><input type="checkbox" id="checkbox-14"><label for="checkbox-14">O Level</label></span>--}}
+			{{--</div>--}}
+			{{--<div class="item">--}}
+			{{--<span class="tag"><input type="checkbox" id="checkbox-15"><label for="checkbox-15">Relevant courses</label></span>--}}
+			{{--<span class="tag"><input type="checkbox" id="checkbox-16"><label for="checkbox-16">Top ranking courses</label></span>--}}
+			{{--<span class="tag"><input type="checkbox" id="checkbox-17"><label for="checkbox-17">Popular courses</label></span>--}}
+			{{--</div>--}}
 		</div>
 	</div><!-- /.box-filter -->
 

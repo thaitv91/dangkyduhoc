@@ -208,6 +208,18 @@ Route::group(['prefix'=>'admin'], function() {
 //		Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.slider.removeImage');
 	});
 
+    Route::group(['prefix'=>'pathway'], function() {
+        //Route::get('', 'Admin\PathwayController@index')->name('admin.pathway');
+        Route::get('create', 'Admin\PathwayController@getCreate')->name('admin.pathway.create');
+        Route::post('create', 'Admin\PathwayController@postCreate')->name('admin.pathway.create.post');
+//		Route::get('edit/{id}', 'Admin\SliderController@edit')->name('admin.pathway.edit');
+//		Route::post('edit/{id}', 'Admin\SliderController@update');
+//		Route::get('delete/{id}', 'Admin\SliderController@destroy')->name('admin.pathway.delete');
+//		Route::get('get-image', 'Admin\SliderController@getImage')->name('admin.pathway.getImage');
+//		Route::post('image-upload', 'Admin\SliderController@uploadImage')->name('admin.pathway.uploadImage');
+//		Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.pathway.removeImage');
+    });
+
 	Route::group(['prefix'=>'contact'], function() {
 		Route::get('', 'Admin\ContactController@index')->name('admin.contact');
 		Route::get('show/{id}', 'Admin\ContactController@show')->name('admin.contact.show');
