@@ -245,6 +245,20 @@ class ApplyCourseController extends Controller
         ApplyCourse::where('user_id', $user_id)->where('receive_status', 0)->update(['received' => Carbon::now(), 'receive_status'=>1]);
     }
 
+    public function confirmation() {
+        $user;
+        if (!Auth::check()) {
+            return Redirect::route('login');
+        }
+        $user = Auth::user();
+        $country_birth = $this->countryBirth();
+        $nationality = $this->nationality();
+        $qualification = $this->qualification();
+        $certificate = $this->certificate();
+
+        return view('user.confirmation', compact(['user', 'country_birth', 'nationality', 'qualification', 'certificate']));
+    }
+
     public function parseDate($date) {
     	$date = str_replace('/', '-', $date);
     	$date = Carbon::parse($date)->format('Y-m-d');
@@ -320,7 +334,55 @@ class ApplyCourseController extends Controller
         return true;
     }
 
-    public function applyCourse(Request $request) {
-        dd($request->all());
+    public function countryBirth() {
+        return $str = [
+                '195'=>'Singapore',
+                '27'=> 'Brunei',
+                '115'=>'Cambodia',
+                '46'=>'China',
+                '99'=>'Indonesia',
+                '124'=>'Laos',
+                '155'=>'Malaysia'
+            ];
+    }
+
+    public function nationality() {
+        return [
+            '159'=>'Singaporean',
+            '28'=>'Bruneian',
+            '31'=>'Burmese',
+            '33'=>'Cambodian',
+            '40'=>'Chinese',
+            '62'=>'Filipino',
+            '83'=>'Indonesian',
+            '98'=>'Laotian',
+            '109'=>'Malaysian'
+        ];
+    }
+
+    public function qualification() {
+        return [
+            '2'=>"GCE 'O' Levels",
+            '3'=>"GCE 'A' Levels",
+            '4'=>"Polytechnic Diploma",
+            '5'=>"Private Diploma",
+            '6'=>"International Baccaleaurate",
+            '7'=>"Sijil Tinggi Persekolahan Malaysia",
+            '9'=>"Bachelor's",
+            '10'=>"Master",
+            '8'=>"Other",
+        ];
+    }
+
+    public function certificate() {
+        return [
+            "IELTS",
+            "TOEFL iBT (internet based)",
+            "TOEFL PBT (paper based)",
+            "PTE Academic",
+            "Cambridge English Advanced (CAE)",
+            "Pearson Test of English (PTE)",
+            "Occupational English Test"
+        ];
     }
 }

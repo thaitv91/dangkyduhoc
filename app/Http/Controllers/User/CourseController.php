@@ -30,24 +30,27 @@ class CourseController extends Controller
     	$countries = Country::get(['id', 'name', 'slug']);
         $course_id = $this->getApplyCourseId();
         $courses = Course::whereIn('id', $course_id)->get();
-        $course_user = DB::table('apply_courses')->where('user_id', Auth::user()->id)->get();
-        $count = 0;
-        foreach ($courses as $key => $course) {
-            foreach ($course_user as $value) {
-                if ($course->id == $value->course_id) {
-                    
-                    $course->receive_status = $value->receive_status;
-                    $course->received = $value->received?Carbon::parse($value->received)->format('d/m/Y'):"";
-                    $course->review_status = $value->review_status;
-                    $course->reviewd = isset($value->reviewed)?Carbon::parse($value->vreiewed)->format('d/m/Y'):"";
-                    $course->submit_status = $value->submit_status;
-                    $course->submitted = isset($value->submit)?Carbon::parse($value->submit)->format('d/m/Y'):"";
-                    $course->outcome_status = $value->outcome_status;
-                    $course->outcome = isset($value->outcome)?Carbon::parse($value->outcome)->format('d/m/Y'):"";
+        $user = Auth::user();
+        if ($user) {
+            $course_user = DB::table('apply_courses')->where('user_id', $user->id)->get();
+            $count = 0;
+            foreach ($courses as $key => $course) {
+                foreach ($course_user as $value) {
+                    if ($course->id == $value->course_id) {
+
+                        $course->receive_status = $value->receive_status;
+                        $course->received = $value->received?Carbon::parse($value->received)->format('d/m/Y'):"";
+                        $course->review_status = $value->review_status;
+                        $course->reviewd = isset($value->reviewed)?Carbon::parse($value->vreiewed)->format('d/m/Y'):"";
+                        $course->submit_status = $value->submit_status;
+                        $course->submitted = isset($value->submit)?Carbon::parse($value->submit)->format('d/m/Y'):"";
+                        $course->outcome_status = $value->outcome_status;
+                        $course->outcome = isset($value->outcome)?Carbon::parse($value->outcome)->format('d/m/Y'):"";
+                    }
                 }
             }
         }
-        $user = Auth::user();
+
     	return view('user.apply', compact(['countries', 'courses', 'user']));
     }
 

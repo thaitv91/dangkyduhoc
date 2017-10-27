@@ -37,8 +37,8 @@
             </div>
 
             <div class="section block">
-                REFERENCE ID: <b>5576</b><br />
-                DATE SUBMITTED: <b>26/10/2017 4:59:59 PM</b><br />
+                REFERENCE ID: <b>{{ $user->id }}</b><br />
+                DATE SUBMITTED: <b>{{ Carbon\Carbon::parse($user->additionalDetail->created_at)->format('d/m/Y H:i:s') }}</b><br />
                 APPLICATION FEE: <b>WAIVED</b><br />
             </div>
         </div>
@@ -49,24 +49,14 @@
                 <h3 class="header-text">COURSES APPLIED</h3>
             </div>
             <div class="section block">
-               <div class="row">
+            	@foreach ($user->applyCourse as $key => $value) 
+            	<div class="row">
                     <div class="col-lg-9 clearfix">
-                        <span class="name">1. Accounting and Finance</span> <span class="code">(N420)</span> -
-                        <span class="university">Robert Gordon University (United Kingdom)</span>
+                        <span class="name">{{ $key }}. {{ $value->name }}</span> <span class="code">({{ $value->classification }})</span> -
+                        <span class="university">{{ $value->university->name }} ({{ $value->country() }})</span>
                     </div>
                </div>
-               <div class="row">
-                    <div class="col-lg-9 clearfix">
-                        <span class="name">2. Bachelor of International Business in Hotel and Tourism Management</span> <span class="code">(CR-001)</span> -
-                        <span class="university">Cesar Ritz (Switzerland)</span>
-                    </div>
-               </div>
-               <div class="row">
-                    <div class="col-lg-9 clearfix">
-                        <span class="name">3. Accounting and Finance</span> <span class="code">(N420)</span> -
-                        <span class="university">Middlesex University (United Kingdom)</span>
-                    </div>
-               </div>
+            	@endforeach
             </div>
 
 	        <div id="step_1_header" class="section header">
@@ -78,78 +68,79 @@
 	            <table class="answers_table">
 	                <tr>
 	                  <td>Given name:</td>
-	                  <td>Duyen</td>
+	                  <td>{{ $user->personalDetail->given_name }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Family name:</td>
-	                  <td>Phan</td>
+	                  <td>{{ $user->personalDetail->family_name }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Email address:</td>
-	                  <td>duyenphan@luxcer.com</td>
+	                  <td>{{ $user->personalDetail->email }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Gender:</td>
-	                  <td>Female</td>
+	                  <td>{{ $user->personalDetail->gender }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Date of birth:</td>
-	                  <td>8 October 1980</td>
+	                  <td>{{ Carbon\Carbon::parse($user->personalDetail->dob)->format('d/m/Y') }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Country of birth:</td>
-	                  <td>Vietnam</td>
+	                  <td>{{ $country_birth[$user->personalDetail->country_birth] }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Nationality:</td>
-	                  <td>Vietnamese</td>
+	                  <td>{{ $nationality[$user->personalDetail->nationality] }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Passport no.:</td>
-	                  <td>0976645</td>
+	                  <td>{{ $user->personalDetail->passport_no }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Correspondence address:</td>
-	                  <td>Ha Noi, Viet Nam</td>
+	                  <td>{{ $user->personalDetail->correspondence_address }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Permanent address:</td>
-	                  <td>Ha Noi, Viet Nam</td>
+	                  <td>{{ $user->personalDetail->permanent_address }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Mobile number:</td>
-	                  <td>0987545377</td>
+	                  <td>{{ $user->personalDetail->mobile_number }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Home phone no.:</td>
-	                  <td>+84</td>
+	                  <td>{{ $user->personalDetail->home_number }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Enrolment year:</td>
-	                  <td>2017</td>
+	                  <td>{{ $user->personalDetail->enrolment_year }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Funding source:</td>
 	                  <td>
-                        <text>Scholarship</text>
+	                  	@if ($user->personalDetail->is_schoolarship == 1)
+                        	<text>Schoolarship</text>
+	                  	@endif
+	                  	@if ($user->personalDetail->is_self_funded == 1)
+                        	<text>Self Funded</text>
+	                  	@endif
 	                  </td>
 	                </tr>
 	                <tr>
-                    	<td>
-                        Free consultation:
-                    	</td>
-                    	<td>
-                         Yes
-                    	</td>
+                    	<td>Free consultation:</td>
+                    	<td>{{ $user->personalDetail->free_consultation == 1?'Yes':'No' }}</td>
 	                </tr>
 
 	                <tr>
 	                  <td>Disability:</td>
-	                  <td>No</td>
+	                  <td>{{ $user->personalDetail->disability == 1?'Yes':'No' }}</td>
 	                </tr>
 	                <tr>
 	                  <td>Criminal record:</td>
-	                  <td>No</td>
+	                  <td>{{ $user->personalDetail->criminal_record==1?'Yes':'No' }}</td>
 	                </tr>
 	            </table>
 	        </div>
@@ -163,11 +154,13 @@
 	                <p>Education background:</p>
 	                <table id="education" class="exp">
 	                     <tbody id="1702">
-                           <tr>
-                              <td>
-                                 17 October 2017 - 27 October 2017: BGV (GCE &#39;A&#39; Levels)
-                              </td>
-                           </tr>
+	                     	@foreach ($user->education as $value)
+	                     	<tr>
+	                     		<td>
+	                     			{{ Carbon\Carbon::parse($value->edu_start)->format('d/m/Y') }} - {{ Carbon\Carbon::parse($value->edu_end)->format('d/m/Y') }}: {{ $value->edu_school_name }} ({{ $qualification[$value->qualification] }})
+	                     		</td>
+	                     	</tr>
+	                     	@endforeach
 	                     </tbody>
 	                </table>
 	                <br />
@@ -175,33 +168,39 @@
 	                <p>Work experience:</p>
 	                <table id="work" class="exp">
                      <tbody id="work_1103">
+                     	@foreach ($user->workExperience as $value)
                          <tr>
                              <td>
-                                 2 October 2017 - 31 October 2017 : BGN (Part-time)
+                                 {{ Carbon\Carbon::parse($value->work_start)->format('d/m/Y') }} - {{ Carbon\Carbon::parse($value->work_end)->format('d/m/Y') }} : {{ $value->employer_name }} ({{ $value->work_type }})
                              </td>
                          </tr>
                          <tr>
                              <td>
-                                 HTML/CSS
+                                 {{ $value->work_description }}
                              </td>
                          </tr>
+                         @endforeach
                      </tbody>
 	                </table>
 	                <br />
 	                <p>English proficiency tests:</p>
 	                <table id="english" class="exp">
                      <tbody id="prof_225">
+                     	@foreach ($user->englishProficiency as $value)
                          <tr>
                              <td>
-                                 31 October 2017 - Occupational English Test (GHN)
+                                 {{ Carbon\Carbon::parse($value->test_date)->format('d/m/Y') }} - {{ $certificate[$value->certificate] }}
                              </td>
                          </tr>
+                         @endforeach
                      </tbody>
 	                </table>
 	                <br />
 	            	Supporting documents:
 	               <ul>
-	                  <li>thanhly.doc</li>
+	               		@foreach ($user->document as $value)
+	               		<li>{{ $value->file_name }}</li>
+	                  	@endforeach
 	               </ul>
 
 	        		</div>
@@ -216,7 +215,7 @@
 
 			   <div class="btn-bottom-apply-success">
 					<button class="btn btn-blue">Print</button><br>
-					<button class="btn btn-blue">Exit</button>
+					<a class="btn btn-blue" href="{{ route('user.course.apply') }}">Exit</a>
 				</div>
 
 			</div><!-- /.apply-success -->
@@ -231,5 +230,4 @@
 @section('scripts')
 {{-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
 <script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script> --}}
-
 @endsection

@@ -80,4 +80,8 @@ class User extends Authenticatable
     public function additionalDetail() {
         return $this->hasOne('App\Models\ApplyCourseAdditionalDetail');
     }
+
+    public function document() {
+        return $this->hasMany('App\Models\ApplyCourseDocument', 'user_id'); 
+    }
 }
