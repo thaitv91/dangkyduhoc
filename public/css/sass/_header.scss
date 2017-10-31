@@ -208,7 +208,7 @@
     width: 100%;
     z-index: 99999;
     @include transition-value(left ease 0.5s);
-    left: -1024px;
+    left: -1124px;
     #right-nav-container {
 	    height: 100%;
 	    overflow-y: auto;
@@ -362,7 +362,7 @@
 	top: 0;
 	width: 100%;
 	z-index: 99998;
-	left: -1024px;
+	left: -1124px;
 	#left-nav-container {
 	    height: 100%;
 	    overflow-y: auto;
@@ -452,4 +452,10 @@
     	 max-height: 20px;
  		max-width: 20px;
     }
+}
+
+.fixed-header{
+	.navbar-default{
+		@include box-shadow(0 3px 5px rgba(0, 0, 0, 0.6));
+	}
 }

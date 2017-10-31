@@ -3184,6 +3184,12 @@ sub, sup {
   vertical-align: baseline;
 }
 
+.invalid {
+  background-color: #f0dddd !important;
+  padding: 3px;
+  border-radius: 5px;
+}
+
 .sprite-facebook {
   background-image: url('/../img/sprites-scce62d711f.png');
   background-position: 0 -81px;
@@ -3649,7 +3655,7 @@ sub, sup {
   -moz-transition: left ease 0.5s;
   -o-transition: left ease 0.5s;
   transition: left ease 0.5s;
-  left: -1024px;
+  left: -1124px;
 }
 #right-nav #right-nav-container {
   height: 100%;
@@ -3819,7 +3825,7 @@ sub, sup {
   top: 0;
   width: 100%;
   z-index: 99998;
-  left: -1024px;
+  left: -1124px;
 }
 #left-nav #left-nav-container {
   height: 100%;
@@ -3913,6 +3919,14 @@ sub, sup {
 #closeSubNav img {
   max-height: 20px;
   max-width: 20px;
+}
+
+.fixed-header .navbar-default {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+  -ms-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
 }
 
 footer {
@@ -6672,6 +6686,7 @@ a.course_name {
   width: 100%;
   display: table-cell;
   vertical-align: middle;
+  padding: 5px 0;
 }
 #page_compare .feature.min70 {
   min-height: 70px;
