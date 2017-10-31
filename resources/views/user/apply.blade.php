@@ -458,10 +458,10 @@
 				$('#disabilityNo').prop('disabled',true);
 				$('#criminalYes').prop('disabled',true);
 				$('#criminalNo').prop('disabled',true);
-
+				$('#second-section').removeClass('hidden');
+				moveTo(2);
 			} else if (data == 0) {
 				toastr.error('Save data fails. Please try again.');
-				$('#second-section').removeClass('hidden');
 				moveTo(1);
 			} else if (data == 2){
 				toastr.warning('Data has been saved successful');
