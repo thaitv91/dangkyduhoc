@@ -19,22 +19,23 @@ class ApplyCourseController extends Controller
     public function storePersonalDetail(Request $request) {
     	$data = $request->all();
     	$data['dob'] = isset($data['dob'])?$this->parseDate($data['dob']):'';
-    	$data['is_schoolarship'] = isset($data['is_schoolarship'])?true:false;
-    	$data['is_self_funded'] = isset($data['is_self_funded'])?true:false;
+    	$data['is_schoolarship'] = (isset($data['is_schoolarship']) && $data['is_schoolarship']=='true')?true:false;
+    	$data['is_self_funded'] = (isset($data['is_self_funded']) && $data['is_self_funded']=='true')?true:false;
     	$data['free_consultation'] = $data['free_consultation']=="true"?true:false;
     	$data['disability'] = $data['disability']=="true"?true:false;
     	$data['criminal_record'] = $data['criminal_record']=="true"?true:false;
 
         //Validate data
         $validate = $data;
-        if (!isset($validate['is_schoolarship']) && !isset($validate['is_self_funded'])){
-              $validate['funding_source'] == '';
+        if (!$validate['is_schoolarship']&& !$validate['is_self_funded']){
+              $validate['funding_source'] = '';
         }
         unset($validate['is_schoolarship']);
         unset($validate['is_self_funded']);
         unset($validate['permanent_address']);
         unset($validate['disability']);
         unset($validate['criminal_record']);
+        unset($validate['free_consultation']);
 
         if (in_array('', $validate)) {
             return array_search('', $validate);

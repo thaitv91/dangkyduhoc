@@ -42,7 +42,7 @@
 							@foreach ($user->applyCourse as $key => $value) 
 							<div class="row">
 								<div class="col-lg-9 clearfix">
-									<span class="name">{{ $key }}. {{ $value->name }}</span> <span class="code">({{ $value->classification }})</span> -
+									<span class="name">{{ $key + 1 }}. {{ $value->name }}</span> <span class="code">({{ $value->classification }})</span> -
 									<span class="university">{{ $value->university->name }} ({{ $value->country() }})</span>
 								</div>
 							</div>
@@ -189,7 +189,7 @@
 							Supporting documents:
 							<ul>
 								@foreach ($user->document as $value)
-								<li>{{ $value->file_name }}</li>
+								<li><a href="{{ $value->file_server_name }}" download ="{{ str_replace('\\','/',$value->url) }}">{{ $value->file_name }}</a></li>
 								@endforeach
 							</ul>
 
@@ -204,7 +204,9 @@
 				</div>
 
 				<div class="btn-bottom-apply-success">
-					<a class="btn btn-blue" href="{{ route('admin.applyCourse') }}">Back</a>
+					<a class="btn btn-default" href="{{ route('admin.applyCourse') }}">Back</a>
+					<a class="btn btn-primary" href="{{ route('admin.applyCourse.accept') }}">Accept</a>
+					<a class="btn btn-danger" href="{{ route('admin.applyCourse.deny') }}">Deny</a>
 				</div>
 
 			</div><!-- /.apply-success -->

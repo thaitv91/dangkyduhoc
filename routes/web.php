@@ -282,7 +282,14 @@ Route::group(['prefix'=>'admin'], function() {
 
     Route::group(['prefix'=>'apply-course'], function() {
     	Route::get('', 'Admin\ApplyCourseController@index')->name('admin.applyCourse');
-    	Route::get('information/{user_id?}', 'Admin\ApplyCourseController@information')->name('admin.applyCourse.information');
+    	Route::get('review/{user_id?}', 'Admin\ApplyCourseController@review')->name('admin.applyCourse.review');
+    	Route::get('detail/{user_id?}', 'Admin\ApplyCourseController@detail')->name('admin.applyCourse.detail');
+    	Route::get('accept/{user_id?}', 'Admin\ApplyCourseController@accept')->name('admin.applyCourse.accept');
+    	Route::get('deny/{user_id?}', 'Admin\ApplyCourseController@deny')->name('admin.applyCourse.deny');
+    	Route::get('review-confirm/{user_id?}/{course_id?}/{status?}', 'Admin\ApplyCourseController@confirmReview')->name('admin.applyCourse.confirmReview');
+    	Route::get('submit/{user_id}/{course_id}/{status?}', 'Admin\ApplyCourseController@submit')->name('admin.applyCourse.submit');
+    	Route::get('outcome/{user_id}/{course_id}', 'Admin\ApplyCourseController@outcome')->name('admin.applyCourse.outcome');
+    	Route::post('outcome/{user_id}/{course_id}', 'Admin\ApplyCourseController@postOutcome');
     });
 });
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
