@@ -189,7 +189,7 @@
 							Supporting documents:
 							<ul>
 								@foreach ($user->document as $value)
-								<li>{{ $value->file_name }}</li>
+								<li><a href="{{ $value->file_server_name }}" download ="{{ str_replace('\\','/',$value->url) }}">{{ $value->file_name }}</a></li>
 								@endforeach
 							</ul>
 

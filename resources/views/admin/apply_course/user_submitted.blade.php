@@ -52,25 +52,4 @@
 <!-- DataTables -->
 <script src="{{ url('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ url('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-<script type="text/javascript">
-	$('#example2').DataTable({
-		"paging": true,
-		"ordering": true,
-		"info": true,
-		"autoWidth": false
-	});
-</script>
-<script type="text/javascript">
-	function confirmDelete(url) {
-		$('#modal-delete a').attr('href',url);
-		$('#modal-delete').modal('show');
-	}
-
-
-	function showCommit(user_id) {
-		$('#modal-submit').modal('show');
-		$('#comfirm-submit').attr('href', "{{ route('admin.applyCourse.submit') }}"+'/'+user_id+'/'+1)
-		$('#deny-submit').attr('href', "{{ route('admin.applyCourse.submit') }}"+'/'+user_id+'/'+2)
-	}
-</script>
 @endsection
