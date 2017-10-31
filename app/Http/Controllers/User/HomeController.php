@@ -11,21 +11,19 @@ use App\Models\CustomField;
 use App\Models\Map;
 use App;
 use DB;
-use Cookie;
 
 class HomeController extends Controller
 {
-
-    private $subject;
-
-    public function __construct() {
-        $this->subject = new SubjectController;
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    private $subject;
+
+    public function __construct() {
+        $this->subject = new SubjectController;
+    }
 
     public function index()
     {   
@@ -54,7 +52,6 @@ class HomeController extends Controller
             'rating'        => $rating,
             'locale'        => $locale,
             'custom_field'        => $custom_field,
-            // 'course_count'  =>  json_encode($this->getCourseCount()),
             );
         return view('user.homepage', $this->viewData);
     }

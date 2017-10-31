@@ -26,6 +26,14 @@
                 {{ csrf_field() }}
                 <div class="col-md-8 col-md-offset-2">
                     <div class="box-body">
+
+                        <div class="form-group row">
+                            <label  class="col-md-3" for="main_course_slug">Main Course slug</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="main_course_slug" id="main_course_slug" value="{{ old('main_course_slug') }}">
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label class="col-md-3">Main University</label>
                             <div class="col-md-9">
@@ -69,9 +77,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label  class="col-md-3" for="course_slug">Course slug</label>
+                            <label  class="col-md-3" for="course_slug">Pathway Course slug</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" name="course_slug" id="course_slug" value="{{ old('courrse_slug') }}">
+                                <input type="text" class="form-control" name="course_slug" id="course_slug" value="{{ old('course_slug') }}">
                             </div>
                         </div>
 

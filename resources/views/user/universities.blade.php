@@ -2,7 +2,7 @@
 
 @section("content")
 	<div class="title-page">
-		<div class="container"><h1>ACCOUNTING &amp; FINANCE</h1></div>
+		<div class="container"><h1>{{ $university['name']}}</h1></div>
 	</div>
 
 	<div class="container">
@@ -251,7 +251,7 @@
 									@endif
 									<div class="cell hidden-sm hidden-xs">
 										<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Chat with us for a free advance standing assessment.">{!! $course_info->duration !!}</span>
-										<span class="sub-tip display-block">years</span>
+										<span class="sub-tip display -block">years</span>
 									</div>
 
 									<div class="cell hidden-sm hidden-xs">
@@ -262,9 +262,12 @@
 									</div>
 
 									<div class="cell hidden-sm hidden-xs course-progression">
+										<?php
+											$pathways = \App\Models\Pathway::where('main_course_slug', '=', $course->slug)->get();
+										?>
 										<div class="see-pathways tip" title="" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Can't meet the minimum grades? Click to see available pathways to progress into Bangor University.">
 											<i class="fa fa-arrow-up"></i>
-											<span class="sub-tip display-block">5 pathways</span>
+											<span class="sub-tip display-block">{{ $pathways->count() }} pathways</span>
 										</div>
 									</div>
 
@@ -277,18 +280,18 @@
 										</div>
 									</div>
 
-									<div class="cell_1">
-										<div id="apply_2" class="btn btn-green apply-btn" onclick="javascript:apply('2');">
-											APPLY
-										</div>
-										<div id="selected_1425" class="btn btn-green apply-add-btn hide" onclick="javascript:unselect('2');" title="Remove from university application?">
-											ADDED  <i class="fa fa-check"></i>
-										</div>
-									</div>
+                                    <div class="cell_1">
+                                        <div id="apply_{{ $course->id }}" class="btn btn-green apply-btn" onclick="apply('{{ $course->id }}', 'add')">
+                                            APPLY
+                                        </div>
+                                        <div id="selected_{{ $course->id }}" class="btn btn-green apply-add-btn hide" onclick="apply('{{ $course->id }}', 'remove')" title="Remove from university application?">
+                                            ADDED  <i class="fa fa-check"></i>
+                                        </div>
+                                    </div>
 								</div>
 							</div>
-
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							@if($pathways->count() > 0)
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								<div id="" class="arrow-box">
 									<div class="tree">
 										<div class="row">
@@ -319,37 +322,28 @@
 											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 												<div class="diagram-svg">
 													<div class="list-pathway">
-														<div class="pathway">
-															<h3><a href="#">Bellerbys College</a></h3>
-															<p><a href="#">Foundation Pathway</a></p>
-															<p>9 months duration</p>
-														</div><!-- /.pathway -->
-
-														<div class="pathway">
-															<h3><a href="#">Bellerbys College</a></h3>
-															<p><a href="#">Foundation Pathway</a></p>
-															<p>9 months duration</p>
-														</div><!-- /.pathway -->
-
-														<div class="pathway">
-															<h3><a href="#">Bellerbys College</a></h3>
-															<p><a href="#">Foundation Pathway</a></p>
-															<p>9 months duration</p>
-														</div><!-- /.pathway -->
-
-														<div class="pathway">
-															<h3><a href="#">Bellerbys College</a></h3>
-															<p><a href="#">Foundation Pathway</a></p>
-															<p>9 months duration</p>
-														</div><!-- /.pathway -->
+														@foreach($pathways as $pathway)
+															<?php
+																$pathway_university = \App\Models\University::where('id', '=', $pathway->university_pathway_id)->first();
+																$pathway_course = \App\Models\Course::where('slug', '=', $pathway->course_slug)->first();
+                                                                $information = $pathway_course->information()->first();
+															?>
+															<div class="pathway">
+																<h3><a href="/university/{{ $pathway_university['slug'] }}">{{ $pathway_university['name'] }}</a></h3>
+																<p><a href="/course/{{ $pathway->course_slug }}">{{ $pathway_course['name'] }}</a></p>
+                                                                @if($information)
+                                                                    <p>{{ $information->duration }} months duration</p>
+                                                                @endif
+															</div><!-- /.pathway -->
+														@endforeach
 													</div><!-- /.list-pathway -->
 
 													<div class="university-pathway">
 														<img src="/img/THERIGHTU_U.svg">
 														<div class="text">
-															<h3><a href="#">Swansea University</a></h3>
-															<p><a href="#">Accounting &amp; Finance</a></p>
-															<p>BSc(Hons)</p>
+															<h3><a href="/university/{{ $university['slug']}}">{{ $university['name']}}</a></h3>
+															<p><a href="/course/{{ $course->slug }}">{{ $explode[0] }}</a></p>
+															<p>{{ $explode[1] }}</p>
 														</div>
 													</div><!-- /.university-pathway -->
 												</div><!-- /.diagram-svg -->
@@ -358,6 +352,7 @@
 									</div>
 								</div><!-- /.arrow_box -->
 							</div>
+							@endif
 						</div>
 					@endforeach
 				</div><!-- /.list-courses -->
@@ -366,13 +361,17 @@
 		</div>
 
 		@endsection
-		@section('scripts')
+		{{--@section('scripts')--}}
 		@section('scripts')
 			<script type="text/javascript">
+                function initialize() {
+                    initMapUniver();
+                }
+
 				var map;
 				var infowindow;
 				function initMapUniver() {
-					var pyrmont = {lat:'{{ $map_university['lat'] }}', lng:'{{ $map_university['lng']}}'};
+					var pyrmont = {lat:{{ $map_university['lat'] }}, lng:{{ $map_university['lng']}} };
 
 					map = new google.maps.Map(document.getElementById('map-uni'), {
 						center: pyrmont,
@@ -388,12 +387,11 @@
 					var marker = new google.maps.Marker({
 						position: pyrmont,
 						map: map,
-						icon:image
 					});
 				}
 				function initMapMaker(type){
 					var type = type;
-					var pyrmont = {lat: "{{ $map_university['lat'] }}", lng: "{{ $map_university['lng']}}" };
+					var pyrmont = {lat: {{ $map_university['lat'] }}, lng: {{ $map_university['lng']}} };
 					map = new google.maps.Map(document.getElementById('map-uni'), {
 						center: pyrmont,
 						zoom: 12,
@@ -444,6 +442,39 @@
 						}
 						return false;
 					});
+				}
+
+                <?php echo "var apply_course_id = ".$apply_course_id.";" ?>
+				var apply_course_number = apply_course_id.length; // Number of apply course
+
+				$.each(apply_course_id, function(index, value) {
+					$('#apply_'+value).addClass('hide');
+					$('#selected_'+value).removeClass('hide');
+				});
+
+				function apply(id, type) {
+					if (type == 'add') {
+						$('#apply_' + id).addClass('hide');
+						$('#selected_' + id).removeClass('hide');
+					} else {
+						$('#apply_' + id).removeClass('hide');
+						$('#selected_' + id).addClass('hide');
+					}
+
+					$.ajax({
+						url: "{{ route('user.subject.setCookieApplyCourse') }}",
+						data: {id: id},
+					}).done(function (data) {
+						getCourseCount();
+						if (data == 1) {
+							toastr.success('Course Added.');
+							apply_course_number++;
+						} else {
+							toastr.warning('Course Unselected');
+							apply_course_number--;
+						}
+						return false;
+					})
 				}
 
 				$('.filter-subject').click(function () {

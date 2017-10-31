@@ -33,7 +33,7 @@
 	</div><!-- /.course-detail-header -->
 
 	<div class="row course_details">
-		@if($ranking)
+		@if($ranking->count() > 0)
 		<div class="col-lg-4 col-md-4 col-sm-6 col">
 			<div class="box-ranking left">
 				<h4 class="title-box">COURSE RANKINGS</h4>
@@ -52,64 +52,94 @@
 			</div><!-- /.box-ranking -->
 		</div>
 		@endif
-
-		<div class="col-lg-4 col-md-4 col-sm-6 col">
+		@if($cost)
+			<div class="col-lg-4 col-md-4 col-sm-6 col">
 			<div class="box-ranking left">
 				<h4 class="title-box">Costs</h4>
 				<div class="info_box_item">
-               <span>Tuition fees</span>
-               <span class="right">S${{ $cost->year_tuition_fees }}K</span>
+               	<span>Tuition fees</span>
+				@if($cost)
+               		<span class="right">S${{ $cost->year_tuition_fees }}K</span>
+				@endif
             </div>
             <div class="info_box_item living marbot0">
                <span class="living-header">Food &amp; accommodation</span>
-               <span class="right">S${{ $fa = ($cost->day_food_fees + $cost->day_drink_fees + $cost->day_accommodation_fees + $cost->day_coffe_fees) * 600 /1000 }}K</span>
+				@if($cost)
+               		<span class="right">S${{ $fa = ($cost->day_food_fees + $cost->day_drink_fees + $cost->day_accommodation_fees + $cost->day_coffe_fees) * 600 /1000 }}K</span>
+				@endif
             </div>
             <div class="info_box_item basic_city_cost">
                <div class="row">
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-beer" aria-hidden="true"></i></span>
-                       S${{ $cost->day_drink_fees }}
+					   @if($cost)
+							S${{ $cost->day_drink_fees }}
+						@endif
                    </div>
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-cutlery" aria-hidden="true"></i></span>
-                       S${{ $cost->day_food_fees }}
+					   @if($cost)
+                       		S${{ $cost->day_food_fees }}
+					   @endif
                    </div>
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-film" aria-hidden="true"></i></span>
-                       S${{ $cost->day_accommodation_fees }}
+					   @if($cost)
+					   S${{ $cost->day_accommodation_fees }}
+					   @endif
                    </div>
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-coffee" aria-hidden="true"></i></span>
+					   @if($cost)
                        S${{ $cost->day_coffe_fees }}
+					   @endif
                    </div>
                </div>
             </div>
             <div class="info_box_item total_cost clearfix">
-               <span>COST PER YEAR</span><span class="totalcost right">S${{ $fa + $cost->year_tuition_fees }}K</span>
+               <span>COST PER YEAR</span><span class="totalcost right">
+					@if($cost)
+						S${{ $fa + $cost->year_tuition_fees }}K
+					@endif
+				</span>
             </div>
 			</div><!-- /.box-ranking -->
 		</div>
-		<div class="col-lg-4 col-md-4 col-sm-12 col">
+		@endif
+
+		@if($requirement)
+			<div class="col-lg-4 col-md-4 col-sm-12 col">
 			<div class="box-ranking left">
 				<h4 class="title-box">Entry requirements</h4>
 				<div class="info_box_item undergraduate">
                 <span class="type rank-name smaller grade-type">A Level</span>
-                <span class="right">{{ $requirement->level }}</span>
+                <span class="right">
+					@if($requirement)
+						{{ $requirement->level }}</span>
+					@endif
             </div>
             <div class="info_box_item undergraduate">
                 <span class="type rank-name smaller grade-type">Diploma</span>
-                <span class="right">{{ $requirement->diploma }}</span>
+                <span class="right">
+					@if($requirement)
+						{{ $requirement->diploma }}</span>
+					@endif
             </div>
             <div class="info_box_item undergraduate">
                 <span class="type rank-name smaller grade-type">International Baccalaureate</span>
-                <span class="right">{{ $requirement->international_baccalaureate }}</span>
+                <span class="right">
+					@if($requirement)
+						{{ $requirement->international_baccalaureate }}</span>
+					@endif
             </div>
 			</div><!-- /.box-ranking -->
 		</div>
+		@endif
 	</div><!-- /.course_details -->
 
 	<div class="row course_details">
-		<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col">
+		@if($scholarships->count() > 0)
+			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col">
 			<div class="box-ranking left">
 				<h4 class="title-box">Scholarships</h4>
 				@foreach($scholarships as $scholarship)
@@ -127,7 +157,10 @@
 				@endforeach
 			</div><!-- /.box-ranking -->
 		</div>
-		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col">
+		@endif
+
+		@if($information)
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col">
 			<div class="box-ranking left">
 				<h4 class="title-box">INFORMATION</h4>
 				<div class="info_box_item clearfix">
@@ -170,7 +203,8 @@
              </div>
 			</div><!-- /.box-ranking -->
 		</div>
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col">
+
+			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col">
 			<div class="box-ranking left">
 				<h4 class="title-box">Duration</h4>
 				<div class="info_box_item duration">
@@ -189,9 +223,10 @@
            </div>
 			</div><!-- /.box-ranking -->
 		</div>
+		@endif
 	</div><!-- /.course_details -->
-
-	<div class="about-course rowsec">
+	@if($information)
+		<div class="about-course rowsec">
 		<h2>About the course</h2>
 		<div class="description">
 			{!! $information->about !!}
@@ -219,7 +254,7 @@
           </div>
       </div><!-- /#askus -->
 	</div><!-- /.about-course -->
-
+	@endif
 	<div class="filter-result">
 		<h4 class="title-box"><span>Similar courses</span></h4>
 		<div class="list-courses">

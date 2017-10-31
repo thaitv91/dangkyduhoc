@@ -398,3 +398,7 @@ Route::get('/course/{slug}', 'User\AjaxController@getCourseDetail');
 Route::post('/course/similar', 'User\AjaxController@getSimilar');
 Route::post('/course/filter', 'User\AjaxController@postFilter');
 Route::post('/course/filter-subject', 'User\AjaxController@postFilterSubject');
+
+// OAuth Routes
+Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');

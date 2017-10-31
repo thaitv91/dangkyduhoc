@@ -47,7 +47,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <form action="/account/ExternalLogin" id="facebookLoginForm" method="post" name="facebookLoginForm">
-                                            <a href="#">
+                                            <a href="{{ url('/auth/facebook') }}">
                                             <div class="blue_button fb-button" data-placement="right" title="Sign in using facebook to skip email verification. Recommended!">SIGN IN WITH <img alt="Facebook login" class="fb-login" src="https://therightustorage.blob.core.windows.net/assets/img/web/fbsmall.svg"></div>
                                             </a>
                                         </form>
@@ -70,16 +70,17 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 martop10 marbot10px">
                                     <form action="" class="login_form form-inline" id="login_form" method="post" name="login_form">
+                                        {{ csrf_field() }}
                                         <div class="validation-summary-valid" data-valmsg-summary="true">
                                             <ul>
                                                 <li style="display:none"></li>
                                             </ul>
                                         </div>
                                         <div class="form-group">
-                                            <input class="form-control" id="Email" name="Email" placeholder="Your email" type="text" value="">
+                                            <input class="form-control" id="email" name="email" placeholder="Your email" type="email" value="">
                                         </div>
                                         <div class="form-group">
-                                            <input class="form-control" id="Password" name="password" placeholder="Your password" type="password" value="">
+                                            <input class="form-control" id="password" name="password" placeholder="Your password" type="password" value="">
                                         </div>
                                         <button class="btn blue-btn" id="login_button">Sign in</button>
                                     </form>
@@ -95,7 +96,8 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 martop10 marbot10px">
-                                    <form action="" class="register_form form-inline" name="register_form">
+                                    <form action="/register" method="post" class="register_form form-inline" name="register_form">
+                                        {{ csrf_field() }}
                                         <div class="form-group">
                                             <input class="form-control" id="newEmail" name="email" placeholder="Your email" type="text" value="">
                                         </div>
@@ -179,8 +181,8 @@
                         </li>
                     </ul>
                 </li>
-                  <li><a href="{{ route('user.course.compare') }}">Compare <span class="top compareInfo badge" id="compare-count"> - </span></a></li>
-                <li><a href="#">Apply <span class="top compareInfo badge">15</span></a></li>
+                <li><a href="{{ route('user.course.compare') }}">Compare <span class="top compareInfo badge" id="compare-count"> - </span></a></li>
+                <li><a href="{{ route('user.course.apply') }}">Apply <span class="top compareInfo badge" id="apply-count"> - </span></a></li>
                 <li class="li-search">
                     <span class="clickable open-search" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="sprite-search"></i></span>
                     <div class="form" aria-labelledby="dLabel">
@@ -371,7 +373,13 @@
             </div>
           </div><!-- /#left-nav -->
         </nav>
+        @if (Session::has('message'))
+            <div class="alert alert-info">{{ Session::get('message') }}</div>
+        @endif
 
+        @if (Session::has('error'))
+            <div class="alert alert-error">{{ Session::get('error') }}</div>
+        @endif
     @yield('content')
 
     @include('layouts.footer')
@@ -460,10 +468,10 @@
 <!-- <script src="{{ asset('js/jquery.circliful.js') }}"></script> -->
 <script src="{{ asset('js/compare.js') }}"></script>
 <script src="{{ asset('js/jquery.donutchart.js') }}"></script>
-<script src="{{ asset('js/dropzonescripts.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="{{ asset('js/dropzonescripts.js') }}"></script>
 <script type="text/javascript">
         function initialize() {
           initMap();
@@ -507,7 +515,6 @@
           features.forEach(function(feature) {
           var marker = new google.maps.Marker({
             position: feature.position,
-            icon: image,
             map: map,
           });
           var infowindow = new google.maps.InfoWindow({
