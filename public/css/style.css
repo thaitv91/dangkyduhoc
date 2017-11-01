@@ -3932,6 +3932,20 @@ sub, sup {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
 }
 
+.top-alert {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  z-index: 999;
+  width: 320px;
+  max-width: 100%;
+}
+@media screen and (max-width: 991px) {
+  .top-alert {
+    top: 40px;
+  }
+}
+
 footer {
   background-color: #2f5385;
   color: #fff;
