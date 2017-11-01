@@ -69,7 +69,7 @@
                                     <span class="login-header">Sign in</span>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 martop10 marbot10px">
-                                    <form action="" class="login_form form-inline" id="login_form" method="post" name="login_form">
+                                    <form action="/login" class="login_form form-inline" id="login_form" method="post" name="login_form">
                                         {{ csrf_field() }}
                                         <div class="validation-summary-valid" data-valmsg-summary="true">
                                             <ul>
@@ -102,7 +102,7 @@
                                             <input class="form-control" id="newEmail" name="email" placeholder="Your email" type="text" value="">
                                         </div>
                                         <div class="form-group">
-                                            <input class="form-control" id="txtPassword" name="password" placeholder="Your password" type="password" value=""> <input class="form-control confirm hidden" id="txtConfirmPassword" name="confirmPassword" placeholder="Confirm your password" type="password" value="">
+                                            <input class="form-control" id="txtPassword" name="password" placeholder="Your password" type="password" value=""> <input class="form-control confirm hidden" id="password-confirm" name="password_confirmation" placeholder="Confirm your password" type="password" value="">
                                         </div>
                                         <button class="btn blue-btn" id="create_account_button" type="submit">Register</button>
                                     </form>
@@ -472,6 +472,7 @@
 <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="{{ asset('js/dropzonescripts.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
 <script type="text/javascript">
         function initialize() {
           initMap();

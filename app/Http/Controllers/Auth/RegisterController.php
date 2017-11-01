@@ -58,7 +58,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6',
         ]);
     }
 
@@ -71,14 +71,14 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $name = '';
-        if ($data['name']) {
+        if (isset($data['name']) && $data['name']) {
             $name = $data['name'];
         }
         return User::create([
             'name'              => $name,
             'email'             => $data['email'],
             'password'          => bcrypt($data['password']),
-            'remember_token'    => $data['_token']
+            'remember_token'    => $data['_token'],
         ]);
     }
     /*
@@ -86,24 +86,20 @@ class RegisterController extends Controller
     */
     public function register(Request $request)
     {
-        $this->validator($request->all())->validate();
+        $data = $request->all();
 
-        event(new Registered($user = $this->create($request->all())));
-        // $this->guard()->login($user);
-//        Mail::to($request->email)->send(new SendMailActiveAccount(
-//            array('id'=>$user->id,'code'=>$user->password)//To create url active
-//            ));
+        $this->validator($data)->validate();
+
+        event(new Registered($user = $this->create($data)));
+
+        Mail::to($request->email)->send(new SendMailActiveAccount(
+            array('id' => $user->id,'code' => $user->password)//To create url active
+            ));
         UserMeta::create(['user_id'=>$user->id]);//Create more info in table user_meta
-        if ($this->registered($request, $user) ) {
-            Session::flash('success','Create account successfully!');
-        } else {
-            Session::flash('error','Create account error!');
-        }
-        //Session::flash('success','Create account successfully! Please check email to active this account.');
-//        return $this->registered($request, $user)
-//                        ?: redirect($this->redirectPath());
-        // return Redirect::route('auth.login');
-        return Redirect::back();
+
+        Session::flash('success','Create account successfully! Please check email to active this account.');
+
+        return Redirect::to('/');
     }
 
     public function redirectToProvider($provider)
@@ -134,12 +130,5 @@ class RegisterController extends Controller
         $new_user->isactive = 1;
         $new_user->save();
         return $new_user;
-//        return User::create([
-//            'name'     => $user->name,
-//            'email'    => $user->email,
-//            'provider' => $provider,
-//            'provider_id' => $user->id,
-//            'isactive' => 1
-//        ]);
     }
 }

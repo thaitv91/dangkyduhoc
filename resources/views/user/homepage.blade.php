@@ -3,6 +3,18 @@
 @section("scripts")
 @endsection
 @section("content")
+	@if (Session::has('error'))
+		<div class="alert alert-danger alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<h4><i class="icon fa fa-warning"></i> {{ Session::get('error') }} </h4>
+		</div>
+	@endif
+	@if (Session::has('success'))
+		<div class="alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<h4><i class="icon fa fa-check"></i> {{ Session::get('success') }}</h4>
+		</div>
+	@endif
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <div class="banner-home" style="background-image:url( {{  $data_field['header-banner'] }})">
 	<div class="container">
@@ -120,7 +132,6 @@
 		</div><!-- /.step -->
 	</div>
 </div><!-- /.steps-guide -->
-
 
 <div class="blog-home">
 	<div class="container">
