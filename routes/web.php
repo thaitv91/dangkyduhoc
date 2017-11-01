@@ -350,8 +350,12 @@ Route::get('/guide/{slug}','User\GuideController@search')->name('user.guide.sear
 Route::get('/guide/category/{slug}','User\GuideController@guideCategory')->name('user.guide.category');
 Route::get('search/autocomplete', 'User\GuideController@autocomplete')->name('user.search.ajax');
 Route::get('university/{slug}','User\UniversityController@viewDetail')->name('user.university.detail');
+Route::get('university/set-cookie/cookie-frequently-visited','User\UniversityController@setCookieFrequentlyVisitedUniversityIds')->name('user.university.setCookieFrequentlyVisitedUniversityIds');
 Route::get('career/{slug}','User\CareerController@viewDetail')->name('user.career.detail');
+Route::get('career/set-cookie/cookie-frequently-visited','User\CareerController@setCookieFrequentlyVisitedCareerIds')->name('user.career.setCookieFrequentlyVisitedCareerIds');
+
 Route::get('subject/{slug}','User\SubjectController@viewDetail')->name('user.subject.detail');
+Route::get('subject/set-cookie/cookie-frequently-visited','User\SubjectController@setCookieFrequentlyVisitedSubjectIds')->name('user.subject.setCookieFrequentlyVisitedSubjectIds');
 //COMPARE AND APPLY COURSE
 Route::get('get-course-count', 'User\HomeController@getCourseCount')->name('getCourseCount');
 Route::get('subject/cookie-compare/set','User\SubjectController@setCookie')->name('user.subject.setCookie');

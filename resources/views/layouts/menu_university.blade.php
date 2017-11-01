@@ -3,9 +3,15 @@
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
             <h3>My frequently visited</h3>
-            <a href="#">University 1</a>
-            <a href="#">University 2</a>
-            <a href="#">University 3</a>
+            <?php 
+            $frequent_visited_university_ids = Cookie::get('frequent_visited_university_ids',json_encode([]));
+            ?>
+            @foreach (json_decode($frequent_visited_university_ids) as $value)
+            @php 
+            $frequent_visited_university = App\Models\University::where('id', $value)->get(['name', 'slug'])->first(); 
+            @endphp
+            <a href="{{ route('user.university.detail', $frequent_visited_university->slug) }}">{{ $frequent_visited_university->name }}</a>
+            @endforeach
             <?php
                 $schools = App\Models\University::select('*')->orderBy('country_slug')->get();
                 $s_cookie_count = 23;

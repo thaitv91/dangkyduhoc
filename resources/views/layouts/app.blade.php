@@ -230,9 +230,15 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             <h3>My frequently visited</h3>
-                            <a href="#">Career 1</a>
-                            <a href="#">Career 2</a>
-                            <a href="#">Career 3</a>
+                            <?php 
+                            $frequent_visited_career_ids = Cookie::get('frequent_visited_career_ids',json_encode([]));
+                            ?>
+                            @foreach (json_decode($frequent_visited_career_ids) as $value)
+                            @php 
+                            $frequent_visited_career = App\Models\Career::where('id', $value)->get(['name', 'slug'])->first(); 
+                            @endphp
+                            <a href="{{ route('user.career.detail', $frequent_visited_career->slug) }}">{{ $frequent_visited_career->name }}</a>
+                            @endforeach
                             <div class="recent-uni-spacer"></div>
                             <?php
                             $carrers = App\Models\Career::all();
@@ -543,5 +549,48 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0mK4AeH9grAllE4tl8Mm6IbM_yPIF0lg&libraries=places&callback=initialize">
     </script>
     @yield('scripts')
+    <script type="text/javascript">
+        $('#subject a').on('click', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var slug = url.split('/');
+            slug = slug[slug.length-1];
+
+            $.ajax({
+                url : "{{ route('user.subject.setCookieFrequentlyVisitedSubjectIds') }}",
+                data : {subject_slug:slug}
+            }).done(function () {
+               $(location).attr('href',url)
+            });
+        });
+
+        $('#university a').on('click', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var slug = url.split('/');
+            slug = slug[slug.length-1];
+
+            $.ajax({
+                url : "{{ route('user.university.setCookieFrequentlyVisitedUniversityIds') }}",
+                data : {university_slug:slug}
+            }).done(function () {
+               $(location).attr('href',url)
+            });
+        });
+
+        $('#career a').on('click', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var slug = url.split('/');
+            slug = slug[slug.length-1];
+
+            $.ajax({
+                url : "{{ route('user.career.setCookieFrequentlyVisitedCareerIds') }}",
+                data : {career_slug:slug}
+            }).done(function () {
+               $(location).attr('href',url)
+            });
+        });
+    </script>
 </body>
 </html>
