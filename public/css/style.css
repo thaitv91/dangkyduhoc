@@ -3485,7 +3485,7 @@ sub, sup {
   margin: 21px 0 0 17px;
   display: inline-block;
 }
-.navbar-default .navbar-nav > li .open-user {
+.navbar-default .navbar-nav > li .open-user, .navbar-default .navbar-nav > li .user-logged {
   display: inline-block;
   background-color: #2f5385;
   width: 45px;
@@ -3495,9 +3495,12 @@ sub, sup {
   line-height: 46px;
   margin: -8px 0 0 44px;
 }
-.navbar-default .navbar-nav > li .open-user i {
+.navbar-default .navbar-nav > li .open-user i, .navbar-default .navbar-nav > li .user-logged i {
   display: inline-block;
   vertical-align: middle;
+}
+.navbar-default .navbar-nav > li .user-logged {
+  background-color: #23a43f;
 }
 
 .sub-menu {
@@ -4118,6 +4121,7 @@ footer .footer-top .social {
   padding: 9px 20px;
   cursor: pointer;
   font-family: UTMBebas, Arial, Helvetica, sans-serif;
+  display: inline;
 }
 .navbar-nav > li > .gtt-get-help.dropdown-menu li a:hover {
   color: #2f5385;

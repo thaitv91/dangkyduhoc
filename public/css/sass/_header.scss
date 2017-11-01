@@ -50,7 +50,7 @@
 				margin: 21px 0 0 17px;
 				display: inline-block;
 			}
-			.open-user{
+			.open-user, .user-logged{
 				display: inline-block;
 				background-color: $color-link;
 				width: 45px;
@@ -63,6 +63,9 @@
 					display: inline-block;
 					vertical-align: middle;
 				}
+			}
+			.user-logged{
+				background-color: $color-3-hover;
 			}
 		}
 	}

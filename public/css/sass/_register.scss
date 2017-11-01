@@ -138,6 +138,7 @@
 		    padding: 9px 20px;
 		    cursor: pointer;
 		    @include UTMBebas();
+            display: inline;
 		    &:hover{
 		    	color: $color-link;
 		    }
