@@ -19,7 +19,14 @@ class PathwayController extends Controller
 
     // list pathway
     public function index() {
+        $pathways = Pathway::all();
 
+        $data = [
+            'title' => 'PathWay Create',
+            'pathways' => $pathways
+        ];
+
+        return view('admin.pathway.create', $data);
     }
 
     // create pathway
@@ -41,6 +48,7 @@ class PathwayController extends Controller
         $have_pathway = Pathway::where('university_main_id', '=', $data['main_uni_id'])
             ->where('university_pathway_id', '=', $data['pathway_uni_id'])
             ->where('course_slug', '=', $data['course_slug'])
+            ->where('main_course_slug', '=', $data['main_course_slug'])
             ->first();
 
         if ($have_pathway) {
@@ -49,9 +57,11 @@ class PathwayController extends Controller
         }
 
         $pathway = new Pathway;
+        $pathway->main_course_slug = $data['main_course_slug'];
         $pathway->university_main_id = $data['main_uni_id'];
         $pathway->university_pathway_id = $data['pathway_uni_id'];
         $pathway->course_slug = $data['course_slug'];
+
         if ($pathway->save() ) {
             Session::flash('success', 'Create Pathway Success');
             return Redirect::back();

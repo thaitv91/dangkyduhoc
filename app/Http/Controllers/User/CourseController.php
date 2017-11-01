@@ -24,7 +24,14 @@ class CourseController extends Controller
     	$cookie = Cookie::queue(Cookie::forever('compare_course_id', json_encode($course_ids)));
     	$courses = Course::whereIn('id', $course_ids)->get();
         $apply_course_id = $this->getApplyCourseId();
-    	return view('user.compare', compact(['courses', 'apply_course_id']))->withCookie($cookie);
+
+        $data = [
+            'courses' => $courses,
+            'apply_course_id' => $apply_course_id,
+            'title' => 'Compare'
+        ];
+
+    	return view('user.compare', $data)->withCookie($cookie);
     }
 
     public function apply() {

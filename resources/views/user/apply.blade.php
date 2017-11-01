@@ -2,7 +2,7 @@
 
 @section("content")
 <div class="title-page">
-	<div class="container"><h1>UNIVERSITY GUIDE</h1></div>
+	<div class="container"><h1>Apply</h1></div>
 </div>
 
 <div class="container apply-page">

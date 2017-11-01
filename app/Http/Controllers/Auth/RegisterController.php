@@ -13,6 +13,8 @@ use Mail;
 use App\Mail\SendMailActiveAccount;
 use Redirect;
 use Session;
+use Socialite;
+use Auth;
 
 class RegisterController extends Controller
 {
@@ -55,9 +57,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6',
         ]);
     }
 
@@ -69,11 +70,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $name = '';
+        if (isset($data['name']) && $data['name']) {
+            $name = $data['name'];
+        }
         return User::create([
-            'name'              => $data['name'],
+            'name'              => $name,
             'email'             => $data['email'],
             'password'          => bcrypt($data['password']),
-            'remember_token'    => $data['_token']
+            'remember_token'    => $data['_token'],
         ]);
     }
     /*
@@ -81,17 +86,49 @@ class RegisterController extends Controller
     */
     public function register(Request $request)
     {
-        $this->validator($request->all())->validate();
+        $data = $request->all();
 
-        event(new Registered($user = $this->create($request->all())));
-        // $this->guard()->login($user);
+        $this->validator($data)->validate();
+
+        event(new Registered($user = $this->create($data)));
+
         Mail::to($request->email)->send(new SendMailActiveAccount(
-            array('id'=>$user->id,'code'=>$user->password)//To create url active
+            array('id' => $user->id,'code' => $user->password)//To create url active
             ));
         UserMeta::create(['user_id'=>$user->id]);//Create more info in table user_meta
+
         Session::flash('success','Create account successfully! Please check email to active this account.');
-        return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
-        // return Redirect::route('auth.login');
+
+        return Redirect::to('/');
+    }
+
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function handleProviderCallback($provider)
+    {
+        $user = Socialite::driver($provider)->user();
+
+        $authUser = $this->findOrCreateUser($user, $provider);
+        Auth::login($authUser, true);
+        return redirect($this->redirectTo);
+    }
+
+    public function findOrCreateUser($user, $provider)
+    {
+        $authUser = User::where('provider_id', $user->id)->first();
+        if ($authUser) {
+            return $authUser;
+        }
+        $new_user = new User();
+        $new_user->name = $user->name;
+        $new_user->email = $user->email;
+        $new_user->provider = $provider;
+        $new_user->provider_id = $user->id;
+        $new_user->isactive = 1;
+        $new_user->save();
+        return $new_user;
     }
 }

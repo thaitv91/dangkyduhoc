@@ -14,6 +14,7 @@ class SystemController extends Controller
     //
 	public function activeAccount(Request $request) {
 		$user = User::where('id',$request->id)->get(['id','password','isactive'])->first();
+
 		if (isset($user) && ($user->password == $request->code)) {
 			if ($user->isactive == 1) {
 				Session::flash('success','This account has been actived already!');
