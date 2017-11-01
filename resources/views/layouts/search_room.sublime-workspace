@@ -1,0 +1,1002 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cus",
+				"custom_field"
+			],
+			[
+				"form",
+				"form-group"
+			],
+			[
+				"so",
+				"socialite"
+			],
+			[
+				"social",
+				"socialite_name"
+			],
+			[
+				"soci",
+				"socialite"
+			],
+			[
+				"copyri",
+				"copyright_en"
+			],
+			[
+				"add",
+				"address_en"
+			],
+			[
+				"wo",
+				"working_hour_en"
+			],
+			[
+				"arra",
+				"array\t$… = array (…)"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"ima",
+				"map_image_preview"
+			],
+			[
+				"img",
+				"img\tTag"
+			],
+			[
+				"modal",
+				"modal-reply"
+			],
+			[
+				"cont",
+				"contacts"
+			],
+			[
+				"new",
+				"new_name"
+			],
+			[
+				"slid",
+				"slider"
+			],
+			[
+				"strp",
+				"strpos"
+			],
+			[
+				"Slid",
+				"SliderImage"
+			],
+			[
+				"slider",
+				"slider_image"
+			],
+			[
+				"file",
+				"file_name"
+			],
+			[
+				"fil",
+				"filename"
+			],
+			[
+				"temp",
+				"temp_folder"
+			],
+			[
+				"form-",
+				"form-group"
+			],
+			[
+				"pre",
+				"prefix"
+			],
+			[
+				"chat",
+				"chat_list"
+			],
+			[
+				"chat_",
+				"chat_session"
+			],
+			[
+				"fr",
+				"frequently_visited_subjects"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"fre",
+				"frequently_visited_subjects"
+			],
+			[
+				"sub",
+				"subject18"
+			],
+			[
+				"su",
+				"Subject"
+			],
+			[
+				"fri",
+				"frequently_visited_subjects"
+			],
+			[
+				"fur",
+				"frequently_visited_subjects"
+			],
+			[
+				"rank",
+				"ranking_title"
+			],
+			[
+				"sele",
+				"selected"
+			],
+			[
+				"Cou",
+				"Course"
+			],
+			[
+				"uni",
+				"university_information"
+			],
+			[
+				"cour",
+				"course_website"
+			],
+			[
+				"requi",
+				"requirement"
+			],
+			[
+				"univ",
+				"university"
+			],
+			[
+				"User",
+				"UserController"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"course",
+				"course_id"
+			],
+			[
+				"bt",
+				"btn-primary"
+			],
+			[
+				"ranking",
+				"ranking_subject"
+			],
+			[
+				"tu",
+				"year_tuition_fees"
+			],
+			[
+				"fom",
+				"form-group"
+			],
+			[
+				"box",
+				"box-body"
+			],
+			[
+				"al",
+				"text-align"
+			],
+			[
+				"co",
+				"count"
+			],
+			[
+				"inte",
+				"international_baccalaureate"
+			],
+			[
+				"pr",
+				"print_r"
+			],
+			[
+				"info",
+				"infomation"
+			],
+			[
+				"key",
+				"key1"
+			],
+			[
+				"jso",
+				"json_decode"
+			],
+			[
+				"cou",
+				"course_main"
+			],
+			[
+				"un",
+				"university"
+			],
+			[
+				"unive",
+				"university_link"
+			],
+			[
+				"userme",
+				"user_meta"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"des",
+				"descriptions"
+			],
+			[
+				"for",
+				"formal_wear"
+			],
+			[
+				"Des",
+				"Desk-bound"
+			],
+			[
+				"htm",
+				"htmlspecialchars"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"adm",
+				"Admin"
+			],
+			[
+				"hea",
+				"header"
+			],
+			[
+				"p",
+				"p\tTag"
+			],
+			[
+				"Hom",
+				"HomePage"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"old_",
+				"old_user"
+			],
+			[
+				"old",
+				"old_password"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"STo",
+				"Storage"
+			],
+			[
+				"user",
+				"user"
+			],
+			[
+				"re",
+				"registered"
+			],
+			[
+				"tim",
+				"timestamps"
+			],
+			[
+				"opt",
+				"option\tTag"
+			],
+			[
+				"col",
+				"col-md-12"
+			],
+			[
+				"New",
+				"NewsModel"
+			],
+			[
+				"tb",
+				"tbl_news_posted"
+			],
+			[
+				"tbl_new",
+				"tbl_news_wating"
+			],
+			[
+				"list",
+				"list_waited"
+			],
+			[
+				"update",
+				"updated_at"
+			],
+			[
+				"news",
+				"news_list_waited"
+			],
+			[
+				"updated",
+				"updated_at"
+			],
+			[
+				"News",
+				"NewsModel"
+			],
+			[
+				"child",
+				"child2"
+			],
+			[
+				"ord",
+				"orderBy"
+			],
+			[
+				"Category",
+				"CategoryController"
+			],
+			[
+				"Home",
+				"HomePage"
+			],
+			[
+				"ca",
+				"categories"
+			],
+			[
+				"desc",
+				"description"
+			],
+			[
+				"modal-",
+				"modal-signup"
+			],
+			[
+				"moda",
+				"modal-signup"
+			],
+			[
+				"Re",
+				"Request"
+			],
+			[
+				"val",
+				"validator"
+			],
+			[
+				"u",
+				"username"
+			],
+			[
+				"pars",
+				"parseInt"
+			],
+			[
+				"pag",
+				"pagination"
+			],
+			[
+				"com",
+				"comments"
+			],
+			[
+				"cate",
+				"categories"
+			],
+			[
+				"qu",
+				"queue"
+			],
+			[
+				"Cate",
+				"CategoryModel"
+			],
+			[
+				"comm",
+				"comments-total"
+			],
+			[
+				"modals",
+				"modal-signin"
+			],
+			[
+				"Cat",
+				"CategoryModel"
+			],
+			[
+				"chi",
+				"child"
+			],
+			[
+				"is",
+				"isReaded"
+			],
+			[
+				"menu",
+				"menu-extras"
+			],
+			[
+				"to",
+				"toastr"
+			],
+			[
+				"Auth",
+				"AuthenticatesUsers"
+			],
+			[
+				"modalsi",
+				"modal-signup"
+			],
+			[
+				"modal-s",
+				"modal-signin"
+			],
+			[
+				"colmd",
+				"col-md-offset-3"
+			],
+			[
+				"categ",
+				"categories_list"
+			],
+			[
+				"str",
+				"strtotime"
+			],
+			[
+				"chun",
+				"chungnhan_ngaycap"
+			],
+			[
+				"save",
+				"save_data"
+			],
+			[
+				"data",
+				"dataTable"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"thanhal",
+				"thanhlap_so2"
+			],
+			[
+				"thanhl",
+				"thanhlap_2"
+			],
+			[
+				"thanh",
+				"thanhlap_2"
+			],
+			[
+				"Word",
+				"WordController"
+			],
+			[
+				"Wo",
+				"WordModel"
+			],
+			[
+				"Stor",
+				"Storage"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/D/WEB/search_room/.env",
+			"settings":
+			{
+				"buffer_size": 2480,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/WEB/search_room/database/migrations/2017_10_09_084837_create_basic_informations_table.php",
+			"settings":
+			{
+				"buffer_size": 846,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nclass CreateOtherInformationsTable extends Migration\n{\n    /**\n     * Run the migrations.\n     *\n     * @return void\n     */\n    public function up()\n    {\n        Schema::create('other_informations', function (Blueprint $table) {\n            $table->increments('id');\n            $table->string('facade');\n            $table->integer('floor_quantity');\n            $table->integer('room_quantity');\n            \n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     *\n     * @return void\n     */\n    public function down()\n    {\n        Schema::dropIfExists('other_informations');\n    }\n}\n",
+			"file": "/D/WEB/search_room/database/migrations/2017_10_09_085131_create_other_informations_table.php",
+			"file_size": 624,
+			"file_write_time": 131520126915798210,
+			"settings":
+			{
+				"buffer_size": 768,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "ins",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 58.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/WEB/search_room",
+		"/D/WEB/search_room/database",
+		"/D/WEB/search_room/database/migrations"
+	],
+	"file_history":
+	[
+		"/D/WEB/laravel_auth/laravel-auth/composer.json",
+		"/C/Users/ninhv/AppData/Roaming/Skype/My Skype Received Files/map.sql",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/HomeController.php",
+		"/D/WEB/dangkyduhoc/routes/web.php",
+		"/D/WEB/dangkyduhoc/database/seeds/CourseSeeder.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/ContactController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/customField/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/pagefield/create.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/customField/edit.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/PageField.php",
+		"/D/WEB/dangkyduhoc/resources/views/layouts/footer.blade.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_06_022923_create_custom_fields_table.php",
+		"/D/WEB/dangkyduhoc/database/seeds/DatabaseSeeder.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_06_032123_add_classification_table_course.php",
+		"/D/WEB/dangkyduhoc/.gitignore",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/CustomFieldController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/customField/create.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/CustomField.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/footer/create.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/footer/edit.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/Footer.php",
+		"/D/WEB/dangkyduhoc/app/CustomField.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_05_034118_create_footer_table.php",
+		"/D/WEB/dangkyduhoc/app/Models/Socialite.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/UniversityController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/course/create.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/contact/show.blade.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_05_035327_create_socialites_table.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/footer/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/contact/index.blade.php",
+		"/D/WEB/dangkyduhoc/app/Listeners/MessageListener.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/MessageController.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/SubjectCareerController.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/chat_admin.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/chat.blade.php",
+		"/C/Users/ninhv/Desktop/client_secret_133336580624-bmupqttbm677s8l2u3vp38f8pdh3tdjb.apps.googleusercontent.com.json",
+		"/D/WEB/dangkyduhoc/app/Events/SendMessage.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/FileController.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/SliderController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/universities/edit.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/universities.blade.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/UniversityController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/universities/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/layouts/app.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/University.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/universities/create.blade.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_29_091123_add_image_table_university.php",
+		"/D/WEB/dangkyduhoc/app/Models/Slider.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/slider/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/layouts/admin.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/slider/edit.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/slider/create.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/SliderImage.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/RatingController.php",
+		"/D/WEB/dangkyduhoc/vendor/laravel/framework/src/Illuminate/Support/Facades/Storage.php",
+		"/D/WEB/dangkyduhoc/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php",
+		"/D/WEB/dangkyduhoc/vendor/laravel/framework/src/Illuminate/Contracts/Filesystem/Filesystem.php",
+		"/D/WEB/dangkyduhoc/app/SliderImage.php",
+		"/D/WEB/dangkyduhoc/public/js/dropzone.min.js",
+		"/D/WEB/dangkyduhoc/public/css/dropzone.min.css",
+		"/D/WEB/dangkyduhoc/public/css/dropzone.css",
+		"/D/WEB/dangkyduhoc/public/js/dropzone.js",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_28_095808_create_slider_images_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_28_095923_create_sliders_table.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/DashboardController.php",
+		"/D/WEB/dangkyduhoc/storage/logs/laravel.log",
+		"/D/WEB/dangkyduhoc/config/app.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/PageFieldController.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/chat_box.blade.php",
+		"/D/WEB/dangkyduhoc/config/broadcasting.php",
+		"/D/WEB/dangkyduhoc/.env",
+		"/D/WEB/dangkyduhoc/app/Providers/EventServiceProvider.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/old_message.blade.php",
+		"/D/WEB/dangkyduhoc/resources/chat.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/chat_admin.blade.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_27_065551_table_messages_create.php",
+		"/D/WEB/dangkyduhoc/public/js/moment.js",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/HomeController.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/homepage.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/course/index.blade.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/CourseController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/users/edit.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/course/edit.blade.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_19_035147_alter_course_information_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_19_083657_add_cost_per_year_course_cost_table.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/UserController.php",
+		"/D/WEB/dangkyduhoc/app/Models/Course.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Auth/LoginController.php",
+		"/D/WEB/dangkyduhoc/app/Models/CourseRequirement.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_08_18_081627_create_course_entry_information_table.php",
+		"/D/WEB/dangkyduhoc/app/Models/CourseRanking.php",
+		"/D/WEB/dangkyduhoc/app/Models/CourseInformation.php",
+		"/D/WEB/dangkyduhoc/app/Models/CourseCost.php",
+		"/D/WEB/Xampp/htdocs/vsa/config/lfm.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/guide/create.blade.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/CountryController.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/CourseController.php",
+		"/D/WEB/dangkyduhoc/database/seeds/CourseRankingSeeder.php",
+		"/D/WEB/dangkyduhoc/database/seeds/CourseCostSeeder.php",
+		"/D/WEB/dangkyduhoc/database/seeds/CourseEntryRequirementSeeder.php",
+		"/D/WEB/dangkyduhoc/database/seeds/CourseInformationSeeder.php",
+		"/D/WEB/dangkyduhoc/resources/views/chatbox.blade.php",
+		"/D/WEB/dangkyduhoc/public/course_information.json",
+		"/D/WEB/dangkyduhoc/public/course_entry_requirements.json",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_12_040812_add_course_infomation_table_course_infomation.php",
+		"/D/WEB/dangkyduhoc/public/course_entry_requirements_errors.txt",
+		"/D/WEB/dangkyduhoc/public/course_requirement_error.txt",
+		"/D/WEB/vsa/sftp-config.json",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Controller.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_12_094844_create_course_ranking_table.php",
+		"/C/Users/ninhv/Desktop/dangkyduhoc_2017-09-14.sql",
+		"/D/WEB/dangkyduhoc/public/course_ranking.json",
+		"/D/WEB/dangkyduhoc/public/course_cost.json",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_08_18_081512_ccreate_course_ranking_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_12_072914_alter_tuition_fees_table_course_costs.php",
+		"/D/WEB/dangkyduhoc/public/course_infomation.json",
+		"/D/WEB/dangkyduhoc/public/course_main.json",
+		"/D/WEB/dangkyduhoc/app/Providers/RouteServiceProvider.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Auth/RegisterController.php",
+		"/D/WEB/dangkyduhoc/app/Http/Kernel.php",
+		"/D/WEB/dangkyduhoc/app/UserMeta.php",
+		"/D/WEB/dangkyduhoc/database/seeds/CareerSeeder.php",
+		"/D/WEB/seaculture_association/app/Http/Controllers/AdminController/NewsController.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_08_28_085150_add_career_table.php",
+		"/D/WEB/dangkyduhoc/database/seeds/CountriesTableSeeder.php",
+		"/D/WEB/dangkyduhoc/app/Http/Middleware/ActiveMiddleWare.php",
+		"/D/WEB/dangkyduhoc/vendor/composer/autoload_classmap.php"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/D/WEB/search_room/.env",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2480,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								185,
+								185
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/WEB/search_room/database/migrations/2017_10_09_084837_create_basic_informations_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 846,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								677,
+								677
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/WEB/search_room/database/migrations/2017_10_09_085131_create_other_informations_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 768,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								547,
+								547
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 231.0
+	},
+	"pinned_build_system": "",
+	"project": "search_room.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"web.php",
+				"routes\\web.php"
+			],
+			[
+				"vendor/mail",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Mail\\Mailable.php"
+			],
+			[
+				"routesig",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteSignatureParameters.php"
+			],
+			[
+				"authenticate",
+				"kuponhub\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Events\\Authenticated.php"
+			],
+			[
+				"filesystemadapter",
+				"kuponhub\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\FilesystemAdapter.php"
+			],
+			[
+				"providerrepository",
+				"seaculture_association\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php"
+			],
+			[
+				"unisharp/laravelfilemanager/laravelfilemanagerserviceprovider",
+				"tesla\\vendor\\unisharp\\laravel-filemanager\\src\\LaravelFilemanagerServiceProvider.php"
+			],
+			[
+				"very",
+				"file_export\\app\\Http\\Middleware\\VerifyCsrfToken.php"
+			],
+			[
+				"filesystema",
+				"file_export\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\FilesystemAdapter.php"
+			],
+			[
+				"file",
+				"kuponhub\\config\\filesystems.php"
+			],
+			[
+				".en",
+				"file_export\\.env"
+			],
+			[
+				"config/fil",
+				"file_export\\config\\filesystems.php"
+			],
+			[
+				"filesystem/a",
+				"file_export\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\FilesystemAdapter.php"
+			],
+			[
+				"/files/share",
+				"tesla\\public\\files\\shares\\Anh xáº¥u xÃ­ chá»© khÃ´ng xáº¥u xa - PhiÃªn báº£n siÃªu hÃ i hÆ°á»›c QuynhAka.mp4"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 890.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 284.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -22,6 +22,7 @@
     <link href="{{ asset('css/material-design-iconic-font.css') }}" rel="stylesheet">
     <link href="{{ asset('css/slick.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-datepicker3.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
@@ -180,7 +181,7 @@
                     </ul>
                 </li>
                   <li><a href="{{ route('user.course.compare') }}">Compare <span class="top compareInfo badge" id="compare-count"> - </span></a></li>
-                <li><a href="#">Apply <span class="top compareInfo badge">15</span></a></li>
+                <li><a href="{{ route('user.course.apply') }}">Apply <span class="top compareInfo badge" id="apply-count"> - </span></a></li>
                 <li class="li-search">
                     <span class="clickable open-search" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="sprite-search"></i></span>
                     <div class="form" aria-labelledby="dLabel">
@@ -460,8 +461,10 @@
 <!-- <script src="{{ asset('js/jquery.circliful.js') }}"></script> -->
 <script src="{{ asset('js/compare.js') }}"></script>
 <script src="{{ asset('js/jquery.donutchart.js') }}"></script>
+<!-- <script src="{{ asset('js/dropzone.min.js') }}"></script> -->
 <script src="{{ asset('js/dropzonescripts.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
 <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script type="text/javascript">

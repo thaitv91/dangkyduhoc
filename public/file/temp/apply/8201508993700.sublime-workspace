@@ -1,0 +1,1433 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"form-app",
+				"form-apply-2"
+			],
+			[
+				"drop",
+				"dropzone"
+			],
+			[
+				"App",
+				"ApplyCourseEnglishProficiency"
+			],
+			[
+				"qual",
+				"edu_qualification"
+			],
+			[
+				"iss",
+				"isset"
+			],
+			[
+				"personalDetail",
+				"ApplyCoursePersonalDetail"
+			],
+			[
+				"Profie",
+				"ApplyCourseEnglishProficiency"
+			],
+			[
+				"w",
+				"work"
+			],
+			[
+				"ce",
+				"certificate"
+			],
+			[
+				"AppcouE",
+				"ApplyCourseWorkExperience"
+			],
+			[
+				"empl",
+				"employer_name"
+			],
+			[
+				"edu",
+				"edu_end"
+			],
+			[
+				"edu_",
+				"edu_start"
+			],
+			[
+				"ap",
+				"append"
+			],
+			[
+				"disa",
+				"disabled"
+			],
+			[
+				"crim",
+				"criminal_record"
+			],
+			[
+				"dis",
+				"disabled"
+			],
+			[
+				"person",
+				"personal_details"
+			],
+			[
+				"isse",
+				"is_self_funded"
+			],
+			[
+				"form",
+				"form-apply-1"
+			],
+			[
+				"step_2",
+				"step_2_header"
+			],
+			[
+				"conti",
+				"continue-apply"
+			],
+			[
+				"cou",
+				"course"
+			],
+			[
+				"app",
+				"apply-count"
+			],
+			[
+				"get",
+				"getCourseCount"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"cour",
+				"course_id"
+			],
+			[
+				"co",
+				"cookie"
+			],
+			[
+				"arram",
+				"array_merge"
+			],
+			[
+				"uni",
+				"universities"
+			],
+			[
+				"coun",
+				"country"
+			],
+			[
+				"univ",
+				"universities"
+			],
+			[
+				"cor",
+				"course"
+			],
+			[
+				"univer",
+				"universities"
+			],
+			[
+				"cl",
+				"classification"
+			],
+			[
+				"Cou",
+				"Country"
+			],
+			[
+				"cours",
+				"course_ids"
+			],
+			[
+				"course",
+				"courses"
+			],
+			[
+				"compar",
+				"compare_number"
+			],
+			[
+				"cu",
+				"course_id"
+			],
+			[
+				"c",
+				"course_id"
+			],
+			[
+				"js",
+				"json_decode"
+			],
+			[
+				"arr",
+				"array"
+			],
+			[
+				"Re",
+				"Request"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"compareco",
+				"compare_course_id"
+			],
+			[
+				"cos",
+				"cost_per_year"
+			],
+			[
+				"univers",
+				"university_id"
+			],
+			[
+				"requ",
+				"request"
+			],
+			[
+				"cus",
+				"custom_field"
+			],
+			[
+				"so",
+				"socialite"
+			],
+			[
+				"social",
+				"socialite_name"
+			],
+			[
+				"soci",
+				"socialite"
+			],
+			[
+				"copyri",
+				"copyright_en"
+			],
+			[
+				"add",
+				"address_en"
+			],
+			[
+				"wo",
+				"working_hour_en"
+			],
+			[
+				"arra",
+				"array\t$… = array (…)"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"ima",
+				"map_image_preview"
+			],
+			[
+				"img",
+				"img\tTag"
+			],
+			[
+				"modal",
+				"modal-reply"
+			],
+			[
+				"cont",
+				"contacts"
+			],
+			[
+				"new",
+				"new_name"
+			],
+			[
+				"slid",
+				"slider"
+			],
+			[
+				"strp",
+				"strpos"
+			],
+			[
+				"Slid",
+				"SliderImage"
+			],
+			[
+				"slider",
+				"slider_image"
+			],
+			[
+				"file",
+				"file_name"
+			],
+			[
+				"fil",
+				"filename"
+			],
+			[
+				"temp",
+				"temp_folder"
+			],
+			[
+				"form-",
+				"form-group"
+			],
+			[
+				"pre",
+				"prefix"
+			],
+			[
+				"chat",
+				"chat_list"
+			],
+			[
+				"chat_",
+				"chat_session"
+			],
+			[
+				"fr",
+				"frequently_visited_subjects"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"fre",
+				"frequently_visited_subjects"
+			],
+			[
+				"sub",
+				"subject18"
+			],
+			[
+				"su",
+				"Subject"
+			],
+			[
+				"fri",
+				"frequently_visited_subjects"
+			],
+			[
+				"fur",
+				"frequently_visited_subjects"
+			],
+			[
+				"rank",
+				"ranking_title"
+			],
+			[
+				"sele",
+				"selected"
+			],
+			[
+				"requi",
+				"requirement"
+			],
+			[
+				"User",
+				"UserController"
+			],
+			[
+				"bt",
+				"btn-primary"
+			],
+			[
+				"ranking",
+				"ranking_subject"
+			],
+			[
+				"tu",
+				"year_tuition_fees"
+			],
+			[
+				"fom",
+				"form-group"
+			],
+			[
+				"box",
+				"box-body"
+			],
+			[
+				"al",
+				"text-align"
+			],
+			[
+				"inte",
+				"international_baccalaureate"
+			],
+			[
+				"pr",
+				"print_r"
+			],
+			[
+				"info",
+				"infomation"
+			],
+			[
+				"key",
+				"key1"
+			],
+			[
+				"jso",
+				"json_decode"
+			],
+			[
+				"un",
+				"university"
+			],
+			[
+				"unive",
+				"university_link"
+			],
+			[
+				"userme",
+				"user_meta"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"des",
+				"descriptions"
+			],
+			[
+				"for",
+				"formal_wear"
+			],
+			[
+				"Des",
+				"Desk-bound"
+			],
+			[
+				"htm",
+				"htmlspecialchars"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"adm",
+				"Admin"
+			],
+			[
+				"hea",
+				"header"
+			],
+			[
+				"p",
+				"p\tTag"
+			],
+			[
+				"Hom",
+				"HomePage"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"old_",
+				"old_user"
+			],
+			[
+				"old",
+				"old_password"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"STo",
+				"Storage"
+			],
+			[
+				"user",
+				"user"
+			],
+			[
+				"re",
+				"registered"
+			],
+			[
+				"tim",
+				"timestamps"
+			],
+			[
+				"opt",
+				"option\tTag"
+			],
+			[
+				"col",
+				"col-md-12"
+			],
+			[
+				"New",
+				"NewsModel"
+			],
+			[
+				"tb",
+				"tbl_news_posted"
+			],
+			[
+				"tbl_new",
+				"tbl_news_wating"
+			],
+			[
+				"list",
+				"list_waited"
+			],
+			[
+				"update",
+				"updated_at"
+			],
+			[
+				"news",
+				"news_list_waited"
+			],
+			[
+				"updated",
+				"updated_at"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/SliderController.php",
+			"settings":
+			{
+				"buffer_size": 7133,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/WEB/dangkyduhoc/app/Http/Controllers/User/ApplyCourseController.php",
+			"settings":
+			{
+				"buffer_size": 7593,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/WEB/dangkyduhoc/resources/views/user/apply.blade.php",
+			"settings":
+			{
+				"buffer_size": 24333,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/WEB/dangkyduhoc/resources/views/user/continue_apply.blade.php",
+			"settings":
+			{
+				"buffer_size": 26471,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/WEB/dangkyduhoc/resources/views/admin/slider/create.blade.php",
+			"settings":
+			{
+				"buffer_size": 4367,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/WEB/dangkyduhoc/resources/views/layouts/app.blade.php",
+			"settings":
+			{
+				"buffer_size": 30894,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/WEB/dangkyduhoc/routes/web.php",
+			"settings":
+			{
+				"buffer_size": 22459,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "ins",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 58.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/WEB/dangkyduhoc",
+		"/D/WEB/dangkyduhoc/app",
+		"/D/WEB/dangkyduhoc/app/Http",
+		"/D/WEB/dangkyduhoc/public",
+		"/D/WEB/dangkyduhoc/resources",
+		"/D/WEB/dangkyduhoc/resources/views"
+	],
+	"file_history":
+	[
+		"/D/WEB/dangkyduhoc/resources/views/user/continue_apply.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/slider/create.blade.php",
+		"/D/WEB/dangkyduhoc/public/js/custom.js",
+		"/D/WEB/dangkyduhoc/app/User.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/apply.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourseWorkExperience.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourseEnglishProficiency.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourseEducationBackground.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourseAdditionalDetail.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_033426_create_apply_course_work_experiences_table.php",
+		"/D/WEB/dangkyduhoc/storage/framework/views/02fdff402753a55650bba3b922516822277b2739.php",
+		"/D/WEB/dangkyduhoc/routes/web.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_025552_create_apply_course_personal_details_table.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCoursePersonalDetail.php",
+		"/D/WEB/dangkyduhoc/resources/views/layouts/app.blade.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/ApplyCourseController.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_04_032421_add_column_university_table.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourse.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourseDocument.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_042028_create_apply_course_additional_details_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_033800_create_apply_course_english_proficiencies_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_034514_create_apply_course_documents_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_031939_create_apply_course_education_backgrounds_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_025129_add_fields_table_apply_courses.php",
+		"/D/WEB/Xampp/htdocs/vsa/resources/lang/en/sidebar/general.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/HomeController.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Auth/RegisterController.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/compare.blade.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/SubjectController.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/subjects.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/includes/user/apply_course.blade.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/CourseController.php",
+		"/D/WEB/dangkyduhoc/app/Models/Course.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_17_091352_create_apply_courses_table.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/apply_html.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/layouts/admin.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/layouts/admin_bk.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/UserComparison.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_16_102431_create_user_comparisons_table.php",
+		"/D/Studying/Machine_Learning/Exercise/data/wdbc.data",
+		"/D/Studying/Machine_Learning/Exercise/data/temperature.data",
+		"/D/Studying/Machine_Learning/Exercise/data/profits.data",
+		"/D/WEB/dangkyduhoc/routes/temperature.data",
+		"/D/Studying/Machine_Learning/Exercise/data/wdbc",
+		"/D/WEB/dangkyduhoc/app/Models/University.php",
+		"/D/WEB/dangkyduhoc/.env",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/CourseController.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/compare_html.blade.php",
+		"/D/WEB/dangkyduhoc/database/seeds/DatabaseSeeder.php",
+		"/D/WEB/dangkyduhoc/app/Models/Subject.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/course/edit.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/course/null_subject_slug.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/course/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/course/create.blade.php",
+		"/D/WEB/dangkyduhoc/public/subject_courses.json",
+		"/D/WEB/dangkyduhoc/database/seeds/SubjectCourseSeeder.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/customField/create.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/CustomField.php",
+		"/D/WEB/dangkyduhoc_data/subject/architecture.html",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_12_040902_add_subject_slug_table_course.php",
+		"/D/WEB/dangkyduhoc_data/subject/dentistry.html",
+		"/D/WEB/dangkyduhoc/resources/views/admin/customField/edit.blade.php",
+		"/D/WEB/dangkyduhoc_data/subject/accounting-finance.html",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/CustomFieldController.php",
+		"/D/WEB/dangkyduhoc/resources/views/layouts/footer.blade.php",
+		"/D/WEB/laravel_auth/laravel-auth/composer.json",
+		"/C/Users/ninhv/AppData/Roaming/Skype/My Skype Received Files/map.sql",
+		"/D/WEB/dangkyduhoc/database/seeds/CourseSeeder.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/ContactController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/customField/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/pagefield/create.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/PageField.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_06_022923_create_custom_fields_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_06_032123_add_classification_table_course.php",
+		"/D/WEB/dangkyduhoc/.gitignore",
+		"/D/WEB/dangkyduhoc/resources/views/admin/footer/create.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/footer/edit.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/Footer.php",
+		"/D/WEB/dangkyduhoc/app/CustomField.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_05_034118_create_footer_table.php",
+		"/D/WEB/dangkyduhoc/app/Models/Socialite.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/UniversityController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/contact/show.blade.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_05_035327_create_socialites_table.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/footer/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/contact/index.blade.php",
+		"/D/WEB/dangkyduhoc/app/Listeners/MessageListener.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/MessageController.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/SubjectCareerController.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/chat_admin.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/chat.blade.php",
+		"/C/Users/ninhv/Desktop/client_secret_133336580624-bmupqttbm677s8l2u3vp38f8pdh3tdjb.apps.googleusercontent.com.json",
+		"/D/WEB/dangkyduhoc/app/Events/SendMessage.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/FileController.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/SliderController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/universities/edit.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/universities.blade.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/UniversityController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/universities/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/universities/create.blade.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_29_091123_add_image_table_university.php",
+		"/D/WEB/dangkyduhoc/app/Models/Slider.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/slider/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/slider/edit.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/SliderImage.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/RatingController.php",
+		"/D/WEB/dangkyduhoc/vendor/laravel/framework/src/Illuminate/Support/Facades/Storage.php",
+		"/D/WEB/dangkyduhoc/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php",
+		"/D/WEB/dangkyduhoc/vendor/laravel/framework/src/Illuminate/Contracts/Filesystem/Filesystem.php",
+		"/D/WEB/dangkyduhoc/app/SliderImage.php",
+		"/D/WEB/dangkyduhoc/public/js/dropzone.min.js",
+		"/D/WEB/dangkyduhoc/public/css/dropzone.min.css",
+		"/D/WEB/dangkyduhoc/public/css/dropzone.css",
+		"/D/WEB/dangkyduhoc/public/js/dropzone.js",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_28_095808_create_slider_images_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_28_095923_create_sliders_table.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/DashboardController.php",
+		"/D/WEB/dangkyduhoc/storage/logs/laravel.log",
+		"/D/WEB/dangkyduhoc/config/app.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/PageFieldController.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/chat_box.blade.php",
+		"/D/WEB/dangkyduhoc/config/broadcasting.php",
+		"/D/WEB/dangkyduhoc/app/Providers/EventServiceProvider.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/old_message.blade.php",
+		"/D/WEB/dangkyduhoc/resources/chat.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/chat_admin.blade.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_27_065551_table_messages_create.php"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+			"D:\\WEB\\dangkyduhoc",
+			"D:\\WEB\\kuponhub\\storage\\app\\public\\images\\stores,<open folders>,*.txt",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"formData",
+			"csrf_token",
+			"dz",
+			"dropzone",
+			"file/post",
+			"funding_source",
+			"per",
+			"given_name",
+			"require",
+			"certificate",
+			"reference_no",
+			"Test Date is empty",
+			"location",
+			"qualification",
+			"IsFullTime",
+			"remove_edu",
+			"Educa",
+			"IsHelpYes",
+			"count(",
+			"count",
+			"cont",
+			"step_1",
+			"step_",
+			"step_1_header",
+			"hasDatepicker",
+			"Date of",
+			"save_and_next",
+			"step_2_header",
+			"Continue to apply",
+			"free_consultation",
+			"priority",
+			"courses",
+			"table",
+			"compare-count",
+			"apply-count",
+			"getApplyCourseId",
+			"getCourseId",
+			"apply_course_id",
+			"compare-count",
+			"apply_course_number",
+			"apply(",
+			"compare-count",
+			"apply-count",
+			"compare",
+			"getApplyCourseId",
+			"unselect(",
+			"apply(",
+			"ppaly",
+			"apply",
+			"compare",
+			"addCourse",
+			"toastr",
+			"universities",
+			"country",
+			"selected",
+			"universities",
+			"university",
+			"id=\"university",
+			"university",
+			"console.log",
+			"===",
+			"logout",
+			"courses",
+			"36",
+			"38",
+			"36",
+			"compare",
+			"());\n",
+			"compare",
+			"selected",
+			"university",
+			"bath-spa-university-business-management-accounting-ba-hons-n400",
+			"bath-spa-university-business-management-publishing-ba-hons-np14",
+			"bath-spa-university-business-management-accounting-ba-hons-n400",
+			"course/bath-spa-university-business-management-accounting-ba-hons-n400",
+			"university-of",
+			"university-of-dundee-accountancy-and-mathematics-bsc-hons-gn14",
+			"coventry-university-accountancy-ba-hons-n410",
+			"architectur",
+			"HEAD",
+			"$error",
+			"$erro",
+			"custom",
+			"')",
+			"old('",
+			"name",
+			", ",
+			"required",
+			"')",
+			"old('",
+			"footer",
+			"CustomFieldController",
+			"customfield",
+			"footer",
+			"Footer",
+			"this->image",
+			"socialite",
+			"dd",
+			"HEAD",
+			"include",
+			"Rating",
+			"deleteDirectory",
+			"Image",
+			"=====",
+			"HEAD",
+			"adminStyle",
+			"HEAD",
+			"Push",
+			"dd",
+			"',\n",
+			"logout",
+			"upcoming_intakes",
+			"selected",
+			"day_coffe_fees",
+			"home",
+			"}\n",
+			"select",
+			"picker",
+			"university",
+			"addRanking",
+			"\t\t\n",
+			"@extends('layouts.admin')\n\n@section('title')\n\n@endsection\n\n\n@section('content')\n<div class=\"col-md-12\">\n\t<!-- general form elements -->\n\t<form role=\"form\" id=\"form-edit\" method=\"POST\" enctype=\"multipart/form-data\">\n\t\t<div class=\"box box-primary\">\n\n\t\t\t<div class=\"box-header with-border\">\n\t\t\t\t<h3 class=\"box-title\">Course</h3>\n\t\t\t</div>\n\t\t\t<!-- /.box-header -->\n\t\t\t<!-- form start -->\n\t\t\t{{ csrf_field() }}\n\t\t\t<div class=\"col-md-8 col-md-offset-2\">\n\t\t\t\t<div class=\"box-body\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label for=\"name\">Name</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"name\" id=\"name\" required=\"required\" value=\"\">\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label for=\"university\">University</label>\n\t\t\t\t\t\t<select type=\"text\" class=\"form-control\" name=\"university\" id=\"university\" required=\"required\" value=\"\">\n\t\t\t\t\t\t\t<?php foreach ($universities as $key => $value): ?>\n\t\t\t\t\t\t\t\t<option value=\"{{ $value->id }}\">{{ $value->name }}</option>\n\t\t\t\t\t\t\t<?php endforeach ?>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<!-- /.box-body -->\n\t\t\t</div>\n\t\t\t<div class=\"box-footer\">\n\t\t\t</div>\n\t\t</div>\n\t\t<!-- /.box -->\n\t\t<div class=\"box box-default\">\n\t\t\t<div class=\"box-header with-border\">\n\t\t\t\t<h3 class=\"box-title\">Cost</h3>\n\t\t\t</div>\n\t\t\t<!-- /.box-header -->\n\t\t\t<div class=\"col-md-8 col-md-offset-2\">\n\t\t\t\t<div class=\"box-body\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label for=\"year_tuition_fees\">Year Tuition Fees</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"year_tuition_fees\" id=\"year_tuition_fees\" required=\"required\" value=\"\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label for=\"day_drink_fees\">Drink Fees</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"day_drink_fees\" id=\"day_drink_fees\" required=\"required\" value=\"\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label for=\"day_food_fees\">Food Fees</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"day_food_fees\" id=\"day_food_fees\" required=\"required\" value=\"\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label for=\"day_accommodation_fees\">Accommodation Fees</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"day_accommodation_fees\" id=\"year_tuition_fees\" required=\"required\" value=\"\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label for=\"day_coffe_fees\">Coffe Fees</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"day_coffe_fees\" id=\"day_coffe_fees\" required=\"required\" value=\"\">\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\t<!-- /.box-body -->\n\t\t\t</div>\n\t\t\t<div class=\"box-footer\">\n\t\t\t</div>\n\t\t</div>\n\t\t<!-- /.box -->\n\t\t<!-- /.box -->\n\t\t\n\t</form>\n</div>\n\n@endsection\n\n@push('scripts')\n<script type=\"text/javascript\">\n\t$('#university').select2();\n</script>\n@endpush",
+			"select2",
+			"university",
+			"countrie",
+			"country",
+			"home",
+			"auth"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"custom_field",
+			"",
+			"$custom->",
+			"",
+			"$custom_field->",
+			"custom_field",
+			"customfield",
+			"CustomField",
+			"information",
+			"[\\n",
+			"),\\n",
+			"0,\\n",
+			"1,\\n",
+			"\",\\n",
+			";\\n\\n",
+			"[\\n",
+			"),\\n",
+			"0,\\n",
+			"1,\\n",
+			"\",\\n",
+			"\",\\,",
+			";\\n\\n",
+			"name",
+			"1,\\n",
+			"0,\\n",
+			"[\\n",
+			"0,\\n",
+			"\\n",
+			"1,\\n",
+			"\",\\n",
+			";\\n",
+			"[\\n\"",
+			"0,\\n",
+			"1,\\n",
+			"\",\\n",
+			";\\n",
+			"name",
+			"[\\n\"",
+			";\\n\\n",
+			"0,\\n",
+			"1,\\n",
+			"\",\\n",
+			",\\n",
+			";\\n",
+			"</p>\\n",
+			"</p>",
+			"<p>",
+			"</p>",
+			"---<p>",
+			"</p>",
+			"<p>",
+			"</p>",
+			"---<p>",
+			"</p>",
+			"<p>",
+			"</p>",
+			"---\\n<p>",
+			"</p>",
+			"<p>",
+			"---\\n<p>",
+			"</p>",
+			"---\\n<p>",
+			"</p>\\n",
+			"<p>",
+			"</p>\"",
+			"---\\n\"<p>",
+			"</p>\\n",
+			"---\\n\"<p>",
+			"</p>",
+			"<p>",
+			"</p>",
+			"\\n---",
+			"</p>\"\\n---",
+			"---\\n\"<p>",
+			"</p>",
+			"<\\p>",
+			"<\\\\p>",
+			"<p>",
+			"<\\p>",
+			"<p>",
+			"</p>\"\\n---",
+			"---\\n\"<p>",
+			"</p>",
+			"</p>\\n",
+			"<p>",
+			"</p>",
+			"</p>\\n",
+			"\\n<\\p>",
+			"<\\p>\\n",
+			"<\\p>",
+			"<p>\\n",
+			"<p>",
+			"</p>\"\\n---",
+			"---\\n\"<p>",
+			"---\"<p>",
+			"\\n------<p>\"",
+			"\\n<p>",
+			"</p>\\n",
+			"</p>\\n<p>",
+			"</p>",
+			"<p>\\n",
+			"<p>",
+			"</p>\\n<p>",
+			"</p><p>",
+			" - ",
+			"",
+			"</p><p>",
+			"aha",
+			"</p><p>",
+			"first(); if($university)",
+			"first();\\n if ($university)",
+			"first(); if ($university)",
+			"123",
+			"auth/",
+			"getDetail",
+			"$end = '...'",
+			"posted_at",
+			"?>",
+			"<?php",
+			"->format",
+			"",
+			"form-control-new",
+			"fo",
+			"form-controler-new",
+			"",
+			"{{ asset('assets/images/payment/paypal-icon.png') }}",
+			"{{ asset('assets/images/payment/mstr-icon.png') }}",
+			"{{ asset('assets/images/payment/paypal-icon.png') }}"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/SliderController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								472,
+								472
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 294.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/WEB/dangkyduhoc/app/Http/Controllers/User/ApplyCourseController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7593,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7590,
+								7590
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2646.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/WEB/dangkyduhoc/resources/views/user/apply.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24333,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22166,
+								22197
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 9064.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/D/WEB/dangkyduhoc/resources/views/user/continue_apply.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 26471,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20004,
+								20004
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7202.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/D/WEB/dangkyduhoc/resources/views/admin/slider/create.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4367,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								440,
+								444
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/D/WEB/dangkyduhoc/resources/views/layouts/app.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30894,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27961,
+								27961
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6844.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/D/WEB/dangkyduhoc/routes/web.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22459,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21188,
+								21188
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4206.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 231.0
+	},
+	"pinned_build_system": "",
+	"project": "dangkyduhoc.sublime-project",
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"homeco",
+				"app\\Http\\Controllers\\User\\HomeController.php"
+			],
+			[
+				"web.php",
+				"routes\\web.php"
+			],
+			[
+				"vendor/mail",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Mail\\Mailable.php"
+			],
+			[
+				"routesig",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteSignatureParameters.php"
+			],
+			[
+				"authenticate",
+				"kuponhub\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Events\\Authenticated.php"
+			],
+			[
+				"filesystemadapter",
+				"kuponhub\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\FilesystemAdapter.php"
+			],
+			[
+				"providerrepository",
+				"seaculture_association\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php"
+			],
+			[
+				"unisharp/laravelfilemanager/laravelfilemanagerserviceprovider",
+				"tesla\\vendor\\unisharp\\laravel-filemanager\\src\\LaravelFilemanagerServiceProvider.php"
+			],
+			[
+				"very",
+				"file_export\\app\\Http\\Middleware\\VerifyCsrfToken.php"
+			],
+			[
+				"filesystema",
+				"file_export\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\FilesystemAdapter.php"
+			],
+			[
+				"file",
+				"kuponhub\\config\\filesystems.php"
+			],
+			[
+				".en",
+				"file_export\\.env"
+			],
+			[
+				"config/fil",
+				"file_export\\config\\filesystems.php"
+			],
+			[
+				"filesystem/a",
+				"file_export\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\FilesystemAdapter.php"
+			],
+			[
+				"/files/share",
+				"tesla\\public\\files\\shares\\Anh xáº¥u xÃ­ chá»© khÃ´ng xáº¥u xa - PhiÃªn báº£n siÃªu hÃ i hÆ°á»›c QuynhAka.mp4"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 890.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 254.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

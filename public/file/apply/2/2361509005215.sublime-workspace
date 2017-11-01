@@ -1,0 +1,1438 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fil",
+				"files"
+			],
+			[
+				"App",
+				"ApplyCourseDocument"
+			],
+			[
+				"new",
+				"new_path"
+			],
+			[
+				"form-ap",
+				"form-apply-3"
+			],
+			[
+				"form",
+				"form\tTag"
+			],
+			[
+				"form-app",
+				"form-apply-2"
+			],
+			[
+				"drop",
+				"dropzone"
+			],
+			[
+				"qual",
+				"edu_qualification"
+			],
+			[
+				"iss",
+				"isset"
+			],
+			[
+				"personalDetail",
+				"ApplyCoursePersonalDetail"
+			],
+			[
+				"Profie",
+				"ApplyCourseEnglishProficiency"
+			],
+			[
+				"w",
+				"work"
+			],
+			[
+				"ce",
+				"certificate"
+			],
+			[
+				"AppcouE",
+				"ApplyCourseWorkExperience"
+			],
+			[
+				"empl",
+				"employer_name"
+			],
+			[
+				"edu",
+				"edu_end"
+			],
+			[
+				"edu_",
+				"edu_start"
+			],
+			[
+				"ap",
+				"append"
+			],
+			[
+				"disa",
+				"disabled"
+			],
+			[
+				"crim",
+				"criminal_record"
+			],
+			[
+				"dis",
+				"disabled"
+			],
+			[
+				"person",
+				"personal_details"
+			],
+			[
+				"isse",
+				"is_self_funded"
+			],
+			[
+				"step_2",
+				"step_2_header"
+			],
+			[
+				"conti",
+				"continue-apply"
+			],
+			[
+				"cou",
+				"course"
+			],
+			[
+				"app",
+				"apply-count"
+			],
+			[
+				"get",
+				"getCourseCount"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"cour",
+				"course_id"
+			],
+			[
+				"co",
+				"cookie"
+			],
+			[
+				"arram",
+				"array_merge"
+			],
+			[
+				"uni",
+				"universities"
+			],
+			[
+				"coun",
+				"country"
+			],
+			[
+				"univ",
+				"universities"
+			],
+			[
+				"cor",
+				"course"
+			],
+			[
+				"univer",
+				"universities"
+			],
+			[
+				"cl",
+				"classification"
+			],
+			[
+				"Cou",
+				"Country"
+			],
+			[
+				"cours",
+				"course_ids"
+			],
+			[
+				"course",
+				"courses"
+			],
+			[
+				"compar",
+				"compare_number"
+			],
+			[
+				"cu",
+				"course_id"
+			],
+			[
+				"c",
+				"course_id"
+			],
+			[
+				"js",
+				"json_decode"
+			],
+			[
+				"arr",
+				"array"
+			],
+			[
+				"Re",
+				"Request"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"compareco",
+				"compare_course_id"
+			],
+			[
+				"cos",
+				"cost_per_year"
+			],
+			[
+				"univers",
+				"university_id"
+			],
+			[
+				"requ",
+				"request"
+			],
+			[
+				"cus",
+				"custom_field"
+			],
+			[
+				"so",
+				"socialite"
+			],
+			[
+				"social",
+				"socialite_name"
+			],
+			[
+				"soci",
+				"socialite"
+			],
+			[
+				"copyri",
+				"copyright_en"
+			],
+			[
+				"add",
+				"address_en"
+			],
+			[
+				"wo",
+				"working_hour_en"
+			],
+			[
+				"arra",
+				"array\t$… = array (…)"
+			],
+			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"ima",
+				"map_image_preview"
+			],
+			[
+				"img",
+				"img\tTag"
+			],
+			[
+				"modal",
+				"modal-reply"
+			],
+			[
+				"cont",
+				"contacts"
+			],
+			[
+				"slid",
+				"slider"
+			],
+			[
+				"strp",
+				"strpos"
+			],
+			[
+				"Slid",
+				"SliderImage"
+			],
+			[
+				"slider",
+				"slider_image"
+			],
+			[
+				"file",
+				"file_name"
+			],
+			[
+				"temp",
+				"temp_folder"
+			],
+			[
+				"form-",
+				"form-group"
+			],
+			[
+				"pre",
+				"prefix"
+			],
+			[
+				"chat",
+				"chat_list"
+			],
+			[
+				"chat_",
+				"chat_session"
+			],
+			[
+				"fr",
+				"frequently_visited_subjects"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"fre",
+				"frequently_visited_subjects"
+			],
+			[
+				"sub",
+				"subject18"
+			],
+			[
+				"su",
+				"Subject"
+			],
+			[
+				"fri",
+				"frequently_visited_subjects"
+			],
+			[
+				"fur",
+				"frequently_visited_subjects"
+			],
+			[
+				"rank",
+				"ranking_title"
+			],
+			[
+				"sele",
+				"selected"
+			],
+			[
+				"requi",
+				"requirement"
+			],
+			[
+				"User",
+				"UserController"
+			],
+			[
+				"bt",
+				"btn-primary"
+			],
+			[
+				"ranking",
+				"ranking_subject"
+			],
+			[
+				"tu",
+				"year_tuition_fees"
+			],
+			[
+				"fom",
+				"form-group"
+			],
+			[
+				"box",
+				"box-body"
+			],
+			[
+				"al",
+				"text-align"
+			],
+			[
+				"inte",
+				"international_baccalaureate"
+			],
+			[
+				"pr",
+				"print_r"
+			],
+			[
+				"info",
+				"infomation"
+			],
+			[
+				"key",
+				"key1"
+			],
+			[
+				"jso",
+				"json_decode"
+			],
+			[
+				"un",
+				"university"
+			],
+			[
+				"unive",
+				"university_link"
+			],
+			[
+				"userme",
+				"user_meta"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"des",
+				"descriptions"
+			],
+			[
+				"for",
+				"formal_wear"
+			],
+			[
+				"Des",
+				"Desk-bound"
+			],
+			[
+				"htm",
+				"htmlspecialchars"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"adm",
+				"Admin"
+			],
+			[
+				"hea",
+				"header"
+			],
+			[
+				"p",
+				"p\tTag"
+			],
+			[
+				"Hom",
+				"HomePage"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"old_",
+				"old_user"
+			],
+			[
+				"old",
+				"old_password"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"STo",
+				"Storage"
+			],
+			[
+				"user",
+				"user"
+			],
+			[
+				"re",
+				"registered"
+			],
+			[
+				"tim",
+				"timestamps"
+			],
+			[
+				"opt",
+				"option\tTag"
+			],
+			[
+				"col",
+				"col-md-12"
+			],
+			[
+				"New",
+				"NewsModel"
+			],
+			[
+				"tb",
+				"tbl_news_posted"
+			],
+			[
+				"tbl_new",
+				"tbl_news_wating"
+			],
+			[
+				"list",
+				"list_waited"
+			],
+			[
+				"update",
+				"updated_at"
+			],
+			[
+				"news",
+				"news_list_waited"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/SliderController.php",
+			"settings":
+			{
+				"buffer_size": 7133,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/WEB/dangkyduhoc/app/Http/Controllers/User/ApplyCourseController.php",
+			"settings":
+			{
+				"buffer_size": 10553,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/WEB/dangkyduhoc/app/Models/ApplyCourseDocument.php",
+			"settings":
+			{
+				"buffer_size": 149,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/WEB/dangkyduhoc/resources/views/user/apply.blade.php",
+			"settings":
+			{
+				"buffer_size": 24904,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<div class=\"continue-to-apply\" id=\"applicationSection\">\n\t<div class=\"row appDiv details_container clearfix relative odd rowsec bgr-white\">\n\t\t<div class=\"col-lg-12\">\n\t\t\t<form id=\"form-apply-1\">\n\t\t\t\t<div id=\"step_1_header\" class=\"section header open\">\n\t\t\t\t\t<h3>1) PERSONAL DETAILS</h3>\n\t\t\t\t</div><!-- /#step_1_header -->\n\n\t\t\t\t<div id=\"step_1\" class=\"questionaire section block\">\n\t\t\t\t\t<table class=\"questions_table\">\n\t\t\t\t\t\t<input type=\"hidden\" name=\"user_id\" value=\"{{ Auth::user()->id }}\">\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td><label for=\"GivenName\">Given name</label></td>\n\t\t\t\t\t\t\t\t<td><input type=\"text\" id=\"GivenName\" name=\"given_name\" required=\"required\" value=\"\"></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td><label for=\"FamilyName\">Family name</label></td>\n\t\t\t\t\t\t\t\t<td><input type=\"text\" id=\"FamilyName\" name=\"family_name\" required=\"required\"></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"email\">Email address&nbsp;<i class=\"fa fa-question-circle tip\" title=\"Please ensure that the email you provide is correct and active. Communications with you will be made through this email.\"></i>\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td><input type=\"text\" name=\"email\" id=\"email\" required=\"required\" value=\"{{ Auth::user()->email }}\" class=\"emailaddress\"></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"question_91_49\">\n\t\t\t\t\t\t\t\t\t\tGender\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" id=\"GenderFeMale\" name=\"gender\" value=\"Female\" checked=\"\" required=\"required\"><label for=\"GenderFeMale\">Female</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" id=\"GenderMale\" name=\"gender\" value=\"Male\" required=\"required\"><label for=\"GenderMale\">Male</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"dp1508750818053\">Date of birth</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-date\">\n\t\t\t\t\t\t\t\t\t<input class=\"textbox DOB hasDatepicker\" datetype=\"dob\" id=\"dp1508750818053\" name=\"dob\" placeholder=\"eg. d/m/yyyy\" required=\"required\" type=\"dates\" value=\"\">                            \n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"applicant_country\">\n\t\t\t\t\t\t\t\t\t\tCountry of birth\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<div class=\"styled-select country\">\n\t\t\t\t\t\t\t\t\t\t<select id=\"applicant_country\" name=\"country_birth\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" selected=\"selected\" disabled=\"disabled\">Choose One</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"195\" selected=\"\">Singapore</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"27\">Brunei</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"115\">Cambodia</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"46\">China</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"99\">Indonesia</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"124\">Laos</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"155\">Malaysia</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"add_course_nationality\">\n\t\t\t\t\t\t\t\t\t\tNationality\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<div class=\"styled-select country\">\n\t\t\t\t\t\t\t\t\t\t<select id=\"add_course_nationality\" name=\"nationality\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" selected=\"selected\" disabled=\"disabled\">Choose One</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"159\" selected=\"\">Singaporean</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"28\">Bruneian</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"31\">Burmese</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"33\">Cambodian</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"40\">Chinese</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"62\">Filipino</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"83\">Indonesian</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"98\">Laotian</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"109\">Malaysian</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"Passport\">\n\t\t\t\t\t\t\t\t\t\tPassport no.\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" id=\"Passport\" name=\"passport_no\" required=\"required\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"CorrespondenceAddress\">\n\t\t\t\t\t\t\t\t\t\tCorrespondence address\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<textarea id=\"CorrespondenceAddress\" name=\"correspondence_address\" placeholder=\"eg. Residential address\" required=\"required\"></textarea>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"PermanentAddress\">\n\t\t\t\t\t\t\t\t\t\tPermanent address&nbsp;<i class=\"fa fa-question-circle tip\" title=\"Leave blank if this is the same as correspondence address.\"></i>\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<textarea id=\"PermanentAddress\" name=\"permanent_address\" placeholder=\"Leave blank if this is the same as correspondence address.\"></textarea>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"MobilePhone\">\n\t\t\t\t\t\t\t\t\t\tMobile number\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" id=\"MobilePhone\" name=\"mobile_number\" required=\"required\" class=\"number\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td class=\"td-short\">\n\t\t\t\t\t\t\t\t\t<label for=\"HomePhone\">\n\t\t\t\t\t\t\t\t\t\tHome number\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-short\">\n\t\t\t\t\t\t\t\t\t<input type=\"text\" id=\"HomePhone\" name=\"home_number\" required=\"required\" class=\"number\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"Intake\">\n\t\t\t\t\t\t\t\t\t\tEnrolment year&nbsp;<i class=\"fa fa-question-circle tip\" title=\"When is the earliest would you like to enrol into university?\"></i>\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<div class=\"styled-select intake\">\n\t\t\t\t\t\t\t\t\t\t<select id=\"applicant_intake\" name=\"enrolment_year\" required=\"required\" class=\"year\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" selected=\"\"> </option>\n\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"2017\" selected=\"\">2017</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"2018\">2018</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"2019\">2019</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"2020\">2020</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"2021\">2021</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"2022\">2022</option>\n\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"funding_source\">\n\t\t\t\t\t\t\t\t\t\tFunding source\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input data-groupname=\"funding_source\" type=\"checkbox\" name=\"is_schoolarship\" value=\"true\" required=\"required\" id=\"IsScholarship\"><label for=\"IsScholarship\">Scholarship</label><br>\n\t\t\t\t\t\t\t\t\t<input data-groupname=\"funding_source\" type=\"checkbox\" name=\"is_self_funded\" value=\"true\" required=\"required\" id=\"IsSelfFunded\"><label for=\"IsSelfFunded\">Self Funded</label><br>\n\t\t\t\t\t\t\t\t\t<input type=\"hidden\" disabled name=\"funding_source\" id=\"funding_source\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label>\n\t\t\t\t\t\t\t\t\t\tFree consultation&nbsp;<i class=\"fa fa-question-circle tip\" title=\"Would you like to receive a free assessment of your chosen courses by our education consultants?\"></i>\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"free_consultation\" value=\"true\" checked=\"checked\" id=\"IsHelpYes\"><label for=\"IsHelpYes\">Yes</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"free_consultation\" value=\"false\" id=\"IsHelpNo\"><label for=\"IsHelpNo\">No</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"question_91_62\">\n\t\t\t\t\t\t\t\t\t\tDisability\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"disability\" value=\"false\" checked=\"checked\" required=\"required\" id=\"disabilityNo\"><label for=\"disabilityNo\">No</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"disability\" value=\"true\" required=\"required\" id=\"disabilityYes\"><label for=\"disabilityYes\">Yes</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<label for=\"question_91_61\">\n\t\t\t\t\t\t\t\t\t\tCriminal record\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"criminal_record\" value=\"false\" checked=\"checked\" required=\"required\" id=\"criminalNo\"><label for=\"criminalNo\">No</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"criminal_record\" value=\"true\" required=\"required\" id=\"criminalYes\"><label for=\"criminalYes\">Yes</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t\t<br>\n\t\t\t\t\t<center><input id=\"step_1_save_button\" class=\"blue-btn\" onclick=\"javascript:save_and_next(2);\" type=\"button\" value=\"Save and continue\"></center>\n\t\t\t\t</div><!-- #step_1 -->\n\t\t\t</form>\n\t\t\t<form id=\"form-apply-2\">\n\t\t\t\t<div id=\"step_2_header\" class=\"section header martop5px\">\n\t\t\t\t\t<h3>2) EDUCATION &amp; WORK</h3>\n\t\t\t\t</div><!-- /#step_2_header -->\n\n\t\t\t\t<div id=\"step_2\" class=\"questionaire section block\">\n\t\t\t\t\t<p><strong>Education background</strong>&nbsp;<i class=\"fa fa-question-circle tip\" title=\"Kindly provide the details of your education, including your current studies and all previous studies from secondary level onwards.\"></i></p>\n\t\t\t\t\t<table id=\"education\" class=\"exp\">\n\t\t\t\t\t\t<tbody data-index=\"0\">\n\t\t\t\t\t\t\t@foreach($user->education as $key => $value)\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input type=\"dates\" name=\"edu_start[]\" placeholder=\"Start\" datatype=\"edu_start\" index=\"0\" class=\"hasDatepicker\" value=\"{{ Carbon\\Carbon::parse($value->edu_start)->format('d/m/Y') }}\"/>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input type=\"dates\" name=\"edu_end[]\" placeholder=\"End\" datatype=\"edu_end\" index=\"0\" class=\"hasDatepicker\" value=\"{{ Carbon\\Carbon::parse($value->edu_end)->format('d/m/Y') }}\"/>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"edu_school_name[]\" placeholder=\"Name of School or Institution\" datatype=\"edu_school_name\" index=\"0\" value=\"{{ $value->edu_school_name }}\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-md\">\n\t\t\t\t\t\t\t\t\t<div class=\"styled-select\">\n\t\t\t\t\t\t\t\t\t\t<select class=\"select-with-placeholder select-empty\" name=\"edu_qualification[]\" datatype=\"edu\" index=\"0\">\n\t\t\t\t\t\t\t\t\t\t\t<option value='2' @if($value->qualification == 2) selected @endif>GCE 'O' Levels</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value='3' @if($value->qualification == 3) selected @endif>GCE 'A' Levels</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"4\" @if($value->qualification == 4) selected @endif>Polytechnic Diploma</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"5\" @if($value->qualification == 5) selected @endif>Private Diploma</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"6\" @if($value->qualification == 6) selected @endif>International Baccaleaurate</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"7\" @if($value->qualification == 7) selected @endif>Sijil Tinggi Persekolahan Malaysia</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value='9' @if($value->qualification == 9) selected @endif>Bachelor's</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value='10' @if($value->qualification == 10) selected @endif>Master's</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"8\" @if($value->qualification == 8) selected @endif>Others</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input class=\"button del\" type=\"button\" onclick=\"javascript:remove_edu(this);\" value=\"Remove\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t@endforeach\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input type=\"dates\" name=\"edu_start[]\" placeholder=\"Start\" value=\"\" datatype=\"edu_start\" index=\"0\" id=\"dp1508751721287\" class=\"hasDatepicker\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input type=\"dates\" name=\"edu_end[]\" placeholder=\"End\" value=\"\" datatype=\"edu_end\" index=\"0\" id=\"dp1508751721288\" class=\"hasDatepicker\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"edu_school_name[]\" placeholder=\"Name of School or Institution\" value=\"\" datatype=\"edu_school_name\" index=\"0\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-md\">\n\t\t\t\t\t\t\t\t\t<div class=\"styled-select\">\n\t\t\t\t\t\t\t\t\t\t<select class=\"select-with-placeholder select-empty\" name=\"edu_qualification[]\" datatype=\"edu\" index=\"0\">\n\t\t\t\t\t\t\t\t\t\t\t<option selected value=\"-1\">-- Select Qualification --</option>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <option value=\"-1\"></option> -->\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"2\">GCE 'O' Levels</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"3\">GCE 'A' Levels</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"4\">Polytechnic Diploma</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"5\">Private Diploma</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"6\">International Baccaleaurate</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"7\">Sijil Tinggi Persekolahan Malaysia</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"9\">Bachelor's</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"10\">Master's</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"8\">Others</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input class=\"button del\" type=\"button\" onclick=\"javascript:remove_edu(this);\" value=\"Remove\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr id=\"add-edu-row\">\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"button\" class=\"add button\" value=\"Add new\" onclick=\"javascript:add_edu_row();\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t\t<br>\n\t\t\t\t\t<p>\n\t\t\t\t\t\t<strong>Work experience</strong>&nbsp;<i class=\"fa fa-question-circle tip\" title=\"Please provide details of your working experience, including both part-time and full-time positions. If you do not have the exact start/end dates, approximate dates are fine.\"></i>\n\t\t\t\t\t</p>\n\t\t\t\t\t<table id=\"work\" class=\"exp\">\n\t\t\t\t\t\t@foreach($user->workExperience as $value) \n\t\t\t\t\t\t<tbody id=\"work_exp\" data-index=\"0\">\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input type=\"dates\" name=\"work_start[]\" placeholder=\"Start\" datatype=\"work_start\" index=\"0\" id=\"dp1508751721289\" class=\"hasDatepicker\" value=\"{{ Carbon\\Carbon::parse($value->work_start)->format('d/m/Y') }}\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input type=\"dates\" name=\"work_end[]\" placeholder=\"End\" datatype=\"work_end\" index=\"0\" id=\"dp1508751721290\" class=\"hasDatepicker\" value=\"{{ Carbon\\Carbon::parse($value->work_end)->format('d/m/Y') }}\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"employer_name[]\" placeholder=\"Employer's name\" datatype=\"work\" index=\"0\" value=\"{{ $value->employer_name }}\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<div class=\"styled-select\">\n\t\t\t\t\t\t\t\t\t\t<select name=\"work_type[]\">\n\t\t\t\t\t\t\t\t\t\t\t<option selected value=\"-1\">-- Type of work --</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"Full-Time\" @if($value->work_type == 'Full-Time') selected @endif>Full-Time</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"Part-Time\" @if($value->work_type == 'Part-Time') selected @endif>Part-Time</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t&nbsp;\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td colspan=\"4\">\n\t\t\t\t\t\t\t\t\t<input class=\"work_desc\" type=\"text\" name=\"work_description[]\" placeholder=\"Job position &amp; brief description\" value=\"{{ $value->work_description }}\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input class=\"del button\" type=\"button\" onclick=\"javascript:remove_work(this);\" value=\"Remove\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t@endforeach\n\t\t\t\t\t\t<tbody id=\"work_exp\" data-index=\"0\">\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input type=\"dates\" name=\"work_start[]\" placeholder=\"Start\" datatype=\"work_start\" index=\"0\" id=\"dp1508751721289\" class=\"hasDatepicker\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input type=\"dates\" name=\"work_end[]\" placeholder=\"End\" datatype=\"work_end\" index=\"0\" id=\"dp1508751721290\" class=\"hasDatepicker\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"employer_name[]\" placeholder=\"Employer's name\" datatype=\"work\" index=\"0\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<div class=\"styled-select\">\n\t\t\t\t\t\t\t\t\t\t<select name=\"work_type[]\">\n\t\t\t\t\t\t\t\t\t\t\t<option selected value=\"-1\">-- Type of work --</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"Full-Time\">Full-Time</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"Part-Time\">Part-Time</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t&nbsp;\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td colspan=\"4\">\n\t\t\t\t\t\t\t\t\t<input class=\"work_desc\" type=\"text\" name=\"work_description[]\" placeholder=\"Job position &amp; brief description\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input class=\"del button\" type=\"button\" onclick=\"javascript:remove_work(this);\" value=\"Remove\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"button\" class=\"add button\" value=\"Add new\" onclick=\"javascript: add_work_row(this);\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t\t<br>\n\t\t\t\t\t<p><strong>English proficiency tests</strong>&nbsp;<i class=\"fa fa-question-circle tip\" title=\"Indicate all English Tests that you have taken in the last 2 years (e.g. IELTS, TOEFL)\"></i></p>\n\t\t\t\t\t<table id=\"english\" class=\"exp\">\n\t\t\t\t\t\t<tbody id=\"english_test\" data-index=\"0\">\n\t\t\t\t\t\t\t@foreach($user->englishProficiency as $value)\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input type=\"dates\" name=\"test_date[]\" placeholder=\"Date\" datatype=\"test_date\" index=\"0\" id=\"dp1508751721291\" class=\"hasDatepicker\" value=\"{{ Carbon\\Carbon::parse($value->test_date)->format('d/m/Y') }}\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<div class=\"styled-select\">\n\t\t\t\t\t\t\t\t\t\t<select class=\"select-with-placeholder select-empty\" name=\"certificate[]\" datatype=\"test_type\" index=\"0\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"1\" @if($value->certificate == 1) selected @endif>IELTS</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"2\" @if($value->certificate == 2) selected @endif>TOEFL iBT (internet based)</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"3\" @if($value->certificate == 3) selected @endif>TOEFL PBT (paper based)</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"4\" @if($value->certificate == 4) selected @endif>PTE Academic</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"5\" @if($value->certificate == 5) selected @endif>Cambridge English Advanced (CAE)</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"6\" @if($value->certificate == 6) selected @endif>Pearson Test of English (PTE)</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"7\" @if($value->certificate == 7) selected @endif>Occupational English Test</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"reference_no[]\" placeholder=\"Reference no.\" datatype=\"test_ref\" index=\"0\" class=\"fullwidth\" value=\"{{ $value->reference_no }}\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input class=\"del button\" type=\"button\" onclick=\"javascript:remove_english_test_row(this);\" value=\"Remove\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t@endforeach\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input type=\"dates\" name=\"test_date[]\" placeholder=\"Date\" datatype=\"test_date\" index=\"0\" id=\"dp1508751721291\" class=\"hasDatepicker\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<div class=\"styled-select\">\n\t\t\t\t\t\t\t\t\t\t<select class=\"select-with-placeholder select-empty\" name=\"certificate[]\" datatype=\"test_type\" index=\"0\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"-1\" selected>-- Select Certificate --</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"1\">IELTS</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"2\">TOEFL iBT (internet based)</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"3\">TOEFL PBT (paper based)</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"4\">PTE Academic</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"5\">Cambridge English Advanced (CAE)</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"6\">Pearson Test of English (PTE)</option>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"7\">Occupational English Test</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"reference_no[]\" placeholder=\"Reference no.\" datatype=\"test_ref\" index=\"0\" class=\"fullwidth\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"td-sm\">\n\t\t\t\t\t\t\t\t\t<input class=\"del button\" type=\"button\" onclick=\"javascript:remove_english_test_row(this);\" value=\"Remove\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"button\" class=\"add button\" value=\"Add new\" onclick=\"javascript: add_english_test_row(this);\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t\t<br>\n\t\t\t\t\t<center><input id=\"step_2_save_button\" class=\"blue-btn\" onclick=\"javascript: save_and_next(3);\" type=\"button\" value=\"Save and continue\"></center>\n\t\t\t\t</div><!-- /#step_2 -->\n\t\t\t</form>\n\t\t\t<form id=\"form-apply-3\" enctype=\"multipart/form-data\">\n\t\t\t\t<div id=\"step_3_header\" class=\"section header martop5px\">\n\t\t\t\t\t<h3>3) DOCUMENTS</h3>\n\t\t\t\t</div><!-- /#step_3_header -->\n\n\t\t\t\t<div id=\"step_3\" class=\"questionaire section block\">\n\t\t\t\t\t<ol>\n\t\t\t\t\t\t<li>Kindly upload a copy of your transcripts (O levels &amp; above), testimonials, and passport (bio data and photo page).</li>\n\t\t\t\t\t\t<li>If you are unable to obtain a scanner now, you may use your camera phone. Your photos must well lit and all corners of the document must be visible.</li>\n\t\t\t\t\t\t<li>Accepted file types include .zip (preferred), .pdf, .jpg, .jpeg, .gif, .doc, docx, .ppt, .pptx</li>\n\t\t\t\t\t\t<li>Maximum 50 MB per file.</li>\n\t\t\t\t\t\t<li>The transfer of your documents to our servers are secure.</li>\n\t\t\t\t\t</ol>\n\n\t\t\t\t\t<div id=\"dropzone\" class=\"dropzone\">\n\t\t\t\t\t\t<div class=\"dz-clickable\" id=\"documentupload\">\n\t\t\t\t\t\t\t<div class=\"dz-message\">\n\t\t\t\t\t\t\t\t<img src=\"/img/file-upload.svg\">\n\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\tDrag and drop your academic transcripts here to help us speed up the assessment process. (We accept zip/scans/pdf/photo files)<br>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<!-- <input name=\"file\" type=\"file\" multiple /> -->\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<br><br><br>\n\n\t\t\t\t\t<h4>United Kingdom</h4>\n\t\t\t\t\t<table class=\"questions_table\">\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr>\n\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"hidden\" name=\"UniApplication_Questions[0].QuestionID\" value=\"63\" disabled>\n\t\t\t\t\t\t\t\t\t<label for=\"UniApplication_Questions[0].Answer\" &lt;span=\"\" class=\"&quot;ir\" i=\"\" tip&quot;=\"\" title=\"&quot;Your\" personal=\"\" statement=\"\" the=\"\" admissions=\"\" board=\"\" is=\"\" optional=\"\" at=\"\" this=\"\" point=\"\" in=\"\" time.=\"\" our=\"\" consultants=\"\" will=\"\" provide=\"\" you=\"\" with=\"\" additional=\"\" guidance=\"\" a=\"\" later=\"\" stage.&quot;&gt;info&lt;=\"\" span&gt;=\"\">\n\t\t\t\t\t\t\t\t\t\tPersonal Statement\n\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-question-circle tip\" title=\"Your personal statement for the admissions board is OPTIONAL at this point in time. Our consultants will provide you with additional guidance at a later stage.\"></i>\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\t\t                        \n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<textarea id=\"UniApplication_Questions[0].Answer\" name=\"personal_statement\" rows=\"15\" style=\"height:auto;min-width:80%\" onkeyup=\"countChar(this,4000)\"></textarea>\n\t\t\t\t\t\t\t\t\t<br><br>\n\n\t\t\t\t\t\t\t\t</td>\n\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"hidden\" name=\"UniApplication_Questions[1].QuestionID\" value=\"64\" disabled>\n\t\t\t\t\t\t\t\t\t<label for=\"UniApplication_Questions[1].Answer\" &lt;span=\"\" class=\"&quot;ir\" i=\"\" tip&quot;=\"\" title=\"&quot;Deferred\" entry=\"\" allows=\"\" you=\"\" to=\"\" be=\"\" enrolled=\"\" the=\"\" september=\"\" 2015=\"\" intake=\"\" (instead=\"\" of=\"\" 2014).=\"\" if=\"\" have=\"\" chosen=\"\" defer,=\"\" will=\"\" not=\"\" considered=\"\" 2014=\"\" entry.&quot;&gt;info&lt;=\"\" span&gt;=\"\">\n\t\t\t\t\t\t\t\t\t\tWould you like to be considered for deferred entry?\n\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-question-circle tip\" title=\"Deferred entry allows you to be enrolled for the September 2015 intake (instead of 2014). If you have chosen to defer, you will not be considered for the 2014 entry.\"></i>\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\t\t                        \n\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"question1\" value=\"false\" required=\"required\" id=\"UniApplication_Questions[1].Answer_No\"><label for=\"UniApplication_Questions[1].Answer_No\">No</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"question1\" value=\"true\" required=\"required\" id=\"UniApplication_Questions[1].Answer_Yes\"><label for=\"UniApplication_Questions[1].Answer_Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t<label for=\"UniApplication_Questions[1].MoreTextAnswer\">For which courses?</label>&nbsp;&nbsp;<input id=\"UniApplication_Questions[1].MoreTextAnswer\" type=\"text\" class=\"more\" name=\"answer1\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"hidden\" name=\"UniApplication_Questions[2].QuestionID\" value=\"65\" disabled>\n\t\t\t\t\t\t\t\t\t<label for=\"UniApplication_Questions[2].Answer\" &lt;span=\"\" class=\"&quot;ir\" i=\"\" tip&quot;=\"\" title=\"&quot;Advanced\" standing=\"\" allows=\"\" you=\"\" to=\"\" be=\"\" enrolled=\"\" in=\"\" a=\"\" course=\"\" starting=\"\" the=\"\" second=\"\" or=\"\" third=\"\" year.=\"\" may=\"\" required=\"\" provide=\"\" details=\"\" modules=\"\" took=\"\" your=\"\" highest=\"\" qualification.=\"\" if=\"\" this=\"\" is=\"\" required,=\"\" we=\"\" will=\"\" contact=\"\" separately.&quot;&gt;info&lt;=\"\" span&gt;=\"\">\n\t\t\t\t\t\t\t\t\t\tDo you wish to be considered for advanced standing?\n\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-question-circle tip\" title=\"Advanced standing allows you to be enrolled in a course starting in the second or third year. You may be required to provide the details the modules you took for your highest qualification. If this is required, we will contact you separately.\"></i>\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t</td>\t                        \n\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"question2\" value=\"false\" requirexited=\"required\" id=\"UniApplication_Questions[2].Answer_No\"><label for=\"UniApplication_Questions[2].Answer_No\">No</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t<input type=\"radio\" name=\"question2\" value=\"true\" required=\"required\" id=\"UniApplication_Questions[2].Answer_Yes\"><label for=\"UniApplication_Questions[2].Answer_Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t<br>\n\t\t\t\t\t\t\t\t\t<label for=\"UniApplication_Questions[2].MoreTextAnswer\">For which courses?</label>&nbsp;&nbsp;<input id=\"UniApplication_Questions[2].MoreTextAnswer\" type=\"text\" class=\"more\" name=\"answer2\">\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\n\t\t\t\t\t<br>\n\t\t\t\t\t<br>\n\t\t\t\t\t<center><input id=\"step_3_save_button\" class=\"blue-btn\" onclick=\"javascript:save_and_next(4);\" type=\"button\" value=\"SAVE AND CONTINUE\"></center>\n\t\t\t\t</div><!-- /#step_3 -->\n\t\t\t</form>\n\n\t\t\t<form id=\"form-apply-4\">\n\t\t\t\t<div id=\"step_4_header\" class=\"section header martop5px\">\n\t\t\t\t\t<h3>4) VERIFICATION</h3>\n\t\t\t\t</div><!-- /#step_4_header -->\n\t\t\t\t<div id=\"step_4\" class=\"questionaire section block\">\n\t\t\t\t\t<p>\n\t\t\t\t\t\tBy submitting the application, I confirm that the information given in this form is accurate. I give consent to theRightU and applied universities for the use of my data for the purpose of my university application. We will review your application and contact you soon.\n\t\t\t\t\t</p>\n\n\t\t\t\t\t<p>Comments for theRightU (if any):</p>\n\t\t\t\t\t<textarea name=\"verification\"></textarea>\n\t\t\t\t\t<br>\n\t\t\t\t\t<br>\n\t\t\t\t\t<center>\n\t\t\t\t\t\t<input id=\"submit_application_button\" class=\"blue-btn\" onclick=\"javascript:submit_form();\" type=\"button\" value=\"Submit application\">\n\t\t\t\t\t</center>\n\t\t\t\t</div><!-- /#step_4 -->\n\t\t\t</form>\n\t\t</div>\n\t</div>\n</div><!-- /.continue-to-apply -->",
+			"file": "/D/WEB/dangkyduhoc/resources/views/user/continue_apply.blade.php",
+			"file_size": 27066,
+			"file_write_time": 131534677521630474,
+			"settings":
+			{
+				"buffer_size": 26506,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/WEB/dangkyduhoc/routes/web.php",
+			"settings":
+			{
+				"buffer_size": 22764,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/D/WEB/dangkyduhoc/app/Http/Controllers/User/CourseController.php",
+			"settings":
+			{
+				"buffer_size": 1905,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "ins",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 58.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/WEB/dangkyduhoc",
+		"/D/WEB/dangkyduhoc/app",
+		"/D/WEB/dangkyduhoc/app/Http",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers",
+		"/D/WEB/dangkyduhoc/app/Models",
+		"/D/WEB/dangkyduhoc/public",
+		"/D/WEB/dangkyduhoc/public/file",
+		"/D/WEB/dangkyduhoc/public/file/apply",
+		"/D/WEB/dangkyduhoc/public/file/apply/2",
+		"/D/WEB/dangkyduhoc/resources"
+	],
+	"file_history":
+	[
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_034514_create_apply_course_documents_table.php",
+		"/D/WEB/dangkyduhoc/public/js/custom.js",
+		"/D/WEB/dangkyduhoc/resources/views/layouts/app.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/slider/create.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/continue_apply.blade.php",
+		"/D/WEB/dangkyduhoc/app/User.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/apply.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourseWorkExperience.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourseEnglishProficiency.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourseEducationBackground.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourseAdditionalDetail.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_033426_create_apply_course_work_experiences_table.php",
+		"/D/WEB/dangkyduhoc/storage/framework/views/02fdff402753a55650bba3b922516822277b2739.php",
+		"/D/WEB/dangkyduhoc/routes/web.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_025552_create_apply_course_personal_details_table.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCoursePersonalDetail.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/ApplyCourseController.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_04_032421_add_column_university_table.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourse.php",
+		"/D/WEB/dangkyduhoc/app/Models/ApplyCourseDocument.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_042028_create_apply_course_additional_details_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_033800_create_apply_course_english_proficiencies_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_031939_create_apply_course_education_backgrounds_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_24_025129_add_fields_table_apply_courses.php",
+		"/D/WEB/Xampp/htdocs/vsa/resources/lang/en/sidebar/general.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/HomeController.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Auth/RegisterController.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/compare.blade.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/SubjectController.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/subjects.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/includes/user/apply_course.blade.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/CourseController.php",
+		"/D/WEB/dangkyduhoc/app/Models/Course.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_17_091352_create_apply_courses_table.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/apply_html.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/layouts/admin.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/layouts/admin_bk.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/UserComparison.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_16_102431_create_user_comparisons_table.php",
+		"/D/Studying/Machine_Learning/Exercise/data/wdbc.data",
+		"/D/Studying/Machine_Learning/Exercise/data/temperature.data",
+		"/D/Studying/Machine_Learning/Exercise/data/profits.data",
+		"/D/WEB/dangkyduhoc/routes/temperature.data",
+		"/D/Studying/Machine_Learning/Exercise/data/wdbc",
+		"/D/WEB/dangkyduhoc/app/Models/University.php",
+		"/D/WEB/dangkyduhoc/.env",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/CourseController.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/compare_html.blade.php",
+		"/D/WEB/dangkyduhoc/database/seeds/DatabaseSeeder.php",
+		"/D/WEB/dangkyduhoc/app/Models/Subject.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/course/edit.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/course/null_subject_slug.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/course/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/course/create.blade.php",
+		"/D/WEB/dangkyduhoc/public/subject_courses.json",
+		"/D/WEB/dangkyduhoc/database/seeds/SubjectCourseSeeder.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/customField/create.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/CustomField.php",
+		"/D/WEB/dangkyduhoc_data/subject/architecture.html",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_12_040902_add_subject_slug_table_course.php",
+		"/D/WEB/dangkyduhoc_data/subject/dentistry.html",
+		"/D/WEB/dangkyduhoc/resources/views/admin/customField/edit.blade.php",
+		"/D/WEB/dangkyduhoc_data/subject/accounting-finance.html",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/CustomFieldController.php",
+		"/D/WEB/dangkyduhoc/resources/views/layouts/footer.blade.php",
+		"/D/WEB/laravel_auth/laravel-auth/composer.json",
+		"/C/Users/ninhv/AppData/Roaming/Skype/My Skype Received Files/map.sql",
+		"/D/WEB/dangkyduhoc/database/seeds/CourseSeeder.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/ContactController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/customField/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/pagefield/create.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/PageField.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_06_022923_create_custom_fields_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_06_032123_add_classification_table_course.php",
+		"/D/WEB/dangkyduhoc/.gitignore",
+		"/D/WEB/dangkyduhoc/resources/views/admin/footer/create.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/footer/edit.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/Footer.php",
+		"/D/WEB/dangkyduhoc/app/CustomField.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_05_034118_create_footer_table.php",
+		"/D/WEB/dangkyduhoc/app/Models/Socialite.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/UniversityController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/contact/show.blade.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_10_05_035327_create_socialites_table.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/footer/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/contact/index.blade.php",
+		"/D/WEB/dangkyduhoc/app/Listeners/MessageListener.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/MessageController.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/SubjectCareerController.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/chat_admin.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/chat.blade.php",
+		"/C/Users/ninhv/Desktop/client_secret_133336580624-bmupqttbm677s8l2u3vp38f8pdh3tdjb.apps.googleusercontent.com.json",
+		"/D/WEB/dangkyduhoc/app/Events/SendMessage.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/FileController.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/SliderController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/universities/edit.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/user/universities.blade.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/User/UniversityController.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/universities/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/universities/create.blade.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_29_091123_add_image_table_university.php",
+		"/D/WEB/dangkyduhoc/app/Models/Slider.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/slider/index.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/admin/slider/edit.blade.php",
+		"/D/WEB/dangkyduhoc/app/Models/SliderImage.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/RatingController.php",
+		"/D/WEB/dangkyduhoc/vendor/laravel/framework/src/Illuminate/Support/Facades/Storage.php",
+		"/D/WEB/dangkyduhoc/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php",
+		"/D/WEB/dangkyduhoc/vendor/laravel/framework/src/Illuminate/Contracts/Filesystem/Filesystem.php",
+		"/D/WEB/dangkyduhoc/app/SliderImage.php",
+		"/D/WEB/dangkyduhoc/public/js/dropzone.min.js",
+		"/D/WEB/dangkyduhoc/public/css/dropzone.min.css",
+		"/D/WEB/dangkyduhoc/public/css/dropzone.css",
+		"/D/WEB/dangkyduhoc/public/js/dropzone.js",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_28_095808_create_slider_images_table.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_28_095923_create_sliders_table.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/DashboardController.php",
+		"/D/WEB/dangkyduhoc/storage/logs/laravel.log",
+		"/D/WEB/dangkyduhoc/config/app.php",
+		"/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/PageFieldController.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/chat_box.blade.php",
+		"/D/WEB/dangkyduhoc/config/broadcasting.php",
+		"/D/WEB/dangkyduhoc/app/Providers/EventServiceProvider.php",
+		"/D/WEB/dangkyduhoc/resources/views/message/old_message.blade.php",
+		"/D/WEB/dangkyduhoc/resources/chat.blade.php",
+		"/D/WEB/dangkyduhoc/resources/views/chat_admin.blade.php",
+		"/D/WEB/dangkyduhoc/database/migrations/2017_09_27_065551_table_messages_create.php"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+			"D:\\WEB\\dangkyduhoc",
+			"D:\\WEB\\kuponhub\\storage\\app\\public\\images\\stores,<open folders>,*.txt",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"question1",
+			"is_oldImage",
+			"UniApplication_Questions",
+			"disabled",
+			"UniApplication_Questions",
+			"UniApplication_Questions:",
+			"on('sub",
+			"form-apply-3",
+			"save_and",
+			".on('s",
+			"on.(",
+			"submit_form",
+			"submite",
+			"_token",
+			"user.apply",
+			"view('user.apply'",
+			"user.apply",
+			"formData",
+			"csrf_token",
+			"dz",
+			"dropzone",
+			"file/post",
+			"funding_source",
+			"per",
+			"given_name",
+			"require",
+			"certificate",
+			"reference_no",
+			"Test Date is empty",
+			"location",
+			"qualification",
+			"IsFullTime",
+			"remove_edu",
+			"Educa",
+			"IsHelpYes",
+			"count(",
+			"count",
+			"cont",
+			"step_1",
+			"step_",
+			"step_1_header",
+			"hasDatepicker",
+			"Date of",
+			"save_and_next",
+			"step_2_header",
+			"Continue to apply",
+			"free_consultation",
+			"priority",
+			"courses",
+			"table",
+			"compare-count",
+			"apply-count",
+			"getApplyCourseId",
+			"getCourseId",
+			"apply_course_id",
+			"compare-count",
+			"apply_course_number",
+			"apply(",
+			"compare-count",
+			"apply-count",
+			"compare",
+			"getApplyCourseId",
+			"unselect(",
+			"apply(",
+			"ppaly",
+			"apply",
+			"compare",
+			"addCourse",
+			"toastr",
+			"universities",
+			"country",
+			"selected",
+			"universities",
+			"university",
+			"id=\"university",
+			"university",
+			"console.log",
+			"===",
+			"logout",
+			"courses",
+			"36",
+			"38",
+			"36",
+			"compare",
+			"());\n",
+			"compare",
+			"selected",
+			"university",
+			"bath-spa-university-business-management-accounting-ba-hons-n400",
+			"bath-spa-university-business-management-publishing-ba-hons-np14",
+			"bath-spa-university-business-management-accounting-ba-hons-n400",
+			"course/bath-spa-university-business-management-accounting-ba-hons-n400",
+			"university-of",
+			"university-of-dundee-accountancy-and-mathematics-bsc-hons-gn14",
+			"coventry-university-accountancy-ba-hons-n410",
+			"architectur",
+			"HEAD",
+			"$error",
+			"$erro",
+			"custom",
+			"')",
+			"old('",
+			"name",
+			", ",
+			"required",
+			"')",
+			"old('",
+			"footer",
+			"CustomFieldController",
+			"customfield",
+			"footer",
+			"Footer",
+			"this->image",
+			"socialite",
+			"dd",
+			"HEAD",
+			"include",
+			"Rating",
+			"deleteDirectory",
+			"Image",
+			"=====",
+			"HEAD",
+			"adminStyle",
+			"HEAD",
+			"Push",
+			"dd",
+			"',\n",
+			"logout"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"custom_field",
+			"",
+			"$custom->",
+			"",
+			"$custom_field->",
+			"custom_field",
+			"customfield",
+			"CustomField",
+			"information",
+			"[\\n",
+			"),\\n",
+			"0,\\n",
+			"1,\\n",
+			"\",\\n",
+			";\\n\\n",
+			"[\\n",
+			"),\\n",
+			"0,\\n",
+			"1,\\n",
+			"\",\\n",
+			"\",\\,",
+			";\\n\\n",
+			"name",
+			"1,\\n",
+			"0,\\n",
+			"[\\n",
+			"0,\\n",
+			"\\n",
+			"1,\\n",
+			"\",\\n",
+			";\\n",
+			"[\\n\"",
+			"0,\\n",
+			"1,\\n",
+			"\",\\n",
+			";\\n",
+			"name",
+			"[\\n\"",
+			";\\n\\n",
+			"0,\\n",
+			"1,\\n",
+			"\",\\n",
+			",\\n",
+			";\\n",
+			"</p>\\n",
+			"</p>",
+			"<p>",
+			"</p>",
+			"---<p>",
+			"</p>",
+			"<p>",
+			"</p>",
+			"---<p>",
+			"</p>",
+			"<p>",
+			"</p>",
+			"---\\n<p>",
+			"</p>",
+			"<p>",
+			"---\\n<p>",
+			"</p>",
+			"---\\n<p>",
+			"</p>\\n",
+			"<p>",
+			"</p>\"",
+			"---\\n\"<p>",
+			"</p>\\n",
+			"---\\n\"<p>",
+			"</p>",
+			"<p>",
+			"</p>",
+			"\\n---",
+			"</p>\"\\n---",
+			"---\\n\"<p>",
+			"</p>",
+			"<\\p>",
+			"<\\\\p>",
+			"<p>",
+			"<\\p>",
+			"<p>",
+			"</p>\"\\n---",
+			"---\\n\"<p>",
+			"</p>",
+			"</p>\\n",
+			"<p>",
+			"</p>",
+			"</p>\\n",
+			"\\n<\\p>",
+			"<\\p>\\n",
+			"<\\p>",
+			"<p>\\n",
+			"<p>",
+			"</p>\"\\n---",
+			"---\\n\"<p>",
+			"---\"<p>",
+			"\\n------<p>\"",
+			"\\n<p>",
+			"</p>\\n",
+			"</p>\\n<p>",
+			"</p>",
+			"<p>\\n",
+			"<p>",
+			"</p>\\n<p>",
+			"</p><p>",
+			" - ",
+			"",
+			"</p><p>",
+			"aha",
+			"</p><p>",
+			"first(); if($university)",
+			"first();\\n if ($university)",
+			"first(); if ($university)",
+			"123",
+			"auth/",
+			"getDetail",
+			"$end = '...'",
+			"posted_at",
+			"?>",
+			"<?php",
+			"->format",
+			"",
+			"form-control-new",
+			"fo",
+			"form-controler-new",
+			"",
+			"{{ asset('assets/images/payment/paypal-icon.png') }}",
+			"{{ asset('assets/images/payment/mstr-icon.png') }}",
+			"{{ asset('assets/images/payment/paypal-icon.png') }}"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/D/WEB/dangkyduhoc/app/Http/Controllers/Admin/SliderController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1638,
+								3429
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 742.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/WEB/dangkyduhoc/app/Http/Controllers/User/ApplyCourseController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10553,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8057,
+								8057
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2638.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/WEB/dangkyduhoc/app/Models/ApplyCourseDocument.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 149,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								146,
+								146
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/D/WEB/dangkyduhoc/resources/views/user/apply.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24904,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24876,
+								24876
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 9408.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/D/WEB/dangkyduhoc/resources/views/user/continue_apply.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 26506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24828,
+								24828
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 8350.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/D/WEB/dangkyduhoc/routes/web.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22764,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21288,
+								21288
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4206.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/D/WEB/dangkyduhoc/app/Http/Controllers/User/CourseController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1905,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1025,
+								1025
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 210.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 231.0
+	},
+	"pinned_build_system": "",
+	"project": "dangkyduhoc.sublime-project",
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"homeco",
+				"app\\Http\\Controllers\\User\\HomeController.php"
+			],
+			[
+				"web.php",
+				"routes\\web.php"
+			],
+			[
+				"vendor/mail",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Mail\\Mailable.php"
+			],
+			[
+				"routesig",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteSignatureParameters.php"
+			],
+			[
+				"authenticate",
+				"kuponhub\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Events\\Authenticated.php"
+			],
+			[
+				"filesystemadapter",
+				"kuponhub\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\FilesystemAdapter.php"
+			],
+			[
+				"providerrepository",
+				"seaculture_association\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\ProviderRepository.php"
+			],
+			[
+				"unisharp/laravelfilemanager/laravelfilemanagerserviceprovider",
+				"tesla\\vendor\\unisharp\\laravel-filemanager\\src\\LaravelFilemanagerServiceProvider.php"
+			],
+			[
+				"very",
+				"file_export\\app\\Http\\Middleware\\VerifyCsrfToken.php"
+			],
+			[
+				"filesystema",
+				"file_export\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\FilesystemAdapter.php"
+			],
+			[
+				"file",
+				"kuponhub\\config\\filesystems.php"
+			],
+			[
+				".en",
+				"file_export\\.env"
+			],
+			[
+				"config/fil",
+				"file_export\\config\\filesystems.php"
+			],
+			[
+				"filesystem/a",
+				"file_export\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\FilesystemAdapter.php"
+			],
+			[
+				"/files/share",
+				"tesla\\public\\files\\shares\\Anh xáº¥u xÃ­ chá»© khÃ´ng xáº¥u xa - PhiÃªn báº£n siÃªu hÃ i hÆ°á»›c QuynhAka.mp4"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 890.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 254.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

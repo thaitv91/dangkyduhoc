@@ -12,6 +12,7 @@
 */
 // Admin
 Route::get('admin', 'Admin\DashboardController@index')->name('admin');
+Route::get('active', 'Admin\SystemController@activeAccount')->name('system.activeAccount');
 Route::group(['prefix'=>'admin'], function() {
 	Route::group(['prefix'=>'user'], function() {
 		Route::get('/', 'Admin\UserController@index')->name('admin.user');

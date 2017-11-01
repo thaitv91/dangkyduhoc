@@ -65,58 +65,58 @@
 	});
 </script>
 <script type="text/javascript">
-	Dropzone.options.dz = {
-        url : '{{ route("admin.slider.uploadImage") }}',
-        maxFilesize: 2, // MB
-        addRemoveLinks: true,
-        minFiles : 1,
-        acceptedFiles : 'image/jpeg, images/jpg, image/png',
-        init : function(){
-            var fileList = new Array;
-            var fileList_count = 0;
-            var thisDropzone = this;
+    	Dropzone.options.dz = {
+            url : '{{ route("admin.slider.uploadImage") }}',
+            maxFilesize: 2, // MB
+            addRemoveLinks: true,
+            minFiles : 1,
+            acceptedFiles : 'image/jpeg, images/jpg, image/png',
+            init : function(){
+                var fileList = new Array;
+                var fileList_count = 0;
+                var thisDropzone = this;
 
-            this.on("removedfile", function(file) {
-                $.ajax({
-                    type: 'POST',
-                    url: '{{ route("admin.slider.removeImage") }}',
-                    data : {
-                        _token: $('input[name = "_token"]').val(), 
-                        name: file.serverFileName,
-                    }
-                }).done(function(data){
-                    if(data == -1){//New Image
-                        var index = fileList.indexOf(file);
-                        delete fileList[index];
-                        var img_info_id = "img_info"+index;
-                        $("#"+img_info_id).remove();
-                    }else{ //Old image
-                        var img_info_id = "img_info"+fileList_count;
-                        var hidden_data = '<input name = "img_info[]" type="hidden" value="1,' + file.serverFileName+'" id="'+img_info_id+'" />';
-                        $('#form-create').append(hidden_data);
-                    }
+                this.on("removedfile", function(file) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '{{ route("admin.slider.removeImage") }}',
+                        data : {
+                            _token: $('input[name = "_token"]').val(), 
+                            name: file.serverFileName,
+                        }
+                    }).done(function(data){
+                        if(data == -1){//New Image
+                            var index = fileList.indexOf(file);
+                            delete fileList[index];
+                            var img_info_id = "img_info"+index;
+                            $("#"+img_info_id).remove();
+                        }else{ //Old image
+                            var img_info_id = "img_info"+fileList_count;
+                            var hidden_data = '<input name = "img_info[]" type="hidden" value="1,' + file.serverFileName+'" id="'+img_info_id+'" />';
+                            $('#form-create').append(hidden_data);
+                        }
+                    });
+                } );
+                this.on("success", function(file, serverFileName) {
+                    // Change the name of image
+                    var name = file.previewElement.querySelector("[data-dz-name]");
+                    name.dataset.dzName = serverFileName;
+                    name.innerHTML = serverFileName;
+                    file.serverFileName = serverFileName;
+                    // Add a image into list of images
+                    // fileList[fileList_count++] = file;
+                    fileList[++fileList_count] = file;
+                    // Append a div to save information for saving
+                    var img_info_id = "img_info"+fileList_count;
+                    var hidden_data = '<input name = "img_info[]" type="hidden" value="' + 0 +","+file.serverFileName+'" id="'+img_info_id+'" />';
+                    $('#form-create').append(hidden_data);
+                } );
+
+                this.on("sending", function(file, xhr, formData){
+                    formData.append("_token", "{{ csrf_token() }}");
                 });
-            } );
-            this.on("success", function(file, serverFileName) {
-                // Change the name of image
-                var name = file.previewElement.querySelector("[data-dz-name]");
-                name.dataset.dzName = serverFileName;
-                name.innerHTML = serverFileName;
-                file.serverFileName = serverFileName;
-                // Add a image into list of images
-                // fileList[fileList_count++] = file;
-                fileList[++fileList_count] = file;
-                // Append a div to save information for saving
-                var img_info_id = "img_info"+fileList_count;
-                var hidden_data = '<input name = "img_info[]" type="hidden" value="' + 0 +","+file.serverFileName+'" id="'+img_info_id+'" />';
-                $('#form-create').append(hidden_data);
-            } );
 
-            this.on("sending", function(file, xhr, formData){
-                formData.append("_token", "{{ csrf_token() }}");
-            });
-
-        }//Init function
-};//Dropzoen
+            }//Init function
+    };//Dropzoen
 </script>
 @endsection
