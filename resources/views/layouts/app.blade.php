@@ -193,6 +193,18 @@
                 <li class="dropdown">
                     <span class="clickable open-user"><i class="sprite-user"></i></span>
                 </li>
+
+                <li class="dropdown dropdown-logged">
+                    <span class="clickable user-logged" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="sprite-user"></i></span>
+                    <ul class="gtt-get-help dropdown-menu">
+                        <li>
+                            <a>duyenluxcer@gmail.com</a>
+                        </li>
+                        <li>
+                            <a href="#">Log Out</a>
+                        </li>
+                    </ul>
+                </li>
               </ul>
 
               <ul class="nav navbar-nav navbar-right hidden-lg">
