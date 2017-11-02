@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Models\University;
 use App\Models\UniversityStatistic;
@@ -99,6 +100,42 @@ class UniversityController extends Controller
         );
 
         return view( 'user.universities' , $this->viewData );
+    }
+
+    public function setCookieFrequentlyVisitedUniversityIds(Request $request) {
+
+        $university_slug = $request->university_slug;
+        $university_ids = (array)json_decode(Cookie::get('frequent_visited_university_ids', json_encode(array())));
+        $university_db = University::where('slug', $university_slug)->first();
+        $cookie = new Response;
+        if (count($university_db) > 0) {
+            $university_id = $university_db->id;
+            //id belongs to university_ids and index of id != 0 => swap index
+            $index = array_search($university_id, $university_ids);
+
+            if($index == false){
+                if ($index !== 0) {
+                    $temp = array();
+                    array_push($temp, $university_id);
+                    for ($i=0; $i < 2; $i++) {
+                        if (isset($university_ids[$i])) {
+                            array_push($temp, $university_ids[$i]);
+                        }
+                    }
+                    $university_ids = $temp;
+                }
+            } else {
+                $tmp = $university_ids[0];
+                $university_ids[0] = $university_ids[$index];
+                $university_ids[$index] = $tmp;
+
+                $tmp = $university_ids[1];
+                $university_ids[1] = $university_ids[$index];
+                $university_ids[$index] = $tmp;
+            }
+        }
+        $cookie->withCookie(cookie()->forever('frequent_visited_university_ids', json_encode($university_ids)));
+        return $cookie;
     }
 
     public function setCookieApplyCourse(Request $request) {
