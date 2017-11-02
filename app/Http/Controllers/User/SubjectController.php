@@ -47,6 +47,42 @@ class SubjectController extends Controller
 		return view( 'user.subjects' , $this->viewData );
 	}
 
+	public function setCookieFrequentlyVisitedSubjectIds(Request $request) {
+
+		$subject_slug = $request->subject_slug;
+		$subject_ids = (array)json_decode(Cookie::get('frequent_visited_subject_ids', json_encode(array())));
+		$subject_db = Subject::where('slug', $subject_slug)->first();
+		$cookie = new Response;
+		if (count($subject_db) > 0) {
+			$subject_id = $subject_db->id;
+			//id belongs to subject_ids and index of id != 0 => swap index
+			$index = array_search($subject_id, $subject_ids);
+
+			if($index == false){
+				if ($index !== 0) {
+					$temp = array();
+					array_push($temp, $subject_id);
+					for ($i=0; $i < 2; $i++) {
+						if (isset($subject_ids[$i])) {
+							array_push($temp, $subject_ids[$i]);
+						}
+					}
+					$subject_ids = $temp;
+				}
+			} else {
+				$tmp = $subject_ids[0];
+				$subject_ids[0] = $subject_ids[$index];
+				$subject_ids[$index] = $tmp;
+
+				$tmp = $subject_ids[1];
+				$subject_ids[1] = $subject_ids[$index];
+				$subject_ids[$index] = $tmp;
+			}
+		}
+		$cookie->withCookie(cookie()->forever('frequent_visited_subject_ids', json_encode($subject_ids)));
+		return $cookie;
+	}
+
 	public function setCookie(Request $request) {
 		$course_id = $this->getCourseId();
 		$cookie;
