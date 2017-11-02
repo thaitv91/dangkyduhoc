@@ -14,14 +14,15 @@ use Cookie, Session;
 
 class CareerController extends Controller
 {
-    public function viewDetail( $slug ){
-    	$locale = App::getLocale();
-     	$careers = Career::where( 'slug' , $slug )->first();
+    public function viewDetail($slug)
+    {
+        $locale = App::getLocale();
+        $careers = Career::where('slug', $slug)->first();
 
         $subject_career = SubjectCareer::where('career_id', '=', $careers->id)->get();
 
         $sblist = [];
-        foreach ($subject_career as $sbc){
+        foreach ($subject_career as $sbc) {
             $subject = App\Models\Subject::where('id', '=', $sbc->subject_id)->first();
             $sblist[] = $subject->slug;
         }
@@ -31,62 +32,65 @@ class CareerController extends Controller
             ->get();
 
         if ($locale == 'en') {
-            $careers['name']= $careers->name_en;
+            $careers['name'] = $careers->name_en;
             $careers['description'] = $careers->description_en;
         } else {
             $careers['name'] = $careers->name;
             $careers['description'] = $careers->description;
         }
 
-      	$this->viewData = array(
-      	    'title' => $careers['name'],
+        $this->viewData = array(
+            'title' => $careers['name'],
             'careers' => $careers,
             'locale' => $locale,
             'courses' => $courses,
             'sblist' => $sblist,
-            'course_id'			=> json_encode($this->getCourseId()), // Get courses from cookie
-            'apply_course_id'	=> json_encode($this->getApplyCourseId()),
-      	); 
-      	return view( 'user.careers' , $this->viewData );
+            'sblistjson' => json_encode($sblist),
+            'course_id' => json_encode($this->getCourseId()), // Get courses from cookie
+            'apply_course_id' => json_encode($this->getApplyCourseId()),
+        );
+        return view('user.careers', $this->viewData);
     }
 
-    public function setCookieFrequentlyVisitedCareerIds(Request $request) {
+    public function setCookieFrequentlyVisitedCareerIds(Request $request)
+    {
 
-    	$career_slug = $request->career_slug;
-    	$career_ids = (array)json_decode(Cookie::get('frequent_visited_career_ids', json_encode(array())));
-    	$career_db = Career::where('slug', $career_slug)->first();
-    	$cookie = new Response;
-    	if (count($career_db) > 0) {
-    		$career_id = $career_db->id;
+        $career_slug = $request->career_slug;
+        $career_ids = (array)json_decode(Cookie::get('frequent_visited_career_ids', json_encode(array())));
+        $career_db = Career::where('slug', $career_slug)->first();
+        $cookie = new Response;
+        if (count($career_db) > 0) {
+            $career_id = $career_db->id;
             //id belongs to university_ids and index of id != 0 => swap index
-    		$index = array_search($career_id, $career_ids);
+            $index = array_search($career_id, $career_ids);
 
-    		if($index == false){
-    			if ($index !== 0) {
-    				$temp = array();
-    				array_push($temp, $career_id);
-    				for ($i=0; $i < 2; $i++) {
-    					if (isset($career_ids[$i])) {
-    						array_push($temp, $career_ids[$i]);
-    					}
-    				}
-    				$career_ids = $temp;
-    			}
-    		} else {
-    			$tmp = $career_ids[0];
-    			$career_ids[0] = $career_ids[$index];
-    			$career_ids[$index] = $tmp;
+            if ($index == false) {
+                if ($index !== 0) {
+                    $temp = array();
+                    array_push($temp, $career_id);
+                    for ($i = 0; $i < 2; $i++) {
+                        if (isset($career_ids[$i])) {
+                            array_push($temp, $career_ids[$i]);
+                        }
+                    }
+                    $career_ids = $temp;
+                }
+            } else {
+                $tmp = $career_ids[0];
+                $career_ids[0] = $career_ids[$index];
+                $career_ids[$index] = $tmp;
 
-    			$tmp = $career_ids[1];
-    			$career_ids[1] = $career_ids[$index];
-    			$career_ids[$index] = $tmp;
-    		}
-    	}
-    	$cookie->withCookie(cookie()->forever('frequent_visited_career_ids', json_encode($career_ids)));
-    	return $cookie;
+                $tmp = $career_ids[1];
+                $career_ids[1] = $career_ids[$index];
+                $career_ids[$index] = $tmp;
+            }
+        }
+        $cookie->withCookie(cookie()->forever('frequent_visited_career_ids', json_encode($career_ids)));
+        return $cookie;
     }
 
-    public function setCookie(Request $request) {
+    public function setCookie(Request $request)
+    {
         $course_id = $this->getCourseId();
         $cookie;
         $index = -1;
@@ -111,7 +115,8 @@ class CareerController extends Controller
         return $cookie;
     }
 
-    public function getCourseId() {
+    public function getCourseId()
+    {
         $course_id = (array)json_decode(Cookie::get('compare_course_id'));
 
         if (Auth::check()) {
@@ -127,7 +132,8 @@ class CareerController extends Controller
         return $course_id;
     }
 
-    public function setCookieApplyCourse(Request $request) {
+    public function setCookieApplyCourse(Request $request)
+    {
         $course_id = $this->getApplyCourseId();
         $cookie;
         $index = -1;
@@ -139,7 +145,7 @@ class CareerController extends Controller
             if (Auth::check()) {
                 ApplyCourse::where('user_id', Auth::user()->id)->where('course_id', $course_id[$index])->delete();
                 return 0;
-            }else {
+            } else {
                 unset($course_id[$index]);
             }
             $course_id = array_values($course_id); //Reset key of array
@@ -157,7 +163,8 @@ class CareerController extends Controller
         return $cookie;
     }
 
-    public function getApplyCourseId() {
+    public function getApplyCourseId()
+    {
         $course_id;
 
         if (!Session::get('is_not_first_login')) {// In the case first log-in or do not login
