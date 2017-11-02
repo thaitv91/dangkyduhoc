@@ -51,7 +51,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -65,7 +65,7 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
@@ -75,12 +75,13 @@ class RegisterController extends Controller
             $name = $data['name'];
         }
         return User::create([
-            'name'              => $name,
-            'email'             => $data['email'],
-            'password'          => bcrypt($data['password']),
-            'remember_token'    => $data['_token'],
+            'name' => $name,
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'remember_token' => $data['_token'],
         ]);
     }
+
     /*
     @overide register
     */
@@ -93,11 +94,11 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($data)));
 
         Mail::to($request->email)->send(new SendMailActiveAccount(
-            array('id' => $user->id,'code' => $user->password)//To create url active
-            ));
-        UserMeta::create(['user_id'=>$user->id]);//Create more info in table user_meta
+            array('id' => $user->id, 'code' => $user->password)//To create url active
+        ));
+        UserMeta::create(['user_id' => $user->id]);//Create more info in table user_meta
 
-        Session::flash('success','Create account successfully! Please check email to active this account.');
+        Session::flash('success', 'Create account successfully! Please check email to active this account.');
 
         return Redirect::to('/');
     }
@@ -112,15 +113,31 @@ class RegisterController extends Controller
         $user = Socialite::driver($provider)->user();
 
         $authUser = $this->findOrCreateUser($user, $provider);
-        Auth::login($authUser, true);
-        return redirect($this->redirectTo);
+        if ($authUser) {
+            Auth::login($authUser, true);
+        } else {
+            Session::flash('error', 'This email has been used');
+        }
+
+        return redirect()->back();
     }
 
     public function findOrCreateUser($user, $provider)
     {
         $authUser = User::where('provider_id', $user->id)->first();
+
+        //check user registed by email
+        $user_email = User::where('email', '=', $user->email)
+            ->where('provider_id', '<>', $user->id)
+            ->first();
+
         if ($authUser) {
             return $authUser;
+        }
+
+        //dd($user_email);
+        if ($user_email) {
+            return false;
         }
         $new_user = new User();
         $new_user->name = $user->name;
