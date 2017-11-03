@@ -184,6 +184,23 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('get-url-delete', 'Admin\MapLocationController@getUrlDelete')->name('admin.mapLocation.getUrlDelete');
     });
 
+    //Menu
+
+    Route::group(['prefix'=>'menu'], function () {
+        Route::get('', 'Admin\MenuController@index')->name('admin.menu');
+        Route::get('create', 'Admin\MenuController@create')->name('admin.menu.create');
+        Route::get('update-1', 'Admin\MenuController@update1')->name('admin.menu.update1');
+        Route::get('update-2', 'Admin\MenuController@update2')->name('admin.menu.update2');
+        Route::get('update-3', 'Admin\MenuController@update3')->name('admin.menu.update3');
+        Route::get('update-4', 'Admin\MenuController@update4')->name('admin.menu.update4');
+        Route::get('get-url-delete', 'Admin\MenuController@getUrlDelete')->name('admin.menu.getUrlDelete');
+        Route::get('destroy/{id}', 'Admin\MenuController@destroy')->name('admin.menu.delete');
+
+        Route::post('create', 'Admin\MenuController@store');
+        Route::post('get-country', 'Admin\MenuController@getCountry')->name('admin.menu.getCountry');
+        Route::post('get-university', 'Admin\MenuController@getUniversity')->name('admin.menu.getUniversity');
+    });
+
     Route::group(['prefix' => 'slider'], function () {
         Route::get('', 'Admin\SliderController@index')->name('admin.slider');
         Route::get('create', 'Admin\SliderController@create')->name('admin.slider.create');
