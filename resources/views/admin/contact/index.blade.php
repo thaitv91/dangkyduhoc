@@ -52,7 +52,11 @@
 						<td>{{ Carbon\Carbon::parse($contact->created_at)->format('d/m/Y H:i') }}</td>
 						<td>
 							<a href="{{ route('admin.contact.show',['id'=>$contact->id]) }}" class="btn btn-xs btn-primary">Show</a>
+							@if ($contact->status != 2)
 							<a onclick="showReplyModal('{{ route('admin.contact.detail',['id'=>$contact->id]) }}')" class="btn btn-xs btn-info">Reply</a>
+							@else
+							<button disabled class="btn btn-xs btn-info">Replied</button>
+							@endif
 							<a onclick="confirmDelete('{{ route('admin.contact.destroy',['id'=>$contact->id]) }}')" class="btn btn-xs btn-danger">Delete</a>
 						</td>
 					</tr>
@@ -65,10 +69,8 @@
 <!-- /.box -->
 
 {{-- Modal reply --}}
-
 <div class="modal fade" id="modal-reply" role="dialog">
 	<div class="modal-dialog">
-
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
@@ -76,7 +78,7 @@
 				<h4 class="modal-title"></h4>
 			</div>
 			<div class="modal-body">
-				
+				<textarea class="form-control" id="reply-content"></textarea>
 			</div>
 			<div class="modal-footer">
 				<a href="" class="btn btn-danger">Send</a>
@@ -86,7 +88,6 @@
 
 	</div>
 </div>
-
 {{-- Modal delete --}}
 
 <div class="modal fade" id="modal-delete" role="dialog">
@@ -141,9 +142,11 @@
 			$('#modal-reply .modal-title').empty();
 			$('#modal-reply .modal-title').append("<p>Reply to: <b>"+data.name +"</b></p>");
 			$('#modal-reply .modal-title').append("<p>"+"Email: <b>"+data.email+"</b></p>");
-			$('#modal-reply .modal-body').empty();
-			$('#modal-reply .modal-body').append('<textarea class="form-control"></textarea>');
+			$('#modal-reply .modal-title').append("<p>"+"Question: <i>"+data.question+"</i></p>");
+			// $('#modal-reply .modal-body').empty();
+			// $('#modal-reply .modal-body').append('<textarea id="reply-content" class="form-control"></textarea>');
 
+			$('#reply-content').val('');
 			$('#modal-reply a').attr('href',data.url);
 			$('#modal-reply').modal('show');
 		});
@@ -151,12 +154,21 @@
 
 	$('#modal-reply a').on('click', function(e) {
 		e.preventDefault();
-
 		$('#modal-reply').modal('hide');
+		var answer = $('#reply-content').val();
+		toastr.warning('Sending email...');
 		$.ajax({
 			url : $(this).attr('href'),
+			data : {answer : answer}
 		}).done(function (data){
-			toastr.success('Email was sent.');
+			if (data == 0) {
+				toastr.error('Send email error');
+			} else if(data == 1) {
+				toastr.success('Email was sent.');
+				location.reload();
+			} else {
+				toastr.error('Please input your answer');
+			}
 		});	
 	});
 

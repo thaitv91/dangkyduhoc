@@ -85,13 +85,13 @@
 						<tr class="course-row">
 							<td class="priority hidden-xs tip"><span data-toggle="tooltip" data-placement="top" title="" data-original-title="Drag to prioritise">{{ $key+1 }}</span></td>
 							<td class="header">
-								<a href="#" class="course_name">{{ $course->name }}</a>
+								<a href="#" class="course_name">{{ explode(',', $course->name)[0] }}</a>
 								@if ($course->review_status == 0)
 								<a href="javascript:;" onclick="removeCourse(this)" data-course-id="{{ $course->id }}" class="remove-button">
 									<i class="fa fa-times tip" title="" data-original-title="Remove course?"></i>
 								</a>
 								@endif
-								<span class="classification">BA (Hons)</span>
+								<span class="classification">{{ explode(',', $course->name)[1] }}</span>
 								<div class="item tip" data-original-title="" title="">
 									<a class="university_name" href="/university/the-university-of-liverpool">{{ $course->university->name }} , {{ $course->country() }},  {{ $course->information->duration}} years</a>
 								</div>
@@ -364,6 +364,7 @@
 	$('#FamilyName').val("{{ $personal_details->family_name }}");
 	$('#FamilyName').prop("readonly", true);
 
+	$('#email').val("{{ $personal_details->email }}");
 	$('#email').prop("readonly", true);
 
 	$('#Gender'+"{{ $personal_details->gender }}").prop('checked', true);
@@ -777,9 +778,10 @@ function submit_form() {
 		url : "{{ route('user.apply.submit') }}",
 		type : 'POST',
 	}).done(function () {
-		window.location  = "{{ route('user.apply.confirmation') }}";
+		window.location  = "{{ route('user.apply.confirmation',['send_mail'=>1]) }}";
 	})
 }
+
 </script>
 
 @endsection

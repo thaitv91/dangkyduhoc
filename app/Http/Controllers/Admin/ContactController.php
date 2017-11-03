@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Session, Redirect;
+use Mail;
+use App\Mail\ReplyContact;
 
 class ContactController extends Controller
 {
@@ -24,7 +26,8 @@ class ContactController extends Controller
     		return Redirect::route('admin.contact');
     	}
 
-    	$contact->status = 1;
+        if ($contact->status != 2)
+           $contact->status = 1;
     	$contact->save();
 
     	return view('admin.contact.show',compact(['contact']));
@@ -39,8 +42,30 @@ class ContactController extends Controller
     }
 
     //TODO : send email
-    public function reply($id) {
+    public function reply(Request $request, $id=-1) {
+        $data = Contact::where('id', $id)->first();
+        
+        if (count($data) == 0){
+            Session::flash('error', 'Send email false');
+            return 0;
+        }
 
+        $name = $data->name;
+        $email = $data->email;
+        $question = $data->question;
+        $answer = $request->answer;
+
+        if($answer == '') 
+            return -1;
+        Mail::to($email)->send(new ReplyContact($name, $question, $answer));
+        
+        $data->status = 2;
+        $data->answer = $answer;
+        $data->save();
+
+        Session::flash('success', 'Send email success');
+
+        return 1;
     }
 
     public function detail($id) {

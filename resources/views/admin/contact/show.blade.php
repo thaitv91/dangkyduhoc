@@ -39,8 +39,16 @@
 					<label for="name" class="label-control col-md-2">Send at: </label>
 					<div class="col-md-10"><p>{{ Carbon\Carbon::parse($contact->created_at)->format('d/m/Y H:i') }}</p></div>
 				</div>
+				@if ($contact->answer != '')
 				<div class="form-group">
-					<div class="col-md-2"><a onclick="showReplyModal({{$contact->id}})" type="submit" class="btn btn-primary">Reply</a></div>
+					<label for="name" class="label-control col-md-2">Answer: </label>
+					<div class="col-md-10"><p>{{ $contact->answer }}</p></div>
+				</div>
+				@endif
+				<div class="form-group">
+					@if ($contact->status != 2)
+					<div class="col-md-2"><a onclick="showReplyModal('{{ route('admin.contact.detail',['id'=>$contact->id]) }}')" type="submit" class="btn btn-primary">Reply</a></div>
+					@endif
 					<div class="col-md-2"><a href="{{ route('admin.contact') }}" class="btn btn-danger">Back</a></div>
 				</div>
 			</div>
@@ -56,7 +64,6 @@
 
 <div class="modal fade" id="modal-reply" role="dialog">
 	<div class="modal-dialog">
-
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
@@ -64,7 +71,7 @@
 				<h4 class="modal-title">Reply to : </h4>
 			</div>
 			<div class="modal-body">
-				<textarea class="form-control"></textarea>
+				<textarea class="form-control" id="reply-content"></textarea>
 			</div>
 			<div class="modal-footer">
 				<a href="" class="btn btn-danger">Send</a>
@@ -76,20 +83,50 @@
 </div>
 @endsection
 
-@section('scrtipts')
+@section('scripts')
 <script type="text/javascript">
-	function showReplyModal(id) {
+
+	function showReplyModal(url) {
+		console.log(url);
 		$.ajax({
-			url : '{{ route("admin.course.getUrlDelete") }}',
-			data : {id:id},
-		}).done(function(data) {
+			url : url,
+		}).done(function (data) {
 			if (data == -1) {
-				alert('Opp! Please try again. Error!');
-			} else {
-				$('#modal-reply a').attr('href',data);
-				$('#modal-reply').modal('show');
+				toastr.error('error', 'Data was not found.');
+				return false;
 			}
-		})
+
+			$('#modal-reply .modal-title').empty();
+			$('#modal-reply .modal-title').append("<p>Reply to: <b>"+data.name +"</b></p>");
+			$('#modal-reply .modal-title').append("<p>"+"Email: <b>"+data.email+"</b></p>");
+			$('#modal-reply .modal-title').append("<p>"+"Question: <i>"+data.question+"</i></p>");
+			// $('#modal-reply .modal-body').empty();
+			// $('#modal-reply .modal-body').append('<textarea id="reply-content" class="form-control"></textarea>');
+
+			$('#reply-content').val('');
+			$('#modal-reply a').attr('href',data.url);
+			$('#modal-reply').modal('show');
+		});
 	}
+
+	$('#modal-reply a').on('click', function(e) {
+		e.preventDefault();
+		$('#modal-reply').modal('hide');
+		var answer = $('#reply-content').val();
+		toastr.warning('Sending email...');
+		$.ajax({
+			url : $(this).attr('href'),
+			data : {answer : answer}
+		}).done(function (data){
+			if (data == 0) {
+				toastr.error('Send email error');
+			} else if(data == 1) {
+				toastr.success('Email was sent.');
+				location.reload();
+			} else {
+				toastr.error('Please input your answer');
+			}
+		});	
+	});
 </script>
 @endsection

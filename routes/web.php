@@ -372,7 +372,7 @@ Route::get('compare', 'User\CourseController@compare')->name('user.course.compar
 
 Route::group(['prefix' => 'apply'], function () {
     Route::get('', 'User\CourseController@apply')->name('user.course.apply');
-    Route::get('confirmation', 'User\ApplyCourseController@confirmation')->name('user.apply.confirmation');
+    Route::get('confirmation/{send_mail?}', 'User\ApplyCourseController@confirmation')->name('user.apply.confirmation');
     Route::post('', 'User\ApplyCourseController@applyCourse')->name('user.course.applyCourse');
     Route::post('submit-personal-detail', 'User\ApplyCourseController@storePersonalDetail')->name('user.apply.storePersonalDetail');
     Route::post('submit-education-work', 'User\ApplyCourseController@storeEducationAndWork')->name('user.apply.storeEducationAndWork');
@@ -410,6 +410,7 @@ Route::group(['prefix' => 'message'], function () {
 });
 
 // contact
+Route::get('contact', 'User\ContactController@getContact')->name('getContact');
 Route::post('contact', 'User\ContactController@postContact')->name('postContact');
 
 Route::get('/course/{slug}', 'User\AjaxController@getCourseDetail');

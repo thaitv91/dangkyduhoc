@@ -13,6 +13,8 @@ use App\Models\ApplyCourseEnglishProficiency;
 use App\Models\ApplyCourseDocument;
 use App\Models\ApplyCourseAdditionalDetail;
 use DB, Auth, Redirect;
+use Mail;
+use App\Mail\ApplyCourseMail;
 
 class ApplyCourseController extends Controller
 {
@@ -109,7 +111,6 @@ class ApplyCourseController extends Controller
                     'edu_school_name'=> $data['edu_school_name'][$key],
                     'qualification' =>  $data['edu_qualification'][$key],
                 );
-
                 ApplyCourseEducationBackground::create($edu);
             }
 
@@ -246,17 +247,30 @@ class ApplyCourseController extends Controller
         ApplyCourse::where('user_id', $user_id)->where('receive_status', 0)->update(['received' => Carbon::now(), 'receive_status'=>1]);
     }
 
-    public function confirmation() {
+    public function confirmation(Request $request, $send_mail=0) {
         $user;
+
         if (!Auth::check()) {
             return Redirect::route('login');
         }
+
         $user = Auth::user();
         $country_birth = $this->countryBirth();
         $nationality = $this->nationality();
         $qualification = $this->qualification();
         $certificate = $this->certificate();
 
+        $data = array(
+            'user'          =>  $user,
+            'country_birth' =>  $country_birth,
+            'nationality'   =>  $nationality,
+            'qualification' =>  $qualification,
+            'certificate'   =>  $certificate,
+        );
+
+        if ($send_mail == 1)
+            Mail::to($user->personalDetail->email)->send(new ApplyCourseMail($data));
+        
         return view('user.confirmation', compact(['user', 'country_birth', 'nationality', 'qualification', 'certificate']));
     }
 

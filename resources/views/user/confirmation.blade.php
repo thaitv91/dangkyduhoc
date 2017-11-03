@@ -52,7 +52,7 @@
 					@foreach ($user->applyCourse as $key => $value) 
 					<div class="row">
 						<div class="col-lg-9 clearfix">
-							<span class="name">{{ $key }}. {{ $value->name }}</span> <span class="code">({{ $value->classification }})</span> -
+							<span class="name">{{ $key+1 }}. {{ explode(',', $value->name)[0] }}</span> <span class="code">({{  $value->information->course_code }})</span> -
 							<span class="university">{{ $value->university->name }} ({{ $value->country() }})</span>
 						</div>
 					</div>
