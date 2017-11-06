@@ -3523,6 +3523,7 @@ sub, sup {
 .sub-menu a {
   color: #fff;
   display: block;
+  font-size: 13px;
 }
 .sub-menu a:hover, .sub-menu a:focus {
   color: #fff;
@@ -3533,25 +3534,25 @@ sub, sup {
 }
 .sub-menu .slide-section h1 {
   color: #fff;
-  font-size: 34px;
-  line-height: 1;
+  font-size: 24px;
+  line-height: 1.1;
   text-transform: uppercase;
   vertical-align: middle;
-  margin: 30px 0;
+  margin: 10px 0;
   font-family: UTMBebas, Arial, Helvetica, sans-serif;
 }
 .sub-menu .slide-section h4 {
   color: #fff;
   text-transform: uppercase;
   font-family: UTMBebas, Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  margin: 10px 0 0;
+  font-size: 16px;
+  margin: 7px 0 0;
 }
 .sub-menu .slide-section h3 {
   color: #fff;
   text-transform: uppercase;
   font-family: UTMBebas, Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   margin: 0;
 }
 
