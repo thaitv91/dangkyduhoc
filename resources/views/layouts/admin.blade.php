@@ -7,7 +7,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Starter</title>
+    <title>
+        @if(isset($title))
+            {{ $title }}
+        @else
+            {{ config('app.name', 'Dang Ky Du Hoc Backend') }}
+        @endif
+    </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -19,8 +25,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" type="text/css" href="{{url('css/multi-select/bootstrap-select.css')}}">
-    <link href="{{url('css/toastr.min.css')}}" rel="stylesheet" />
-    <link href="{{url('css/adminStyle.css')}}" rel="stylesheet" />
+    <link href="{{url('css/toastr.min.css')}}" rel="stylesheet"/>
+    <link href="{{url('css/adminStyle.css')}}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{url('css/bootstrap-datepicker3.css')}}"/>
 
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -37,26 +43,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -66,9 +52,7 @@ desired effect
         <!-- Logo -->
         <a href="/" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b>LTE</span>
+            <span class="logo-mini">DangKyDuHoc</span>
         </a>
 
         <!-- Header Navbar -->
@@ -88,12 +72,13 @@ desired effect
             <ul class="sidebar-menu">
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="{{ route('admin.countries') }}"><i class="fa fa-link"></i> <span>Countries</span></a></li>
+                <li class="active"><a href="{{ route('admin.countries') }}"><i class="fa fa-link"></i>
+                        <span>Countries</span></a></li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>Guide</span>
                         <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ route('admin.guide.index') }}">Guide</a></li>
@@ -104,8 +89,8 @@ desired effect
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>Page</span>
                         <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ route('admin.page.index') }}"> Page</a></li>
@@ -116,8 +101,8 @@ desired effect
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>University</span>
                         <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ route('admin.universities.index') }}"> University</a></li>
@@ -130,13 +115,19 @@ desired effect
                 <li><a href="{{ route('admin.subject.index') }}"><i class="fa fa-link"></i> <span>Subject</span></a></li>
                 <li><a href="{{ route('admin.contact') }}"><i class="fa fa-link"></i><span>Contact</span></a></li>
                 <li><a href="{{ route('admin.menu') }}"><i class="fa fa-link"></i><span>Menu University</span></a></li>
+                <li><a href="{{ route('admin.menu') }}"><i class="fa fa-link"></i> <span>Menu</span></a>
+                <li><a href="{{ route('admin.map.index') }}"><i class="fa fa-link"></i> <span>Maps</span></a>
+                <li><a href="{{ route('admin.course') }}"><i class="fa fa-link"></i> <span>Courses</span></a>
+                <li><a href="{{ route('admin.user') }}"><i class="fa fa-link"></i> <span>Users</span></a>
+                <li><a href="{{ route('admin.scholarship') }}"><i class="fa fa-link"></i> <span>Scholarship</span></a>
+                </li>
                 <li>
                     <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
+                       onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
-                    Logout
+                        Logout
                     </a>
-                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
                 </li>
@@ -273,32 +264,62 @@ desired effect
 <script type="text/javascript" src="{{url('js/bootstrap-datepicker.min.js')}}"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script>
-        tinymce.PluginManager.add('placeholder', function (editor) {
-            editor.on('init', function () {
-                var label = new Label;
-                onBlur();
-                tinymce.DOM.bind(label.el, 'click', onFocus);
-                editor.on('focus', onFocus);
-                editor.on('blur', onBlur);
-                editor.on('change', onBlur);
-                editor.on('setContent', onBlur);
-                function onFocus() { if (!editor.settings.readonly === true) { label.hide(); } editor.execCommand('mceFocus', false); }
-                function onBlur() { if (editor.getContent() == '') { label.show(); } else { label.hide(); } }
-            });
-            var Label = function () {
-                var placeholder_text = editor.getElement().getAttribute("placeholder") || editor.settings.placeholder;
-                var placeholder_attrs = editor.settings.placeholder_attrs || { style: { position: 'absolute', top: '2px', left: 0, color: '#aaaaaa', padding: '.25%', margin: '5px', width: '80%', 'font-size': '17px !important;', overflow: 'hidden', 'white-space': 'pre-wrap' } };
-                var contentAreaContainer = editor.getContentAreaContainer();
-                tinymce.DOM.setStyle(contentAreaContainer, 'position', 'relative');
-                this.el = tinymce.DOM.add(contentAreaContainer, "label", placeholder_attrs, placeholder_text);
+    tinymce.PluginManager.add('placeholder', function (editor) {
+        editor.on('init', function () {
+            var label = new Label;
+            onBlur();
+            tinymce.DOM.bind(label.el, 'click', onFocus);
+            editor.on('focus', onFocus);
+            editor.on('blur', onBlur);
+            editor.on('change', onBlur);
+            editor.on('setContent', onBlur);
+
+            function onFocus() {
+                if (!editor.settings.readonly === true) {
+                    label.hide();
+                }
+                editor.execCommand('mceFocus', false);
             }
-            Label.prototype.hide = function () { tinymce.DOM.setStyle(this.el, 'display', 'none'); }
-            Label.prototype.show = function () { tinymce.DOM.setStyle(this.el, 'display', ''); }
+
+            function onBlur() {
+                if (editor.getContent() == '') {
+                    label.show();
+                } else {
+                    label.hide();
+                }
+            }
         });
-        tinymce.init({
-            selector: 'textarea.my-editor',
-            menubar: false,
-            plugins: [
+        var Label = function () {
+            var placeholder_text = editor.getElement().getAttribute("placeholder") || editor.settings.placeholder;
+            var placeholder_attrs = editor.settings.placeholder_attrs || {
+                style: {
+                    position: 'absolute',
+                    top: '2px',
+                    left: 0,
+                    color: '#aaaaaa',
+                    padding: '.25%',
+                    margin: '5px',
+                    width: '80%',
+                    'font-size': '17px !important;',
+                    overflow: 'hidden',
+                    'white-space': 'pre-wrap'
+                }
+            };
+            var contentAreaContainer = editor.getContentAreaContainer();
+            tinymce.DOM.setStyle(contentAreaContainer, 'position', 'relative');
+            this.el = tinymce.DOM.add(contentAreaContainer, "label", placeholder_attrs, placeholder_text);
+        }
+        Label.prototype.hide = function () {
+            tinymce.DOM.setStyle(this.el, 'display', 'none');
+        }
+        Label.prototype.show = function () {
+            tinymce.DOM.setStyle(this.el, 'display', '');
+        }
+    });
+    tinymce.init({
+        selector: 'textarea.my-editor',
+        menubar: false,
+        plugins: [
             'advlist autolink lists link image charmap print preview anchor',
             'searchreplace visualblocks code fullscreen',
             'insertdatetime media table contextmenu paste code'
