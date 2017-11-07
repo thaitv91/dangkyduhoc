@@ -2,28 +2,29 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use App;
 use App\Http\Controllers\Controller;
 use App\Models\Career;
-use App;
-use App\Models\SubjectCareer;
 use App\Models\Course;
+use App\Models\SubjectCareer;
 use Auth;
-use Cookie, Session;
+use Cookie;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Session;
 
 class CareerController extends Controller
 {
     public function viewDetail($slug)
     {
-        $locale = App::getLocale();
+        $locale  = App::getLocale();
         $careers = Career::where('slug', $slug)->first();
 
         $subject_career = SubjectCareer::where('career_id', '=', $careers->id)->get();
 
         $sblist = [];
         foreach ($subject_career as $sbc) {
-            $subject = App\Models\Subject::where('id', '=', $sbc->subject_id)->first();
+            $subject  = App\Models\Subject::where('id', '=', $sbc->subject_id)->first();
             $sblist[] = $subject->slug;
         }
 
@@ -32,21 +33,21 @@ class CareerController extends Controller
             ->get();
 
         if ($locale == 'en') {
-            $careers['name'] = $careers->name_en;
+            $careers['name']        = $careers->name_en;
             $careers['description'] = $careers->description_en;
         } else {
-            $careers['name'] = $careers->name;
+            $careers['name']        = $careers->name;
             $careers['description'] = $careers->description;
         }
 
         $this->viewData = array(
-            'title' => $careers['name'],
-            'careers' => $careers,
-            'locale' => $locale,
-            'courses' => $courses,
-            'sblist' => $sblist,
-            'sblistjson' => json_encode($sblist),
-            'course_id' => json_encode($this->getCourseId()), // Get courses from cookie
+            'title'           => $careers['name'],
+            'careers'         => $careers,
+            'locale'          => $locale,
+            'courses'         => $courses,
+            'sblist'          => $sblist,
+            'sblistjson'      => json_encode($sblist),
+            'course_id'       => json_encode($this->getCourseId()), // Get courses from cookie
             'apply_course_id' => json_encode($this->getApplyCourseId()),
         );
         return view('user.careers', $this->viewData);
@@ -56,9 +57,9 @@ class CareerController extends Controller
     {
 
         $career_slug = $request->career_slug;
-        $career_ids = (array)json_decode(Cookie::get('frequent_visited_career_ids', json_encode(array())));
-        $career_db = Career::where('slug', $career_slug)->first();
-        $cookie = new Response;
+        $career_ids  = (array) json_decode(Cookie::get('frequent_visited_career_ids', json_encode(array())));
+        $career_db   = Career::where('slug', $career_slug)->first();
+        $cookie      = new Response;
         if (count($career_db) > 0) {
             $career_id = $career_db->id;
             //id belongs to university_ids and index of id != 0 => swap index
@@ -76,12 +77,12 @@ class CareerController extends Controller
                     $career_ids = $temp;
                 }
             } else {
-                $tmp = $career_ids[0];
-                $career_ids[0] = $career_ids[$index];
+                $tmp                = $career_ids[0];
+                $career_ids[0]      = $career_ids[$index];
                 $career_ids[$index] = $tmp;
 
-                $tmp = $career_ids[1];
-                $career_ids[1] = $career_ids[$index];
+                $tmp                = $career_ids[1];
+                $career_ids[1]      = $career_ids[$index];
                 $career_ids[$index] = $tmp;
             }
         }
@@ -97,14 +98,16 @@ class CareerController extends Controller
         if ($course_id) {
             $index = array_search($request->id, $course_id);
         }
-        if ($index >= 0 && $index !== false) { // Remove course
+        if ($index >= 0 && $index !== false) {
+            // Remove course
             $cookie = new Response('0');
             if (Auth::check()) {
                 UserComparison::where('user_id', Auth::user()->id)->where('course_id', $course_id[$index])->delete();
             }
             unset($course_id[$index]);
             $course_id = array_values($course_id); //Reset key of array
-        } else { //Insert course
+        } else {
+            //Insert course
             $cookie = new Response('1');
             if (Auth::check()) {
                 UserComparison::create(['user_id' => Auth::user()->id, 'course_id' => $request->id]);
@@ -117,12 +120,12 @@ class CareerController extends Controller
 
     public function getCourseId()
     {
-        $course_id = (array)json_decode(Cookie::get('compare_course_id'));
+        $course_id = (array) json_decode(Cookie::get('compare_course_id'));
 
         if (Auth::check()) {
-            $user = Auth::user();
+            $user         = Auth::user();
             $course_id_db = $user->courseComparison()->get(['course_id']);
-            $temp = array();
+            $temp         = array();
             foreach ($course_id_db as $key => $value) {
                 array_push($temp, $value->course_id);
             }
@@ -140,7 +143,8 @@ class CareerController extends Controller
         if ($course_id) {
             $index = array_search($request->id, $course_id);
         }
-        if ($index >= 0 && $index !== false) { // Remove course
+        if ($index >= 0 && $index !== false) {
+            // Remove course
             $cookie = new Response('0');
             if (Auth::check()) {
                 ApplyCourse::where('user_id', Auth::user()->id)->where('course_id', $course_id[$index])->delete();
@@ -149,7 +153,8 @@ class CareerController extends Controller
                 unset($course_id[$index]);
             }
             $course_id = array_values($course_id); //Reset key of array
-        } else { //Insert course
+        } else {
+            //Insert course
             $cookie = new Response('1');
             if (Auth::check()) {
                 ApplyCourse::create(['user_id' => Auth::user()->id, 'course_id' => $request->id]);
@@ -167,12 +172,14 @@ class CareerController extends Controller
     {
         $course_id;
 
-        if (!Session::get('is_not_first_login')) {// In the case first log-in or do not login
-            $course_id = (array)json_decode(Cookie::get('apply_course_id'));
-            if (Auth::check()) { // User first login use data from db and cookie
-                $user = Auth::user();
+        if (!Session::get('is_not_first_login')) {
+// In the case first log-in or do not login
+            $course_id = (array) json_decode(Cookie::get('apply_course_id'));
+            if (Auth::check()) {
+                // User first login use data from db and cookie
+                $user         = Auth::user();
                 $course_id_db = $user->applyCourse()->get(['course_id']);
-                $temp = array();
+                $temp         = array();
                 foreach ($course_id_db as $key => $value) {
                     array_push($temp, $value->course_id);
                 }
@@ -182,13 +189,15 @@ class CareerController extends Controller
                     ApplyCourse::create(['user_id' => Auth::user()->id, 'course_id' => $value]);
                 }
                 Session::put('is_not_first_login', true);
-            } else {  //In the case user is guest, use data from cookie
-                $course_id = (array)json_decode(Cookie::get('apply_course_id'));
+            } else {
+                //In the case user is guest, use data from cookie
+                $course_id = (array) json_decode(Cookie::get('apply_course_id'));
             }
-        } else { // Has been logged-in and use data from database
-            $user = Auth::user();
+        } else {
+            // Has been logged-in and use data from database
+            $user         = Auth::user();
             $course_id_db = $user->applyCourse()->get(['course_id']);
-            $course_id = array();
+            $course_id    = array();
             foreach ($course_id_db as $key => $value) {
                 array_push($course_id, $value->course_id);
             }

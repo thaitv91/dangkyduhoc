@@ -301,6 +301,21 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('', 'Admin\ApplyCourseController@index')->name('admin.applyCourse');
         Route::get('information/{user_id?}', 'Admin\ApplyCourseController@information')->name('admin.applyCourse.information');
     });
+
+    Route::group(['prefix' => 'fair'], function () {
+        Route::get('', 'Admin\FairController@index')->name('admin.fair');
+        Route::get('popularity', 'Admin\FairController@indexPopularity')->name('admin.fair.popularity');
+        Route::get('edit-popularity/{id}', 'Admin\FairController@editPopularity')->name('admin.fair.editPopularity');
+        Route::post('edit-popularity/{id}', 'Admin\FairController@updatePopularity');
+        Route::get('create-popularity', 'Admin\FairController@createPopularity')->name('admin.fair.createPopularity');
+        Route::get('get-url-delete-popularity', 'Admin\FairController@getUrlDeletePopularity')->name('admin.fair.getUrlDeletePopularity');
+        Route::get('delete-popularity/{id}', 'Admin\FairController@deletePopularity')->name('admin.fair.deletePopularity');
+        Route::post('create-popularity', 'Admin\FairController@storePopularity');
+
+        Route::get('register', 'Admin\FairController@indexRegister')->name('admin.fair.register');
+        Route::get('show-register/{id}', 'Admin\FairController@showRegister')->name('admin.fair.showRegister');
+        Route::get('delete-register/{id}', 'Admin\FairController@deleteRegister')->name('admin.fair.deleteRegister');
+    });
 });
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
 Route::get('/admin/countries/{country}/edit', 'Admin\CountryController@edit');
@@ -335,7 +350,7 @@ Route::get('/html/apply', function () {
 });
 
 Route::get('/html/fair', function () {
-    return view('user.fair');
+    return view('user.fair_html');
 });
 
 Route::get('/html/compare', function () {
@@ -372,7 +387,7 @@ Route::get('compare', 'User\CourseController@compare')->name('user.course.compar
 
 Route::group(['prefix' => 'apply'], function () {
     Route::get('', 'User\CourseController@apply')->name('user.course.apply');
-    Route::get('confirmation', 'User\ApplyCourseController@confirmation')->name('user.apply.confirmation');
+    Route::get('confirmation/{send_mail?}', 'User\ApplyCourseController@confirmation')->name('user.apply.confirmation');
     Route::post('', 'User\ApplyCourseController@applyCourse')->name('user.course.applyCourse');
     Route::post('submit-personal-detail', 'User\ApplyCourseController@storePersonalDetail')->name('user.apply.storePersonalDetail');
     Route::post('submit-education-work', 'User\ApplyCourseController@storeEducationAndWork')->name('user.apply.storeEducationAndWork');
@@ -409,7 +424,17 @@ Route::group(['prefix' => 'message'], function () {
     Route::get('new-message', 'Admin\MessageController@createFormChat')->name('createFormChat');
 });
 
+//Fair
+Route::group(['prefix'=>'fair'], function() {
+    Route::get('', 'User\FairController@index')->name('user.fair');
+    Route::get('register', 'User\FairController@register')->name('user.fair.register');
+    Route::get('html/mail', function() {
+        return view('email.fair_register');
+    });
+});
+
 // contact
+Route::get('contact', 'User\ContactController@getContact')->name('getContact');
 Route::post('contact', 'User\ContactController@postContact')->name('postContact');
 
 Route::get('/course/{slug}', 'User\AjaxController@getCourseDetail');

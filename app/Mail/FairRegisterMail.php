@@ -7,20 +7,18 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ContactEmail extends Mailable
+class FairRegisterMail extends Mailable
 {
     use Queueable, SerializesModels;
-    protected $data;
-    protected $email;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($email, $data)
+    public function __construct()
     {
-        $this->email = $email;
-        $this->data = $data;
+        //
     }
 
     /**
@@ -30,9 +28,8 @@ class ContactEmail extends Mailable
      */
     public function build()
     {
-        $url = $this->data['url'];
-        $email = $this->email;
+        $title = 'Overseas University Fair 2018 at Suntec';
 
-        return $this->view('email.contact', compact(['url', 'email']));
+        return $this->view('email.fair_register', compact(['title']));
     }
 }

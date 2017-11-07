@@ -34,6 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           apply the skin class to the body tag so the changes take effect.
     -->
     <link rel="stylesheet" href="/dist/css/skins/skin-blue.min.css">
+    @yield('styles')
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -111,7 +112,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </ul>
                 </li>
                 <li><a href="{{ route('admin.career.index') }}"><i class="fa fa-link"></i> <span>Careers</span></a></li>
-                <li><a href="{{ route('admin.subject.index') }}"><i class="fa fa-link"></i> <span>Subject</span></a>
+                <li><a href="{{ route('admin.subject.index') }}"><i class="fa fa-link"></i> <span>Subject</span></a></li>
+                <li><a href="{{ route('admin.contact') }}"><i class="fa fa-link"></i><span>Contact</span></a></li>
+                <li><a href="{{ route('admin.menu') }}"><i class="fa fa-link"></i><span>Menu University</span></a></li>
                 <li><a href="{{ route('admin.menu') }}"><i class="fa fa-link"></i> <span>Menu</span></a>
                 <li><a href="{{ route('admin.map.index') }}"><i class="fa fa-link"></i> <span>Maps</span></a>
                 <li><a href="{{ route('admin.course') }}"><i class="fa fa-link"></i> <span>Courses</span></a>
@@ -320,18 +323,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             'advlist autolink lists link image charmap print preview anchor',
             'searchreplace visualblocks code fullscreen',
             'insertdatetime media table contextmenu paste code'
-        ],
-        toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-        content_css: [
+            ],
+            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            content_css: [
             '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
             '//www.tinymce.com/css/codepen.min.css'
-        ],
-        // setup: function(ed) {
-        //       ed.on('keyup', function(e) {
-        //           // check_submit();
-        //       });
-        //   }
-    });
+            ],
+        });
 
 </script>
 <script>

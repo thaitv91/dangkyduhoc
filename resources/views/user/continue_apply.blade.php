@@ -23,7 +23,11 @@
 									<label for="email">Email address&nbsp;<i class="fa fa-question-circle tip" title="Please ensure that the email you provide is correct and active. Communications with you will be made through this email."></i>
 									</label>
 								</td>
+								@if (count(Auth::user()->personalDetail))
+								<td><input type="text" name="email" id="email" required="required" value="{{ Auth::user()->personalDetail->email }}" class="emailaddress"></td>
+								@else
 								<td><input type="text" name="email" id="email" required="required" value="{{ Auth::user()->email }}" class="emailaddress"></td>
+								@endif
 							</tr>
 							<tr>
 								<td>

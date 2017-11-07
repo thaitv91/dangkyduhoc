@@ -15,41 +15,52 @@
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
-		{{ csrf_field() }}
-		{{ method_field('PUT') }}
 		<div class="col-md-8 col-md-offset-2">
 			<div class="box-body">
 				<div class="form-group">
-					<label for="name" class="label-control col-md-2">Name: </label>
-					<div class="col-md-10"><p>{{ $contact->name }}</p></div>
+					<label for="name" class="label-control col-md-4">Name: </label>
+					<div class="col-md-8"><p>{{ $data->name }}</p></div>
 				</div>
 				<div class="form-group">
-					<label for="name" class="label-control col-md-2">Email: </label>
-					<div class="col-md-10"><p>{{ $contact->email }}</p></div>
+					<label for="name" class="label-control col-md-4">Email: </label>
+					<div class="col-md-8"><p>{{ $data->email }}</p></div>
 				</div>
 				<div class="form-group">
-					<label for="name" class="label-control col-md-2">What's app: </label>
-					<div class="col-md-10"><p>{{ $contact->whatsapp }}</p></div>
+					<label for="name" class="label-control col-md-4">Mobile number: </label>
+					<div class="col-md-8"><p>{{ $data->mobile }}</p></div>
 				</div>
 				<div class="form-group">
-					<label for="name" class="label-control col-md-2">Question: </label>
-					<div class="col-md-10"><p>{{ $contact->question }}</p></div>
+					<label for="name" class="label-control col-md-4">University Intake: </label>
+					<div class="col-md-8"><p>{{ $data->university_intake }}</p></div>
 				</div>
 				<div class="form-group">
-					<label for="name" class="label-control col-md-2">Send at: </label>
-					<div class="col-md-10"><p>{{ Carbon\Carbon::parse($contact->created_at)->format('d/m/Y H:i') }}</p></div>
+					<label for="name" class="label-control col-md-4">Studying: </label>
+					<div class="col-md-8"><p>{{ $data->studying == 1?'Studying':'Not Studying' }}</p></div>
 				</div>
-				@if ($contact->answer != '')
 				<div class="form-group">
-					<label for="name" class="label-control col-md-2">Answer: </label>
-					<div class="col-md-10"><p>{{ $contact->answer }}</p></div>
+					<label for="name" class="label-control col-md-4">Current qualification: </label>
+					<div class="col-md-8"><p>{{ $data->current_qualification }}</p></div>
 				</div>
-				@endif
 				<div class="form-group">
-					@if ($contact->status != 2)
-					<div class="col-md-2"><a onclick="showReplyModal('{{ route('admin.contact.detail',['id'=>$contact->id]) }}')" type="submit" class="btn btn-primary">Reply</a></div>
-					@endif
-					<div class="col-md-2"><a href="{{ route('admin.contact') }}" class="btn btn-danger">Back</a></div>
+					<label for="name" class="label-control col-md-4">Expected grade: </label>
+					<div class="col-md-8"><p>{{ $data->expected_grade }}</p></div>
+				</div>
+				<div class="form-group">
+					<label for="name" class="label-control col-md-4">Registed at: </label>
+					<div class="col-md-8"><p>{{ Carbon\Carbon::parse($data->created_at)->format('d/m/Y H:i') }}</p></div>
+				</div>
+				<div class="form-group">
+					<label for="name" class="label-control col-md-4">Subjects: </label>
+					<div class="col-md-8">
+						<ul>
+							<?php foreach ($subjects as $key => $value): ?>
+							<li>{{ $value->name }}</li>
+							<?php endforeach ?>
+						</ul>
+					</div>
+				</div>
+				<div class="form-group">
+					<a href="{{ route('admin.fair.register') }}" class="btn btn-default">Back</a>
 				</div>
 			</div>
 			<!-- /.box-body -->
