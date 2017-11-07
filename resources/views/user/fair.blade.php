@@ -18,7 +18,8 @@
 			</div>
 		</div>
 		<div class="info">
-			<h2>DREAM BIG</h2>
+			<?php echo $fair_introduce_field ?>
+			<!-- <h2>DREAM BIG</h2>
 			<h3>OVERSEAS UNIVERSITY FAIR 2017</h3>
 			<div class="description">
 				<p>Looking to study overseas? Meet with over 60 globally recognised universities across Australia, UK, USA, Canada, Ireland & Switzerland at the largest education fair in town. Discover your study options and all the benefits of studying abroad! Proudly organised by theRightU.</p>
@@ -28,7 +29,7 @@
 				29 September 2017, 4 - 9pm<br/>
 				Suntec Singapore Convention, Halls 324-326<br/>
 				<a href="#">Sign up online!</a>
-			</div>
+			</div> -->
 		</div><!-- /.info -->
 	</div><!-- /.uni-info -->
 
@@ -76,136 +77,75 @@
 		    		<div class="col">
 		    			<div class="tile-tab">
 		    				<h4 class="title">UK TOP 10</h4>
-		    				<a href="#">Dolor sit amet</a>
-							<a href="#">Consectetuer</a>
-							<a href="#">Adipiscing elit</a>
-							<a href="#">Aenean commodo</a>
-							<a href="#">Ligula eget dolor</a>
-							<a href="#">Aenean massa</a>
-							<a href="#">Cum sociis natoque</a>
-							<a href="#">Penatibus et magnis</a>
-		    			</div><!-- /.tile-tab -->
-
-		    			<div class="tile-tab">
-		    				<h4 class="title">UK TOP 10</h4>
-		    				<a href="#">Dolor sit amet</a>
-							<a href="#">Consectetuer</a>
-							<a href="#">Adipiscing elit</a>
-							<a href="#">Aenean commodo</a>
-							<a href="#">Ligula eget dolor</a>
-							<a href="#">Aenean massa</a>
-							<a href="#">Cum sociis natoque</a>
-							<a href="#">Penatibus et magnis</a>
+		    				@foreach (App\Models\FairPopularity::where('category', 'UK TOP 10')->get() as $value)
+		    				<a href="{{ route('user.university.detail', ['slug'=>$value->university->slug]) }}">{{ $value->university->name }}</a>
+		    				@endforeach
 		    			</div><!-- /.tile-tab -->
 		    		</div>
 
 		    		<div class="col">
 		    			<div class="tile-tab">
 		    				<h4 class="title">ALLIED HEALTH</h4>
-		    				<a href="#">Dolor sit amet</a>
-							<a href="#">Consectetuer</a>
-							<a href="#">Adipiscing elit</a>
-							<a href="#">Aenean commodo</a>
-							<a href="#">Ligula eget dolor</a>
-							<a href="#">Aenean massa</a>
-							<a href="#">Cum sociis natoque</a>
-							<a href="#">Penatibus et magnis</a>
+		    				@foreach (App\Models\FairPopularity::where('category', 'ALLIED HEALTH')->get() as $value)
+		    				<a href="{{ route('user.university.detail', ['slug'=>$value->university->slug]) }}">{{ $value->university->name }}</a>
+		    				@endforeach
 		    			</div><!-- /.tile-tab -->
 
-		    			<div class="tile-tab">
-		    				<h4 class="title">ALLIED HEALTH</h4>
-		    				<a href="#">Dolor sit amet</a>
-							<a href="#">Consectetuer</a>
-							<a href="#">Adipiscing elit</a>
-							<a href="#">Aenean commodo</a>
-							<a href="#">Ligula eget dolor</a>
-							<a href="#">Aenean massa</a>
-							<a href="#">Cum sociis natoque</a>
-							<a href="#">Penatibus et magnis</a>
-		    			</div><!-- /.tile-tab -->
 		    		</div>
 
 		    		<div class="col">
 		    			<div class="tile-tab">
 		    				<h4 class="title">DENTISTRY</h4>
-		    				<a href="#">Dolor sit amet</a>
-							<a href="#">Consectetuer</a>
-							<a href="#">Adipiscing elit</a>
-							<a href="#">Aenean commodo</a>
-							<a href="#">Ligula eget dolor</a>
-							<a href="#">Aenean massa</a>
-							<a href="#">Cum sociis natoque</a>
-							<a href="#">Penatibus et magnis</a>
+		    				@foreach (App\Models\FairPopularity::where('category', 'DENTISTRY')->get() as $value)
+		    				<a href="{{ route('user.university.detail', ['slug'=>$value->university->slug]) }}">{{ $value->university->name }}</a>
+		    				@endforeach
 		    			</div><!-- /.tile-tab -->
 
-		    			<div class="tile-tab">
-		    				<h4 class="title">DENTISTRY</h4>
-		    				<a href="#">Dolor sit amet</a>
-							<a href="#">Consectetuer</a>
-							<a href="#">Adipiscing elit</a>
-							<a href="#">Aenean commodo</a>
-							<a href="#">Ligula eget dolor</a>
-							<a href="#">Aenean massa</a>
-							<a href="#">Cum sociis natoque</a>
-							<a href="#">Penatibus et magnis</a>
-		    			</div><!-- /.tile-tab -->
 		    		</div>
 
 		    		<div class="col">
 		    			<div class="tile-tab">
 		    				<h4 class="title">LAW</h4>
-		    				<a href="#">Dolor sit amet</a>
-							<a href="#">Consectetuer</a>
-							<a href="#">Adipiscing elit</a>
-							<a href="#">Aenean commodo</a>
-							<a href="#">Ligula eget dolor</a>
-							<a href="#">Aenean massa</a>
-							<a href="#">Cum sociis natoque</a>
-							<a href="#">Penatibus et magnis</a>
-		    			</div><!-- /.tile-tab -->
-
-		    			<div class="tile-tab">
-		    				<h4 class="title">LAW</h4>
-		    				<a href="#">Dolor sit amet</a>
-							<a href="#">Consectetuer</a>
-							<a href="#">Adipiscing elit</a>
-							<a href="#">Aenean commodo</a>
-							<a href="#">Ligula eget dolor</a>
-							<a href="#">Aenean massa</a>
-							<a href="#">Cum sociis natoque</a>
-							<a href="#">Penatibus et magnis</a>
+		    				@foreach (App\Models\FairPopularity::where('category', 'LAW')->get() as $value)
+		    				<a href="{{ route('user.university.detail', ['slug'=>$value->university->slug]) }}">{{ $value->university->name }}</a>
+		    				@endforeach
 		    			</div><!-- /.tile-tab -->
 		    		</div>
 
 		    		<div class="col">
 		    			<div class="tile-tab">
 		    				<h4 class="title">UK TOP 10</h4>
-		    				<a href="#">Dolor sit amet</a>
-							<a href="#">Consectetuer</a>
-							<a href="#">Adipiscing elit</a>
-							<a href="#">Aenean commodo</a>
-							<a href="#">Ligula eget dolor</a>
-							<a href="#">Aenean massa</a>
-							<a href="#">Cum sociis natoque</a>
-							<a href="#">Penatibus et magnis</a>
+		    				@foreach (App\Models\FairPopularity::where('category', 'UK TOP 10')->get() as $value)
+		    				<a href="{{ route('user.university.detail', ['slug'=>$value->university->slug]) }}">{{ $value->university->name }}</a>
+		    				@endforeach
 		    			</div><!-- /.tile-tab -->
-
-		    			<div class="tile-tab">
-		    				<h4 class="title">UK TOP 10</h4>
-		    				<a href="#">Dolor sit amet</a>
-							<a href="#">Consectetuer</a>
-							<a href="#">Adipiscing elit</a>
-							<a href="#">Aenean commodo</a>
-							<a href="#">Ligula eget dolor</a>
-							<a href="#">Aenean massa</a>
-							<a href="#">Cum sociis natoque</a>
-							<a href="#">Penatibus et magnis</a>
-		    			</div><!-- /.tile-tab -->
+		    			
 		    		</div>
 		    	</div>
 		    </div><!-- /.by-popularity -->
 
-		    <div role="tabpanel" class="tab-pane" id="by-country">country</div><!-- /.by-country -->
+		    <div role="tabpanel" class="tab-pane" id="by-country">
+		    	@if (count($universities) > 0)
+		    	<div class="row">
+		    	@php $country = ''; @endphp
+		    	@for ($i=1; $i <=5; $i++)
+		    	<div class="col">
+		    		<div class="tile-tab">
+		    			<?php foreach ($universities as $key => $value): ?>
+		    			@if ($key >= (count($universities) * ($i - 1)) / 5 && $key < (count($universities) * $i) / 5)
+		    			@if ($value->country_slug != $country)
+		    			<h4 class="title">{{ $value->country->name }}</h4>
+		    			@php $country = $value->country_slug @endphp
+		    			@endif
+		    			<a href="{{ route('user.university.detail', ['slug'=>$value->slug]) }}">{{ $value->name }}</a>
+		    			@endif
+		    			<?php endforeach ?>
+		    		</div><!-- /.tile-tab -->
+		    	</div>
+		    	@endfor
+		    	@endif
+		    </div>
+		    </div><!-- /.by-country -->
 		</div>
 	</div><!-- /.fair-tab -->
 
@@ -216,10 +156,12 @@
 					<img src="/img/enjoy.png" alt="">
 				</div>
 				<div class="col-sm-6">
+					<!-- <?php echo $sign_up_perks_field ?> -->
 					<div class="text">
 						<h2 class="title">Sign up to enjoy these perks</h2>
 						<ul>
-							<li><span>Free admission</span></li>
+							<?php echo $sign_up_perks_field ?>
+							<!-- <li><span>Free admission</span></li>
 							<li><span>Free goodie bag</span></li>
 							<li>
 								<span>Application fee waiver</span>
@@ -243,59 +185,78 @@
 								</ul>
 							</li>
 							<li><span>No hidden fees</span></li>
-							<li><span>No termination charges</span></li>
+							<li><span>No termination charges</span></li> -->
 						</ul>
 					</div><!-- /.signup-to-enjoy -->
 				</div>
 			</div>
 		</div><!-- /.col-md-6 -->
 
-		<div class="col-md-6">
-			<div class="form-enjoy">
-				<div class="form-group">
-					<select class="form-control">
-						<option>Select or type favorite subjects</option>
-					</select>
-				</div>
+		<form action="{{ route('user.fair.register') }}" method="GET">
+			<div class="col-md-6">
+				<div class="form-enjoy">
+					<div class="form-group">
+						<select class="form-control selectpicker" name="subject[]" multiple="" required >
+							<option disabled selected>Select or type favorite subjects</option>
+							@foreach (App\Models\Subject::all() as $key => $value)
+							<option value="{{ $value->id }}">{{ $value->name }}</option>
+							@endforeach
+						</select>
+					</div>
 
-				<div class="form-group">
-					<input type="text" placeholder="Your name" class="form-control">
-				</div>
+					<div class="form-group">
+						<input type="text" name="name" placeholder="Your name" class="form-control" required>
+					</div>
 
-				<div class="form-group">
-					<input type="text" placeholder="Email" class="form-control">
-				</div>
+					<div class="form-group">
+						<input type="text" name="email" placeholder="Email" class="form-control" required>
+					</div>
 
-				<div class="form-group">
-					<input type="text" placeholder="Mobile number" class="form-control">
-				</div>				
+					<div class="form-group">
+						<input type="text" name="mobile" placeholder="Mobile number" class="form-control" required>
+					</div>				
 
-				<div class="form-group">
-					<select class="form-control">
-						<option>Earliest intake</option>
-					</select>
-				</div>
+					<div class="form-group">
+						<select class="form-control" name="university_intake" required>
+							<option selected disabled>University Intake</option>
+							<?php echo $university_intake_field ?>
+						</select>
+					</div>
 
-				<div class="form-group">
-					<select class="form-control">
-						<option>I am still studying</option>
-					</select>
-				</div>
+					<div class="form-group">
+						<select class="form-control" name="studying" required>
+							<option disabled selected>Are you currently studying?</option>
+							<?php echo $studying_field ?>
+							<!-- <option value="1">I am still studying</option>
+							<option value="0">I am still studying</option> -->
+						</select>
+					</div>
 
-				<div class="form-group">
-					<select class="form-control">
-						<option>Current qualification</option>
-					</select>
-				</div>
+					<div class="form-group">
+						<select class="form-control" name="current_qualification" required>
+							<option value="default" selected="" disabled="disabled" title="Obtained or to obtain">-- Current qualification --</option>
+							<?php echo $current_qualification_field ?>
+							<!-- <option value="Bachelor's">Bachelor's</option>
+							<option value="Diploma (Polytechnic)">Diploma (Polytechnic)</option>
+							<option value="Diploma (Private)">Diploma (Private)</option>
+							<option value="Foundation">Foundation</option>
+							<option value="GCE A Level">GCE A Level</option>
+							<option value="GCE N Level">GCE N Level</option>
+							<option value="GCE O Level">GCE O Level</option>
+							<option value="IB">IB</option>
+							<option value="OTHERS">OTHERS</option> -->
+						</select>
+					</div>
 
-				<div class="form-group">
-					<input type="text" name="" placeholder="Expected grades" class="form-control">
-				</div>
+					<div class="form-group">
+						<input type="text" name="expected_grade" placeholder="Expected grades" class="form-control" required>
+					</div>
 
-				<a href="#"> I want a free preliminary university assessment before the fair</a>
-				<button class="btn btn-green btn-block">Count me in</button>
-			</div><!-- /.form-enjoy -->
-		</div><!-- /.col-md-6 -->
+					<a href="#"> I want a free preliminary university assessment before the fair</a>
+					<button type="submit" class="btn btn-green btn-block">Count me in</button>
+				</div><!-- /.form-enjoy -->
+			</div><!-- /.col-md-6 -->
+		</form>
 	</div>
 </div>
 

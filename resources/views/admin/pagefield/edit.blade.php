@@ -60,6 +60,7 @@
 							    <option @if($data->type == 'text') selected @endif value="text">Text</option>
 							    <option  @if($data->type == 'textarea') selected @endif value="textarea">Textarea</option>
 							    <option  @if($data->type == 'checkbox') selected @endif value="checkbox">Checkbox</option>
+							    <option @if($data->type == 'select') selected @endif value="select">Select</option>
 							    <option  @if($data->type == 'submit') selected @endif value="submit">Submit</option>
 							    <option  @if($data->type == 'radio') selected @endif value="radio">Radio</option>
 							    <option  @if($data->type == 'file') selected @endif value="file">File</option>
@@ -96,4 +97,58 @@
 	<!-- /.box -->
 </div>
 
+@endsection
+@section('scripts')
+<script type="text/javascript">
+	@if ($data['type'] == 'select')
+	tinymce.remove();
+	@endif
+	$('#type').on('change', function() {
+		var type = $(this).val();
+		if (type != 'select') {
+			$('#content').addClass('my-editor');
+			$('#content_en').addClass('my-editor');
+			tinymce.PluginManager.add('placeholder', function (editor) {
+				editor.on('init', function () {
+					var label = new Label;
+					onBlur();
+					tinymce.DOM.bind(label.el, 'click', onFocus);
+					editor.on('focus', onFocus);
+					editor.on('blur', onBlur);
+					editor.on('change', onBlur);
+					editor.on('setContent', onBlur);
+					function onFocus() { if (!editor.settings.readonly === true) { label.hide(); } editor.execCommand('mceFocus', false); }
+					function onBlur() { if (editor.getContent() == '') { label.show(); } else { label.hide(); } }
+				});
+				var Label = function () {
+					var placeholder_text = editor.getElement().getAttribute("placeholder") || editor.settings.placeholder;
+					var placeholder_attrs = editor.settings.placeholder_attrs || { style: { position: 'absolute', top: '2px', left: 0, color: '#aaaaaa', padding: '.25%', margin: '5px', width: '80%', 'font-size': '17px !important;', overflow: 'hidden', 'white-space': 'pre-wrap' } };
+					var contentAreaContainer = editor.getContentAreaContainer();
+					tinymce.DOM.setStyle(contentAreaContainer, 'position', 'relative');
+					this.el = tinymce.DOM.add(contentAreaContainer, "label", placeholder_attrs, placeholder_text);
+				}
+				Label.prototype.hide = function () { tinymce.DOM.setStyle(this.el, 'display', 'none'); }
+				Label.prototype.show = function () { tinymce.DOM.setStyle(this.el, 'display', ''); }
+			});
+			tinymce.init({
+				selector: 'textarea.my-editor',
+				menubar: false,
+				plugins: [
+				'advlist autolink lists link image charmap print preview anchor',
+				'searchreplace visualblocks code fullscreen',
+				'insertdatetime media table contextmenu paste code'
+				],
+				toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+				content_css: [
+				'//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+				'//www.tinymce.com/css/codepen.min.css'
+				],
+			});
+		} else {
+			tinymce.remove();
+			$('#content').attr('placeholder','Please input following format `value:Name`');
+			$('#content_en').attr('placeholder','Please input following format `value:Name`');
+		}
+	});
+</script>
 @endsection

@@ -15,7 +15,7 @@
             {{ config('app.name', 'Laravel') }}
         @endif
     </title>
-
+    @yield('styles')
     <!-- Styles -->
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery.circliful.css') }}" rel="stylesheet">
@@ -24,6 +24,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="{{url('css/multi-select/bootstrap-select.css')}}">
 </head>
 <body>
 <div id="app">
@@ -548,7 +549,6 @@
         </div>
     </div><!-- /.chatContainer -->
     <!-- e: chat with us -->
-
 </div>
 
 <!-- Scripts -->
@@ -569,7 +569,14 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="{{ asset('js/dropzonescripts.js') }}"></script>
 <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{url('js/multi-select/bootstrap-select.js')}}" type="text/javascript"></script>
 <script type="text/javascript">
+    @if ( Session::has('success'))
+    toastr.success('{{ session('success')}}');
+    @endif
+    @if ( Session::has('error'))
+    toastr.error('{{ session('error')}}');
+    @endif
     function initialize() {
         initMap();
         //initMapUniver();
@@ -691,4 +698,5 @@
         });
     });
 </script>
+@yield('scripts')
 </html>

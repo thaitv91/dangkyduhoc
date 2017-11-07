@@ -1,53 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact Email</title>
+    <title>Email</title>
 </head>
-<body>
-    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="font-family: Arial, Helvetica, sans-serif;font-size: 14px;color:#666;">
-        <tr>
-            <td style="font-family: Arial, Helvetica, sans-serif;font-size: 14px;color:#666;padding: 20px;">
-                <div class="section header">
-                    <h3 class="header-text">CONFIRMATION</h3>
-                </div>
+<body style="margin: 0">
+    <div style="background:#e9e9e9;">
+        <table cellpadding="0" cellspacing="0" border="0"  style="width: 600px;border:2px solid #e2e2e2;border-collapse: collapse;background:#fff;margin: auto;font-family: Arial, Helvetica, sans-serif;font-size: 14px;color:#000;">
+            <tr>
+                <td><img src="{{ asset('image/email/header-email.png') }}" /></td>
+            </tr>
+            <tr>
+                <td style="padding:30px 40px 0 40px">
+                    <p style="margin-top:0;font-size:16px;line-height:24px;margin-bottom:20px;color:#000000">Thank you for submitting your university application online.</p>
+                    <p style="margin-top:0;font-size:16px;line-height:24px;margin-bottom:20px;color:#000000">An education consultant from theRightU will be following up with your application shortly.</p>
+                    <p style="margin-top:0;font-size:16px;line-height:24px;margin-bottom:40px;color:#000000">Here is a summary of your submission</p>
+                    <br/>
+                    <h3>COURSES APPLIED</h3>
+                    <p style="margin-top:0;font-size:13px;line-height:18px;margin-bottom:40px;color:#000000">
+                        @foreach($user->applyCourse as $key => $value)
+                            {{ $key+1 }}. {{ $value->name }} ({{ $value->classification }}) -
+                            {{ $value->university->name }} ({{ $value->country() }})
+                            <br>
+                        @endforeach
+                    </p>
 
-                <div class="section">
-                    <p style="font-size:16px;">Thanks for submitting your university application online.</p>
-                </div>
-
-                <div class="section">
-                    <p style="font-size:16px;">An education consultant from theRightU will be following up with your application shortly.</p>
-                </div>
-
-                 <div class="section">
-                    <p style="font-size:16px;">Here is a summary of your submission.</p>
-                </div>
-            </div>
-            
-            <div class="col-lg-12">
-                <div class="section header">
-                    <br />
-                    <h3 class="header-text">COURSES APPLIED</h3>
-                </div>
-
-                <div class="section block">
-                    @foreach ($user->applyCourse as $key => $value) 
-                    <div class="row">
-                        <div class="col-lg-9 clearfix">
-                            <span class="name">{{ $key+1 }}. {{ $value->name }}</span> <span class="code">({{ $value->classification }})</span> -
-                            <span class="university">{{ $value->university->name }} ({{ $value->country() }})</span>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-
-                <div id="step_1_header" class="section header">
-                    <br />
-                    <h3 class="header-text">PERSONAL DETAILS</h3>
-                </div>
-
-                <div id="step_1" class="questionaire section block">
-                    <table class="answers_table">
+                    <h3>PERSONAL DETAILS</h3>
+                    <table style="font-size:13px;line-height:18px;margin-bottom:40px;color:#000000">
+                        <tbody>
                         <tr>
                             <td>Given name:</td>
                             <td>{{ $user->personalDetail->given_name }}</td>
@@ -58,7 +37,9 @@
                         </tr>
                         <tr>
                             <td>Email address:</td>
-                            <td>{{ $user->personalDetail->email }}</td>
+                            <td>
+                                <a href="mailto:ninhvanhoang0207@gmail.com" target="_blank">{{ $user->personalDetail->email }}</a>
+                            </td>
                         </tr>
                         <tr>
                             <td>Gender:</td>
@@ -102,20 +83,17 @@
                         </tr>
                         <tr>
                             <td>Funding source:</td>
-                            <td>
-                                @if ($user->personalDetail->is_schoolarship == 1)
-                                <text>Schoolarship</text>
-                                @endif
-                                @if ($user->personalDetail->is_self_funded == 1)
-                                <text>Self Funded</text>
-                                @endif
-                            </td>
+                            @if ($user->personalDetail->is_schoolarship == 1)
+                            <td><u></u>Schoolarship<u></u></td>
+                            @endif
+                            @if ($user->personalDetail->is_self_funded == 1)
+                            <td><u></u>Self-funded<u></u></td>
+                            @endif
                         </tr>
                         <tr>
                             <td>Free consultation:</td>
                             <td>{{ $user->personalDetail->free_consultation == 1?'Yes':'No' }}</td>
                         </tr>
-
                         <tr>
                             <td>Disability:</td>
                             <td>{{ $user->personalDetail->disability == 1?'Yes':'No' }}</td>
@@ -124,80 +102,83 @@
                             <td>Criminal record:</td>
                             <td>{{ $user->personalDetail->criminal_record==1?'Yes':'No' }}</td>
                         </tr>
-                    </table>
-                </div>
-
-                <div id="step_2_header" class="section header">
-                    <br />
-                    <h3 class="header-text">EDUCATION &amp; WORK</h3>
-                </div>
-
-                <div id="step_2" class="questionaire section block">
-                    <p>Education background:</p>
-                    <table id="education" class="exp">
-                        <tbody id="1702">
-                            @foreach ($user->education as $value)
-                            <tr>
-                                <td>
-                                    {{ Carbon\Carbon::parse($value->edu_start)->format('d/m/Y') }} - {{ Carbon\Carbon::parse($value->edu_end)->format('d/m/Y') }}: {{ $value->edu_school_name }} ({{ $qualification[$value->qualification] }})
-                                </td>
-                            </tr>
-                            @endforeach
                         </tbody>
                     </table>
-                    <br />
 
-                    <p>Work experience:</p>
-                    <table id="work" class="exp">
-                        <tbody id="work_1103">
-                            @foreach ($user->workExperience as $value)
-                            <tr>
-                                <td>
-                                    {{ Carbon\Carbon::parse($value->work_start)->format('d/m/Y') }} - {{ Carbon\Carbon::parse($value->work_end)->format('d/m/Y') }} : {{ $value->employer_name }} ({{ $value->work_type }})
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    {{ $value->work_description }}
-                                </td>
-                            </tr>
+                    <h3>EDUCATION & WORK</h3>
+                    <div style="font-size:13px;line-height:18px;margin-bottom:40px;color:#000000">
+                        <p>Education background:</p>
+                        <table>
+                            <tbody>
+                                @foreach ($user->education as $value)
+                                <tr>
+                                    <td>
+                                        {{ Carbon\Carbon::parse($value->edu_start)->format('d/m/Y') }} - {{ Carbon\Carbon::parse($value->edu_end)->format('d/m/Y') }}: {{ $value->edu_school_name }} ({{ $qualification[$value->qualification] }})
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                        <br/>
+                        <p>Work experience:</p>
+                        <table>
+                            <tbody>
+                                @foreach ($user->workExperience as $value)
+                                <tr>
+                                    <td>
+                                        {{ Carbon\Carbon::parse($value->work_start)->format('d/m/Y') }} - {{ Carbon\Carbon::parse($value->work_end)->format('d/m/Y') }} : {{ $value->employer_name }} ({{ $value->work_type }})
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {{ $value->work_description }}
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                        <br/>
+                        <p>English proficiency tests:</p>
+                        <table>
+                            <tbody>
+                                @foreach ($user->englishProficiency as $value)
+                                <tr>
+                                    <td>
+                                        {{ Carbon\Carbon::parse($value->test_date)->format('d/m/Y') }} - {{ $certificate[$value->certificate] }}
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <br/>
+                        Supporting documents:
+                        <ul>
+                            @foreach ($user->document as $value)
+                            <li>{{ $value->file_name }}</li>
                             @endforeach
-                        </tbody>
-                    </table>
-                    <br />
-                    <p>English proficiency tests:</p>
-                    <table id="english" class="exp">
-                        <tbody id="prof_225">
-                            @foreach ($user->englishProficiency as $value)
-                            <tr>
-                                <td>
-                                    {{ Carbon\Carbon::parse($value->test_date)->format('d/m/Y') }} - {{ $certificate[$value->certificate] }}
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <br />
-                    Supporting documents:
-                    <ul>
-                        @foreach ($user->document as $value)
-                        <li>{{ $value->file_name }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div id="step_3_header" class="section header open">
-                    <br />
-                    <h3 class="header-text">ADDITIONAL DETAILS</h3>
-                </div>
-                <div id="step_3" class="questionaire section block"></div>
-            </div>
-            </td>
-        </tr>
-    </table>
-    <p>We look forward to assisting you in every step of your overseas study journey.</p>
-    <p>
-        Regards,<br/>
-        DANG KY DU HOC
-    </p>
+                        </ul>
+                    </div>
+
+                    <br/>
+                    <h3>ADDITIONAL DETAILS</h3>
+
+                    <p style="margin-top:40px;font-size:16px;line-height:24px;color:#000000">We look forward to assisting you in every step of your overseas study journey.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="padding:30px 40px 0 40px">
+                    <a href="#"><img src="{{ asset('image/email/logo.png') }}"></a>
+                    <p style="font-size:13px;line-height:18px;margin-bottom:40px;color:#000000;">
+                        Floor 15, TNR Tower, 115 Tran Hung Dao, Hoan Kiem, Ha Noi
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
 </body>
 </html>

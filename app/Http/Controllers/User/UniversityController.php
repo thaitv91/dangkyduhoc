@@ -9,6 +9,7 @@ use App\Models\University;
 use App\Models\UniversityStatistic;
 use App\Models\UniversityRanking;
 use App\Models\UniversityMetas;
+use App\Models\ApplyCourse;
 use App\Models\Country;
 use App\Models\Map;
 use App\Models\MapLocation;
