@@ -15,7 +15,6 @@
             {{ config('app.name', 'Laravel') }}
         @endif
     </title>
-    @yield('styles')
     <!-- Styles -->
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery.circliful.css') }}" rel="stylesheet">
@@ -25,6 +24,8 @@
     <link rel="stylesheet" href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" type="text/css" href="{{url('css/multi-select/bootstrap-select.css')}}">
+    @yield('styles')
+    
 </head>
 <body>
 <div id="app">
@@ -196,7 +197,7 @@
                                                                                aria-hidden="true"></i></a></li>
                 <li class="careerddl slideddl"><a href="#">Careers <i class="fa fa-caret-down"
                                                                       aria-hidden="true"></i></a></li>
-                <li><a href="#">Fair</a></li>
+                <li><a href="{{ route('user.fair') }}">Fair</a></li>
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Contact <i
                                 class="fa fa-caret-down" aria-hidden="true"></i></a>

@@ -121,6 +121,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li><a href="{{ route('admin.user') }}"><i class="fa fa-link"></i> <span>Users</span></a>
                 <li><a href="{{ route('admin.scholarship') }}"><i class="fa fa-link"></i> <span>Scholarship</span></a>
                 </li>
+                 <li class="treeview">
+                    <a href="#"><i class="fa fa-link"></i> <span>Fair</span>
+                        <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('admin.fair.register') }}"> Registered</a></li>
+                        <li><a href="{{ route('admin.fair.popularity') }}">Popularity</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();

@@ -20,7 +20,7 @@
             <div class="col-md-4 col-sm-6 col">
                 <div class="form-contact">
                     <h3 class="title">HAVE US CONTACT YOU</h3>
-                    <form action="{{ route('postContact') }}" method="post">
+                    <form action="{{ route('getContact') }}" method="get">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <input class="form-control" name="name" type="text" placeholder="Name">
@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <textarea class="form-control" name="question" placeholder="Your questions for our education consultans"></textarea>
                         </div>
-                        <div class="bottom"><button class="btn btn-green btn-block">Contact me</button></div>
+                        <div class="bottom"><button class="btn btn-green btn-block btn-style" >Contact me</button></div>
 
                         @if(Session::has('message-contact'))
                             <div class="alert alert-info">{{ Session::get('message-contact') }}</div>
