@@ -636,7 +636,6 @@
         $.ajax({
             url: "{{ route('getCourseCount') }}",
         }).done(function (data) {
-            console.log(data);
             $('#compare-count').text(data.compare_count);
             $('#apply-count').text(data.apply_count);
         });
@@ -692,5 +691,4 @@
         });
     });
 </script>
-@yield('scripts')
 </html>
