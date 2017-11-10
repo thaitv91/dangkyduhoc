@@ -217,8 +217,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('', 'Admin\ScholarshipController@index')->name('admin.scholarship');
         Route::get('create', 'Admin\ScholarshipController@getCreate')->name('admin.scholarship.create');
         Route::post('create', 'Admin\ScholarshipController@postCreate')->name('admin.scholarship.create.post');
-//		Route::get('edit/{id}', 'Admin\SliderController@edit')->name('admin.slider.edit');
-//		Route::post('edit/{id}', 'Admin\SliderController@update');
+        Route::get('edit/{id}', 'Admin\ScholarshipController@edit')->name('admin.scholarship.edit');
+		Route::get('remove/{id}', 'Admin\ScholarshipController@destroy')->name('admin.scholarship.remove');
+        Route::post('edit/{id}', 'Admin\ScholarshipController@update');
+		Route::post('search-course', 'Admin\ScholarshipController@searchCourse')->name('admin.scholarship.searchCourse');
 //		Route::get('delete/{id}', 'Admin\SliderController@destroy')->name('admin.slider.delete');
 //		Route::get('get-image', 'Admin\SliderController@getImage')->name('admin.slider.getImage');
 //		Route::post('image-upload', 'Admin\SliderController@uploadImage')->name('admin.slider.uploadImage');

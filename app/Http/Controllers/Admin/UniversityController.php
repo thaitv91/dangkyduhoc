@@ -70,6 +70,7 @@ class UniversityController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
         try {
             $rules = [
                 'country_id'               =>'required',
@@ -107,6 +108,19 @@ class UniversityController extends Controller
                 $data['logo'] = $folder.'/'.$logo;
                 $data['slider_id'] = $data['image'];
                 $university = University::create($data);
+
+                $university_id = $university->id;
+                $university_meta = new UniversityMetas;
+                $university_meta->university_id = $university_id;
+                $university_meta->about = $request->about;
+                $university_meta->campus = $request->campus;
+                $university_meta->facebook = $request->facebook;
+                $university_meta->twitter = $request->twitter;
+                $university_meta->youtube = $request->youtube;
+                $university_meta->flickr = $request->flickr;
+                $university_meta->website = $request->website;
+                $university_meta->phone = $request->phone;
+                $university_meta->save();
                 DB::commit();
                 Session::flash('success','Success!');
                 return redirect(route('admin.universities.index'));                
@@ -142,8 +156,12 @@ class UniversityController extends Controller
         $university = University::find($id);
         $country = Country::all();
         $images = Slider::all();
+        $universities = University::all();
+        $university_meta = $university->universityMeta;
         $this->viewData = array(
             'university' => $university,
+            'university_meta'      =>  $university_meta,
+            'universities'=> $universities,
             'country'    => $country,
             'map' => $map,
             'images'      => $images,
@@ -163,14 +181,13 @@ class UniversityController extends Controller
         $data = $request->all();
         try {
             $rules = [
-                'country_id'               =>'required',
+                'country_slug'               =>'required',
                 'map_id'                   =>'required'
                 ];
 
             $messages = [
-                'country_id.required'      =>'Please choose one country!!',                    
-                'map_id.required'      =>'Please choose one country!!',                              
-                'country_slug'               =>'required',
+                'map_id.required'      =>'Please choose one map!!',                              
+                'country_slug'               =>'Please choose one country',
             ];
 
             $validator = Validator::make( $request->all(), $rules, $messages);
@@ -197,7 +214,16 @@ class UniversityController extends Controller
                 $data['slider_id'] = $data['image'];
                 $university = University::where('id', $id)->first();
                 $university->update($data);
-                
+                $university_meta = $university->universityMeta;
+                $university_meta->campus = $request->campus;
+                $university_meta->about = $request->about;
+                $university_meta->facebook = $request->facebook;
+                $university_meta->twitter = $request->twitter;
+                $university_meta->youtube = $request->youtube;
+                $university_meta->flickr = $request->flickr;
+                $university_meta->website = $request->website;
+                $university_meta->phone = $request->phone;
+                $university_meta->save();
                 DB::commit();
                 Session::flash('success','Success!');
                 return redirect(route('admin.universities.index'));    
@@ -222,6 +248,7 @@ class UniversityController extends Controller
         DB::beginTransaction();
         try {
             University::find( $id )->delete();
+            UniversityMetas::where('university_id', $id)->delete();
             DB::commit();
             Session::flash('success','Success');
             return Redirect::back();

@@ -30,6 +30,7 @@
                         <label  class="col-md-3" for="name">Course</label>
                         <div class="col-md-9">
                             <select name="course" id="course" class="form-control selectpicker" data-live-search="true" title="Select a course..." required>
+                                <option selected value="{{ $scholarship->course->slug }}">{{ $scholarship->course->name }}</option>
                             </select>
                         </div>
                     </div>
@@ -37,27 +38,27 @@
                     <div class="form-group row">
                         <label  class="col-md-3" for="title">Title</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="title" id="title">
+                            <input type="text" class="form-control" name="title" id="title" value="{{ $scholarship->title }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label  class="col-md-3" for="title_en">Title En</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="title_en" id="name_en">
+                            <input type="text" class="form-control" name="title_en" id="name_en" value="{{ $scholarship->title_en }}">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label  class="col-md-3" for="quantity">Quantity</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="quantity" id="quantity">
+                            <input type="text" class="form-control" name="quantity" id="quantity" value="{{ $scholarship->quantity }}">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label  class="col-md-3" for="quantity_en">Quantity En</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="quantity_en" id="quantity_en" >
+                            <input type="text" class="form-control" name="quantity_en" id="quantity_en" value="{{ $scholarship->quantity_en }}">
                         </div>
                     </div>
 
@@ -65,22 +66,29 @@
                     <div class="form-group row">
                         <label  class="col-md-3" for="description">Description</label>
                         <div class="col-md-9">
-                            <textarea class="my-editor" name="description"></textarea>
+                            <textarea class="my-editor" name="description">
+                                {{ $scholarship->description }}
+                            </textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label  class="col-md-3" for="description_en">Description En</label>
                         <div class="col-md-9">
-                            <textarea class="my-editor" name="description_en"></textarea>
+                            <textarea class="my-editor" name="description_en">
+                                {{ $scholarship->description_en }}
+                            </textarea>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
                         <a href="{{ route('admin.scholarship') }}" class="btn btn-default">Back</a>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
                 <!-- /.box-body -->
+            </div>
+            <div class="box-footer">
+
             </div>
         </form>
     </div>
@@ -115,6 +123,7 @@
                 });
                 $("#course").html(html).selectpicker('refresh');
                 $("#course").attr('Select a course');
+                $('#searh-result').css('display', 'block');
                 toastr.success('Search successful');
             });
         }
