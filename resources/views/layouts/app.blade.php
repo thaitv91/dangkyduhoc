@@ -215,9 +215,9 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="{{ route('user.course.compare') }}">Compare <span class="top compareInfo badge"
+                <li><a href="{{ route('user.course.compare') }}">Compare <span class="top compareInfo badge compare-count"
                                                                                id="compare-count"> - </span></a></li>
-                <li><a href="{{ route('user.course.apply') }}">Apply <span class="top compareInfo badge"
+                <li><a href="{{ route('user.course.apply') }}">Apply <span class="top compareInfo badge apply-count"
                                                                            id="apply-count"> - </span></a></li>
                 <li class="li-search">
                     <span class="clickable open-search" id="dLabel" type="button" data-toggle="dropdown"
@@ -426,11 +426,11 @@
                         <div class="divider"></div>
                     </li>
                     <li class="navlink">
-                        <a class="compareddl"><span>Compare <span class="compareInfo badge">15</span></span></a>
+                        <a href="{{ route('user.course.compare') }}" class="compareddl"><span>Compare <span class="compareInfo badge compare-count"> - </span></span></a>
                     </li>
                     <li class="navlink headerApply">
                         <a class="multiapplyddl" href="/apply" rel="nofollow"><span>Apply <span
-                                        class="multiapplyInfo badge">3</span></span></a>
+                                        class="multiapplyInfo badge apply-count">3</span></span></a>
                     </li>
                     <li>
                         <div class="divider"></div>
@@ -441,9 +441,21 @@
                     <li class="navlink">
                         <a href="/about" rel="nofollow"><span>About us</span></a>
                     </li>
+                    @if(! \Illuminate\Support\Facades\Auth::check())
                     <li class="navlink">
                         <a class="open-user">Sign in</a>
                     </li>
+                    @else
+                    <li>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Log out
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </div><!-- /#left-nav -->
@@ -571,6 +583,9 @@
     @if ( Session::has('error'))
     toastr.error('{{ session('error')}}');
     @endif
+    @if ( count($errors) )
+    toastr.error('{{ $errors->first() }}')
+    @endif
     function initialize() {
         initMap();
         //initMapUniver();
@@ -636,8 +651,8 @@
         $.ajax({
             url: "{{ route('getCourseCount') }}",
         }).done(function (data) {
-            $('#compare-count').text(data.compare_count);
-            $('#apply-count').text(data.apply_count);
+            $('.compare-count').text(data.compare_count);
+            $('.apply-count').text(data.apply_count);
         });
     }
 

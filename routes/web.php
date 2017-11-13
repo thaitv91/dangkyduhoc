@@ -228,12 +228,12 @@ Route::group(['prefix' => 'admin'], function () {
     });
 
     Route::group(['prefix' => 'pathway'], function () {
-        //Route::get('', 'Admin\PathwayController@index')->name('admin.pathway');
+        Route::get('', 'Admin\PathwayController@index')->name('admin.pathway');
         Route::get('create', 'Admin\PathwayController@getCreate')->name('admin.pathway.create');
         Route::post('create', 'Admin\PathwayController@postCreate')->name('admin.pathway.create.post');
-//		Route::get('edit/{id}', 'Admin\SliderController@edit')->name('admin.pathway.edit');
-//		Route::post('edit/{id}', 'Admin\SliderController@update');
-//		Route::get('delete/{id}', 'Admin\SliderController@destroy')->name('admin.pathway.delete');
+		Route::get('edit/{id}', 'Admin\PathwayController@edit')->name('admin.pathway.edit');
+		Route::post('edit/{id}', 'Admin\PathwayController@update');
+		Route::get('remove/{id}', 'Admin\PathwayController@destroy')->name('admin.pathway.remove');
 //		Route::get('get-image', 'Admin\SliderController@getImage')->name('admin.pathway.getImage');
 //		Route::post('image-upload', 'Admin\SliderController@uploadImage')->name('admin.pathway.uploadImage');
 //		Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.pathway.removeImage');

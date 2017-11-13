@@ -261,10 +261,11 @@
 					country_name : country_name,
 					duration : duration,
 					classification : classification,
-					order : $('table tr').length,
+					order : $('table.courses tr').length,
 				}
 			}).done(function(data) {
-				$('.course tbody').append(data);
+				console.log(data);
+				$('#list-apply tbody').append(data);
 				$('#universities').empty();
 				$('#course').empty();
 				$('#country').find(':disabled').prop('selected', true);

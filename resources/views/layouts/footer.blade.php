@@ -23,16 +23,16 @@
                     <form action="{{ route('getContact') }}" method="get">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <input class="form-control" name="name" type="text" placeholder="Name">
+                            <input class="form-control" name="name" type="text" placeholder="Name" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" name="email" type="email" placeholder="Email">
+                            <input class="form-control" name="email" type="email" placeholder="Email" required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" name="whatsapp" type="text" placeholder="WhatsApp">
+                            <input class="form-control" name="whatsapp" type="text" placeholder="WhatsApp" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="question" placeholder="Your questions for our education consultans"></textarea>
+                            <textarea class="form-control" name="question" placeholder="Your questions for our education consultans" required></textarea>
                         </div>
                         <div class="bottom"><button class="btn btn-green btn-block btn-style" >Contact me</button></div>
 

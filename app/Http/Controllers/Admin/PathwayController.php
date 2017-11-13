@@ -22,11 +22,11 @@ class PathwayController extends Controller
         $pathways = Pathway::all();
 
         $data = [
-            'title' => 'PathWay Create',
+            'title' => 'PathWay List',
             'pathways' => $pathways
         ];
 
-        return view('admin.pathway.create', $data);
+        return view('admin.pathway.index', $data);
     }
 
     // create pathway
@@ -71,4 +71,37 @@ class PathwayController extends Controller
     // delete pathway
 
     // edit pathway
+    public function edit($id) {
+        $pathway = Pathway::where('id', $id)->first();
+        $universities = University::get(['id', 'name']);
+
+        if (count($pathway) == 0) {
+            Session::flash('error', 'Data was not found');
+
+            return Redirect::route('admin.pathway');
+        }
+
+        return view('admin.pathway.edit', compact(['pathway', 'universities']));
+    }
+
+    public function update(Request $request, $id) {
+        $pathway = Pathway::find($id);
+        $pathway->main_course_slug = $request->main_course_slug;
+        $pathway->university_main_id = $request->university_main_id;
+        $pathway->university_pathway_id = $request->university_pathway_id;
+        $pathway->course_slug = $request->course_slug;
+        $pathway->save();
+
+        Session::flash('success', 'Update successful');
+
+        return Redirect::back();
+    }
+
+    public function destroy($id) {
+        $pathway = Pathway::find($id)->delete();
+
+        Session::flash('success', 'Delete item successful');
+
+        return Redirect::route('admin.pathway');
+    }
 }
