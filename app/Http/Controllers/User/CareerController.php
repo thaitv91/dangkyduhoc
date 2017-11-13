@@ -19,7 +19,7 @@ class CareerController extends Controller
     {
         $locale  = App::getLocale();
         $careers = Career::where('slug', $slug)->first();
-
+        $frequent_visited_career_ids = Cookie::get('frequent_visited_career_ids',json_encode([]));
         $subject_career = SubjectCareer::where('career_id', '=', $careers->id)->get();
 
         $sblist = [];

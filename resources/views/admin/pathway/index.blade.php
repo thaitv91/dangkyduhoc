@@ -12,12 +12,12 @@
 @section('content')
 <div class="box">
 	<div class="box-header">
-		<div class="col-md-11"><h3 class="box-title">University</h3></div>
+		<div class="col-md-11"><h3 class="box-title">Pathway</h3></div>
 		<div class="col-md-1"><a href="{{ route('admin.universities.create') }}" class="btn btn-xs btn-primary">Create</a></div>
 	</div>
 	<!-- /.box-header -->
 	<div class="box-body">
-		<table id="example2" class="table table-bordered table-hover">
+		<table id="table-pathway" class="table table-bordered table-hover">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -75,7 +75,7 @@
 <script src="{{ url('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ url('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
 <script type="text/javascript">
-	$('#example2').DataTable({
+	$('#table-pathway').DataTable({
 		"paging": true,
 		"ordering": true,
 		"info": true,

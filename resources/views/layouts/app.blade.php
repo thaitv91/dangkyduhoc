@@ -303,7 +303,9 @@
                                 @php
                                     $frequent_visited_career = App\Models\Career::where('id', $value)->get(['name', 'slug'])->first();
                                 @endphp
+                                @if ($frequent_visited_career)
                                 <a href="{{ route('user.career.detail', $frequent_visited_career->slug) }}">{{ $frequent_visited_career->name }}</a>
+                                @endif
                             @endforeach
                             <div class="recent-uni-spacer"></div>
                             <?php

@@ -9,7 +9,7 @@ use App\Models\PageField;
 use App\Models\Page;
 use App\Models\GuideQuestion;
 use Illuminate\Support\Facades\Input;
-use Response;
+use Response, Redirect;
 class GuideController extends Controller
 {
     /**
@@ -83,7 +83,8 @@ class GuideController extends Controller
     public function  guideCategory($slug) {
         $locale = App::getLocale();
         $guide_category = App\Models\Guide::where('slug', $slug)->first();
-
+        if (!$guide_category)
+            return Redirect::back();
         $topics = App\Models\GuideTopic::where('guide_id', '=', $guide_category->id)->get();
 
         $guide_list = App\Models\Guide::all();
