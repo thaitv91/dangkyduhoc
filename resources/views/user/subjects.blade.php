@@ -77,7 +77,8 @@
         </div><!-- /.box-filter -->
 
         <div class="filter-result subjects">
-            <h4 class="title-box"><span>{{ $subject['name']}}</span></h4>
+            <h4 class="title-box"><span id="course-statistic">407 courses from 58 universities</span></h4>
+            <!-- <h4 class="title-box"><span>{{ $subject['name']}}</span></h4> -->
             <div class="list-courses">
                 <?php foreach ($courses as $key => $course): ?>
                 <?php
@@ -425,7 +426,6 @@
                 year_arr.push($(this).val())
             }
         });
-        console.log(year_arr);
 
         $('.filter-country input').change(function () {
             if (this.checked) {
@@ -470,5 +470,11 @@
         function showPathway(item) {
             $(item).parents('.item').find('.arrow-box').slideToggle();
         }
+
+        function statisticCourse(course_count, university_count) {
+            $('#course-statistic').text(course_count + " courses from " +university_count + " universities");
+        } 
+
+        statisticCourse({{ $course_count }}, {{ $university_count }});
     </script>
 @endsection

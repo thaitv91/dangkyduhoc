@@ -144,10 +144,12 @@ class AjaxController extends Controller
                 $university = University::whereIn('country_slug', $country_slugs)->select('id')->get();
                 $query->whereIn('university_id', $university);
                 return $query;
-            })
-            ->groupBy('university_id')
-            ->get();
+            });
+            $course_count = $courses->count();
+            $courses = $courses->groupBy('university_id')
+                            ->get();
 
+            $university_count = $courses->count();
         // $html = '';
         // foreach ($courses as $course) {
         //     $html .= $this->renderFilter($course);
@@ -180,7 +182,7 @@ class AjaxController extends Controller
         // $html .= "</script>";
 
         // return $html;
-        return view('ajax.filterCourse', compact(['courses', 'subject']));
+        return view('ajax.filterCourse', compact(['courses', 'subject', 'course_count', 'university_count']));
     }
 
     public function postFilterSubject(Request $request)
@@ -189,13 +191,15 @@ class AjaxController extends Controller
         $data = $request->all();
         $slug = $data['slug'];
         $university_id = $data['university_id'];
-
+        $university = University::where('id', '=', $university_id)->first();
         $courses = Course::leftJoin('course_information', 'course.id', 'course_information.course_id')
             ->select('course.*', 'course_information.duration')
             ->where('subject_slug', '=', $slug)
-            ->where('university_id', '=', $university_id)
-            ->groupBy('university_id')
-            ->get();
+            ->where('university_id', '=', $university_id);
+        $course_count = $courses->count();
+        $courses = $courses->groupBy('university_id')
+                        ->get();
+        $university_count = $courses->count();
 
         // $html = '';
         // foreach ($courses as $course) {
@@ -203,7 +207,7 @@ class AjaxController extends Controller
         // }
 
         // return $html;
-        return view('ajax.filterCourse', compact(['courses']));
+        return view('ajax.filterSubject', compact(['courses', 'university', 'course_count', 'university_count']));
     }
 
 //    public function postFilterCareer(Request $request) {
@@ -233,6 +237,7 @@ class AjaxController extends Controller
 
         $data = $request->all();
         $slug = $data['slug'];
+        $subject = Subject::where( 'slug' , $slug )->first();
         $country_slugs = $data['country_slugs'];
         $years = $data['year_arr'];
         $countries = [];
@@ -267,42 +272,45 @@ class AjaxController extends Controller
                 $query->whereIn('university_id', $university);
                 return $query;
             })
-            ->whereIn('subject_slug', $slug)
-            ->groupBy('university_id')
-            ->get();
+            ->whereIn('subject_slug', $slug);
+            $course_count = $courses->count();
+            $courses = $courses->groupBy('university_id')
+                                ->get();
+            $university_count = $courses->count();
 
-        $html = '';
-        foreach ($courses as $course) {
-            $html .= $this->renderFilter($course);
-        }
+        // $html = '';
+        // foreach ($courses as $course) {
+        //     $html .= $this->renderFilter($course);
+        // }
 
-        $html .= '<script type="text/javascript">';
-        $html .= '$(".see-similar").click(function(){';
-        $html .= "var slug = $(this).attr('data');";
-        $html .= "var _token = $(this).attr('_token');";
-        $html .= "$(this).css('display', 'none');";
-        $html .= "$(this).parent().find('.hide-see-similar').css('display', 'block');";
-        $html .= 'var element  = $(this).parents(".uni");';
-        $html .= '$.ajax({';
-        $html .= "dataType: 'html',";
-        $html .= "type: 'POST',";
-        $html .= "url:'/course/similar/',";
-        $html .= "data: {slug: slug, _token: _token},";
+        // $html .= '<script type="text/javascript">';
+        // $html .= '$(".see-similar").click(function(){';
+        // $html .= "var slug = $(this).attr('data');";
+        // $html .= "var _token = $(this).attr('_token');";
+        // $html .= "$(this).css('display', 'none');";
+        // $html .= "$(this).parent().find('.hide-see-similar').css('display', 'block');";
+        // $html .= 'var element  = $(this).parents(".uni");';
+        // $html .= '$.ajax({';
+        // $html .= "dataType: 'html',";
+        // $html .= "type: 'POST',";
+        // $html .= "url:'/course/similar/',";
+        // $html .= "data: {slug: slug, _token: _token},";
 
-        $html .= "success: function (data) {";
-        $html .= "element.append(data);";
-        $html .= "}";
-        $html .= "});";
-        $html .= "});";
+        // $html .= "success: function (data) {";
+        // $html .= "element.append(data);";
+        // $html .= "}";
+        // $html .= "});";
+        // $html .= "});";
 
-        $html .= "$('.hide-see-similar').click(function () {";
-        $html .= "$(this).css('display', 'none');";
-        $html .= "$(this).parent().find('.see-similar').css('display', 'block');";
-        $html .= "$(this).parents('.uni').find('.similar-item').css('display', 'none');";
-        $html .= "});";
-        $html .= "</script>";
+        // $html .= "$('.hide-see-similar').click(function () {";
+        // $html .= "$(this).css('display', 'none');";
+        // $html .= "$(this).parent().find('.see-similar').css('display', 'block');";
+        // $html .= "$(this).parents('.uni').find('.similar-item').css('display', 'none');";
+        // $html .= "});";
+        // $html .= "</script>";
 
-        return $html;
+        // return $html;
+            return view('ajax.filterCourse', compact(['courses', 'subject', 'course_count', 'university_count']));
     }
 
     public function renderSimilar($course)

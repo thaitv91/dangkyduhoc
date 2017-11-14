@@ -23,7 +23,7 @@ $university = \App\Models\University::where('id', '=', $course->university_id)->
                         $course_info = \App\Models\CourseInformation::where('course_id', '=', $course->id)->first();
                         $course_requi = \App\Models\CourseRequirement::where('course_id', '=', $course->id)->first();
                         ?>
-                        <a class="course_name" href="/course/{{ $course->slug }}">{{ $explode[0] }}</a>
+                        <a class="course_name" href="/course/{{ $course->slug }}">{{ $explode[0]."( ".$course_count.")" }}</a>
                         <div class="classification">{{ $explode[1] }}</div>
                         <div class="uni-name-sec">
                             <a class="university_name"
@@ -205,3 +205,6 @@ $university = \App\Models\University::where('id', '=', $course->university_id)->
     </div>
 </div><!-- /.item -->
 <?php endforeach ?>
+<script type="text/javascript">
+    statisticCourse("{{ $course_count }}", "{{ $university_count }}");
+</script>

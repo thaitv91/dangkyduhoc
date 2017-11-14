@@ -28,9 +28,11 @@ class CareerController extends Controller
             $sblist[] = $subject->slug;
         }
 
-        $courses = Course::whereIn('subject_slug', $sblist)
-            ->groupBy('university_id')
-            ->get();
+        $courses = Course::whereIn('subject_slug', $sblist);
+        $course_count = $courses->count();
+        $courses = $courses->groupBy('university_id')
+                            ->get();
+        $university_count = $courses->count();
 
         if ($locale == 'en') {
             $careers['name']        = $careers->name_en;
@@ -49,6 +51,8 @@ class CareerController extends Controller
             'sblistjson'      => json_encode($sblist),
             'course_id'       => json_encode($this->getCourseId()), // Get courses from cookie
             'apply_course_id' => json_encode($this->getApplyCourseId()),
+            'course_count'    => $course_count,
+            'university_count'=> $university_count,
         );
         return view('user.careers', $this->viewData);
     }
