@@ -282,9 +282,15 @@
 	}
 	&.left{
 		margin-right: 10px;
+		@include screen-size-max(sm){
+			margin-right: 0;
+		}
 	}
 	&.right{
 		margin-left: 10px;
+		@include screen-size-max(sm){
+			margin-left: 0;
+		}
 	}
 }
 

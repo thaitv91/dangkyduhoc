@@ -5698,8 +5698,18 @@ footer .footer-top .social {
 .box-ranking.left {
   margin-right: 10px;
 }
+@media screen and (max-width: 991px) {
+  .box-ranking.left {
+    margin-right: 0;
+  }
+}
 .box-ranking.right {
   margin-left: 10px;
+}
+@media screen and (max-width: 991px) {
+  .box-ranking.right {
+    margin-left: 0;
+  }
 }
 
 .undergraduate-courses {
