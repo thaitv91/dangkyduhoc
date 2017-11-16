@@ -3659,7 +3659,7 @@ sub, sup {
   -moz-transition: left ease 0.5s;
   -o-transition: left ease 0.5s;
   transition: left ease 0.5s;
-  left: -1124px;
+  left: -1224px;
 }
 #right-nav #right-nav-container {
   height: 100%;
@@ -3829,7 +3829,7 @@ sub, sup {
   top: 0;
   width: 100%;
   z-index: 99998;
-  left: -1124px;
+  left: -1224px;
 }
 #left-nav #left-nav-container {
   height: 100%;
@@ -6875,11 +6875,10 @@ a.course_name {
     background: #ddd;
   }
 }
-@media only screen and (min-width: 1200px) {
-  #page_compare .feature.feature1 .btn {
-    display: none;
-  }
+#page_compare .feature.feature1 .btn {
+  min-width: 100%;
 }
+
 .margin-left5 {
   margin-left: 5px;
 }
