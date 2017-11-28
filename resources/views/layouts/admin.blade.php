@@ -121,6 +121,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li><a href="{{ route('admin.user') }}"><i class="fa fa-link"></i> <span>Users</span></a>
                 <li><a href="{{ route('admin.scholarship') }}"><i class="fa fa-link"></i> <span>Scholarship</span></a>
                 </li>
+                <li><a href="{{ route('admin.translations') }}"><i class="fa fa-link"></i> <span>Language Manager</span></a>
                 <li>
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
