@@ -12,7 +12,7 @@
 */
 // Admin
 Route::get('admin', 'Admin\DashboardController@index')->name('admin');
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
     Route::group(['prefix' => 'user'], function () {
         Route::get('/', 'Admin\UserController@index')->name('admin.user');
         Route::get('edit/{id?}', 'Admin\UserController@edit')->name('admin.user.edit');
