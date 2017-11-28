@@ -22,6 +22,8 @@ class SubjectController extends Controller
         $courses = Course::where('subject_slug', '=', $slug)
             ->groupBy('university_id')
             ->get();
+		$course_count = Course::where('subject_slug', $slug)->count();
+		$university_count = $courses->count();
 
 		if ($locale == 'en') {
 			$subject['name']= $subject->name_en;
@@ -39,6 +41,8 @@ class SubjectController extends Controller
 			'courses'			=> $courses,
 			'course_id'			=> json_encode($this->getCourseId()), // Get courses from cookie
 			'apply_course_id'	=> json_encode($this->getApplyCourseId()),
+			'course_count'		=> $course_count,
+			'university_count'	=> $university_count,
 		);
 
         if (isset($_GET['debug'])) {

@@ -22,11 +22,12 @@
 					<table class="table">
 						<caption>Column 1</caption>
 						<thead>
-							<th>Order</th>
+							<th>Index</th>
 							<th>Type</th>
 							<th>Title</th>
 							<th>Weight</th>
 							<th>Link</th>
+							<th>Column</th>
 							<th></th>
 						</thead>
 						<tbody>
@@ -54,6 +55,14 @@
 								</td>
 								<td><input type="text" name="weight[]" value="{{ $value->weight }}" id="weight_{{ $value->id }}" class="form-control" required></td>
 								<td><input type="text" name="link[]" id="link_{{ $value->id }}" value="{{ $value->link }}" class="form-control"></td>
+								<td>
+									<select name="column[]" class="form-control">
+										<option value="1" selected>1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>
+								</td>
 								<td><a onclick="confirmDelete({{$value->id}}); return false;" class="btn btn-danger btn-xs">Delete</a></td>
 							</tr>
 							@endforeach
@@ -76,11 +85,12 @@
 					<table class="table">
 						<caption>Column 2</caption>
 						<thead>
-							<th>Order</th>
+							<th>Index</th>
 							<th>Type</th>
 							<th>Title</th>
 							<th>Weight</th>
 							<th>Link</th>
+							<th>Column</th>
 							<th></th>
 						</thead>
 						<tbody>
@@ -108,6 +118,14 @@
 								</td>
 								<td><input type="text" name="weight[]" value="{{ $value->weight }}" id="weight_{{ $value->id }}" class="form-control" required></td>
 								<td><input type="text" name="link[]" id="link_{{ $value->id }}" value="{{ $value->link }}" class="form-control"></td>
+								<td>
+									<select name="column[]" class="form-control">
+										<option value="1">1</option>
+										<option value="2" selected>2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>
+								</td>
 								<td><a href="" class="btn btn-danger btn-xs">Delete</a></td>
 							</tr>
 							@endforeach
@@ -135,6 +153,7 @@
 							<th>Title</th>
 							<th>Weight</th>
 							<th>Link</th>
+							<th>Column</th>
 							<th></th>
 						</thead>
 						<tbody>
@@ -162,6 +181,14 @@
 								</td>
 								<td><input type="text" name="weight[]" value="{{ $value->weight }}" id="weight_{{ $value->id }}" class="form-control" required></td>
 								<td><input type="text" name="link[]" id="link_{{ $value->id }}" value="{{ $value->link }}" class="form-control"></td>
+								<td>
+									<select name="column[]" class="form-control">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3" selected>3</option>
+										<option value="4">4</option>
+									</select>
+								</td>
 								<td><a href="" class="btn btn-danger btn-xs">Delete</a></td>
 							</tr>
 							@endforeach
@@ -189,6 +216,7 @@
 							<th>Title</th>
 							<th>Weight</th>
 							<th>Link</th>
+							<th>Column</th>
 							<th></th>
 						</thead>
 						<tbody>
@@ -216,6 +244,14 @@
 								</td>
 								<td><input type="text" name="weight[]" value="{{ $value->weight }}" id="weight_{{ $value->id }}" class="form-control" required></td>
 								<td><input type="text" name="link[]" id="link_{{ $value->id }}" value="{{ $value->link }}" class="form-control"></td>
+								<td>
+									<select name="column[]" class="form-control">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4" selected>4</option>
+									</select>
+								</td>
 								<td><a href="" class="btn btn-danger btn-xs">Delete</a></td>
 							</tr>
 							@endforeach

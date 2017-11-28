@@ -17,7 +17,7 @@ class University extends Model
     }
 
     public function universityMeta(){
-    	return $this->hasMany('App\Models\UniversityMetas','university_id');
+    	return $this->hasOne('App\Models\UniversityMetas','university_id');
     }
 
     public function universityRanking(){

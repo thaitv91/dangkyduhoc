@@ -98,36 +98,36 @@
 							</td>
 							<td class="submitted hidden-xs">
 								<div class="course-status">
-									@php if($course->receive_status==0) $receive_status = 'ir app yet tip'; @endphp 
-									@php if($course->receive_status==1) $receive_status = 'ir app done tip'; @endphp  
-									@php if($course->receive_status==2) $receive_status = 'ir app problem tip'; @endphp  
-									@php if($course->review_status==0) $review_status = 'ir app yet tip'; @endphp 
-									@php if($course->review_status==1) $review_status = 'ir app done tip'; @endphp  
-									@php if($course->review_status==2) $review_status = 'ir app problem tip'; @endphp  
-									@php if($course->submit_status==0) $submit_status = 'ir app yet tip';  @endphp 
-									@php if($course->submit_status==1) $submit_status = 'ir app done tip';  @endphp 
-									@php if($course->submit_status==2) $submit_status = 'ir app problem tip'; @endphp  
-									@php if($course->outcome_status==0) $outcome_status = 'ir app yet tip';  @endphp 
-									@php if($course->outcome_status==1) $outcome_status = 'ir app done tip';  @endphp 
+									@php if($course->receive_status==0) $receive_status = 'ir app yet tip'; @endphp
+									@php if($course->receive_status==1) $receive_status = 'ir app done tip'; @endphp
+									@php if($course->receive_status==2) $receive_status = 'ir app problem tip'; @endphp
+									@php if($course->review_status==0) $review_status = 'ir app yet tip'; @endphp
+									@php if($course->review_status==1) $review_status = 'ir app done tip'; @endphp
+									@php if($course->review_status==2) $review_status = 'ir app problem tip'; @endphp
+									@php if($course->submit_status==0) $submit_status = 'ir app yet tip';  @endphp
+									@php if($course->submit_status==1) $submit_status = 'ir app done tip';  @endphp
+									@php if($course->submit_status==2) $submit_status = 'ir app problem tip'; @endphp
+									@php if($course->outcome_status==0) $outcome_status = 'ir app yet tip';  @endphp
+									@php if($course->outcome_status==1) $outcome_status = 'ir app done tip';  @endphp
 									@php if($course->outcome_status==2) $outcome_status = 'ir app problem tip'; @endphp
 									<div class="status">
 										<span class="{{ $receive_status }}" title="" @if ($course->receive_status == 0) data-toggle="tooltip" data-original-title="This course has been shortlisted but not yet submitted to us. Chat with us online if you require some guidance." @endif></span>
 										<br>
 										{{ $course->received }}
 									</div>
-									
+
 									<div class="status">
 										<span class="{{ $review_status }}" title="" @if($course->review_status == 0) data-toggle="tooltip" data-original-title="No updates has been provided at this stage yet." @endif></span>
 										<br>
 										{{ $course->reviewd }}
 									</div>
-									
+
 									<div class="status">
 										<span class="{{ $submit_status }}" title="" @if($course->submit_status == 0) data-toggle="tooltip" data-original-title="No updates has been provided at this stage yet." @endif></span>
 										<br>
 										{{ $course->submitted }}
 									</div>
-									
+
 									<div class="status">
 										<span class="{{ $outcome_status }}" @if($course->outcome_status == 1) title="" data-toggle="tooltip" data-original-title="{{ $course->note }}." @endif></span>
 										<br>
@@ -136,7 +136,7 @@
 								</div>
 							</td>
 						</tr>
-					<?php endforeach ?>
+					<?php endforeach?>
 				</tbody>
 			</table>
 		</div><!-- /.list-apply -->
@@ -150,7 +150,7 @@
 							<option selected disabled>Choose a country</option>
 							<?php foreach ($countries as $key => $country): ?>
 								<option value="{{ $country->slug }}">{{ $country->name }}</option>
-							<?php endforeach ?>
+							<?php endforeach?>
 						</select>
 					</div>
 
@@ -202,9 +202,6 @@
 </div><!-- /.courses-apply -->
 @endsection
 @section('scripts')
-{{-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> --}}   
-{{-- <script type="text/javascript" src="//codeorigin.jquery.com/ui/1.10.2/jquery-ui.min.js"></script> --}}
-
 <script type="text/javascript">
 	$.ajaxSetup({
 		headers : {
@@ -264,10 +261,11 @@
 					country_name : country_name,
 					duration : duration,
 					classification : classification,
-					order : $('table tr').length,
+					order : $('table.courses tr').length,
 				}
 			}).done(function(data) {
-				$('.course tbody').append(data);
+				console.log(data);
+				$('#list-apply tbody').append(data);
 				$('#universities').empty();
 				$('#course').empty();
 				$('#country').find(':disabled').prop('selected', true);
@@ -287,9 +285,9 @@
 			data : {id : id},
 		}).done(function(data) {
 			if (data == 1) {
-				toastr.success('Course Added.');
+				toastr.success('Course was Added.');
 			} else {
-				toastr.warning('Course Unselected');
+				toastr.warning('Course was Unselected');
 			}
 			getCourseCount();
 			return false;
@@ -297,16 +295,16 @@
 	}
 
 	function removeCourse(index) {
-		if (!confirm('This course will be removed from your application. Are you sure?')) 
-			return false; 
-		else { 
+		if (!confirm('This course will be removed from your application. Are you sure?'))
+			return false;
+		else {
 			$(index).parent().parent().remove();
 			apply($(index).data('course-id'));
 			redraw();
 		}
 	}
 
-	//Re-order 
+	//Re-order
 	function redraw(table) {
 		table = $('table.courses');
 		var tbody = table.find('tbody');
@@ -314,6 +312,7 @@
 		if (tr.length == 0) {
 			$('#list-apply').remove();
 			$('#current_app_status').remove();
+			$('#continue-apply').remove();
 		}
 		tr.each(function () {
 			$(this).find('.priority span').text(this.rowIndex+'');
@@ -328,13 +327,14 @@
 		e.preventDefault();
 		@if (Auth::check())
 		$('#continue-apply').slideToggle();
-		@else 
+		@else
 		$('#left-nav').animate({
 			left:-1024
 		});
 		$('#login_drawer').slideDown();
 		$('#nav-main').hide();
 		@endif
+		$('#current_app_status').addClass('hide');
 	});
 
 	function save_and_next(type) {
@@ -346,14 +346,12 @@
 			scrollTop: $("#step_"+index+"_header").offset().top-100
 		}, 500);
 	}
-</script>
-<script type="text/javascript">
+
 	$('.hasDatepicker').datepicker({
 		format : 'dd/mm/yyyy',
 	});
-
-	//Set data for personal detail 
-	@php 
+	//Set data for personal detail
+	@php
 	$personal_details = isset($user)?$user->personalDetail:null;
 	@endphp
 	@if (count($personal_details))
@@ -477,6 +475,7 @@
 			}
 		});
 		@endif
+		moveTo(2);
 		return false;
 	});
 
@@ -564,7 +563,7 @@
 		'</td>'+
 		'</tr>'+
 		'</tbody>';
-		html += 
+		html +=
 		'<tbody>'+
 		'<tr>'+
 		'<td>'+
@@ -739,49 +738,46 @@
             	});
             });
         }//Init function
-};//Dropzoen
+	};//Dropzoen
 
-$('#form-apply-3').on('submit', function() {
-	$.ajax({
-		url : "{{ route('user.apply.storeDocument') }}",
-		data : $(this).serialize(),
-		type : 'POST'
-	}).done(function (data) {
-		if (data == 1) {
-			toastr.success('Save data successfully');
-			moveTo(4);
-		} else if (data == 0) {
-			toastr.error('Save data fails. Please try again.');
-			moveTo(3);
-		} 
+	$('#form-apply-3').on('submit', function() {
+		$.ajax({
+			url : "{{ route('user.apply.storeDocument') }}",
+			data : $(this).serialize(),
+			type : 'POST'
+		}).done(function (data) {
+			if (data == 1) {
+				toastr.success('Save data successfully');
+				moveTo(4);
+			} else if (data == 0) {
+				toastr.error('Save data fails. Please try again.');
+				moveTo(3);
+			}
 
+		});
+		return false;
 	});
-	return false;
-});
 
-$('#form-apply-4').on('submit', function() {
-	$.ajax({
-		url : "{{ route('user.apply.storeVerification') }}",
-		data : $(this).serialize(),
-		type : 'POST',
+	$('#form-apply-4').on('submit', function() {
+		$.ajax({
+			url : "{{ route('user.apply.storeVerification') }}",
+			data : $(this).serialize(),
+			type : 'POST',
+		});
+		return false;
 	});
-	return false;
-});
 
-function submit_form() {
-	$('#form-apply-1').submit();
-	$('#form-apply-2').submit();
-	$('#form-apply-3').submit();
-	$('#form-apply-4').submit();
-	
-	$.ajax({
-		url : "{{ route('user.apply.submit') }}",
-		type : 'POST',
-	}).done(function () {
-		window.location  = "{{ route('user.apply.confirmation',['send_mail'=>1]) }}";
-	})
-}
-
+	function submit_form() {
+		$('#form-apply-1').submit();
+		$('#form-apply-2').submit();
+		$('#form-apply-3').submit();
+		$('#form-apply-4').submit();
+		$.ajax({
+			url : "{{ route('user.apply.submit') }}",
+			type : 'POST',
+		}).done(function () {
+			window.location  = "{{ route('user.apply.confirmation',['send_mail'=>1]) }}";
+		})
+	}
 </script>
-
 @endsection

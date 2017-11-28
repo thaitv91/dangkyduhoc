@@ -32,19 +32,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($scholarships as $scholarships)
+                @foreach ($scholarships as $scholarship)
                 <tr>
-                    <td>{{ $scholarships->id }}</td>
-                    <td>{{ $scholarships->course_slug }}</td>
-                    <td>{{ $scholarships->title }}</td>
-                    <td>{{ $scholarships->title_en }}</td>
-                    <td>{{ $scholarships->quantity }}</td>
-                    <td>{{ $scholarships->quantity_en }}</td>
-                    <td>{{ $scholarships->description }}</td>
-                    <td>{{ $scholarships->description_en }}</td>
+                    <td>{{ $scholarship->id }}</td>
+                    <td>{{ $scholarship->course_slug }}</td>
+                    <td>{{ $scholarship->title }}</td>
+                    <td>{{ $scholarship->title_en }}</td>
+                    <td>{{ $scholarship->quantity }}</td>
+                    <td>{{ $scholarship->quantity_en }}</td>
+                    <td>{{ $scholarship->description }}</td>
+                    <td>{{ $scholarship->description_en }}</td>
                     <td>
-                        {{--<a href="{{ route('admin.scholarship.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>--}}
-                        {{--<a onclick="confirmDelete({{$scholarships->id}})" class="btn btn-xs btn-danger">Delete</a>--}}
+                        <a href="{{ route('admin.scholarship.edit',['id'=>$scholarship->id]) }}" class="btn btn-xs btn-warning">Edit</a>
+                        <a onclick="confirmDelete('{{ route('admin.scholarship.remove',['id'=>$scholarship->id]) }}')" class="btn btn-xs btn-danger">Delete</a>
                     </td>
                 </tr>
                 @endforeach
@@ -64,7 +64,7 @@
                     <h4 class="modal-title">Confirm delete</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure to do this action?</p>
+                    <p>Are you sure remove this item?</p>
                 </div>
                 <div class="modal-footer">
                     <a href="" class="btn btn-danger">Delete</a>
@@ -90,18 +90,9 @@
         });
     </script>
     <script type="text/javascript">
-        function confirmDelete(id) {
-            $.ajax({
-                url : '{{ route("admin.universities.getUrlDelete") }}',
-                data : {id:id},
-            }).done(function(data) {
-                if (data == -1) {
-                    alert('Opp! Please try again. Error!');
-                } else {
-                    $('#modal-delete a').attr('href',data);
-                    $('#modal-delete').modal('show');
-                }
-            })
+        function confirmDelete(url) {
+            $('#modal-delete a').attr('href', url);
+            $('#modal-delete').modal('show');
         }
     </script>
 @endsection
