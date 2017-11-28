@@ -630,7 +630,6 @@
 	}
 
 	$('#form-apply-2').on('submit', function(e) {
-		@if (count($personal_details) > 0)
 		$.ajax({
 			url : "{{ route('user.apply.storeEducationAndWork') }}",
 			data : $(this).serialize(),
@@ -649,10 +648,8 @@
 					moveTo(2);
 				}
 			});
-		@else
-		toastr.error('Please complete form PERSONAL DETAILS first.');
+		// toastr.error('Please complete form PERSONAL DETAILS first.');
 		e.preventDefault();
-		@endif
 		return false;
 	});
 
