@@ -3502,6 +3502,10 @@ sub, sup {
 .navbar-default .navbar-nav > li .user-logged {
   background-color: #23a43f;
 }
+.navbar-default .navbar-nav > li.language {
+  margin-top: 13px;
+  margin-left: 15px;
+}
 
 .sub-menu {
   background-color: #006699;
@@ -3944,6 +3948,19 @@ sub, sup {
 @media screen and (max-width: 991px) {
   .top-alert {
     top: 40px;
+  }
+}
+
+@media screen and (max-width: 1299px) {
+  .language .dropdown-menu {
+    position: static;
+    margin-left: 40px;
+    margin-top: 10px !important;
+    text-align: left;
+    width: auto;
+    float: none;
+    margin-right: 40px;
+    padding-left: 0;
   }
 }
 
