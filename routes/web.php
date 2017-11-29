@@ -370,6 +370,7 @@ Route::get('/html/search', function () {
 Route::get('/html/confirmation', function () {
     return view('user.confirmation');
 });
+Route::group(['middleware'=>'web'], function() {
 
 Route::get('/guide', 'User\GuideController@index')->name('user.guide');
 Route::get('/guide/{slug}', 'User\GuideController@search')->name('user.guide.search');
@@ -450,3 +451,5 @@ Route::post('/course/filter-career', 'User\AjaxController@postFilterCareer');
 // OAuth Routes
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
+Route::get('language', 'User\HomeController@setLanguage')->name('setLanguage');
+});

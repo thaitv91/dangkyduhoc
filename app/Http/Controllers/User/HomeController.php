@@ -27,7 +27,9 @@ class HomeController extends Controller
 
     public function index()
     {   
+        app()->setLocale('en'); 
         $locale = App::getLocale();
+        // dd($locale);
         $rating = Rating::all();
         $page = Page::where('slug', '=', 'home-page')->first();
         $fields = PageField::where('page_id', '=',$page->id)->get();
@@ -51,7 +53,7 @@ class HomeController extends Controller
             'data_field'    => $data_field,
             'rating'        => $rating,
             'locale'        => $locale,
-            'custom_field'        => $custom_field,
+            'custom_field'  => $custom_field,
             );
         return view('user.homepage', $this->viewData);
     }
@@ -64,6 +66,14 @@ class HomeController extends Controller
             'compare_count'     =>  count($compare_course),
             'apply_count'      =>  count($apply_course),
         );
+    }
+
+    public function setLanguage(Request $request) {
+        $locale = $request->locale;
+        app()->setLocale($locale);
+        Session::put('locale', $locale);
+
+        return 1;
     }
 
 }

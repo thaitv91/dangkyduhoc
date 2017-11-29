@@ -708,4 +708,20 @@
         });
     });
 </script>
+
+<!-- Set language -->
+<script type="text/javascript">
+    function setLanguage(locale) {
+        $.ajax({
+            url : "{{ route('language.set') }}",
+            data : {locale : locale}
+        }).done(function(data) {
+            if (data == 1) {
+                location.reload();
+            } else {
+                toastr.error('Opps! Error. Please refresh the page.');
+            }
+        });
+    }
+</script>
 </html>

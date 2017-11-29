@@ -17,6 +17,7 @@ class SubjectController extends Controller
 {
 	public function viewDetail( $slug, Request $request ){
 		$locale = App::getLocale();
+		// dd(App::getLocale());
 		$subject = Subject::where( 'slug' , $slug )->first();
 		$subject_career = SubjectCareer::where('subject_id', $subject['id'])->get();
         $courses = Course::where('subject_slug', '=', $slug)
