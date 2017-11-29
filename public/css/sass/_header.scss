@@ -67,6 +67,11 @@
 			.user-logged{
 				background-color: $color-3-hover;
 			}
+
+			&.language{
+				margin-top: 13px;
+				margin-left: 15px;
+			}
 		}
 	}
 }
@@ -472,5 +477,20 @@
 	max-width: 100%;
 	@include screen-size-max(sm){
 		top:40px;
+	}
+}
+
+.language{
+	.dropdown-menu{
+		@include screen-size-max(md){
+			 position: static;
+		    margin-left: 40px;
+		    margin-top: 10px !important;
+		    text-align: left;
+		    width: auto;
+		    float: none;
+		    margin-right: 40px;
+		    padding-left: 0;
+		}
 	}
 }

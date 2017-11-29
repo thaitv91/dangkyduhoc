@@ -252,6 +252,15 @@
                         </ul>
                     </li>
                 @endif
+
+                <li class="dropdown language">
+                    <span class="clickable" class="dropdown-toggle" data-toggle="dropdown"
+                              aria-expanded="true"><img src="/img/vietname.png" alt="" /></span>
+                    <ul class="gtt-get-help dropdown-menu">
+                        <li><a href="#"><img src="/img/vietname.png" alt="" /></a></li>
+                        <li><a href="#"><img src="/img/english.png" alt="" /></a></li>
+                    </ul>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right hidden-lg">
@@ -458,6 +467,14 @@
                         </form>
                     </li>
                     @endif
+                    <li class="dropdown language">
+                        <a class="clickable" class="dropdown-toggle" data-toggle="dropdown"
+                                  aria-expanded="true"><img src="/img/vietname.png" alt="" /></a>
+                        <ul class="gtt-get-help dropdown-menu">
+                            <li><a href="#"><img src="/img/vietname.png" alt="" /></a></li>
+                            <li><a href="#"><img src="/img/english.png" alt="" /></a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div><!-- /#left-nav -->
