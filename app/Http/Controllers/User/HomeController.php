@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Models\PageField;
 use App\Models\Page;
@@ -12,6 +13,7 @@ use App\Models\Map;
 use App;
 use DB;
 use Session;
+use Cookie;
 
 class HomeController extends Controller
 {
@@ -71,8 +73,9 @@ class HomeController extends Controller
         $locale = $request->locale;
         app()->setLocale($locale);
         Session::put('locale', $locale);
-
-        return 1;
+        $response = new Response('1');
+        $response->withCookie(cookie()->forever('locale', $locale));
+        return $response;
     }
 
 }
