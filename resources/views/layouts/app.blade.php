@@ -253,14 +253,25 @@
                     </li>
                 @endif
 
+                @if (App::getLocale() == 'vi')
                 <li class="dropdown language">
                     <span class="clickable" class="dropdown-toggle" data-toggle="dropdown"
                               aria-expanded="true"><img src="/img/vietname.png" alt="" /></span>
                     <ul class="gtt-get-help dropdown-menu">
-                        <li><a href="#"><img src="/img/vietname.png" alt="" /></a></li>
-                        <li><a href="#"><img src="/img/english.png" alt="" /></a></li>
+                        <li><a href="#" onclick="setLanguage('vi'); return false;"><img src="/img/vietname.png" alt=""/>Tiếng Việt</a></li>
+                        <li><a href="#" onclick="setLanguage('en'); return false;"><img src="/img/english.png" alt=""/>Tiếng Anh</a></li>
                     </ul>
                 </li>
+                @else
+                <li class="dropdown language">
+                    <span class="clickable" class="dropdown-toggle" data-toggle="dropdown"
+                              aria-expanded="true"><img src="/img/english.png" alt="" /></span>
+                    <ul class="gtt-get-help dropdown-menu">
+                        <li><a href="#" onclick="setLanguage('vi'); return false;"><img src="/img/vietname.png" alt="" />Vietnamese</a></li>
+                        <li><a href="#" onclick="setLanguage('en'); return false;"><img src="/img/english.png" alt="" />English</a></li>
+                    </ul>
+                </li>
+                @endif
             </ul>
 
             <ul class="nav navbar-nav navbar-right hidden-lg">
@@ -467,14 +478,26 @@
                         </form>
                     </li>
                     @endif
+                   
+                    @if (App::getLocale() == 'vi')
                     <li class="dropdown language">
                         <a class="clickable" class="dropdown-toggle" data-toggle="dropdown"
                                   aria-expanded="true"><img src="/img/vietname.png" alt="" /></a>
                         <ul class="gtt-get-help dropdown-menu">
-                            <li><a href="#"><img src="/img/vietname.png" alt="" /></a></li>
-                            <li><a href="#"><img src="/img/english.png" alt="" /></a></li>
+                            <li><a href="#" onclick="setLanguage('vi'); return false;"><img src="/img/vietname.png" alt=""/>Tiếng Việt</a></li>
+                            <li><a href="#" onclick="setLanguage('en'); return false;"><img src="/img/english.png" alt=""/>Tiếng Anh</a></li>
                         </ul>
                     </li>
+                    @else
+                    <li class="dropdown language">
+                        <a class="clickable" class="dropdown-toggle" data-toggle="dropdown"
+                        aria-expanded="true"><img src="/img/english.png" alt="" /></a>
+                        <ul class="gtt-get-help dropdown-menu">
+                            <li><a href="#" onclick="setLanguage('vi'); return false;"><img src="/img/vietname.png" alt="" />Vietnamese</a></li>
+                            <li><a href="#" onclick="setLanguage('en'); return false;"><img src="/img/english.png" alt="" />English</a></li>
+                        </ul>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </div><!-- /#left-nav -->
@@ -730,7 +753,7 @@
 <script type="text/javascript">
     function setLanguage(locale) {
         $.ajax({
-            url : "{{ route('language.set') }}",
+            url : "{{ route('setLanguage') }}",
             data : {locale : locale}
         }).done(function(data) {
             if (data == 1) {

@@ -11,6 +11,7 @@ use App\Models\CustomField;
 use App\Models\Map;
 use App;
 use DB;
+use Session;
 
 class HomeController extends Controller
 {
@@ -27,9 +28,7 @@ class HomeController extends Controller
 
     public function index()
     {   
-        app()->setLocale('en'); 
         $locale = App::getLocale();
-        // dd($locale);
         $rating = Rating::all();
         $page = Page::where('slug', '=', 'home-page')->first();
         $fields = PageField::where('page_id', '=',$page->id)->get();
