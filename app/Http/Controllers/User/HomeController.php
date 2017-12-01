@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Models\PageField;
 use App\Models\Page;
@@ -11,6 +12,8 @@ use App\Models\CustomField;
 use App\Models\Map;
 use App;
 use DB;
+use Session;
+use Cookie;
 
 class HomeController extends Controller
 {
@@ -51,7 +54,7 @@ class HomeController extends Controller
             'data_field'    => $data_field,
             'rating'        => $rating,
             'locale'        => $locale,
-            'custom_field'        => $custom_field,
+            'custom_field'  => $custom_field,
             );
         return view('user.homepage', $this->viewData);
     }
@@ -64,6 +67,15 @@ class HomeController extends Controller
             'compare_count'     =>  count($compare_course),
             'apply_count'      =>  count($apply_course),
         );
+    }
+
+    public function setLanguage(Request $request) {
+        $locale = $request->locale;
+        app()->setLocale($locale);
+        Session::put('locale', $locale);
+        $response = new Response('1');
+        $response->withCookie(cookie()->forever('locale', $locale));
+        return $response;
     }
 
 }

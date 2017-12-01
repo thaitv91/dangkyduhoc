@@ -5,9 +5,14 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Routing\Redirector;
 use Illuminate\Http\Request;
+use Illuminate\Cookie\CookieJar;
 use Illuminate\Foundation\Application;
 use Illuminate\Contracts\Routing\Middleware;
-
+use Session;
+use App;
+use Config;
+use Lang;
+use Cookie;
 class Language
 {
     public function __construct(Application $app, Redirector $redirector, Request $request) {
@@ -23,22 +28,25 @@ class Language
      * @param  \Closure  $next
      * @return mixed
      */
+
     public function handle($request, Closure $next)
-    {
-        // Make sure current locale exists.
-        $locale = $request->segment(1);
-
-        if ( ! array_key_exists($locale, $this->app->config->get('app.locales'))) {
-            $segments = $request->segments();
-            $segments[0] = $this->app->config->get('app.fallback_locale');
-            
-            if ($locale == 'en') {
-                return $this->redirector->to(implode('/', $segments));
-            }
+    {   
+        $locale;    
+        if( Session::has('locale')) 
+        {
+            $locale = Session::get( 'locale', Config::get('app.locale'));
+        } else 
+        {
+            $locale = 'vi';
         }
-
-        $this->app->setLocale($locale);
-
+        $locale = Cookie::get('locale', 'vi');
+        // dd(Cookie::get('frequent_visited_subject_ids',json_encode([]));)
+        // Session::put('locale', $locale);
+        App::setLocale($locale);
+        // $cookie = Cookie::queue(Cookie::forever('locale', $locale));
+        $cookieJar = new CookieJar;
+        $cookieJar->queue(cookie('locale', $locale, 45000));
+        
         return $next($request);
     }
 }
