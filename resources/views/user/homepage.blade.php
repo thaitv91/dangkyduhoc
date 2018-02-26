@@ -29,31 +29,40 @@
             </div>
             <div class="free-assessment hidden-sm hidden-xs">
                 <h2>FREE ASSESSMENT</h2>
-                <div class="description">
-                    <p>What is your current qualification?</p>
-                </div>
-                <ul>
-                    <li>
-                        <input type="checkbox" id="checkbox-1">
-                        <label for="checkbox-1">Diploma</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="checkbox-2">
-                        <label for="checkbox-2">‘A’ Level</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="checkbox-3">
-                        <label for="checkbox-3">IB</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="checkbox-4">
-                        <label for="checkbox-4">‘O’ Level</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="checkbox-5">
-                        <label for="checkbox-5">Bachelor</label>
-                    </li>
-                </ul>
+                <div class="step-1" style="display: none">
+                    <div class="description">
+                        <p>Bạn đã hoàn thành bậc học nào?</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <input type="radio" id="checkbox-1">
+                            <label for="checkbox-1">Trung học cơ sở/Cấp II</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="checkbox-2">
+                            <label for="checkbox-2">Trung học phổ thông/Cấp III</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="checkbox-3">
+                            <label for="checkbox-3">Trung cấp/Cao Đẳng</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="checkbox-4">
+                            <label for="checkbox-4">Đại học</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="checkbox-5">
+                            <label for="checkbox-5">Sau đại học.</label>
+                        </li>
+                    </ul>
+                </div><!-- /.step-1 -->
+
+                <div class="step-2">
+                    <div class="description">
+                        <p>Điểm tổng kết Trung bình năm của bạn?</p>
+                    </div>
+                    <input type="range" min="1" max="10" step="1" value="5" class="input-range">
+                </div><!-- /.step-2 -->
                 <div class="bottom">
                     <button class="btn btn-green btn-block">Next</button>
                 </div>

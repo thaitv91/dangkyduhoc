@@ -4,7 +4,6 @@
 
 @endsection
 
-
 @section('content')
 <div class="col-md-12">	
 	<!-- general form elements -->

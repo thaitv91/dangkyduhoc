@@ -127,6 +127,7 @@ $('#slider-img-fair').slick({
     fade: true
   });
   
+  $('.input-range').rangeslider();
 
   $('.whichroute').click(function(){
     $(this).parent().find('#faq-list').show();

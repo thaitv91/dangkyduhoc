@@ -216,7 +216,9 @@ class UniversityController extends Controller
                 $university->update($data);
                 $university_meta = $university->universityMeta;
                 $university_meta->campus = $request->campus;
+                $university_meta->campus_en = $request->campus_en;
                 $university_meta->about = $request->about;
+                $university_meta->about_en = $request->about_en;
                 $university_meta->facebook = $request->facebook;
                 $university_meta->twitter = $request->twitter;
                 $university_meta->youtube = $request->youtube;
@@ -226,7 +228,7 @@ class UniversityController extends Controller
                 $university_meta->save();
                 DB::commit();
                 Session::flash('success','Success!');
-                return redirect(route('admin.universities.index'));    
+                return redirect()->back();
             }
 
         } catch (Exception $e) {

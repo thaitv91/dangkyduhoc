@@ -28,6 +28,10 @@ class Language
         // Make sure current locale exists.
         $locale = $request->segment(1);
 
+        if ($locale != 'en') {
+        	$locale = '';
+        }
+
         if ( ! array_key_exists($locale, $this->app->config->get('app.locales'))) {
             $segments = $request->segments();
             $segments[0] = $this->app->config->get('app.fallback_locale');

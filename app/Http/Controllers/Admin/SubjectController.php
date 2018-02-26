@@ -103,7 +103,7 @@ class SubjectController extends Controller
     {
         $data = Subject::find( $id );
         $subject_career = SubjectCareer::where( 'subject_id', $id )->get();
-
+	    $career_id = [];
         if (count($subject_career) != 0)
             foreach ($subject_career as $key => $value) {
                 $career_id[] = $value['career_id']; 
@@ -142,14 +142,15 @@ class SubjectController extends Controller
             $subject = Subject::where('id', $id)->first();
             $subject->update($data);
 
-            SubjectCareer::where( 'subject_id', $id )->delete();
-
-            foreach ($data['career_id'] as $value) {
-                $datas=array(
-                'subject_id' => $id,
-                'career_id'         => $value,
-            );
-            $subject_career = SubjectCareer::create($datas);
+			if(isset($data['career_id'])) {
+	            SubjectCareer::where( 'subject_id', $id )->delete();
+	            foreach ($data['career_id'] as $value) {
+		            $datas          = array(
+			            'subject_id' => $id,
+			            'career_id'  => $value,
+		            );
+		            $subject_career = SubjectCareer::create( $datas );
+	            }
             }
             DB::commit();
             Session::flash('success','Success!');
