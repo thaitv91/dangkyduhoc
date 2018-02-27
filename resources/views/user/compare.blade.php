@@ -136,21 +136,21 @@
 			<div class="col-lg-12 col-md-12 col-xs-12 col-xs-12 feature-row text-center relative" style="background-color: rgb(255, 255, 255);">
 				<div class=" feature feature21 padtop20 padbot20px" data-rowno="21" style="height: 160px;">
 					<div class="chart">
-						<div class="fee" data-value="{{ $course->cost->year_tuition_fees }}" data-title="Tuition fee" data-prefix="S$" data-postfix="K"></div>
-						<div class="living-expenses" data-value="{{ $course->costLiving() }}" data-title="Living expenses" data-prefix="S$" data-postfix="K"></div>
+						<div class="fee" data-value="{{ $course->yearTuitionFee() }}" data-title="Tuition fee" data-prefix="" data-postfix=" triệu"></div>
+						<div class="living-expenses" data-value="{{ $course->costLiving() }}" data-title="Living expenses" data-prefix="" data-postfix=" triệu"></div>
 					</div>
 					<div class="clearBoth"></div>
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-12 col-xs-12 col-xs-12 feature-row relative" style="background-color: rgb(255, 255, 255);">
 				<div class="feature feature3 text-center" data-rowno="3" id="livingexpenses" style="height: 21px;">
-					<span class="chart-item living margin-left5">S${{ $course->costLiving() }}K</span>
+					<span class="chart-item living margin-left5">{{ $course->costLiving() }} triệu</span>
 					<div class="clearBoth"></div>
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-12 col-xs-12 col-xs-12 feature-row relative" style="background-color: rgb(255, 255, 255);">
 				<div class="feature feature2 text-center" data-rowno="2" id="tutionfees" style="height: 21px;">
-					<span class="chart-item tuition margin-left5">S${{ $course->cost->year_tuition_fees }}K</span>
+					<span class="chart-item tuition margin-left5">{{ $course->yearTuitionFee() }} triệu</span>
 				</div>
 			</div>
 			<!-- End Tuition Fee -->

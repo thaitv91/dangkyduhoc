@@ -2,7 +2,6 @@
 
 @section("content")
 
-
 <div class="container">
 	<div class="course-detail-header rowsec">
 		<div class="row">
@@ -59,13 +58,13 @@
 				<div class="info_box_item">
                	<span>Tuition fees</span>
 				@if($cost)
-               		<span class="right">S${{ $cost->year_tuition_fees }}K</span>
+               		<span class="right">{{ $course->yearTuitionFee() }} triệu</span>
 				@endif
             </div>
             <div class="info_box_item living marbot0">
                <span class="living-header">Food &amp; accommodation</span>
 				@if($cost)
-               		<span class="right">S${{ $fa = ($cost->day_food_fees + $cost->day_drink_fees + $cost->day_accommodation_fees + $cost->day_coffe_fees) * 600 /1000 }}K</span>
+               		<span class="right">{{ $fa = $course->costLiving() }} triệu</span>
 				@endif
             </div>
             <div class="info_box_item basic_city_cost">
@@ -73,25 +72,25 @@
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-beer" aria-hidden="true"></i></span>
 					   @if($cost)
-							S${{ $cost->day_drink_fees }}
+							{{ $course->convertCurrency($cost->day_drink_fees) }} triệu
 						@endif
                    </div>
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-cutlery" aria-hidden="true"></i></span>
 					   @if($cost)
-                       		S${{ $cost->day_food_fees }}
+					   		{{ $course->convertCurrency($cost->day_food_fees) }} triệu
 					   @endif
                    </div>
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-film" aria-hidden="true"></i></span>
 					   @if($cost)
-					   S${{ $cost->day_accommodation_fees }}
+					 		{{ $course->convertCurrency($cost->day_accommodation_fees) }} triệu
 					   @endif
                    </div>
                    <div class="costs col-lg-3 col-md-3 col-sm-3 col-xs-3">
                        <span><i class="fa fa-coffee" aria-hidden="true"></i></span>
 					   @if($cost)
-                       S${{ $cost->day_coffe_fees }}
+					   		{{ $course->convertCurrency($cost->day_coffe_fees) }} triệu
 					   @endif
                    </div>
                </div>
@@ -99,7 +98,7 @@
             <div class="info_box_item total_cost clearfix">
                <span>COST PER YEAR</span><span class="totalcost right">
 					@if($cost)
-						S${{ $fa + $cost->year_tuition_fees }}K
+						{{ $course->costLiving() + $course->yearTuitionFee() }} triệu
 					@endif
 				</span>
             </div>
@@ -282,7 +281,7 @@
 										<a class="university_name" href="/university/{{ $similar->slug }}">{{ $similar->name }}, {{ $similar->country_slug }}</a>
 									</div>
 									<div class="visible-sm visible-xs">
-										<span class="inline-block-sm margin-right10-sm">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}K / year</span>
+										<span class="inline-block-sm margin-right10-sm">{{ $course->convertCurrency($similar->year_tuition_fees) }} triệu / năm</span>
 										<span class="inline-block-sm margin-right10-sm">{{ $similar->duration }} years</span>
 										<span class="inline-block-sm">BBB</span>
 									</div>
@@ -292,8 +291,8 @@
 							<div class="course-stats col-lg-8 col-md-8 col-sm-5 col-xs-12">
 								<div class="pull-right">
 									<div class="cell hidden-sm hidden-xs">
-										<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}K</span>
-										<span class="sub-tip display-block">per year</span>
+										<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">{{ $course->convertCurrency($similar->year_tuition_fees) }} triệu</span>
+										<span class="sub-tip display-block">mỗi năm</span>
 									</div>
 
 									<div class="cell hidden-sm hidden-xs">
@@ -402,7 +401,7 @@
 										<a class="university_name" href="/university/{{ $similar->slug }}">{{ $similar->name }}, {{ $similar->country_slug }}</a>
 									</div>
 									<div class="visible-sm visible-xs">
-										<span class="inline-block-sm margin-right10-sm">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}K / year</span>
+										<span class="inline-block-sm margin-right10-sm">{{ $course->convertCurrency($similar->year_tuition_fees) }} triệu/ năm</span>
 										<span class="inline-block-sm margin-right10-sm">{{ $similar->duration }} years</span>
 										<span class="inline-block-sm">BBB</span>
 									</div>
@@ -412,8 +411,8 @@
 							<div class="course-stats col-lg-8 col-md-8 col-sm-5 col-xs-12">
 								<div class="pull-right">
 									<div class="cell hidden-sm hidden-xs">
-										<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}K</span>
-										<span class="sub-tip display-block">per year</span>
+										<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">{{ $course->convertCurrency($similar->year_tuition_fees) }} triệu</span>
+										<span class="sub-tip display-block">mỗi năm</span>
 									</div>
 
 									<div class="cell hidden-sm hidden-xs">

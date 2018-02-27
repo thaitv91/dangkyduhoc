@@ -82,7 +82,7 @@
             <div class="list-courses">
                 <?php foreach ($courses as $key => $course): ?>
                 <?php
-                $university = \App\Models\University::where('id', '=', $course->university_id)->first();
+                $university = $course->university;
                 ?>
                 <div id="{{ $university->slug }}" class="uni">
                     <div class="row item">
@@ -102,8 +102,8 @@
                                         <?php
                                         $explode = explode(', ', $course->name);
                                         $similar = $course->cost;
-                                        $course_info = \App\Models\CourseInformation::where('course_id', '=', $course->id)->first();
-                                        $course_requi = \App\Models\CourseRequirement::where('course_id', '=', $course->id)->first();
+                                        $course_info = $course->information;
+                                        $course_requi = $course->requirement;
                                         ?>
                                         <a class="course_name" href="/course/{{ $course->slug }}">{{ $explode[0] }}</a>
                                         <div class="classification">{{ $explode[1] }}</div>
@@ -112,18 +112,22 @@
                                                href="/university/{{ $course->university->slug }}">{{ $course->university->name }}</a>
                                         </div>
                                         <div class="visible-sm visible-xs">
-                                            <span class="inline-block-sm margin-right10-sm">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}
-                                                K / year</span>
+                                            <!-- <span class="inline-block-sm margin-right10-sm">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}
+                                                K / year</span> -->
+                                            <span class="inline-block-sm margin-right10-sm">{{ $course->yearTuitionFee() }}
+                                                triệu / năm</span>
                                             <span class="inline-block-sm margin-right10-sm">{!! $course_info->duration !!}
                                                 years</span>
                                             <span class="inline-block-sm">{{ $course_requi->level }}</span>
                                         </div>
                                         <div class="see-similar" data="{{ $course->slug }}" _token="{{ csrf_token() }}">
                                             <?php
-                                            $similar_count = App\Models\Course::where('university_id', '=', $course->university_id)
-                                                ->where('subject_slug', '=', $subject->slug)
-                                                ->where('id', '<>', $course->id)
-                                                ->count();
+                                            // $similar_count = App\Models\Course::where('university_id', '=', $course->university_id)
+                                            //     ->where('subject_slug', '=', $subject->slug)
+                                            //     ->where('id', '<>', $course->id)
+                                            //     ->get();
+                                                // ->count();
+                                            $similar_count = $course->similarCourses->count();
                                             ?>
                                             See {{ $similar_count }} similar <i class="fa fa-chevron-down"></i>
                                         </div>
@@ -139,9 +143,9 @@
                                         <div class="cell hidden-sm hidden-xs">
                                             <span class="tip display-block" data-toggle="tooltip" title=""
                                                   data-html="true" data-placement="top"
-                                                  data-original-title="Tuition fees excluding living expenses">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}
-                                                K</span>
-                                            <span class="sub-tip display-block">per year</span>
+                                                  data-original-title="Tuition fees excluding living expenses">{{ ($course->yearTuitionFee()) }}
+                                                triệu</span>
+                                            <span class="sub-tip display-block"> mỗi năm</span>
                                         </div>
 
                                         <div class="cell hidden-sm hidden-xs">

@@ -41,8 +41,9 @@ class AjaxController extends Controller
                 ->get();
 
             $similar_course_id = array();
-            foreach ($similar_course as $course) {
-                $similar_course_id[] = $course->course_id;
+            $similar_course_id[] = $course->id;
+            foreach ($similar_course as $s_course) {
+                $similar_course_id[] = $s_course->course_id;
             }
             $explode = explode(' ', $similar);
             $search = '%';
@@ -76,6 +77,7 @@ class AjaxController extends Controller
                 'scholarships' => $scholarships,
                 'locale' => $locale
             );
+
             if (isset($_GET['debug'])) {
                 dd($also_apply);
             }

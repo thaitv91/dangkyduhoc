@@ -29,8 +29,8 @@ $university = \App\Models\University::where('id', '=', $course->university_id)->
                                href="/university/{{ $course->university->slug }}">{{ $course->university->name }}</a>
                         </div>
                         <div class="visible-sm visible-xs">
-                            <span class="inline-block-sm margin-right10-sm">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}
-                                K / year</span>
+                            <span class="inline-block-sm margin-right10-sm">{{ $course->yearTuitionFee() }}
+                                triệu / năm</span>
                             <span class="inline-block-sm margin-right10-sm">{!! $course_info->duration !!}
                                 years</span>
                             <span class="inline-block-sm">{{ $course_requi->level }}</span>
@@ -43,9 +43,9 @@ $university = \App\Models\University::where('id', '=', $course->university_id)->
                         <div class="cell hidden-sm hidden-xs">
                             <span class="tip display-block" data-toggle="tooltip" title=""
                                   data-html="true" data-placement="top"
-                                  data-original-title="Tuition fees excluding living expenses">S${{ ($similar->day_drink_fees + $similar->day_food_fees + $similar->day_accommodation_fees + $similar->day_coffe_fees) * 600/1000 + $similar->year_tuition_fees }}
-                                K</span>
-                            <span class="sub-tip display-block">per year</span>
+                                  data-original-title="Tuition fees excluding living expenses">{{ $course->yearTuitionFee() }}
+                                triệu</span>
+                            <span class="sub-tip display-block">mỗi năm</span>
                         </div>
 
                         <div class="cell hidden-sm hidden-xs">

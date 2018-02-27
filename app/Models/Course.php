@@ -47,18 +47,47 @@ class Course extends Model
     }
 
     public function costLiving() {
-        $cost = $this->cost()->first();
+        $cost = $this->cost;
+        $rate_field = CustomField::where('slug', 'singapore-dollar-rate')->first();
+        $rate = $rate_field->exists() ? $rate_field->content / 1000 : 1;
         $sum = 0;
 
         if ($cost) {
             $sum = $cost->day_drink_fees + $cost->day_food_fees + $cost->day_accommodation_fees + $cost->day_coffe_fees;
-            $sum *= 0.6;
+            $sum *= $rate;
         }
 
-        return $sum;
+        return round($sum, 1);
+    }
+
+    public function yearTuitionFee() {
+        $cost = $this->cost;
+        $rate_field = CustomField::where('slug', 'singapore-dollar-rate')->first();
+        $rate = $rate_field->exists() ? $rate_field->content / 1000 : 1;
+        $sum = 0;
+
+        if ($cost) {
+            $sum = $cost->year_tuition_fees;
+            $sum *= $rate;
+        }
+
+        return round($sum, 1);
+    }
+
+    public function convertCurrency($amount = 0) {
+        $rate_field = CustomField::where('slug', 'singapore-dollar-rate')->first();
+        $rate = $rate_field->exists() ? $rate_field->content / 1000 : 1;
+
+        return round($amount * $rate, 1);
     }
 
     public function apply() {
         return $this->hasMany('App\Models\AppyCourse', 'course_id');
+    }
+
+    public function similarCourses() {
+        return $this->hasMany('App\Models\Course', 'university_id', 'university_id')
+                    ->where('subject_slug', $this->subject_slug)
+                    ->where('id', '<>', $this->id);
     }
 }
