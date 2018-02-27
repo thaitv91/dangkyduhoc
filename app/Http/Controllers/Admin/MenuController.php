@@ -105,6 +105,7 @@ class MenuController extends Controller
         $title = $request->title;
         $weight = $request->weight;
         $link = $request->link;
+        $column = $request->column;
         
         DB::beginTransaction();
         try {
@@ -115,7 +116,7 @@ class MenuController extends Controller
                     'title'     =>  $title[$key],
                     'weight'    =>  $weight[$key],
                     'link'      =>  $link[$key],
-                    'column'    =>  1,
+                    'column'    =>  $column[$key],
                 );
                 MenuUniversity::create($temp);
             }
@@ -140,6 +141,7 @@ class MenuController extends Controller
         $title = $request->title;
         $weight = $request->weight;
         $link = $request->link;
+        $column = $request->column;
         
         DB::beginTransaction();
         try {
@@ -150,7 +152,7 @@ class MenuController extends Controller
                     'title'     =>  $title[$key],
                     'weight'    =>  $weight[$key],
                     'link'      =>  $link[$key],
-                    'column'    =>  2,
+                    'column'    =>  $column[$key],
                 );
                 MenuUniversity::create($temp);
             }
@@ -175,6 +177,7 @@ class MenuController extends Controller
         $title = $request->title;
         $weight = $request->weight;
         $link = $request->link;
+        $column = $request->column;
         
         DB::beginTransaction();
         try {
@@ -185,10 +188,11 @@ class MenuController extends Controller
                     'title'     =>  $title[$key],
                     'weight'    =>  $weight[$key],
                     'link'      =>  $link[$key],
-                    'column'    =>  3,
+                    'column'    =>  $column[$key],
                 );
                 MenuUniversity::create($temp);
             }
+
 
             DB::commit();
         } catch (Exception $e) {
@@ -210,6 +214,7 @@ class MenuController extends Controller
         $title = $request->title;
         $weight = $request->weight;
         $link = $request->link;
+        $column = $request->column;
         
         DB::beginTransaction();
         try {
@@ -220,10 +225,11 @@ class MenuController extends Controller
                     'title'     =>  $title[$key],
                     'weight'    =>  $weight[$key],
                     'link'      =>  $link[$key],
-                    'column'    =>  4,
+                    'column'    =>  $column[$key],
                 );
                 MenuUniversity::create($temp);
             }
+
 
             DB::commit();
         } catch (Exception $e) {

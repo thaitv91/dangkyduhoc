@@ -1,6 +1,34 @@
 @extends("layouts/app")
 
-@section("scripts")
+@section('styles')
+<style type="text/css">
+	.btn, .btn:hover, .btn:focus{
+		border:1px solid #e4e4e4;
+		border-radius: 0;
+		color:#555;
+		text-transform: capitalize;
+		background-color: transparent;
+		font-family: "Open Sans", Arial, Helvetica, sans-serif;
+		font-size: 14px;
+		height: 50px;
+		margin-bottom: 10px;
+	}
+
+	.btn-style {
+		color: white;
+		background: #2db04a;
+		font-size: 24px;
+		font-family: UTMBebas, Arial, Helvetica;
+	}
+
+	.btn-style:hover, .btn-style:focus {
+		color: white;
+		background-color: #23a43f;
+		border-radius: 8px;
+		font-size: 24px;
+		font-family: UTMBebas, Arial, Helvetica;
+	}
+</style>
 @endsection
 @section("content")
 <div class="title-page">
@@ -196,8 +224,7 @@
 			<div class="col-md-6">
 				<div class="form-enjoy">
 					<div class="form-group">
-						<select class="form-control selectpicker" name="subject[]" multiple="" required >
-							<option disabled selected>Select or type favorite subjects</option>
+						<select class="form-control selectpicker" name="subject[]" multiple="" data-live-search="true" required title="Subject...">
 							@foreach (App\Models\Subject::all() as $key => $value)
 							<option value="{{ $value->id }}">{{ $value->name }}</option>
 							@endforeach
@@ -236,15 +263,6 @@
 						<select class="form-control" name="current_qualification" required>
 							<option value="default" selected="" disabled="disabled" title="Obtained or to obtain">-- Current qualification --</option>
 							<?php echo $current_qualification_field ?>
-							<!-- <option value="Bachelor's">Bachelor's</option>
-							<option value="Diploma (Polytechnic)">Diploma (Polytechnic)</option>
-							<option value="Diploma (Private)">Diploma (Private)</option>
-							<option value="Foundation">Foundation</option>
-							<option value="GCE A Level">GCE A Level</option>
-							<option value="GCE N Level">GCE N Level</option>
-							<option value="GCE O Level">GCE O Level</option>
-							<option value="IB">IB</option>
-							<option value="OTHERS">OTHERS</option> -->
 						</select>
 					</div>
 
@@ -253,7 +271,7 @@
 					</div>
 
 					<a href="#"> I want a free preliminary university assessment before the fair</a>
-					<button type="submit" class="btn btn-green btn-block">Count me in</button>
+					<button type="submit" class="btn btn-green btn-block btn-style" >Count me in</button>
 				</div><!-- /.form-enjoy -->
 			</div><!-- /.col-md-6 -->
 		</form>

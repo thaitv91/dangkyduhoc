@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(CourseCostSeeder::class);
         // $this->call(CourseEntryRequirementSeeder::class);
         // $this->call(CourseInformationSeeder::class);
-        // $this->call(CourseRankingSeeder::class);
+        //$this->call(CourseRankingSeeder::class);
+        $this->call(SubjectCourseSeeder::class);
     }
 }

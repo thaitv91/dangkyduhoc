@@ -77,7 +77,8 @@
         </div><!-- /.box-filter -->
 
         <div class="filter-result subjects">
-            <h4 class="title-box"><span>Accounting &amp; Finance</span></h4>
+            <h4 class="title-box"><span id="course-statistic">407 courses from 58 universities</span></h4>
+            <!-- <h4 class="title-box"><span>{{ $subject['name']}}</span></h4> -->
             <div class="list-courses">
                 <?php foreach ($courses as $key => $course): ?>
                 <?php
@@ -87,7 +88,11 @@
                     <div class="row item">
                         <div class="uni-logo-col col-lg-1 col-md-1 col-sm-2 col-xs-3 col-no-pad-right">
                             <div class="uni-logo">
+                                @if (count($university->logo)>0 && $university->logo != '')
+                                <img src="/{{ $university->logo }}" alt=""/>
+                                @else
                                 <img src="/img/B085_bathspa_logo.jpg" alt=""/>
+                                @endif
                             </div>
                         </div>
                         <div class="col-lg-11 col-md-11 col-sm-10 col-xs-9">
@@ -292,6 +297,11 @@
 
 @section('scripts')
     <script type="text/javascript">
+        $.ajaxSetup({
+            headers : {
+                'X-CSRF-Token' : $('meta[name="csrf-token"]').attr('content'),
+            }
+        });
         //Selected compare course
             <?php echo "var course_ids = " . $course_id . ";" ?>
         var compare_number = course_ids.length;
@@ -358,12 +368,13 @@
             $(this).css('display', 'none');
             $(this).parent().find('.hide-see-similar').css('display', 'block');
             var element = $(this).parents(".uni");
+            console.log(element);
             $.ajax({
                 dataType: 'html',
                 type: 'POST',
                 url: '/course/similar/',
-                data: {slug: slug, _token: _token},
-
+                data: {slug: slug},
+                // data: {slug: slug, _token: $('meta[name="csrf-token"]').attr('content')},
                 success: function (data) {
                     element.append(data);
                 }
@@ -375,6 +386,32 @@
             $(this).parent().find('.see-similar').css('display', 'block');
             $(this).parents(".uni").find('.similar-item').css('display', 'none');
         });
+
+        function seeSimilar(index) {
+            var slug = $(index).attr('data')
+            var _token = $(index).attr('_token')
+            $(index).css('display', 'none');
+            $(index).parent().find('.hide-see-similar').css('display', 'block');
+            var element = $(index).parents(".uni");
+            console.log(element);
+            $.ajax({
+                dataType: 'html',
+                type: 'POST',
+                url: '/course/similar/',
+                data: {slug: slug},
+                // data: {slug: slug, _token: $('meta[name="csrf-token"]').attr('content')},
+
+                success: function (data) {
+                    element.append(data);
+                }
+            });
+        }
+
+        function hideSimilar(index) {
+            $(index).css('display', 'none');
+            $(index).parent().find('.see-similar').css('display', 'block');
+            $(index).parents(".uni").find('.similar-item').css('display', 'none');
+        }
 
         country_arr = new Array();
         year_arr = new Array();
@@ -389,7 +426,6 @@
                 year_arr.push($(this).val())
             }
         });
-        console.log(year_arr);
 
         $('.filter-country input').change(function () {
             if (this.checked) {
@@ -431,5 +467,14 @@
             });
         });
 
+        function showPathway(item) {
+            $(item).parents('.item').find('.arrow-box').slideToggle();
+        }
+
+        function statisticCourse(course_count, university_count) {
+            $('#course-statistic').text(course_count + " courses from " +university_count + " universities");
+        } 
+
+        statisticCourse({{ $course_count }}, {{ $university_count }});
     </script>
 @endsection

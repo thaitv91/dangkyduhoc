@@ -67,6 +67,11 @@
 			.user-logged{
 				background-color: $color-3-hover;
 			}
+
+			&.language{
+				margin-top: 13px;
+				margin-left: 15px;
+			}
 		}
 	}
 }
@@ -212,7 +217,7 @@
     width: 100%;
     z-index: 99999;
     @include transition-value(left ease 0.5s);
-    left: -1124px;
+    left: -1224px;
     #right-nav-container {
 	    height: 100%;
 	    overflow-y: auto;
@@ -366,7 +371,7 @@
 	top: 0;
 	width: 100%;
 	z-index: 99998;
-	left: -1124px;
+	left: -1224px;
 	#left-nav-container {
 	    height: 100%;
 	    overflow-y: auto;
@@ -472,5 +477,20 @@
 	max-width: 100%;
 	@include screen-size-max(sm){
 		top:40px;
+	}
+}
+
+.language{
+	.dropdown-menu{
+		@include screen-size-max(md){
+			 position: static;
+		    margin-left: 40px;
+		    margin-top: 10px !important;
+		    text-align: left;
+		    width: auto;
+		    float: none;
+		    margin-right: 40px;
+		    padding-left: 0;
+		}
 	}
 }

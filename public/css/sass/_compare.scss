@@ -402,12 +402,9 @@
   }
 }
 
-@media only screen and (min-width: 1200px) {
-  #page_compare .feature.feature1 .btn {
-    display: none;
-  }
+#page_compare .feature.feature1 .btn{
+  min-width: 100%;
 }
-
 .margin-left5 {
     margin-left: 5px;
 }

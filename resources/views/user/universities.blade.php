@@ -551,5 +551,9 @@
                 }
             });
         });
+
+        function showPathway(item) {
+            $(item).parents('.item').find('.arrow-box').slideToggle();
+        }
     </script>
 @endsection

@@ -17,6 +17,7 @@
 	</div>
 	<!-- /.box-header -->
 	<div class="box-body">
+
 		<table id="example2" class="table table-bordered table-hover">
 			<thead>
 				<tr>
@@ -28,10 +29,15 @@
 			</thead>
 			<tbody>
 				<?php foreach ($data as $key => $value): ?>
+
 					<tr>
 						<td>{{ $key+1 }}</td>
 						<td>{{ $value->name }}</td>
-						<td>{!! str_limit($value->description , $limit = 100, $end = '...') !!}</td>
+						<td>
+							@if($value->description)
+								{!! str_limit($value->description , $limit = 300, $end = '...') !!}
+							@endif
+						</td>
 						<td>
 							<a href="{{ route('admin.subject.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
 	                        <a onclick="confirmDelete({{$value->id}})" class="btn btn-xs btn-danger">Delete</a>

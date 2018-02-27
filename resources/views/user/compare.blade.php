@@ -241,11 +241,9 @@
 
 			<div class="col-lg-12 col-md-12 col-xs-12 col-xs-12 feature-row feature-row-apply relative">
 				<div class="feature feature15 feature-apply" style="height: 41px;">
-					<div class="course-apply-button btn btn-blue btn-block" id="apply_{{ $course->id }}" onclick="javascript:apply('{{ $course->id }}', 'add');" title="Add to my university application">
-						APPLY
+					<div class="course-apply-button btn btn-blue btn-block" id="apply_{{ $course->id }}" onclick="javascript:apply('{{ $course->id }}', 'add');" title="Add to my university application">APPLY
 					</div>
-					<div class="course-apply-button btn btn-blue btn-block hidden" id="apply_added_{{ $course->id }}" onclick="javascript:apply('{{ $course->id }}');" title="Add to my university application">
-						ADDED
+					<div class="course-apply-button btn btn-blue btn-block hidden" id="apply_added_{{ $course->id }}" onclick="javascript:apply('{{ $course->id }}');" title="Add to my university application">ADDED
 					</div>
 				</div>
 			</div>
@@ -296,9 +294,9 @@
 		}).done(function(data) {
 			getCourseCount();
 			if (data == 1) {
-				toastr.success('Course Added.');
+				toastr.success('Course was Added.');
 			} else {
-				toastr.warning('Course Unselected');
+				toastr.warning('Course was Unselected');
 			}
 			return false;
 		})

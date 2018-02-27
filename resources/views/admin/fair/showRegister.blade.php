@@ -60,7 +60,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<a href="{{ route('admin.fair.register') }}" class="btn btn-default">Back</a>
+					<a href="{{ route('admin.fair.register') }}" class="btn btn-warning">Back</a>
 				</div>
 			</div>
 			<!-- /.box-body -->

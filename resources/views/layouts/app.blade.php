@@ -15,16 +15,18 @@
             {{ config('app.name', 'Laravel') }}
         @endif
     </title>
-    @yield('styles')
     <!-- Styles -->
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery.circliful.css') }}" rel="stylesheet">
     <link href="{{ asset('css/material-design-iconic-font.css') }}" rel="stylesheet">
     <link href="{{ asset('css/slick.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/rangeslider.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" type="text/css" href="{{url('css/multi-select/bootstrap-select.css')}}">
+    @yield('styles')
+    
 </head>
 <body>
 <div id="app">
@@ -196,7 +198,7 @@
                                                                                aria-hidden="true"></i></a></li>
                 <li class="careerddl slideddl"><a href="#">Careers <i class="fa fa-caret-down"
                                                                       aria-hidden="true"></i></a></li>
-                <li><a href="#">Fair</a></li>
+                <li><a href="{{ route('user.fair') }}">Fair</a></li>
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Contact <i
                                 class="fa fa-caret-down" aria-hidden="true"></i></a>
@@ -214,9 +216,9 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="{{ route('user.course.compare') }}">Compare <span class="top compareInfo badge"
+                <li><a href="{{ route('user.course.compare') }}">Compare <span class="top compareInfo badge compare-count"
                                                                                id="compare-count"> - </span></a></li>
-                <li><a href="{{ route('user.course.apply') }}">Apply <span class="top compareInfo badge"
+                <li><a href="{{ route('user.course.apply') }}">Apply <span class="top compareInfo badge apply-count"
                                                                            id="apply-count"> - </span></a></li>
                 <li class="li-search">
                     <span class="clickable open-search" id="dLabel" type="button" data-toggle="dropdown"
@@ -251,6 +253,15 @@
                         </ul>
                     </li>
                 @endif
+
+                <li class="dropdown language">
+                    <span class="clickable" class="dropdown-toggle" data-toggle="dropdown"
+                              aria-expanded="true"><img src="/img/vietname.png" alt="" /></span>
+                    <ul class="gtt-get-help dropdown-menu">
+                        <li><a href="#"><img src="/img/vietname.png" alt="" /></a></li>
+                        <li><a href="#"><img src="/img/english.png" alt="" /></a></li>
+                    </ul>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right hidden-lg">
@@ -302,7 +313,9 @@
                                 @php
                                     $frequent_visited_career = App\Models\Career::where('id', $value)->get(['name', 'slug'])->first();
                                 @endphp
+                                @if ($frequent_visited_career)
                                 <a href="{{ route('user.career.detail', $frequent_visited_career->slug) }}">{{ $frequent_visited_career->name }}</a>
+                                @endif
                             @endforeach
                             <div class="recent-uni-spacer"></div>
                             <?php
@@ -425,11 +438,11 @@
                         <div class="divider"></div>
                     </li>
                     <li class="navlink">
-                        <a class="compareddl"><span>Compare <span class="compareInfo badge">15</span></span></a>
+                        <a href="{{ route('user.course.compare') }}" class="compareddl"><span>Compare <span class="compareInfo badge compare-count"> - </span></span></a>
                     </li>
                     <li class="navlink headerApply">
                         <a class="multiapplyddl" href="/apply" rel="nofollow"><span>Apply <span
-                                        class="multiapplyInfo badge">3</span></span></a>
+                                        class="multiapplyInfo badge apply-count">3</span></span></a>
                     </li>
                     <li>
                         <div class="divider"></div>
@@ -440,8 +453,28 @@
                     <li class="navlink">
                         <a href="/about" rel="nofollow"><span>About us</span></a>
                     </li>
+                    @if(! \Illuminate\Support\Facades\Auth::check())
                     <li class="navlink">
                         <a class="open-user">Sign in</a>
+                    </li>
+                    @else
+                    <li>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Log out
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                    @endif
+                    <li class="dropdown language">
+                        <a class="clickable" class="dropdown-toggle" data-toggle="dropdown"
+                                  aria-expanded="true"><img src="/img/vietname.png" alt="" /></a>
+                        <ul class="gtt-get-help dropdown-menu">
+                            <li><a href="#"><img src="/img/vietname.png" alt="" /></a></li>
+                            <li><a href="#"><img src="/img/english.png" alt="" /></a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -554,6 +587,7 @@
 <!-- <script src="{{ asset('js/jquery.circliful.js') }}"></script> -->
 <script src="{{ asset('js/compare.js') }}"></script>
 <script src="{{ asset('js/jquery.donutchart.js') }}"></script>
+<script src="{{ asset('js/rangeslider.min.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 <script type="text/javascript" src="{{url('js/lang.js')}} "></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -569,6 +603,9 @@
     @endif
     @if ( Session::has('error'))
     toastr.error('{{ session('error')}}');
+    @endif
+    @if ( count($errors) )
+    toastr.error('{{ $errors->first() }}')
     @endif
     function initialize() {
         initMap();
@@ -635,9 +672,8 @@
         $.ajax({
             url: "{{ route('getCourseCount') }}",
         }).done(function (data) {
-            console.log(data);
-            $('#compare-count').text(data.compare_count);
-            $('#apply-count').text(data.apply_count);
+            $('.compare-count').text(data.compare_count);
+            $('.apply-count').text(data.apply_count);
         });
     }
 
@@ -691,5 +727,4 @@
         });
     });
 </script>
-@yield('scripts')
 </html>

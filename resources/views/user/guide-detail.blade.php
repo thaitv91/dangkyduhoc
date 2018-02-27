@@ -67,7 +67,7 @@
 		<div class="col-md-8">
 			<div class="guide-detail-header">
 				<span class="category">
-                <a href="/guide">Guide</a> <i class="fa fa-caret-right" aria-hidden="true"></i> <a href="/guide/category/using-therightu">About theRightU</a>
+                <a href="/guide">Guide</a> <i class="fa fa-caret-right" aria-hidden="true"></i> <a href="/guide/category/about-therightu">About theRightU</a>
             </span>
 
             <div class="fblike hidden-sm hidden-xs">

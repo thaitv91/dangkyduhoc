@@ -41,31 +41,24 @@ class ScholarshipController extends Controller
         $data = $request->all();
 
         $rules = [
-            'course_slug'               =>'required',
-            'name'             =>'required',
-            'name_en'             =>'required',
+            'title'             =>'required',
+            'title_en'             =>'required',
         ];
 
         $messages = [
-            'course_slug.required'      => 'Please enter the course_slug!!',
-            'name.required'      => 'Please enter the name!!',
-            'name_en.required'      => 'Please enter the name_en!!',
+            'title.required'      => 'Please enter the title!!',
+            'title_en.required'      => 'Please enter the title_en!!',
 
         ];
         $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator) {
-            $course = Course::where('slug', '=', $data['course_slug'])->first();
-            if (!$course) {
-                Session::flash('error','Opp! Please try again.Error!');
-                return redirect()->back()->withInput();
-            }
 
-            $slug= str_slug( $data['name_en'] );
+            $slug= str_slug( $data['title_en'] );
             $scholarship = new Scholarships;
-            $scholarship->course_slug = $data['course_slug'];
+            $scholarship->course_slug = $data['course'];
             $scholarship->slug = $slug;
-            $scholarship->title = $data['name'];
-            $scholarship->title_en = $data['name_en'];
+            $scholarship->title = $data['title'];
+            $scholarship->title_en = $data['title_en'];
             $scholarship->quantity = $data['quantity'];
             $scholarship->quantity_en = $data['quantity_en'];
             $scholarship->description = $data['description'];
@@ -77,9 +70,52 @@ class ScholarshipController extends Controller
         }
     }
 
-    // delete scholarship
-    public function delete() {
+    public function edit($id) {
+        $scholarship = Scholarships::where('id', $id)->first();
+        if (count($scholarship) == 0) {
+            Session::flash('error', 'Data was not found');
 
+            return Redirect::back();
+        }
+
+        return view('admin.scholarship.edit', compact(['scholarship', 'courses']));
+    }
+
+    public function update(Request $request, $id) {
+        $scholarship = Scholarships::where('id', $id)->first();
+        $scholarship->title = $request->title;
+        $scholarship->title_en = $request->title_en;
+        $scholarship->description = $request->description;
+        $scholarship->description_en = $request->description_en;
+        $scholarship->quantity = $request->quantity;
+        $scholarship->quantity_en = $request->quantity_en;
+        $scholarship->course_slug = $request->course;
+        $scholarship->slug = str_slug($request->title);
+        $scholarship->save();
+
+        Session::flash('success', 'Update success');
+
+        return Redirect::back();
+    }
+
+    public function searchCourse(Request $request) {
+        $keyword = $request->keyword;
+        $keyword = strtolower($keyword);
+        $keyword = str_replace(' ', '%', $keyword);
+        $keyword = "%".$keyword."%";
+
+        $data = Course::where('name', 'like', $keyword)->get(['slug', 'name']);
+
+        return $data;
+    }
+
+    // delete scholarship
+    public function destroy($id) {
+        Scholarships::where('id', $id)->delete();
+
+        Session::flash('success', 'Delete item successful');
+
+        return Redirect::route('admin.scholarship');
     }
 
     // edit scholarship

@@ -127,6 +127,7 @@ $('#slider-img-fair').slick({
     fade: true
   });
   
+  $('.input-range').rangeslider();
 
   $('.whichroute').click(function(){
     $(this).parent().find('#faq-list').show();
@@ -245,7 +246,7 @@ $('#slider-img-fair').slick({
   // homepage
   $('#closeRightNav').click(function(){
     $('#right-nav').animate({
-      left: -1124
+      left: -1224
     })
   });
   $('.open-getstarted').click(function(){
@@ -256,7 +257,7 @@ $('#slider-img-fair').slick({
 
   $('#closeLeftNav').click(function(){
     $('#left-nav').animate({
-      left: -1124
+      left: -1224
     })
   });
 
@@ -278,7 +279,7 @@ $('#slider-img-fair').slick({
   });
   $('.closeBtn').click(function(){
     $('.chatContainer').animate({
-      right:-540
+      right:-1024
     });
     $('.chatButton').show();
   });

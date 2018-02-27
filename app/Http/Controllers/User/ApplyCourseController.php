@@ -317,6 +317,8 @@ class ApplyCourseController extends Controller
         }
         //Luu anh vao server
         try {
+            if (!isset($files) || $files == null)
+                $files = array();
             foreach ($files as $key => $value) {
                 $temp = explode(",", $value);
                 $is_oldFile = $temp[0];//0-newfile, 1-oldfile
