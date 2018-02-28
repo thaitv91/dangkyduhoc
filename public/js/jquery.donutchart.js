@@ -24,7 +24,7 @@
               tipOffsetY: -45,
               tipClass: "doughnutTip",
               summaryClass: "doughnutSummary",
-              summaryTitle: "per year",
+              summaryTitle: "triệu/năm",
               summaryTitleClass: "doughnutSummaryTitle",
               summaryNumberClass: "doughnutSummaryNumber",
               beforeDraw: function () { },

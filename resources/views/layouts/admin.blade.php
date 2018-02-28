@@ -72,8 +72,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="sidebar-menu">
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="{{ route('admin.countries') }}"><i class="fa fa-link"></i>
-                        <span>Countries</span></a></li>
+                <li class="">
+                    <a href="{{ route('admin.countries') }}">
+                        <i class="fa fa-link"></i>
+                        <span>Countries</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{ route('admin.configure') }}">
+                        <i class="fa fa-cog"></i>
+                        <span>Configure</span>
+                    </a>
+                </li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>Guide</span>
                         <span class="pull-right-container">

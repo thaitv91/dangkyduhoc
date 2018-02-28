@@ -45,8 +45,8 @@ class CustomFieldController extends Controller
         }
 
         if ($data['type'] == 'text') {
-            $data['content'] = trim($content, '</p>');
-            $data['content_en'] = trim($content, '</p>');
+            $data['content'] = trim($data['content'], '</p>');
+            $data['content_en'] = trim($data['content_en'], '</p>');
         }
     	CustomField::create($data);
 

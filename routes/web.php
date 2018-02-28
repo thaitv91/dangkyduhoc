@@ -318,6 +318,11 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
         Route::get('show-register/{id}', 'Admin\FairController@showRegister')->name('admin.fair.showRegister');
         Route::get('delete-register/{id}', 'Admin\FairController@deleteRegister')->name('admin.fair.deleteRegister');
     });
+
+    Route::group(['prefix'  =>  'configure', 'namespace' => 'Admin', 'as' => 'admin.'], function() {
+        Route::get('', 'ConfigureController@index')->name('configure');
+        Route::post('', 'ConfigureController@update');
+    });
 });
 Route::get('/admin/countries', 'Admin\CountryController@index')->name('admin.countries');
 Route::get('/admin/countries/{country}/edit', 'Admin\CountryController@edit');
