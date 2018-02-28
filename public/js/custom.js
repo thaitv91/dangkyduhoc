@@ -1,4 +1,9 @@
 $(document).ready(function() {
+  $('input[type="range"]').rangeslider({
+    polyfill: true
+  });
+
+
 	$('.slideddl').click(function(){
     $('#left-nav').css({
       left: -1124
@@ -117,7 +122,7 @@ $(document).ready(function() {
     fade: true
   });
 
-$('#slider-img-fair').slick({
+  $('#slider-img-fair').slick({
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -127,7 +132,8 @@ $('#slider-img-fair').slick({
     fade: true
   });
   
-  $('.input-range').rangeslider();
+  
+
 
   $('.whichroute').click(function(){
     $(this).parent().find('#faq-list').show();

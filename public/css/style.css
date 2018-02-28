@@ -4291,6 +4291,9 @@ footer .footer-top .social {
 .free-assessment .description p {
   margin: 0;
 }
+.free-assessment .btn {
+  min-width: 100%;
+}
 .free-assessment .step-1 ul {
   list-style: none;
   margin: 0;
@@ -4333,8 +4336,52 @@ footer .footer-top .social {
 .free-assessment .step-1 ul li input[type="radio"]:checked + label:before {
   display: block;
 }
+.free-assessment .step-2 {
+  margin-bottom: 10px;
+}
+.free-assessment .step-3 {
+  margin-bottom: 10px;
+}
+.free-assessment .step-3 .form-control {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  font-size: 18px;
+}
+.free-assessment .step-4 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+.free-assessment .step-4 ul li {
+  position: relative;
+  padding-bottom: 10px;
+}
+.free-assessment .step-4 ul li label {
+  position: relative;
+  display: block;
+  font-weight: normal;
+  color: #fff;
+}
+.free-assessment .step-4 ul li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+.free-assessment .step-4 ul li input[type="checkbox"]:checked + label:after {
+  font: normal normal normal 14px/1 FontAwesome;
+  content: "\f00c";
+  margin-left: 5px;
+}
+.free-assessment .step-5 .form-control {
+  height: 45px;
+  border: 1px solid #ccc;
+}
 .free-assessment .bottom {
-  margin-right: -15px;
   padding-top: 10px;
 }
 

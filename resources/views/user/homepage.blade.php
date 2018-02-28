@@ -29,7 +29,7 @@
             </div>
             <div class="free-assessment hidden-sm hidden-xs">
                 <h2>FREE ASSESSMENT</h2>
-                <div class="step-1" style="display: none">
+                <div class="step-1">
                     <div class="description">
                         <p>Bạn đã hoàn thành bậc học nào?</p>
                     </div>
@@ -57,12 +57,57 @@
                     </ul>
                 </div><!-- /.step-1 -->
 
-                <div class="step-2">
+                <div class="step-2" style="display: none">
                     <div class="description">
                         <p>Điểm tổng kết Trung bình năm của bạn?</p>
                     </div>
-                    <input type="range" min="1" max="10" step="1" value="5" class="input-range">
+                    <input type="range" min="1" max="10" step="0.1" value="5" class="input-range">
                 </div><!-- /.step-2 -->
+
+                <div class="step-3" style="display: none;">
+                    <div class="description">
+                        <p>Ngành học bạn quan tâm?</p>
+                    </div>
+                    <select class="form-control">
+                        <option>Ngành học 1</option>
+                        <option>Ngành học 2</option>
+                    </select>
+                </div><!-- /.step-3 -->
+
+                <div class="step-4" style="display: none;">
+                    <div class="description">
+                        <p>Bạn muốn du học nước nào?</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="country-1" checked>
+                            <label for="country-1">Australia</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="country-2" checked>
+                            <label for="country-2">Australia</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="country-3" checked>
+                            <label for="country-3">Australia</label>
+                        </li>
+                    <ul>
+                </div><!-- /.step-4 -->
+
+                <div class="step-5" style="display: none;">
+                    <div class="description">
+                        <p>Mời bạn điền thông cá nhân để chúng tôi tư vấn?</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Họ và tên*" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email*" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Điện thoại">
+                    </div>
+                </div><!-- /.step-5 -->
                 <div class="bottom">
                     <button class="btn btn-green btn-block">Next</button>
                 </div>
