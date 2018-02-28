@@ -12,7 +12,7 @@
                 <div class="classification">{{ $explode[1] }}</div>
                 <div class="visible-sm visible-xs">
                     @if($similar)
-                        <span class="inline-block-sm margin-right10-sm">{{ $course->costLiving() }}
+                        <span class="inline-block-sm margin-right10-sm">{{ $course->yearTuitionFee() }}
                             triệu / năm</span>
                         <span class="inline-block-sm margin-right10-sm">{!! $course_info->duration !!}
                             years</span>
@@ -28,9 +28,9 @@
                     <div class="cell hidden-sm hidden-xs">
                         <span class="tip display-block" data-toggle="tooltip" title=""
                               data-html="true" data-placement="top"
-                              data-original-title="Tuition fees excluding living expenses">{{ $course->costLiving() }}
+                              data-original-title="Tuition fees excluding living expenses">{{ $course->yearTuitionFee() }}
                             triệu</span>
-                        <span class="sub-tip display-block">mỗi năm</span>
+                        <span class="sub-tip display-block">/ năm</span>
                     </div>
                 @endif
                 <div class="cell hidden-sm hidden-xs">

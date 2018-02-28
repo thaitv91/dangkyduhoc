@@ -136,8 +136,8 @@
 			<div class="col-lg-12 col-md-12 col-xs-12 col-xs-12 feature-row text-center relative" style="background-color: rgb(255, 255, 255);">
 				<div class=" feature feature21 padtop20 padbot20px" data-rowno="21" style="height: 160px;">
 					<div class="chart">
-						<div class="fee" data-value="{{ $course->yearTuitionFee() }}" data-title="Tuition fee" data-prefix="" data-postfix=" triệu"></div>
-						<div class="living-expenses" data-value="{{ $course->costLiving() }}" data-title="Living expenses" data-prefix="" data-postfix=" triệu"></div>
+						<div class="fee" data-value="{{ $course->yearTuitionFee() }}" data-title="Tuition fee" data-prefix="" data-postfix=""></div>
+						<div class="living-expenses" data-value="{{ $course->costLiving() }}" data-title="Living expenses" data-prefix="" data-postfix=""></div>
 					</div>
 					<div class="clearBoth"></div>
 				</div>

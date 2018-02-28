@@ -9,10 +9,15 @@ class Course extends Model
     //
     protected $table = 'course';
     protected $guarded = array();
+    private $configure;
 
     protected $fillable = [
         'name', 'slug', 'subject_slug', 'university_id',
     ];
+
+    public function __construct() {
+        $this->configure = Configure::firstOrcreate([]);
+    }
 
     public function university() {
     	return $this->belongsTo('App\Models\University', 'university_id');
@@ -48,13 +53,12 @@ class Course extends Model
 
     public function costLiving() {
         $cost = $this->cost;
-        $rate_field = CustomField::where('slug', 'singapore-dollar-rate')->first();
-        $rate = $rate_field->exists() ? $rate_field->content / 1000 : 1;
+        $currency_rate = isset($this->configure->currency_rate) ? $this->configure->currency_rate : 1;
         $sum = 0;
 
         if ($cost) {
             $sum = $cost->day_drink_fees + $cost->day_food_fees + $cost->day_accommodation_fees + $cost->day_coffe_fees;
-            $sum *= $rate;
+            $sum *= $currency_rate;
         }
 
         return round($sum, 1);
@@ -62,23 +66,21 @@ class Course extends Model
 
     public function yearTuitionFee() {
         $cost = $this->cost;
-        $rate_field = CustomField::where('slug', 'singapore-dollar-rate')->first();
-        $rate = $rate_field->exists() ? $rate_field->content / 1000 : 1;
+        $currency_rate = isset($this->configure->currency_rate) ? $this->configure->currency_rate : 1;
         $sum = 0;
 
         if ($cost) {
             $sum = $cost->year_tuition_fees;
-            $sum *= $rate;
+            $sum *= $currency_rate;
         }
 
         return round($sum, 1);
     }
 
     public function convertCurrency($amount = 0) {
-        $rate_field = CustomField::where('slug', 'singapore-dollar-rate')->first();
-        $rate = $rate_field->exists() ? $rate_field->content / 1000 : 1;
+        $currency_rate = isset($this->configure->currency_rate) ? $this->configure->currency_rate : 1;
 
-        return round($amount * $rate, 1);
+        return round($amount * $currency_rate, 1);
     }
 
     public function apply() {

@@ -292,7 +292,7 @@
 								<div class="pull-right">
 									<div class="cell hidden-sm hidden-xs">
 										<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">{{ $course->convertCurrency($similar->year_tuition_fees) }} triệu</span>
-										<span class="sub-tip display-block">mỗi năm</span>
+										<span class="sub-tip display-block">/ năm</span>
 									</div>
 
 									<div class="cell hidden-sm hidden-xs">
@@ -412,7 +412,7 @@
 								<div class="pull-right">
 									<div class="cell hidden-sm hidden-xs">
 										<span class="tip display-block" data-toggle="tooltip" title="" data-html="true" data-placement="top" data-original-title="Tuition fees excluding living expenses">{{ $course->convertCurrency($similar->year_tuition_fees) }} triệu</span>
-										<span class="sub-tip display-block">mỗi năm</span>
+										<span class="sub-tip display-block">/ năm</span>
 									</div>
 
 									<div class="cell hidden-sm hidden-xs">

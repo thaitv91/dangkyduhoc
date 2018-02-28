@@ -272,7 +272,7 @@
                                                   data-html="true" data-placement="top"
                                                   data-original-title="Tuition fees excluding living expenses">{{ $course->yearTuitionFee() }}
                                                 triệu</span>
-                                            <span class="sub-tip display-block">mỗi năm</span>
+                                            <span class="sub-tip display-block">/ năm</span>
                                         </div>
                                     @endif
                                     <div class="cell hidden-sm hidden-xs">
@@ -501,7 +501,7 @@
             });
         }
 
-            <?php echo "var apply_course_id = " . $apply_course_id . ";" ?>
+        <?php echo "var apply_course_id = " . $apply_course_id . ";" ?>
         var apply_course_number = apply_course_id.length; // Number of apply course
 
         $.each(apply_course_id, function (index, value) {

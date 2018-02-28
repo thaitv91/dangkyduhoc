@@ -145,7 +145,7 @@
                                                   data-html="true" data-placement="top"
                                                   data-original-title="Tuition fees excluding living expenses">{{ ($course->yearTuitionFee()) }}
                                                 triệu</span>
-                                            <span class="sub-tip display-block"> mỗi năm</span>
+                                            <span class="sub-tip display-block"> / năm</span>
                                         </div>
 
                                         <div class="cell hidden-sm hidden-xs">
