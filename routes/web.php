@@ -410,6 +410,8 @@ Route::get('get-university', 'User\CourseController@getUniversity')->name('user.
 Route::get('get-course', 'User\CourseController@getCourse')->name('user.apply.getCourse');
 Route::get('add-course', 'User\CourseController@addCourse')->name('user.apply.addCourse');
 
+Route::get('store-assessment', 'User\FreeAssessmentController@storeAssessment')->name('assessment.store');
+
 //Chat-box
 Route::group(['prefix' => 'message'], function () {
 

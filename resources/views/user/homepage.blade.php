@@ -1,7 +1,5 @@
 @extends("layouts/app")
 
-@section("scripts")
-@endsection
 @section("content")
     @if (Session::has('error'))
         <div class="alert alert-danger alert-dismissible top-alert">
@@ -27,90 +25,103 @@
                     <button class="btn btn-blue open-getstarted">Get Started</button>
                 </div>
             </div>
+
             <div class="free-assessment hidden-sm hidden-xs">
-                <h2>FREE ASSESSMENT</h2>
-                <div class="step-1">
-                    <div class="description">
-                        <p>Bạn đã hoàn thành bậc học nào?</p>
-                    </div>
-                    <ul>
-                        <li>
-                            <input type="radio" id="checkbox-1">
-                            <label for="checkbox-1">Trung học cơ sở/Cấp II</label>
-                        </li>
-                        <li>
-                            <input type="radio" id="checkbox-2">
-                            <label for="checkbox-2">Trung học phổ thông/Cấp III</label>
-                        </li>
-                        <li>
-                            <input type="radio" id="checkbox-3">
-                            <label for="checkbox-3">Trung cấp/Cao Đẳng</label>
-                        </li>
-                        <li>
-                            <input type="radio" id="checkbox-4">
-                            <label for="checkbox-4">Đại học</label>
-                        </li>
-                        <li>
-                            <input type="radio" id="checkbox-5">
-                            <label for="checkbox-5">Sau đại học.</label>
-                        </li>
-                    </ul>
-                </div><!-- /.step-1 -->
+                <form id="assessment-form">
+                    <h2>FREE ASSESSMENT</h2>
+                    <div class="step-1" id="assessment-step-1">
+                        <div class="description">
+                            <p>Bạn đã hoàn thành bậc học nào?</p>
+                        </div>
+                        <ul>
+                            <li>
+                                <input type="radio" id="checkbox-1" name="assessment_course_completed" value="second-primary" checked>
+                                <label for="checkbox-1">Trung học cơ sở/Cấp II</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="checkbox-2" name="assessment_course_completed" value="hight-school">
+                                <label for="checkbox-2">Trung học phổ thông/Cấp III</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="checkbox-3" name="assessment_course_completed" value="college">
+                                <label for="checkbox-3">Trung cấp/Cao Đẳng</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="checkbox-4" name="assessment_course_completed" value="university">
+                                <label for="checkbox-4">Đại học</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="checkbox-5" name="assessment_course_completed" value="after-univeristy">
+                                <label for="checkbox-5">Sau đại học.</label>
+                            </li>
+                        </ul>
+                    </div><!-- /.step-1 -->
 
-                <div class="step-2" style="display: none">
-                    <div class="description">
-                        <p>Điểm tổng kết Trung bình năm của bạn?</p>
-                    </div>
-                    <input type="range" min="1" max="10" step="0.1" value="5" class="input-range">
-                </div><!-- /.step-2 -->
+                    <div class="step-2" id="assessment-step-2" style="display: none">
+                        <div class="description">
+                            <p>Điểm tổng kết Trung bình năm của bạn:<span id="assessment-avg-score"> 5 </span></p>
+                        </div>
+                        <input type="range" min="1" max="10" step="0.1" value="5" class="input-range" name="assessment_avg_score" onchange="$('#assessment-avg-score').text(' '+$(this).val());">
+                    </div><!-- /.step-2 -->
 
-                <div class="step-3" style="display: none;">
-                    <div class="description">
-                        <p>Ngành học bạn quan tâm?</p>
-                    </div>
-                    <select class="form-control">
-                        <option>Ngành học 1</option>
-                        <option>Ngành học 2</option>
-                    </select>
-                </div><!-- /.step-3 -->
+                    <div class="step-3" id="assessment-step-3" style="display: none;">
+                        <div class="description">
+                            <p>Ngành học bạn quan tâm?</p>
+                        </div>
+                        <!-- <select class="form-control selectpicker" name="assessment_course_interest[]" multiple="" data-live-search="true" required title="Ngành học bạn quan tâm...">
+                            <option>Ngành học 1</option>
+                            <option>Ngành học 2</option>
+                        </select> -->
+                        <select class="form-control" name="assessment_course_interest[]" multiple>
+                            <option value="course-1">Ngành học 1</option>
+                            <option value="course-2">Ngành học 2</option>
+                        </select>
+                    </div><!-- /.step-3 -->
 
-                <div class="step-4" style="display: none;">
-                    <div class="description">
-                        <p>Bạn muốn du học nước nào?</p>
-                    </div>
-                    <ul>
-                        <li>
-                            <input type="checkbox" id="country-1" checked>
-                            <label for="country-1">Australia</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="country-2" checked>
-                            <label for="country-2">Australia</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="country-3" checked>
-                            <label for="country-3">Australia</label>
-                        </li>
-                    <ul>
-                </div><!-- /.step-4 -->
+                    <div class="step-4" id="assessment-step-4" style="display: none;">
+                        <div class="description">
+                            <p>Bạn muốn du học nước nào?</p>
+                        </div>
+                        <ul>
+                            <li>
+                                <input type="checkbox" id="country-1" checked value="1" name="assessment_countries[]">
+                                <label for="country-1">Australia</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="country-2" checked value="2" name="assessment_countries[]">
+                                <label for="country-2">Australia</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="country-3" checked value="3" name="assessment_countries[]">
+                                <label for="country-3">Australia</label>
+                            </li>
+                        <ul>
+                    </div><!-- /.step-4 -->
 
-                <div class="step-5" style="display: none;">
-                    <div class="description">
-                        <p>Mời bạn điền thông cá nhân để chúng tôi tư vấn?</p>
+                    <div class="step-5" id="assessment-step-5" style="display: none;">
+                        <div class="description">
+                            <p>Mời bạn điền thông cá nhân để chúng tôi tư vấn?</p>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Họ và tên*" required name="assessment_name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Email*" required name="assessment_email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Điện thoại" name="assessment_phone">
+                        </div>
+                    </div><!-- /.step-5 -->
+
+                    <div class="step-6" id="assessment-step-6" style="display: none;">
+                        <div class="description">
+                            <p>Cảm ơn bạn đã hoàn thành bản đánh giá. Chúng tôi sẽ gửi e-mail vào tài khoản của bạn.</p>
+                        </div>
+                    </div><!-- /.step-5 -->
+                    <div class="bottom">
+                        <button class="btn btn-green btn-block" onclick="nextStep(this); return false;" data-next-step="2">Next</button>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Họ và tên*" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Email*" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Điện thoại">
-                    </div>
-                </div><!-- /.step-5 -->
-                <div class="bottom">
-                    <button class="btn btn-green btn-block">Next</button>
-                </div>
+                </form>
             </div><!-- /.free-assessment -->
         </div>
     </div><!-- /.banner-home -->
@@ -283,4 +294,42 @@
             </div>
         </div>
     </div><!-- /.let-started -->
+@endsection
+
+@section('scripts')
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+<script type="text/javascript">
+    $('#assessment-form').validate({
+        rules: {
+            assessment_name : 'required',
+            assessment_email : 'required',
+        }
+    });
+
+    function nextStep(button) {
+        var next_step = $(button).data('next-step');
+
+        if (next_step == 6) {
+            if (!$('#assessment-form').valid()) {
+                return false;
+            } else {
+                $('#assessment-form').submit();
+                $(button).remove();
+            }
+        }
+
+        $(button).data('next-step', next_step + 1);
+        $('#assessment-step-'+(next_step - 1)).css('display', 'none');
+        $('#assessment-step-'+next_step).css('display', 'block');
+    }
+
+    $('#assessment-form').on('submit', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url : "{{ route('assessment.store') }}",
+            data : $('#assessment-form').serialize(),
+        });
+    });
+</script>
 @endsection
