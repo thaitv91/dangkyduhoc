@@ -9,7 +9,7 @@ use App\Models\Page;
 use App\Models\Rating;
 use App\Models\CustomField;
 use App\Models\Map;
-use App\Models\Course;
+use App\Models\Subject;
 use App\Models\Country;
 use App;
 use DB;
@@ -49,7 +49,7 @@ class HomeController extends Controller
         $custom_field = CustomField::first();
 
         //Data for assessment
-        $courses = Course::all();
+        $subjects = Subject::all();
         $countries = Country::all();
 
         $this->viewData = array(
@@ -58,7 +58,7 @@ class HomeController extends Controller
             'rating'        => $rating,
             'locale'        => $locale,
             'custom_field'  => $custom_field,
-            'courses'       =>  $courses,
+            'subjects'      =>  $subjects,
             'countries'     =>  $countries,
             );
         return view('user.homepage', $this->viewData);

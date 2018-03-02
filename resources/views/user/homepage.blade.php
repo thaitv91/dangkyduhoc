@@ -1,5 +1,9 @@
 @extends("layouts/app")
 
+@section('styles')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}">
+@endsection
+
 @section("content")
     @if (Session::has('error'))
         <div class="alert alert-danger alert-dismissible top-alert">
@@ -72,11 +76,11 @@
                             <option>Ngành học 1</option>
                             <option>Ngành học 2</option>
                         </select> -->
-                        <select class="form-control" name="assessment_course_interest[]" multiple>
+                        <select class="form-control" id="assessment-course-interest" name="assessment_course_interest[]" multiple>
                             <!-- <option value="course-1">Ngành học 1</option>
                             <option value="course-2">Ngành học 2</option> -->
-                            @foreach ($courses as $key => $course)
-                            <option value="{{ $course->name }}">{{ $course->name }}</option>
+                            @foreach ($subjects as $key => $subject)
+                            <option value="{{ $subject->name }}">{{ $subject->name }}</option>
                             @endforeach
                         </select>
                     </div><!-- /.step-3 -->
@@ -118,7 +122,7 @@
                             <input type="text" class="form-control" placeholder="Email*" required name="assessment_email">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Điện thoại" name="assessment_phone">
+                            <input type="text" class="form-control" placeholder="Điện thoại" required name="assessment_phone">
                         </div>
                     </div><!-- /.step-5 -->
 
@@ -307,11 +311,24 @@
 
 @section('scripts')
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+<script type="text/javascript" src="{{ asset('js/select2.min.js') }}"></script>
 <script type="text/javascript">
+    $('#assessment-course-interest').select2({
+        placeholder : "Nhập môn học bạn quan tâm..."
+    });
+
     $('#assessment-form').validate({
-        rules: {
-            assessment_name : 'required',
-            assessment_email : 'required',
+        messages: {
+            assessment_name : {
+                required : 'Tên không được để trống'  
+            } ,
+            assessment_email : {
+                required : 'Email không được để trống',
+                email : 'Email không hợp lệ'
+            },
+            assessment_phone : {
+                required : 'Số điện thoại không được để trống'
+            }
         }
     });
 
