@@ -16,17 +16,12 @@ class FreeAssessmentController extends Controller
     	$assessment = new Assessment;
     	$assessment->course_completed = $request->assessment_course_completed;
     	$assessment->avg_score = $request->assessment_avg_score;
-    	$assessment->course_interest = implode(',', $request->assessment_course_interest ? $request->assessment_course_interest : array());
-    	$assessment->countries = implode(',', $request->assessment_countries ? $request->assessment_countries : array());
+    	$assessment->course_interest = implode(' ; ', $request->assessment_course_interest ? $request->assessment_course_interest : array());
+    	$assessment->countries = implode(' , ', $request->assessment_countries ? $request->assessment_countries : array());
     	$assessment->name = $request->assessment_name;
     	$assessment->email = $request->assessment_email;
     	$assessment->phone = $request->assessment_phone;
     	$assessment->save();
-
-    	// $send_mail = (new SendMail($assessment->email));
-
-     //    dispatch($send_mail);
-        // \Artisan::call('queue:work');
     	
         $this->sendMail($assessment->email);
 

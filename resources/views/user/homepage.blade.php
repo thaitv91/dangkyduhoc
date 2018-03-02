@@ -73,8 +73,11 @@
                             <option>Ngành học 2</option>
                         </select> -->
                         <select class="form-control" name="assessment_course_interest[]" multiple>
-                            <option value="course-1">Ngành học 1</option>
-                            <option value="course-2">Ngành học 2</option>
+                            <!-- <option value="course-1">Ngành học 1</option>
+                            <option value="course-2">Ngành học 2</option> -->
+                            @foreach ($courses as $key => $course)
+                            <option value="{{ $course->name }}">{{ $course->name }}</option>
+                            @endforeach
                         </select>
                     </div><!-- /.step-3 -->
 
@@ -83,7 +86,13 @@
                             <p>{{ $data_field['assessment-step-4-content'] }}</p>
                         </div>
                         <ul>
+                            @foreach ($countries as $key => $country)
                             <li>
+                                <input type="checkbox" id="country-{{ $key+1 }}" checked value="{{ $country->name }}" name="assessment_countries[]">
+                                <label for="country-{{ $key+1 }}">{{ $country->name }}</label>
+                            </li>
+                            @endforeach
+                            <!-- <li>
                                 <input type="checkbox" id="country-1" checked value="1" name="assessment_countries[]">
                                 <label for="country-1">Australia</label>
                             </li>
@@ -94,7 +103,7 @@
                             <li>
                                 <input type="checkbox" id="country-3" checked value="3" name="assessment_countries[]">
                                 <label for="country-3">Australia</label>
-                            </li>
+                            </li> -->
                         <ul>
                     </div><!-- /.step-4 -->
 
