@@ -297,6 +297,12 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
             Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.slider.removeImage');
 
         });
+
+        Route::group(['prefix' => 'assessment', 'namespace' => 'Admin', 'as' => 'admin.assessment.'], function() {
+            Route::get('', 'AssessmentController@index')->name('list');
+            Route::get('show/{id}', 'AssessmentController@show')->name('show');
+            Route::get('remove/{id}', 'AssessmentController@remove')->name('remove');
+        });
     });
 
     Route::group(['prefix' => 'apply-course'], function () {
@@ -409,6 +415,8 @@ Route::group(['prefix' => 'apply'], function () {
 Route::get('get-university', 'User\CourseController@getUniversity')->name('user.apply.getUniversity');
 Route::get('get-course', 'User\CourseController@getCourse')->name('user.apply.getCourse');
 Route::get('add-course', 'User\CourseController@addCourse')->name('user.apply.addCourse');
+
+Route::get('store-assessment', 'User\FreeAssessmentController@storeAssessment')->name('assessment.store');
 
 //Chat-box
 Route::group(['prefix' => 'message'], function () {

@@ -76,7 +76,7 @@
 				<div class="tile-fair-br">
 					<div class="number">30</div>
 					<div class="text">
-						oundation colleges to fast <br/>track your education
+						Foundation colleges to fast <br/>track your education
 					</div>
 				</div><!-- /.tile-fair-br -->
 			</div>
