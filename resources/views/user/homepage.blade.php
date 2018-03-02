@@ -31,42 +31,42 @@
                     <h2>FREE ASSESSMENT</h2>
                     <div class="step-1" id="assessment-step-1">
                         <div class="description">
-                            <p>Bạn đã hoàn thành bậc học nào?</p>
+                            <p>{{ $data_field['assessment-step-1-question'] }}</p>
                         </div>
                         <ul>
                             <li>
-                                <input type="radio" id="checkbox-1" name="assessment_course_completed" value="second-primary" checked>
-                                <label for="checkbox-1">Trung học cơ sở/Cấp II</label>
+                                <input type="radio" id="checkbox-1" name="assessment_course_completed" value="{{ $data_field['assessment-step-1-option-1'] }}" checked>
+                                <label for="checkbox-1">{{ $data_field['assessment-step-1-option-1'] }}</label>
                             </li>
                             <li>
-                                <input type="radio" id="checkbox-2" name="assessment_course_completed" value="hight-school">
-                                <label for="checkbox-2">Trung học phổ thông/Cấp III</label>
+                                <input type="radio" id="checkbox-2" name="assessment_course_completed" value="{{ $data_field['assessment-step-1-option-2'] }}">
+                                <label for="checkbox-2">{{ $data_field['assessment-step-1-option-2'] }}</label>
                             </li>
                             <li>
-                                <input type="radio" id="checkbox-3" name="assessment_course_completed" value="college">
-                                <label for="checkbox-3">Trung cấp/Cao Đẳng</label>
+                                <input type="radio" id="checkbox-3" name="assessment_course_completed" value="{{ $data_field['assessment-step-1-option-3'] }}">
+                                <label for="checkbox-3">{{ $data_field['assessment-step-1-option-3'] }}</label>
                             </li>
                             <li>
-                                <input type="radio" id="checkbox-4" name="assessment_course_completed" value="university">
-                                <label for="checkbox-4">Đại học</label>
+                                <input type="radio" id="checkbox-4" name="assessment_course_completed" value="{{ $data_field['assessment-step-1-option-4'] }}">
+                                <label for="checkbox-4">{{ $data_field['assessment-step-1-option-4'] }}</label>
                             </li>
                             <li>
-                                <input type="radio" id="checkbox-5" name="assessment_course_completed" value="after-univeristy">
-                                <label for="checkbox-5">Sau đại học.</label>
+                                <input type="radio" id="checkbox-5" name="assessment_course_completed" value="{{ $data_field['assessment-step-1-option-5'] }}">
+                                <label for="checkbox-5">{{ $data_field['assessment-step-1-option-5'] }}</label>
                             </li>
                         </ul>
                     </div><!-- /.step-1 -->
 
                     <div class="step-2" id="assessment-step-2" style="display: none">
                         <div class="description">
-                            <p>Điểm tổng kết Trung bình năm của bạn:<span id="assessment-avg-score"> 5 </span></p>
+                            <p>{{ $data_field['assessment-step-2-content'] }}<span id="assessment-avg-score"> 5 </span></p>
                         </div>
                         <input type="range" min="1" max="10" step="0.1" value="5" class="input-range" name="assessment_avg_score" onchange="$('#assessment-avg-score').text(' '+$(this).val());">
                     </div><!-- /.step-2 -->
 
                     <div class="step-3" id="assessment-step-3" style="display: none;">
                         <div class="description">
-                            <p>Ngành học bạn quan tâm?</p>
+                            <p>{{ $data_field['assessment-step-3-content'] }}</p>
                         </div>
                         <!-- <select class="form-control selectpicker" name="assessment_course_interest[]" multiple="" data-live-search="true" required title="Ngành học bạn quan tâm...">
                             <option>Ngành học 1</option>
@@ -80,7 +80,7 @@
 
                     <div class="step-4" id="assessment-step-4" style="display: none;">
                         <div class="description">
-                            <p>Bạn muốn du học nước nào?</p>
+                            <p>{{ $data_field['assessment-step-4-content'] }}</p>
                         </div>
                         <ul>
                             <li>
@@ -100,7 +100,7 @@
 
                     <div class="step-5" id="assessment-step-5" style="display: none;">
                         <div class="description">
-                            <p>Mời bạn điền thông cá nhân để chúng tôi tư vấn?</p>
+                            <p>{{ $data_field['assessment-step-5-content'] }}</p>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Họ và tên*" required name="assessment_name">
@@ -115,7 +115,7 @@
 
                     <div class="step-6" id="assessment-step-6" style="display: none;">
                         <div class="description">
-                            <p>Cảm ơn bạn đã hoàn thành bản đánh giá. Chúng tôi sẽ gửi e-mail vào tài khoản của bạn.</p>
+                            <?php echo $data_field['assessment-step-6-content']  ?>
                         </div>
                     </div><!-- /.step-5 -->
                     <div class="bottom">
@@ -325,10 +325,11 @@
 
     $('#assessment-form').on('submit', function(e) {
         e.preventDefault();
-
+        var data = $('#assessment-form').serialize();
+        $('#assessment-form')[0].reset();
         $.ajax({
             url : "{{ route('assessment.store') }}",
-            data : $('#assessment-form').serialize(),
+            data : data,
         });
     });
 </script>

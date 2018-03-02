@@ -297,6 +297,12 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
             Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.slider.removeImage');
 
         });
+
+        Route::group(['prefix' => 'assessment', 'namespace' => 'Admin', 'as' => 'admin.assessment.'], function() {
+            Route::get('', 'AssessmentController@index')->name('list');
+            Route::get('show/{id}', 'AssessmentController@show')->name('show');
+            Route::get('remove/{id}', 'AssessmentController@remove')->name('remove');
+        });
     });
 
     Route::group(['prefix' => 'apply-course'], function () {

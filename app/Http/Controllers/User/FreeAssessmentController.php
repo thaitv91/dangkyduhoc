@@ -23,15 +23,18 @@ class FreeAssessmentController extends Controller
     	$assessment->phone = $request->assessment_phone;
     	$assessment->save();
 
-    	$send_mail = (new SendMail($assessment->email));
+    	// $send_mail = (new SendMail($assessment->email));
 
-        dispatch($send_mail);
+     //    dispatch($send_mail);
+        // \Artisan::call('queue:work');
+    	
+        $this->sendMail($assessment->email);
 
     	return 1;
     }
 
-    public function sendMail($guess_email = '') {
-    	Mail::to($guess_email)->send(new AssessmentApply($guess_email));
-    	Mail::to($guess_email)->send(new AssessmentNotification($guess_email));
+    public function sendMail($email = '') {
+    	$send_mail = (new SendMail($email));
+        dispatch($send_mail);
     }
 }
