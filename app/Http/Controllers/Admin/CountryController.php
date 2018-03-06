@@ -19,7 +19,7 @@ class CountryController extends Controller
         $countries = Country::all();
         
         $data = [
-            'title' => 'Countries',
+            'title' => 'Country | List',
             'countries' => $countries
         ];
 
@@ -67,7 +67,7 @@ class CountryController extends Controller
     public function edit(Country $country)
     {
         $data = [
-            'title' => 'Edit Country',
+            'title' => 'Country | Edit',
             'country' => $country
         ];
 

@@ -25,8 +25,8 @@
                     <tr>
                         <td class="text-center">{{ $country->name }}</td>
                         <td class="text-center">{{ $country->slug }}</td>
-                        <td class="text-center"><a class="btn" href="/admin/countries/{{ $country->id }}/edit">Edit</a></td>
-                        <td class="text-center"><a class="btn" href="/admin/user/countries/{{ $country->id }}/destroy" onclick="return confirm('Are you sure you want to Delete {{ $country->name }}?')">Delete</a></td>
+                        <td class="text-center"><a class="btn btn-warning btn-xs" href="/admin/countries/{{ $country->id }}/edit">Edit</a></td>
+                        <td class="text-center"><a class="btn btn-danger btn-xs" href="/admin/user/countries/{{ $country->id }}/destroy" onclick="return confirm('Are you sure you want to Delete {{ $country->name }}?')">Delete</a></td>
                     </tr>
                 @endforeach
             <tbody>

@@ -35,50 +35,75 @@
                     <h2>FREE ASSESSMENT</h2>
                     <div class="step-1" id="assessment-step-1">
                         <div class="description">
-                            <p>{{ $data_field['assessment-step-1-question'] }}</p>
+                            <p>{{ isset($data_field['assessment-step-1-question']) ? 
+                                    $data_field['assessment-step-1-question'] : 
+                                    'Bạn đã hoàn thành bậc học nào?'}}</p>
                         </div>
                         <ul>
                             <li>
                                 <input type="radio" id="checkbox-1" name="assessment_course_completed" value="{{ $data_field['assessment-step-1-option-1'] }}" checked>
-                                <label for="checkbox-1">{{ $data_field['assessment-step-1-option-1'] }}</label>
+                                <label for="checkbox-1">
+                                    {{ isset($data_field['assessment-step-1-option-1']) ? 
+                                        $data_field['assessment-step-1-option-1'] : 
+                                        'Trung học cơ sở/Cấp II'}}
+                                </label>
                             </li>
                             <li>
                                 <input type="radio" id="checkbox-2" name="assessment_course_completed" value="{{ $data_field['assessment-step-1-option-2'] }}">
-                                <label for="checkbox-2">{{ $data_field['assessment-step-1-option-2'] }}</label>
+                                <label for="checkbox-2">
+                                    {{ isset($data_field['assessment-step-1-option-2']) ? 
+                                        $data_field['assessment-step-1-option-2'] :
+                                        'Trung học phổ thông/Cấp III' }}
+                                </label>
                             </li>
                             <li>
                                 <input type="radio" id="checkbox-3" name="assessment_course_completed" value="{{ $data_field['assessment-step-1-option-3'] }}">
-                                <label for="checkbox-3">{{ $data_field['assessment-step-1-option-3'] }}</label>
+                                <label for="checkbox-3">
+                                    {{ isset($data_field['assessment-step-1-option-3']) ? 
+                                        $data_field['assessment-step-1-option-3'] : 
+                                        'Trung cấp/Cao Đẳng' }}
+                                </label>
                             </li>
                             <li>
                                 <input type="radio" id="checkbox-4" name="assessment_course_completed" value="{{ $data_field['assessment-step-1-option-4'] }}">
-                                <label for="checkbox-4">{{ $data_field['assessment-step-1-option-4'] }}</label>
+                                <label for="checkbox-4">
+                                    {{ isset($data_field['assessment-step-1-option-4']) ? 
+                                        $data_field['assessment-step-1-option-4'] : 
+                                        'Đại học' }}
+                                </label>
                             </li>
                             <li>
                                 <input type="radio" id="checkbox-5" name="assessment_course_completed" value="{{ $data_field['assessment-step-1-option-5'] }}">
-                                <label for="checkbox-5">{{ $data_field['assessment-step-1-option-5'] }}</label>
+                                <label for="checkbox-5">
+                                    {{ isset($data_field['assessment-step-1-option-5']) ?
+                                        $data_field['assessment-step-1-option-5'] : 
+                                        'Sau đại học' }}
+                                </label>
                             </li>
                         </ul>
                     </div><!-- /.step-1 -->
 
                     <div class="step-2" id="assessment-step-2" style="display: none">
                         <div class="description">
-                            <p>{{ $data_field['assessment-step-2-content'] }}<span id="assessment-avg-score"> 5 </span></p>
+                            <p>
+                                {{ isset($data_field['assessment-step-2-content']) ? 
+                                    $data_field['assessment-step-2-content'] : 
+                                    'Điểm tổng kết Trung bình năm của bạn :' }}
+                                <span id="assessment-avg-score"> 5 </span>
+                            </p>
                         </div>
                         <input type="range" min="1" max="10" step="0.1" value="5" class="input-range" name="assessment_avg_score" onchange="$('#assessment-avg-score').text(' '+$(this).val());">
                     </div><!-- /.step-2 -->
 
                     <div class="step-3" id="assessment-step-3" style="display: none;">
                         <div class="description">
-                            <p>{{ $data_field['assessment-step-3-content'] }}</p>
+                            <p>
+                                {{ isset($data_field['assessment-step-3-content']) ? 
+                                    $data_field['assessment-step-3-content'] : 
+                                    'Ngành học mà bạn quan tâm' }}
+                            </p>
                         </div>
-                        <!-- <select class="form-control selectpicker" name="assessment_course_interest[]" multiple="" data-live-search="true" required title="Ngành học bạn quan tâm...">
-                            <option>Ngành học 1</option>
-                            <option>Ngành học 2</option>
-                        </select> -->
                         <select class="form-control" id="assessment-course-interest" name="assessment_course_interest[]" multiple>
-                            <!-- <option value="course-1">Ngành học 1</option>
-                            <option value="course-2">Ngành học 2</option> -->
                             @foreach ($subjects as $key => $subject)
                             <option value="{{ $subject->name }}">{{ $subject->name }}</option>
                             @endforeach
@@ -87,7 +112,11 @@
 
                     <div class="step-4" id="assessment-step-4" style="display: none;">
                         <div class="description">
-                            <p>{{ $data_field['assessment-step-4-content'] }}</p>
+                            <p>
+                                {{ isset($data_field['assessment-step-4-content']) ?
+                                    $data_field['assessment-step-4-content'] : 
+                                    'Bạn muốn du học nước nào?' }}
+                            </p>
                         </div>
                         <ul>
                             @foreach ($countries as $key => $country)
@@ -96,24 +125,16 @@
                                 <label for="country-{{ $key+1 }}">{{ $country->name }}</label>
                             </li>
                             @endforeach
-                            <!-- <li>
-                                <input type="checkbox" id="country-1" checked value="1" name="assessment_countries[]">
-                                <label for="country-1">Australia</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" id="country-2" checked value="2" name="assessment_countries[]">
-                                <label for="country-2">Australia</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" id="country-3" checked value="3" name="assessment_countries[]">
-                                <label for="country-3">Australia</label>
-                            </li> -->
                         <ul>
                     </div><!-- /.step-4 -->
 
                     <div class="step-5" id="assessment-step-5" style="display: none;">
                         <div class="description">
-                            <p>{{ $data_field['assessment-step-5-content'] }}</p>
+                            <p>
+                                {{ isset($data_field['assessment-step-5-content']) ? 
+                                    $data_field['assessment-step-5-content'] : 
+                                    'Mời bạn điền thông tin cá nhân để chúng tôi tư vấn.' }}
+                            </p>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Họ và tên*" required name="assessment_name">
@@ -128,7 +149,11 @@
 
                     <div class="step-6" id="assessment-step-6" style="display: none;">
                         <div class="description">
-                            <?php echo $data_field['assessment-step-6-content']  ?>
+                            <?php 
+                                echo isset($data_field['assessment-step-6-content']) ? 
+                                    $data_field['assessment-step-6-content'] :
+                                    '<p>Cảm ơn!</p><p>Chuyên gia du học sẽ liên lạc với bạn trong vòng 24 giờ.</p>';  
+                            ?>
                         </div>
                     </div><!-- /.step-5 -->
                     <div class="bottom">

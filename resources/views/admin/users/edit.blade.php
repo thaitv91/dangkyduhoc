@@ -39,7 +39,7 @@
 						<input type="file" name="avatar" id="avatar">
 						<!-- <p class="help-block">Example block-level help text here.</p> -->
 						<p class="help-block">Choose an image from your computer</p>
-						<img src="{{ Storage::disk('local')->url($user->getUserInfo->avatar) }}" id="preview_avatar" style="max-width: 676px">
+						<img src="{{ isset($user->getUserInfo->avatar) ? Storage::disk('local')->url($user->getUserInfo->avatar) : '' }}" id="preview_avatar" style="max-width: 676px">
 					</div>
 
 					<div class="form-group">
@@ -108,7 +108,8 @@
 					</div>
 
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<a href="{{ route('admin.user') }}" class="btn btn-default">Back</a>
+						<button type="submit" class="btn btn-primary">Update</button>
 					</div>
 				</div>
 				<!-- /.box-body -->

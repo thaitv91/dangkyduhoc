@@ -22,6 +22,7 @@ class GuideController extends Controller
     {
         $data = Guide::orderBy('id', 'DESC')->get();
         $this->viewData = array(
+            'title' =>  'Guide | List',
             'data' => $data
             );
         return view( 'admin.guide.index', $this->viewData);
@@ -34,7 +35,8 @@ class GuideController extends Controller
      */
     public function create()
     {
-        return view( 'admin.guide.create');
+        $title = 'Guide | Create';
+        return view( 'admin.guide.create', compact(['title']));
     }
 
     /**
@@ -106,6 +108,7 @@ class GuideController extends Controller
     {
         $data = Guide::find($id);
         $this->viewData = array(
+            'title' => 'Guide | Edit',
             'data' => $data,
         );
         return view ('admin.guide.edit', $this->viewData);

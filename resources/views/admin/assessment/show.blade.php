@@ -45,13 +45,13 @@
 				</div>
 				<div class="row form-group">
 					<div class="col-md-4">
-						<label for="name" class="label-control">Countries Interest: </label>
+						<label for="name" class="label-control">Countries name: </label>
 					</div>
 					<div class="col-md-8"><p>{{ $assessment->countries }}</p></div>
 				</div>
 				<div class="row form-group">
 					<div class="col-md-4">
-						<label class="label-control">Course Interest: </label>
+						<label class="label-control">Subjects: </label>
 					</div>
 					<div class="col-md-8"><p>{{ $assessment->course_interest }}</p></div>
 				</div>

@@ -32,6 +32,7 @@ class PageController extends Controller
     {
         $pages = Page::orderBy('id', 'DESC')->get();
         $data = array(
+            'title' =>  'Page | List',
             'pages' => $pages
             );
         return view( 'admin.page.index', $data);
@@ -44,7 +45,9 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view( 'admin.page.create');
+        $title = 'Page | Create';
+
+        return view( 'admin.page.create', compact(['title']));
     }
 
     /**
@@ -106,6 +109,7 @@ class PageController extends Controller
     {
         $page = Page::find($id);
         $data = array(
+            'title' => 'Page | Edit',
             'page' => $page,
         );
         return view ('admin.page.edit', $data);
@@ -115,6 +119,7 @@ class PageController extends Controller
     {   
         $fields = PageField::where('page_id', '=', $id)->get();
          $data = array(
+            'title' => 'Page | Edit Page Field',
             'fields' => $fields
         );
         return view ('admin.page.editpage', $data);

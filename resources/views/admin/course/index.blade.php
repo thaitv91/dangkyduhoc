@@ -17,7 +17,7 @@
 				<h3 class="box-title">Courses</h3>
 			</div>
 			<div class="col-md-2">
-				<a href="{{ route('admin.course.create') }}" class="btn btn-primary">Create new</a>
+				<a href="{{ route('admin.course.create') }}" class="btn btn-primary">Create</a>
 			</div>
 		</div>
 		<!-- /.box-header -->

@@ -23,6 +23,7 @@ class CareerController extends Controller
     {
         $data = Career::all();
         $this->viewData = array(
+            'title' =>  'Career | List',
             'data' => $data
         );
         return view ( 'admin.career.index', $this->viewData );
@@ -35,7 +36,9 @@ class CareerController extends Controller
      */
     public function create()
     {
-        return view( 'admin.career.create');
+        $title = 'Career | Create';
+
+        return view( 'admin.career.create', compact(['title']));
     }
 
     /**
@@ -96,6 +99,7 @@ class CareerController extends Controller
     {
         $data = Career::find( $id );
         $this->viewData = array(
+            'title' =>  'Career | Edit',
             'data'  => $data
         );
 

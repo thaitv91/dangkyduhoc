@@ -11,7 +11,7 @@
 	<div class="box box-primary">
 
 		<div class="box-header with-border">
-			<h3 class="box-title">Create</h3>
+			<h3 class="box-title">Edit</h3>
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
@@ -46,15 +46,15 @@
 						<label  class="col-md-3" for="name">University</label>
 						<div class="col-md-9">
 							<select name="university_id" id="university" class="form-control selectpicker" data-live-search="true">
-								@foreach (App\Models\University::all() as $key => $value)
+								@foreach ($universities as $key => $value)
 									<option value="{{ $value->id }}">{{ $value->name }}</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Create</button>
-						<a href="{{ route('admin.fair.popularity') }}" class="btn btn-default">Cancel</a>
+						<button type="submit" class="btn btn-primary">Update</button>
+						<a href="{{ route('admin.fair.popularity') }}" class="btn btn-default">Back</a>
 					</div>
 				</div>
 				<!-- /.box-body -->

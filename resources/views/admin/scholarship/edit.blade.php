@@ -81,8 +81,8 @@
                     </div>
 
                     <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Update</button>
                         <a href="{{ route('admin.scholarship') }}" class="btn btn-default">Back</a>
-                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
                 <!-- /.box-body -->

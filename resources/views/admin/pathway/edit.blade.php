@@ -89,7 +89,7 @@
 
                         <div class="form-group">
                             <a href="{{ route('admin.pathway') }}" class="btn btn-default">Back</a>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </div>
                     <!-- /.box-body -->

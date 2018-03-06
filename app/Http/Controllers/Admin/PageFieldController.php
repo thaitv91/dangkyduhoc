@@ -23,6 +23,7 @@ class PageFieldController extends Controller
     {
         $pagefield = PageField::orderBy( 'id', 'DESC' )->get();
         $data = array(
+            'title'     =>  'Page Field | List',
             'pagefield' => $pagefield
         );
         return view( 'admin.pagefield.index', $data );
@@ -37,6 +38,7 @@ class PageFieldController extends Controller
     {
         $page = Page::all();
         $data = array(
+            'title' =>  'Page Field | Create',
             'page' => $page
             );
         return view( 'admin.pagefield.create', $data);
@@ -103,6 +105,7 @@ class PageFieldController extends Controller
         $data = PageField::find($id);
         $page = Page::all();
         $this->viewData = array(
+            'title' =>  'Page Field | Edit',
             'data' => $data,
             'page' => $page
         );

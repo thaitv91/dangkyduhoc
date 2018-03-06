@@ -22,7 +22,7 @@ class PathwayController extends Controller
         $pathways = Pathway::all();
 
         $data = [
-            'title' => 'PathWay List',
+            'title' => 'PathWay | List',
             'pathways' => $pathways
         ];
 
@@ -35,7 +35,7 @@ class PathwayController extends Controller
         $pathway_university = University::where('pathway', '=', 1)->get();
 
         $data = [
-            'title' => 'PathWay Create',
+            'title' => 'PathWay | Create',
             'main_university' => $main_university,
             'pathway_university' => $pathway_university
         ];
@@ -64,7 +64,7 @@ class PathwayController extends Controller
 
         if ($pathway->save() ) {
             Session::flash('success', 'Create Pathway Success');
-            return Redirect::back();
+            return Redirect::route('admin.pathway');
         }
     }
 
@@ -72,6 +72,8 @@ class PathwayController extends Controller
 
     // edit pathway
     public function edit($id) {
+        $title = 'Pathway | Edit';
+
         $pathway = Pathway::where('id', $id)->first();
         $universities = University::get(['id', 'name']);
 
@@ -81,7 +83,7 @@ class PathwayController extends Controller
             return Redirect::route('admin.pathway');
         }
 
-        return view('admin.pathway.edit', compact(['pathway', 'universities']));
+        return view('admin.pathway.edit', compact([ 'title', 'pathway', 'universities']));
     }
 
     public function update(Request $request, $id) {

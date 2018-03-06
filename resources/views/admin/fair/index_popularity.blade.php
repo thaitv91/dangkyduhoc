@@ -15,12 +15,12 @@
 
 		<div class="box-header with-border">
 			<h3 class="box-title">Popularity <small>list</small></h3>
-			<a href="{{ route('admin.fair.createPopularity') }}" class="pull-right btn btn-success btn-xs">Create</a>
+			<a href="{{ route('admin.fair.createPopularity') }}" class="pull-right btn btn-primary btn-xs">Create</a>
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
 		<div class="box-body">
-			<div class="col-md-10">
+			<div class="col-md-12">
 				<table class="table">
 					<thead>
 						<th>Order</th>

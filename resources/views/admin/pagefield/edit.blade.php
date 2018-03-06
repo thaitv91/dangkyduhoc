@@ -11,7 +11,7 @@
 	<div class="box box-primary">
 
 		<div class="box-header with-border">
-			<h3 class="box-title">Create</h3>
+			<h3 class="box-title">Edit</h3>
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
@@ -84,6 +84,7 @@
 						</div>
 					</div>
 					<div class="form-group">
+						<a href="{{ route('admin.pagefield.index') }}" class="btn btn-default">Back</a>
 						<button type="submit" class="btn btn-primary">Update</button>
 					</div>
 				</div>

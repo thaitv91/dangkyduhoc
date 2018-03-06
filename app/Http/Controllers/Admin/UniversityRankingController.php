@@ -24,6 +24,7 @@ class UniversityRankingController extends Controller
     {
         $university_ranking = UniversityRanking::all();
         $this->viewData = array(
+            'title'     =>  'Univerity Ranking | List',
             'university_ranking' => $university_ranking
         );
         return view( 'admin.universityRanking.index', $this->viewData );
@@ -39,6 +40,7 @@ class UniversityRankingController extends Controller
         $university = University::all();
         $country = Country::all();
         $this->viewData = array(
+            'title'     =>  'University Rankinng | Create',
             'university' => $university,
             'country'   => $country
         );
@@ -107,6 +109,7 @@ class UniversityRankingController extends Controller
         $country = Country::all();
         $data = UniversityRanking::find( $id );
         $this->viewData = array(
+            'title'       => 'University Rankinng | Edit',
             'university'  => $university,
             'country'     => $country,
             'data'        => $data

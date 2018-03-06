@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\FairPopularity;
 use App\Models\FairRegister;
 use App\Models\Subject;
+use App\Models\University;
 use Session, Redirect; 
 
 class FairController extends Controller
@@ -22,14 +23,19 @@ class FairController extends Controller
     }
 
     public function indexPopularity() {
+        $title = 'Fair | Popularity';
+
         $data = FairPopularity::all();
-        // dd($data[0]->university->name);
-        return view('admin.fair.index_popularity');
+
+        return view('admin.fair.index_popularity', compact(['title', 'data']));
     }
 
     public function indexRegister() {
+        $title = 'Fair | Registered | List';
+
         $data = FairRegister::get();
-        return view('admin.fair.index_register', compact(['data']));
+        
+        return view('admin.fair.index_register', compact(['title', 'data']));
     }
 
     /**
@@ -39,7 +45,11 @@ class FairController extends Controller
      */
     public function createPopularity()
     {
-        return view ('admin.fair.create_popularity');
+        $title = "Fair | Popularity | Create";
+
+        $universities = University::all();
+
+        return view ('admin.fair.create_popularity', compact(['title', 'universities']));
     }
 
     /**
@@ -55,11 +65,15 @@ class FairController extends Controller
 
         Session::flash('success', 'Create item successful');
 
-        return Redirect::back();
+        return Redirect::route('admin.fair.popularity');
     }
 
     public function editPopularity($id) {
+        $title = "Fair | Popularity | Edit";
+
         $data = FairPopularity::where('id', $id)->first();
+
+        $universities = University::all();
 
         if (count($data) == 0) {
             Session::flash('error', 'Data was not found');
@@ -67,7 +81,7 @@ class FairController extends Controller
             return Redirect::back();
         }
 
-        return view('admin.fair.edit_popularity', compact(['data']));
+        return view('admin.fair.edit_popularity', compact(['title', 'data', 'universities']));
     }
 
 
@@ -118,6 +132,8 @@ class FairController extends Controller
     }
 
     public function showRegister($id) {
+        $title = 'Fair | Registered | Detail';
+
         $data = FairRegister::where('id', $id)->first();
         $subject_ids = explode(',', $data->subject);
         $subjects = Subject::whereIn('id', $subject_ids)->get();
@@ -127,7 +143,7 @@ class FairController extends Controller
             return Redirect::back();
         }
 
-        return view('admin.fair.showRegister', compact(['data', 'subjects']));
+        return view('admin.fair.showRegister', compact(['title', 'data', 'subjects']));
     }
 
 }

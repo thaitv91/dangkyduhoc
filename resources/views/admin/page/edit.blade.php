@@ -30,6 +30,7 @@
                         @endif
 					</div>
 					<div class="form-group">
+						<a href="{{ route('admin.page.index') }}" class="btn btn-default">Back</a>
 						<button type="submit" class="btn btn-primary">Update</button>
 					</div>
 				</div>

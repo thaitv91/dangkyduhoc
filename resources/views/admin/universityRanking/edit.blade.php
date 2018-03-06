@@ -18,8 +18,8 @@
 		<form role="form" id="form-edit" method="POST" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			{{ method_field('PUT') }}
-			<div class="col-md-8 col-md-offset-2">
-				<div class="box-body">
+			<div class="box-body">
+				<div class="col-md-8 col-md-offset-2">
 					<div class="form-group row">
 						<label class="col-md-3">University</label>
 						<div class="col-md-9">
@@ -101,7 +101,8 @@
 
 					</div>	
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<a href="{{ route('admin.universityRank.index') }}" class="btn btn-default">Back</a>
+						<button type="submit" class="btn btn-primary">Update</button>
 					</div>
 				</div>
 				<!-- /.box-body -->

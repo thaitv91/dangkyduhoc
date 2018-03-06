@@ -48,15 +48,15 @@
 						<div class="col-md-9">
 							<select name="university_id" id="university" class="form-control selectpicker" data-live-search="true">
 								<option selected disabled>-- Select a university --</option>
-								@foreach (App\Models\University::all() as $key => $value)
+								@foreach ($universities as $key => $value)
 									<option value="{{ $value->id }}">{{ $value->name }}</option>
 								@endforeach
 							</select>
 						</div>
 					</div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Update</button>
-						<a href="{{ route('admin.fair.popularity') }}" class="btn btn-default">Cancel</a>
+						<button type="submit" class="btn btn-primary">Create</button>
+						<a href="{{ route('admin.fair.popularity') }}" class="btn btn-default">Back</a>
 					</div>
 				</div>
 				<!-- /.box-body -->

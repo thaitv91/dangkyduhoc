@@ -35,6 +35,7 @@ class UniversityController extends Controller
     {
         $universites = University::all();
         $this->viewData = array(
+            'title'       => 'University | List',
             'universites' => $universites
         );
 
@@ -53,6 +54,7 @@ class UniversityController extends Controller
         $map = Map::all();
         $images = Slider::all();
         $this->viewData = array(
+            'title'     =>  'University | Create',
             'country'    => $country,
             'images'      => $images,
             'map' => $map
@@ -159,6 +161,7 @@ class UniversityController extends Controller
         $universities = University::all();
         $university_meta = $university->universityMeta;
         $this->viewData = array(
+            'title'     =>  'University | Edit',
             'university' => $university,
             'university_meta'      =>  $university_meta,
             'universities'=> $universities,

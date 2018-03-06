@@ -25,6 +25,13 @@
 						</div>
 						<label for="name" class="col-md-2">(x 1.000 VNĐ)</label>
 					</div>
+					
+					<div class="form-group">
+						<label for="name" class="col-md-3">Admin e-mail: </label>
+						<div class="col-md-7">
+							<input type="text" name="admin_email" id="admin-email" class="form-control" value="{{ $configure->admin_email }}" required>
+						</div>
+					</div>
 				</div>
 			</div>
 			<!-- /.box-body -->

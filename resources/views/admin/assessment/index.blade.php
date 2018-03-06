@@ -30,12 +30,21 @@
 			<tbody>
 				@foreach ($assessments as $key => $assessment)
 				<tr>
+					@if ($assessment->status == 0)
+					<td><b>{{ $key+1 }}</b></td>
+					<td><b>{{ $assessment->name }}</b></td>
+					<td><b>{{ $assessment->email }}</b></td>
+					<td><b>{{ $assessment->phone }}</b></td>
+					<td><b>{{ $assessment->course_completed }}</b></td>
+					<td><b>{{ $assessment->avg_score }}</b></td>
+					@else
 					<td>{{ $key+1 }}</td>
 					<td>{{ $assessment->name }}</td>
 					<td>{{ $assessment->email }}</td>
 					<td>{{ $assessment->phone }}</td>
 					<td>{{ $assessment->course_completed }}</td>
 					<td>{{ $assessment->avg_score }}</td>
+					@endif
 					<td><a href="{{ route('admin.assessment.show', ['assessment_id' => $assessment->id]) }}" class="btn btn-success btn-xs">Detail</a></td>
 					<td><a href="#" class="btn btn-danger btn-xs" onclick="confirmDelete('{{ route('admin.assessment.remove', ['assessment_id' => $assessment->id]) }}')">Remove</a></td>
 				</tr>
