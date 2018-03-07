@@ -6,7 +6,6 @@
 
 	@push('styles')
 	<!-- DataTables -->
-	<link rel="stylesheet" href="{{ url('plugins/datatables/dataTables.bootstrap.css') }}">
 	<link rel="stylesheet" href="{{ url('plugins/datatables/jquery.dataTables.css') }}">
 	@endpush
 
@@ -79,7 +78,6 @@
 	@section('scripts')
 	<!-- DataTables -->
 	<script src="{{ url('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-	<script src="{{ url('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
 	<script type="text/javascript">
 		$('#table-course').DataTable({
 			"paging": false,

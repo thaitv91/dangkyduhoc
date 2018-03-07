@@ -284,25 +284,25 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
         Route::put('/edit/{id}', 'Admin\MapLocationController@update')->name('admin.mapLocation.update');
         Route::get('delete/{id}', 'Admin\MapLocationController@destroy')->name('admin.mapLocation.delete');
         Route::get('get-url-delete', 'Admin\MapLocationController@getUrlDelete')->name('admin.mapLocation.getUrlDelete');
+    });
 
-        Route::group(['prefix' => 'slider'], function () {
-            Route::get('', 'Admin\SliderController@index')->name('admin.slider');
-            Route::get('create', 'Admin\SliderController@create')->name('admin.slider.create');
-            Route::post('create', 'Admin\SliderController@store');
-            Route::get('edit/{id}', 'Admin\SliderController@edit')->name('admin.slider.edit');
-            Route::post('edit/{id}', 'Admin\SliderController@update');
-            Route::get('delete/{id}', 'Admin\SliderController@destroy')->name('admin.slider.delete');
-            Route::get('get-image', 'Admin\SliderController@getImage')->name('admin.slider.getImage');
-            Route::post('image-upload', 'Admin\SliderController@uploadImage')->name('admin.slider.uploadImage');
-            Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.slider.removeImage');
+    Route::group(['prefix' => 'slider'], function () {
+        Route::get('', 'Admin\SliderController@index')->name('admin.slider');
+        Route::get('create', 'Admin\SliderController@create')->name('admin.slider.create');
+        Route::post('create', 'Admin\SliderController@store');
+        Route::get('edit/{id}', 'Admin\SliderController@edit')->name('admin.slider.edit');
+        Route::post('edit/{id}', 'Admin\SliderController@update');
+        Route::get('delete/{id}', 'Admin\SliderController@destroy')->name('admin.slider.delete');
+        Route::get('get-image', 'Admin\SliderController@getImage')->name('admin.slider.getImage');
+        Route::post('image-upload', 'Admin\SliderController@uploadImage')->name('admin.slider.uploadImage');
+        Route::post('image-remove', 'Admin\SliderController@removeImage')->name('admin.slider.removeImage');
+    });
 
-        });
-
-        Route::group(['prefix' => 'assessment', 'namespace' => 'Admin', 'as' => 'admin.assessment.'], function() {
-            Route::get('', 'AssessmentController@index')->name('list');
-            Route::get('show/{id}', 'AssessmentController@show')->name('show');
-            Route::get('remove/{id}', 'AssessmentController@remove')->name('remove');
-        });
+    Route::group(['prefix' => 'assessment', 'namespace' => 'Admin', 'as' => 'admin.assessment.'], function() {
+        Route::get('', 'AssessmentController@index')->name('list');
+        Route::get('show/{id}', 'AssessmentController@show')->name('show');
+        Route::get('remove/{id}', 'AssessmentController@remove')->name('remove');
+        Route::get('export', 'AssessmentController@exportToExcel')->name('export');
     });
 
     Route::group(['prefix' => 'apply-course'], function () {

@@ -103,7 +103,8 @@
                                     'Ngành học mà bạn quan tâm' }}
                             </p>
                         </div>
-                        <select class="form-control" id="assessment-course-interest" name="assessment_course_interest[]" multiple>
+                        <select class="form-control" id="assessment-course-interest" name="assessment_course_interest[]" multiple placeholder="Subject...">
+                            <option>Nhap nghanh hoc</option>
                             @foreach ($subjects as $key => $subject)
                             <option value="{{ $subject->name }}">{{ $subject->name }}</option>
                             @endforeach

@@ -284,6 +284,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{url('js/multi-select/bootstrap-select.js')}}" type="text/javascript"></script>
 <script src="{{ url('js/tinymce/tinymce.min.js') }}"></script>
 <script type="text/javascript" src="{{url('js/bootstrap-datepicker.min.js')}}"></script>
+<script type="text/javascript" src="{{url('js/moment.js')}}"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script>
     tinymce.PluginManager.add('placeholder', function (editor) {
