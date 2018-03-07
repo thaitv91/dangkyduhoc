@@ -2,6 +2,11 @@
 
 @section('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}">
+<style type="text/css">
+    .select2-search__field{
+        color: black;
+    }
+</style>
 @endsection
 
 @section("content")
@@ -89,10 +94,11 @@
                                 {{ isset($data_field['assessment-step-2-content']) ? 
                                     $data_field['assessment-step-2-content'] : 
                                     'Điểm tổng kết Trung bình năm của bạn :' }}
-                                <span id="assessment-avg-score"> 5 </span>
+                                <!-- <span id="assessment-avg-score"> 5 </span> -->
                             </p>
                         </div>
                         <input type="range" min="1" max="10" step="0.1" value="5" class="input-range" name="assessment_avg_score" onchange="$('#assessment-avg-score').text(' '+$(this).val());">
+                        <output></output>
                     </div><!-- /.step-2 -->
 
                     <div class="step-3" id="assessment-step-3" style="display: none;">
@@ -103,8 +109,7 @@
                                     'Ngành học mà bạn quan tâm' }}
                             </p>
                         </div>
-                        <select class="form-control" id="assessment-course-interest" name="assessment_course_interest[]" multiple placeholder="Subject...">
-                            <option>Nhap nghanh hoc</option>
+                        <select class="form-control" id="assessment-course-interest" name="assessment_course_interest[]" multiple>
                             @foreach ($subjects as $key => $subject)
                             <option value="{{ $subject->name }}">{{ $subject->name }}</option>
                             @endforeach

@@ -24,7 +24,7 @@
 					<th>University</th>
 					<th>About</th>
 					<th>Campus</th>
-					<th>Fuction</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,8 +32,8 @@
 					<tr>
 						<td>{{ $key+1 }}</td>
 						<td>{{ $value->university['name'] }}</td>
-						<td>{!! str_limit($value->about , $limit = 100, $end = '...') !!}</td>
-						<td>{!! str_limit($value->campus , $limit = 100, $end = '...') !!}</td>
+						<td>{!! str_limit(strip_tags($value->about) , $limit = 100, $end = '...') !!}</td>
+						<td>{!! str_limit(strip_tags($value->campus) , $limit = 100, $end = '...') !!}</td>
 						<td>
 							<a href="{{ route('admin.universityMeta.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
 	                        <a onclick="confirmDelete({{$value->id}})" class="btn btn-xs btn-danger">Delete</a>

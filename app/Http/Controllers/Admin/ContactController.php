@@ -12,12 +12,14 @@ use App\Mail\ReplyContact;
 class ContactController extends Controller
 {
     public function index() {
+        $title = 'Contact | List';
     	$contacts = Contact::orderBy('created_at', 'desc')->get();
 
-    	return view('admin.contact.index',compact(['contacts']));
+    	return view('admin.contact.index',compact(['title', 'contacts']));
     }
 
     public function show($id) {
+        $title = 'Contact | Detail';
     	$contact = Contact::where('id',$id)->first();
 
     	if (count($contact) == 0) {
@@ -30,7 +32,7 @@ class ContactController extends Controller
            $contact->status = 1;
     	$contact->save();
 
-    	return view('admin.contact.show',compact(['contact']));
+    	return view('admin.contact.show',compact(['title', 'contact']));
     }
 
     public function destroy($id) {
