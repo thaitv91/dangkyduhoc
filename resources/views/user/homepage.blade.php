@@ -89,10 +89,11 @@
                                 {{ isset($data_field['assessment-step-2-content']) ? 
                                     $data_field['assessment-step-2-content'] : 
                                     'Điểm tổng kết Trung bình năm của bạn :' }}
-                                <span id="assessment-avg-score"> 5 </span>
+                                <!-- <span id="assessment-avg-score"> 5 </span> -->
                             </p>
                         </div>
                         <input type="range" min="1" max="10" step="0.1" value="5" class="input-range" name="assessment_avg_score" onchange="$('#assessment-avg-score').text(' '+$(this).val());">
+                        <output></output>
                     </div><!-- /.step-2 -->
 
                     <div class="step-3" id="assessment-step-3" style="display: none;">
