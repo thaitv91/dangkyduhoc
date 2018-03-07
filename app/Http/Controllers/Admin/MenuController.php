@@ -20,6 +20,7 @@ class MenuController extends Controller
      */
     public function index()
     {
+        $title = 'Menu University';
         $countries = Country::get(['id', 'name']);
         $universities = University::get(['id', 'name', 'slug']);
         $column_1 = MenuUniversity::where('column', 1)->orderBy('weight', 'asc')->get(['id', 'title', 'type', 'column', 'weight', 'link']);
@@ -27,7 +28,7 @@ class MenuController extends Controller
         $column_3 = MenuUniversity::where('column', 3)->orderBy('weight', 'asc')->get(['id', 'title', 'type', 'column', 'weight', 'link']);
         $column_4 = MenuUniversity::where('column', 4)->orderBy('weight', 'asc')->get(['id', 'title', 'type', 'column', 'weight', 'link']);
 
-        return view('admin.menu.index', compact(['column_1', 'column_2', 'column_3', 'column_4', 'countries', 'universities']));
+        return view('admin.menu.index', compact(['title', 'column_1', 'column_2', 'column_3', 'column_4', 'countries', 'universities']));
     }
 
     /**
@@ -37,7 +38,8 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('admin.menu.create');
+        $title = 'Menu University';
+        return view('admin.menu.create', compact(['title']));
     }
 
     /**

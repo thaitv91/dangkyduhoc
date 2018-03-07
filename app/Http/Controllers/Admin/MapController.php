@@ -22,6 +22,7 @@ class MapController extends Controller
     {
         $data = Map::all();
         $this->viewData = array(
+            'title' =>  'Map | List',
             'data' => $data
         );
         return view ('admin.map.index', $this->viewData);
@@ -34,7 +35,8 @@ class MapController extends Controller
      */
     public function create()
     {
-        return view ( 'admin.map.create' );
+        $title = 'Map | Create';
+        return view ( 'admin.map.create', compact(['title']) );
     }
 
     /**
@@ -101,6 +103,7 @@ class MapController extends Controller
     {   
         $data = Map::find( $id );
         $this->viewData = array(
+            'title' =>  'Map | Edit',
             'data' => $data,
         );
         return view ( 'admin.map.edit', $this->viewData );

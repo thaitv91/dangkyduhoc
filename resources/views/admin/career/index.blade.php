@@ -12,7 +12,7 @@
 @section('content')
 <div class="box">
 	<div class="box-header">
-		<div class="col-md-11"><h3 class="box-title">Page</h3></div>
+		<div class="col-md-11"><h3 class="box-title">Career</h3></div>
 	<div class="col-md-1"><a href="{{ route('admin.career.create') }}" class="btn btn-xs btn-primary">Create</a></div>	
 	</div>
 	<!-- /.box-header -->
@@ -23,7 +23,9 @@
 					<th>ID</th>
 					<th>Name</th>
 					<th>Description</th>
-					<th>Fuction</th>
+					<th>Name (English)</th>
+					<th>Description (English)</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,8 +33,8 @@
 					<tr>
 						<td>{{ $key+1 }}</td>
 						<td>{{ $value->name }}</td>
-						<td>{{ $value->name_en }}</td>
 						<td>{!! str_limit($value->description , $limit = 100, $end = '...') !!}</td>
+						<td>{{ $value->name_en }}</td>
 						<td>{!! str_limit($value->description_en , $limit = 100, $end = '...') !!}</td>
 						<td>
 							<a href="{{ route('admin.career.edit',['id'=>$value->id]) }}" class="btn btn-xs btn-warning">Edit</a>
