@@ -34,7 +34,8 @@
             <div class="col-md-12 form-group">
                 <label for="" class="col-md-4 control-label"></label>
                 <div class="col-md-6">
-                    <input type="submit" name="submit" value="Update" class="btn btn-info" />
+                    <a href="{{ route('admin.countries') }}" class="btn btn-default">Back</a>
+                    <input type="submit" name="submit" value="Update" class="btn btn-primary" />
                 </div>
             </div>
         </form>

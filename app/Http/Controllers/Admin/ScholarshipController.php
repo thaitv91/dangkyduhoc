@@ -22,7 +22,7 @@ class ScholarshipController extends Controller
 
         $data = [
             'scholarships' => $scholarships,
-            'title' => 'List Scholarship'
+            'title' => 'Scholarship | List'
         ];
         return view('admin.scholarship.index', $data);
     }
@@ -32,7 +32,7 @@ class ScholarshipController extends Controller
         $courses = Course::all();
         $data = [
             'courses' => $courses,
-            'title' => 'Create Scholarship'
+            'title' => 'Scholarship | Create'
         ];
         return view('admin.scholarship.create', $data);
     }
@@ -65,12 +65,14 @@ class ScholarshipController extends Controller
             $scholarship->description_en = $data['description_en'];
             if ($scholarship->save()) {
                 Session::flash('success', 'Create Scholarship Successfully.');
-                return Redirect::back();
+                return Redirect::route('admin.scholarship');
             }
         }
     }
 
     public function edit($id) {
+        $title = 'Schoolarship | Edit';
+
         $scholarship = Scholarships::where('id', $id)->first();
         if (count($scholarship) == 0) {
             Session::flash('error', 'Data was not found');
@@ -78,7 +80,7 @@ class ScholarshipController extends Controller
             return Redirect::back();
         }
 
-        return view('admin.scholarship.edit', compact(['scholarship', 'courses']));
+        return view('admin.scholarship.edit', compact(['title', 'scholarship', 'courses']));
     }
 
     public function update(Request $request, $id) {

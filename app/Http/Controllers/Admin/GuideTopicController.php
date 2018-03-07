@@ -23,6 +23,7 @@ class GuideTopicController extends Controller
     {
         $data = GuideTopic::orderBy('id', 'DESC')->get();
         $this->viewData = array(
+            'title' => 'Guide Topic | List',
             'data' => $data
             );
         return view( 'admin.guideTopic.index', $this->viewData);
@@ -37,6 +38,7 @@ class GuideTopicController extends Controller
     {   
         $guide = Guide::all();
         $this->viewData = array(
+            'title' =>  'Guide Topic | Create',
             'guide' => $guide
         );
         return view('admin.guideTopic.create', $this->viewData);
@@ -109,6 +111,7 @@ class GuideTopicController extends Controller
         $guide = Guide::all();
         $data = GuideTopic::find($id);
         $this->viewData = array(
+            'title' =>  'Guide Topic | Edit',
             'guide' => $guide,
             'data'  => $data
         );

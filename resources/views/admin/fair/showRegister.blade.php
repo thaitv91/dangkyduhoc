@@ -47,7 +47,7 @@
 				</div>
 				<div class="form-group">
 					<label for="name" class="label-control col-md-4">Registed at: </label>
-					<div class="col-md-8"><p>{{ Carbon\Carbon::parse($data->created_at)->format('d/m/Y H:i') }}</p></div>
+					<div class="col-md-8"><p>{{ $data->created_at->format('d/m/Y H:i') }}</p></div>
 				</div>
 				<div class="form-group">
 					<label for="name" class="label-control col-md-4">Subjects: </label>

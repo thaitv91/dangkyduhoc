@@ -9,9 +9,11 @@ use App\Models\Configure;
 class ConfigureController extends Controller
 {
     public function index() {
+        $title = 'Configure';
+
     	$configure = Configure::firstOrCreate([]); 
     	
-    	return view('admin.configure.index', compact('configure'));
+    	return view('admin.configure.index', compact(['title', 'configure']));
     }
 
     public function update(Request $request) {

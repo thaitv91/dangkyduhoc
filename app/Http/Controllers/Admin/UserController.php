@@ -33,9 +33,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'User | List';
+
         $users = $this->user->get(['id','name','email','isadmin']);
-        return view('admin.users.index',compact('users'));
+        return view('admin.users.index',compact(['title', 'users']));
     }
 
     /**
@@ -78,14 +79,17 @@ class UserController extends Controller
      */
     public function edit($id=-1)
     {
-        //
+        $title = 'User | Edit';
+
         $user = $this->user->where('id',$id)->get(['id','name','email','isadmin'])->first();
-        // dd($user->getUserInfo()->toSql());
-        $user_detail = $user->getUserInfo()->first();
+        $user_detail = $user->getUserInfo;
+
         if (!count($user_detail)) {
             $this->user_meta->create(['user_id'=>$user->id]);
+            $user = $this->user->where('id',$id)->get(['id','name','email','isadmin'])->first();
         }
-        return view('admin.users.edit',compact('user'));
+
+        return view('admin.users.edit',compact(['title', 'user']));
     }
 
     /**

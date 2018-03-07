@@ -24,7 +24,8 @@ class SubjectController extends Controller
     {
         $data = Subject::all();
         $this->viewData = array(
-            'data' => $data
+            'title' =>  'Subject | List',
+            'data'  => $data
         );
         return view('admin.subject.index', $this->viewData);
     }
@@ -38,7 +39,8 @@ class SubjectController extends Controller
     {   
         $career = Career::all();
         $this->view = array(
-            'career'  => $career
+            'title' =>  'Subject | Create',
+            'career'=> $career
         );
         return view( 'admin.subject.create',  $this->view );
     }
@@ -112,6 +114,7 @@ class SubjectController extends Controller
         $career = Career::all();
         // dd($career_id);
         $this->viewData = array(
+            'title' =>  'Subject | Edit',
             'data'  => $data,
             'subject_career' => $subject_career,
             'career'  => $career,

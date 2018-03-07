@@ -88,7 +88,8 @@
 	                    </div>
 	                </div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<a href="{{ route('admin.guideQuestion.index') }}" class="btn btn-default">Back</a>
+						<button type="submit" class="btn btn-primary">Create</button>
 					</div>
 				</div>
 				<!-- /.box-body -->

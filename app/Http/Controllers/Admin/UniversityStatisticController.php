@@ -22,6 +22,7 @@ class UniversityStatisticController extends Controller
     {
         $data = UniversityStatistic::all();
         $this->viewData = array(
+            'title' =>  'University Statistic | List',
             'data'  => $data
         );
         return view ( 'admin.universityStatistic.index', $this->viewData );
@@ -36,6 +37,7 @@ class UniversityStatisticController extends Controller
     {
         $university = University::all();
         $this->viewData = array(
+            'title'     =>  'University Statistic | Create',
             'university'  => $university
         );
         return view( 'admin.universityStatistic.create', $this->viewData );
@@ -114,6 +116,7 @@ class UniversityStatisticController extends Controller
         $university = University::all();
         $data = UniversityStatistic::find( $id );
         $this->viewData = array(
+            'title'     =>  'University Statistic | Edit',
             'university' => $university,
             'data'       => $data
         );

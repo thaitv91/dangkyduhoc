@@ -6,7 +6,6 @@
 
 	@push('styles')
 	<!-- DataTables -->
-	<link rel="stylesheet" href="{{ url('plugins/datatables/dataTables.bootstrap.css') }}">
 	<link rel="stylesheet" href="{{ url('plugins/datatables/jquery.dataTables.css') }}">
 	@endpush
 
@@ -17,7 +16,7 @@
 				<h3 class="box-title">Courses</h3>
 			</div>
 			<div class="col-md-2">
-				<a href="{{ route('admin.course.create') }}" class="btn btn-primary">Create new</a>
+				<a href="{{ route('admin.course.create') }}" class="btn btn-primary">Create</a>
 			</div>
 		</div>
 		<!-- /.box-header -->
@@ -79,7 +78,6 @@
 	@section('scripts')
 	<!-- DataTables -->
 	<script src="{{ url('plugins/datatables/jquery.dataTables.min.js') }}"></script>
-	<script src="{{ url('plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
 	<script type="text/javascript">
 		$('#table-course').DataTable({
 			"paging": false,

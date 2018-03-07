@@ -26,6 +26,7 @@ class UniversityMetaController extends Controller
     {
         $university_meta = UniversityMetas::all();
         $this->viewData = array(
+            'title' =>  'University Meta | List',
             'university_meta' => $university_meta
         );
 
@@ -41,6 +42,7 @@ class UniversityMetaController extends Controller
     {
         $university = University::all();
         $this->viewData = array(
+            'title'     =>  'University Meta | Create',
             'university' => $university
         );
         return view( 'admin.universityMeta.create', $this->viewData );
@@ -105,6 +107,7 @@ class UniversityMetaController extends Controller
         $university = University::all();
         $data = UniversityMetas::find($id);
         $this->viewData = array(
+            'title'     =>   'University Meta | Edit',
             'university'  => $university,
             'data'     => $data
         );

@@ -16,9 +16,8 @@
         <!-- form start -->
         <form role="form" id="form-edit" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
-            <div class="col-md-12">
+            <div class="">
                 <div class="box-body">
-
                    <div class="form-group row">
                         <label  class="col-md-3" for="name">Search course</label>
                         <div class="col-md-9">
@@ -76,7 +75,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Create</button>
                         <a href="{{ route('admin.scholarship') }}" class="btn btn-default">Back</a>
                     </div>
                 </div>

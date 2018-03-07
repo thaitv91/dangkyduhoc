@@ -11,7 +11,7 @@
 	<div class="box box-primary">
 
 		<div class="box-header with-border">
-			<h3 class="box-title">Create</h3>
+			<h3 class="box-title">Edit</h3>
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
@@ -96,7 +96,8 @@
 	                    </div>
 	                </div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<a href="{{ route('admin.guideQuestion.index') }}" class="btn btn-default">Back</a>
+						<button type="submit" class="btn btn-primary">Update</button>
 					</div>
 				</div>
 				<!-- /.box-body -->

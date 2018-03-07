@@ -14,7 +14,7 @@
 	<div class="box box-primary">
 
 		<div class="box-header with-border">
-			<h3 class="box-title">Register <small>list</small></h3>
+			<h3 class="box-title">Registered <small>list</small></h3>
 		</div>
 		<!-- /.box-header -->
 		<!-- form start -->
@@ -42,7 +42,7 @@
 							<td>{{ $value->university_intake }}</td>
 							<td>{{ $value->current_qualification }}</td>
 							<td>{{ $value->expected_grade }}</td>
-							<td>{{ Carbon\Carbon::parse($value->created_at)->format('d/m/Y H:i') }}</td>
+							<td>{{ $value->created_at->format('d/m/Y H:i') }}</td>
 							<td>
 								<a href="{{ route('admin.fair.showRegister', ['id'=>$value->id]) }}" class="btn btn-info btn-xs">Show</a>
 								<a onclick="confirmDelete('{{ route('admin.fair.deleteRegister', ['id'=>$value->id]) }}'); return false;" class="btn btn-danger btn-xs">Delete</a>

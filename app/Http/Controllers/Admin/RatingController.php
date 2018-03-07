@@ -22,6 +22,7 @@ class RatingController extends Controller
     {
         $data = Rating::orderBy('id', 'DESC')->paginate(10);
         $this->viewData = array(
+            'title' =>  'Rating | List',
             'data' => $data
         );
         return view ('admin.rating.index', $this->viewData);
@@ -34,7 +35,8 @@ class RatingController extends Controller
      */
     public function create()
     {
-        return view('admin.rating.create');
+        $title = 'Rating | Create';
+        return view('admin.rating.create', compact(['title']));
     }
 
     /**
@@ -95,6 +97,7 @@ class RatingController extends Controller
     {
         $data = Rating::find($id);
         $this->viewData = array(
+            'title' =>  'Rating | Edit',
             'data' => $data
         );
         return view('admin.rating.edit', $this->viewData);

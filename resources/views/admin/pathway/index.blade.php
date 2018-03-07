@@ -13,7 +13,7 @@
 <div class="box">
 	<div class="box-header">
 		<div class="col-md-11"><h3 class="box-title">Pathway</h3></div>
-		<div class="col-md-1"><a href="{{ route('admin.universities.create') }}" class="btn btn-xs btn-primary">Create</a></div>
+		<div class="col-md-1"><a href="{{ route('admin.pathway.create') }}" class="btn btn-xs btn-primary">Create</a></div>
 	</div>
 	<!-- /.box-header -->
 	<div class="box-body">

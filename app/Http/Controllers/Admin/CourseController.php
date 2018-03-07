@@ -24,9 +24,10 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $title = 'Course | List';
+
         $data = Course::select('id', 'name', 'slug', 'university_id')->paginate(10);
-        return view('admin.course.index', compact(['data']));
+        return view('admin.course.index', compact(['title', 'data']));
     }
 
     /**
@@ -36,11 +37,12 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        $title = 'Course | Create';
+
         $universities = University::where('id', '>', 0)->get();
         $countries = Country::select('slug','name')->get();
         $subjects = Subject::all();
-        return view('admin.course.create', compact(['universities', 'countries', 'subjects']));
+        return view('admin.course.create', compact(['title', 'universities', 'countries', 'subjects']));
     }
 
     /**
@@ -140,7 +142,8 @@ class CourseController extends Controller
      */
     public function edit($id = -1)
     {
-        //
+        $title = 'Course | Edit';
+
         $course = Course::where('id',$id)->first();
         $universities = University::all();
         $countries = Country::all();
@@ -148,7 +151,7 @@ class CourseController extends Controller
 
         if (count($course) == 0) return Redirect::route('admin.course');
 
-        return view('admin.course.edit',compact(['course', 'universities', 'countries', 'subjects']));
+        return view('admin.course.edit',compact(['title', 'course', 'universities', 'countries', 'subjects']));
     }
 
     /**
