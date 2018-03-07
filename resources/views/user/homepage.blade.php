@@ -2,6 +2,11 @@
 
 @section('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}">
+<style type="text/css">
+    .select2-search__field{
+        color: black;
+    }
+</style>
 @endsection
 
 @section("content")
@@ -104,8 +109,7 @@
                                     'Ngành học mà bạn quan tâm' }}
                             </p>
                         </div>
-                        <select class="form-control" id="assessment-course-interest" name="assessment_course_interest[]" multiple placeholder="Subject...">
-                            <option>Nhap nghanh hoc</option>
+                        <select class="form-control" id="assessment-course-interest" name="assessment_course_interest[]" multiple>
                             @foreach ($subjects as $key => $subject)
                             <option value="{{ $subject->name }}">{{ $subject->name }}</option>
                             @endforeach
