@@ -1,0 +1,452 @@
+
+.compare-page{
+	background: #eaeaea;
+}
+.compare-div{
+	display: flex;
+}
+.compare-col{
+	border-radius: 10px;
+   float: left;
+   line-height: normal;
+   min-height: 950px;
+   width: 265px;
+}
+.compare-col-borderless {
+    border: 0 none;
+    box-shadow: none;
+    font-size: 130px;
+    margin-right: 0;
+    max-width: 130px;
+    min-width: 130px;
+    text-align: right;
+}
+#page_compare .first-col, #page_compare .compare-col-borderless {
+    background: #eaeaea none repeat scroll 0 0;
+    cursor: default;
+}
+.circliful {
+  position: relative;
+  margin: 0 auto;
+  min-height: 80px;
+}
+
+#page_compare .circle-text, .circle-info, .circle-text-half, .circle-info-half {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  display: inline-block;
+}
+
+#page_compare .circle-info, .circle-info-half {
+  color: #000;
+}
+
+#page_compare {
+  .circliful .fa {
+    margin: -10px 3px 0 3px;
+    position: relative;
+    bottom: 4px;
+  }
+  .circle-text {
+    line-height: 85px !important;
+  }
+  .circle-info-half {
+    line-height: 125px !important;
+    font-size: 11px !important;
+    cursor: pointer;
+  }
+  .chart {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    top: auto;
+    left: auto;
+    margin: 0 auto;
+  }
+}
+
+.doughnutTip {
+  position: absolute;
+  min-width: 30px;
+  max-width: 300px;
+  padding: 5px 5px;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+  text-shadow: 0 1px 0 #000;
+  text-align: center;
+  line-height: 1.3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#page_compare {
+  .doughnutSummary {
+    position: relative;
+    color: #d5d5d5;
+    text-align: center;
+    cursor: default;
+  }
+  .doughnutSummaryTitle {
+    position: absolute;
+    top: -45%;
+    left: 60px;
+    width: 100%;
+    font-size: 13px;
+    color: #333;
+  }
+  .doughnutSummaryNumber {
+    position: absolute;
+    top: -50px;
+    width: 100%;
+    margin-top: 0;
+    font-size: 19px;
+    left: 60px;
+    color: #333;
+  }
+  .chart path:hover {
+    opacity: 0.8;
+  }
+}
+
+.page-compare {
+  background: #eaeaea;
+  .suggested-subjects {
+    background: #eaeaea;
+  }
+  footer {
+    display: none;
+  }
+  .tooltip-inner {
+    max-width: 250px;
+    min-width: 250px;
+    padding: 10px 10px;
+    text-align: left;
+  }
+  .nocourse .pane1 a {
+    color: #000 !important;
+  }
+}
+
+#page_compare {
+  .compare-div {
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+    .nocourse {
+      position: relative;
+      margin: 0 auto;
+      margin-top: 10%;
+      h3 {
+        font-size: 29px;
+        font-weight: 400;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+    }
+    .course-selected-button {
+      padding: 10px;
+      font-size: 17px;
+    }
+    .placeholder {
+      background: #069;
+    }
+  }
+  .compare-col {
+    float: left;
+    border: solid 1px #e5e5e5;
+    min-width: 265px;
+    width: 265px;
+    max-width: 265px;
+    background-color: #fff;
+    margin-right: 5px;
+    margin-top: 15px;
+    margin-left: 5px;
+    font-size: 15px;
+    line-height: normal;
+    margin-bottom: 100px;
+    min-height: 950px;
+    cursor: move;
+    border-radius: 10px;
+  }
+  .details .info_box .info_box_item .smaller {
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #666;
+  }
+  .compare-col:not(:first-child):hover {
+    box-shadow: 0 3px 8px #bbb;
+  }
+  .compare-col-borderless:hover {
+    box-shadow: none !important;
+  }
+  .compare-col {
+    .details .info_box .info_box_item {
+      font-weight: normal;
+      background: none;
+      color: #000;
+      text-transform: initial;
+      padding: 10px 0;
+      border-bottom: 0;
+      display: table;
+      width: 100%;
+    }
+    .feature-row {
+      display: table;
+      background-color: #fff;
+      // min-height: 40px;
+      font-size: 17px;
+      &.small {
+        min-height: 24px !important;
+        font-size: 14px;
+        .feature {
+          height: 24px !important;
+        }
+      }
+      &.empty {
+        min-height: 30px !important;
+      }
+    }
+    .option-btn {
+      background: #fff;
+      border: none;
+      padding: 0;
+    }
+  }
+  .feature {
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 5px 0;
+    &.min70 {
+      min-height: 70px;
+    }
+    .apply-btn {
+      padding: 10px !important;
+    }
+  }
+  .feature-row-apply {
+    min-height: 70px !important;
+  }
+  .feature-row-top {
+    min-height: 240px !important;
+  }
+  .compare-remove {
+    color: #e8e8e8;
+    float: right;
+    font-size: 21px;
+    margin-top: 10px;
+    &:hover {
+      color: #333;
+    }
+  }
+  .feature {
+    &.feature1 {
+      vertical-align: top;
+      .btn {
+        width: 100%;
+        margin-bottom: 5px;
+        &:hover {
+          background: #d1d1d1;
+        }
+      }
+    }
+    .glyphicon-ok {
+      color: #169900;
+      font-size: 19px;
+    }
+    a .glyphicon-ok {
+      color: #fff;
+    }
+    &.feature1 {
+      .course-code {
+        color: #999;
+        font-size: 15px;
+        line-height: 1.5;
+        display: block;
+      }
+      img {
+        border-radius: 100%;
+        border: 1px solid #ddd;
+        margin: 0 auto;
+        width: 120px;
+      }
+      a:hover {
+        text-decoration: none;
+        color: #007bb9 !important;
+        cursor: pointer;
+      }
+      h2 {
+        margin-top: 10px;
+        margin-bottom: 0;
+        font-size: 18px;
+        line-height: 1.2;
+        cursor: pointer;
+        color: #000;
+        font-family: Lato;
+        display: inline-block;
+        margin-right: 2px;
+        &:hover {
+          color: #069;
+        }
+      }
+      .uniname {
+        font-size: 14px;
+        color: #999;
+        a {
+          color: #999;
+        }
+      }
+    }
+    &.feature-normalheight {
+      padding-top: 15px;
+      vertical-align: top;
+    }
+  }
+  .feature-label {
+    width: 100%;
+    vertical-align: middle;
+    text-align: right;
+    span {
+      text-transform: uppercase;
+    }
+  }
+  .feature.scholarship {}
+  #tutionfees {
+    color: #6b9f0a;
+    font-size: 17px;
+  }
+  #livingexpenses {
+    color: #4484b3;
+    font-size: 17px;
+  }
+  .compare-placeholder {
+    min-width: 280px;
+  }
+  .orderBars {
+    cursor: move;
+  }
+  .optiondiv {
+    display: -webkit-inline-box;
+  }
+  .compare-col-borderless {
+    border: 0;
+    min-width: 130px;
+    max-width: 130px;
+    font-size: 130px;
+    text-align: right;
+    box-shadow: none;
+    margin-right: 0;
+    .feature-row {
+      border-bottom-color: #fff;
+    }
+    .feature span {
+      color: #777;
+      font-size: 14px;
+    }
+  }
+  .compare-col .feature-row {
+    &:first-child {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    &:last-child {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+  .first-col, .compare-col-borderless {
+    background: #eaeaea !important;
+    cursor: default;
+  }
+  .first-col, .compare-col-borderless .pad {
+    border-bottom: 0;
+  }
+  .pad {
+    padding: 15px 0;
+  }
+}
+
+.page-compare .chatButton.newMsg {
+  right: 40px;
+  bottom: 50px;
+}
+
+.details .info_box_item .course-rank {
+  font-size: 23px;
+}
+
+#page_compare {
+  .applied-btn {
+    width: 100%;
+    background: #999;
+    color: #fff;
+  }
+  .accredited {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  #page_compare {
+    .compare-col:not(.compare-col-borderless) {
+      min-width: 250px;
+      width: 250px;
+      max-width: 250px;
+    }
+    .feature.feature1 .btn {
+      background: #ddd;
+    }
+  }
+}
+
+#page_compare .feature.feature1 .btn{
+  min-width: 100%;
+}
+.margin-left5 {
+    margin-left: 5px;
+}
+.right {
+    text-align: right;
+}
+.left {
+    text-align: left;
+}
+.details .info_box_item .rank-name {
+    font-size: 15px;
+}
+.details .info_box_item span {
+    display: table-cell;
+    vertical-align: middle;
+}
+.details .info_box_item .course-rank {
+    font-size: 23px;
+}
+.details .info_box_item .course-rank {
+    line-height: 1;
+    width: 60px;
+}
+
+
+.compare-cicle-1{
+  position: relative;
+  width: 200px;
+  margin: auto;
+  span{
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .circletext{
+    font-size: 20px;
+    top:77px;
+  }
+  .circle-info-half{
+    top:100px;
+    font-size: 12px;
+  }
+}

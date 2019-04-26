@@ -1,0 +1,77 @@
+<?php
+
+namespace App\Http\Controllers\User;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\PageField;
+use App\Models\Page;
+use App\Models\Rating;
+use App\Models\CustomField;
+use App\Models\Map;
+use App\Models\Subject;
+use App\Models\Country;
+use App;
+use DB;
+
+class HomeController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    private $subject;
+
+    public function __construct() {
+        $this->subject = new SubjectController;
+    }
+
+    public function index()
+    {   
+        $locale = App::getLocale();
+        $rating = Rating::all();
+        $page = Page::where('slug', '=', 'home-page')->first();
+        $fields = PageField::where('page_id', '=',$page->id)->get();
+        foreach ($fields as $field) {
+            if ($locale == 'en') {
+                $title = "Home page";
+                if ($field->slug == 'header-banner' || $field->slug == 'image-right-tools') {
+                    $data_field[$field->slug] = $field->content;
+                } else {
+                    $data_field[$field->slug] = $field->content_en;
+                }
+            } else {
+                $title = "Trang chủ";
+                $data_field[$field->slug] = $field->content;
+            }
+        }
+        $custom_field = CustomField::first();
+
+        //Data for assessment
+        $subjects = Subject::all();
+        $countries = Country::all();
+
+        $this->viewData = array(
+            'title'         => $title,
+            'data_field'    => $data_field,
+            'rating'        => $rating,
+            'locale'        => $locale,
+            'custom_field'  => $custom_field,
+            'subjects'      =>  $subjects,
+            'countries'     =>  $countries,
+            );
+        return view('user.homepage', $this->viewData);
+    }
+
+    public function getCourseCount() {
+        $compare_course = $this->subject->getCourseId();
+        $apply_course = $this->subject->getApplyCourseId();
+
+        return array (
+            'compare_count'     =>  count($compare_course),
+            'apply_count'      =>  count($apply_course),
+        );
+    }
+
+}

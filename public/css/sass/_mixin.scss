@@ -1,0 +1,140 @@
+@mixin UTMBebas(){
+	font-family: UTMBebas, Arial, Helvetica, sans-serif;
+}
+
+@mixin Opensans(){
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+@mixin clearfix(){
+ &:after, &:before{
+   content: "";
+   display: table;
+   clear: both;
+ }
+}
+
+@mixin border-radius($value){
+  -webkit-border-radius: $value;
+  -moz-border-radius: $value;
+  -ms-border-radius: $value;
+  -o-border-radius: $value;
+  border-radius: $value;
+}
+
+@mixin box-shadow($value){
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  -ms-box-shadow: $value;
+  -o-box-shadow: $value;
+  box-shadow: $value;
+}
+
+@mixin placeholder($color){
+  &::-webkit-input-placeholder { // WebKit browsers
+    color: #{$color};
+  }
+  &:-moz-placeholder { // Mozilla Firefox 4 to 18
+    color: #{$color};
+    opacity:  1;
+  }
+  &::-moz-placeholder { // Mozilla Firefox 19+
+    color: #{$color};
+    opacity:  1;
+  }
+  &:-ms-input-placeholder { // Internet Explorer 10+
+    color: #{$color};
+  }
+}
+
+@mixin transform($value){
+  -webkit-transform:$value;
+  -moz-transform:$value;
+  -o-transform:$value;
+  transform:$value;
+}
+
+@mixin transition-value($value: all ease 0.3s){
+  -webkit-transition:$value;
+  -moz-transition:$value;
+  -o-transition:$value;
+  transition:$value;
+}
+
+$icons: sprite-map("sprites/*.png", $layout: smart, $spacing: 5px) !default;
+
+
+//Sprite mixin, works perfectly with standard defines
+@mixin use-sprite($sprite, $sprite-retina: false, $sprite-map: $icons) {
+
+  background-image: sprite-url($sprite-map);
+  background-position: sprite-position($sprite-map, $sprite);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  height: image-height(sprite-file($sprite-map, $sprite));
+  width: image-width(sprite-file($sprite-map, $sprite));
+  display: inline-block;
+
+}
+
+@mixin screen-size-max($size){
+  @if $size == lg{
+    @media screen and (max-width: $screen-lg){
+      @content;
+    }
+  }
+  @else if $size == md{
+    @media screen and (max-width: $screen-md-max){
+      @content;
+    }
+  }
+  @else if $size == sm{
+    @media screen and (max-width: $screen-sm-max){
+      @content;
+    }
+  }
+  @else if $size == xs{
+    @media screen and (max-width: $screen-xs-max){
+      @content;
+    }
+  }
+}
+
+@mixin screen-size($size){
+  @if $size == lg{
+    @media screen and (min-width: $screen-lg-min){
+      @content;
+    }
+  }
+  @else if $size == md{
+    @media screen and (max-width: $screen-md-max) and (min-width:  $screen-md-min){
+      @content;
+    }
+  }
+  @else if $size == sm{
+    @media screen and (max-width: $screen-sm-max) and (min-width:$screen-sm-min){
+      @content;
+    }
+  }
+  @else if $size == xs{
+    @media screen and (max-width: $screen-xs-max){
+      @content;
+    }
+  }
+}
+
+@mixin screen-size-min($size) {
+  @if $size == lg {
+    @media only screen and (min-width: $screen-lg-min) { @content; }
+  }
+  @else if $size == md {
+    @media only screen and (min-width: $screen-md-min) { @content; }
+  }
+
+  @else if $size == sm {
+    @media only screen and (min-width: $screen-sm-min) { @content; }
+  }
+  @else if $size == xs {
+    @content;
+  }
+}

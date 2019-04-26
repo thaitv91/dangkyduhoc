@@ -1,0 +1,190 @@
+.apply-page{
+	padding-bottom: 50px;
+}
+
+.apply-header-page{
+	margin-bottom: 45px;
+	img{
+		margin: 0 auto 15px;
+    	height: 150px;
+    	max-width: 100%;
+	}
+	h2{
+		font-size: 17px;
+    	line-height: 1.4;
+    	margin-top: 15px;
+    	padding-top: 0;
+    	max-width: 780px;
+    	margin: 0 auto;
+	}
+}
+
+.some-courses{
+	margin-bottom: 40px;
+	h3{
+		font-size: 28px;
+		margin: 0 0 25px;
+		font-weight: 600;
+	}
+	.list{
+		a{
+			display: block;
+			color:#000;
+		}
+	}
+}
+
+.fine-print{
+	h2{
+		font-weight: 600;
+	}
+	ol{
+		padding-start: 15px;
+		-webkit-padding-start: 15px;
+	}
+}
+
+.courses-apply{
+	margin-bottom: 40px;
+}
+
+table.courses{
+	width: 100%;
+	margin-bottom: 30px;
+	.course-status{
+		.status{
+			 float: left;
+		    font-size: 16px;
+		    font-weight: 600;
+		    width: 24%;
+		    @include screen-size(sm){
+		    	text-align: left;
+		    }
+		}
+	}
+	td{
+		padding: 10px 0;
+	   text-align: center;
+	   vertical-align: middle;
+	   @include screen-size(sm){
+	   	float: left;
+	   	width: 100%;
+	   }
+		&.priority{
+			color: $color-link;
+		   @include UTMBebas();
+		   font-size: 32px;
+		   min-width: 50px;
+		   width: 6%;
+		   @include screen-size(sm){
+		   	width: 100%;
+		   	text-align: left;
+		   }
+		}
+	}
+	tbody{
+		td{
+			&.header{
+				color: #333;
+			    font-size: 18px;
+			    padding: 12px 0;
+			    text-align: left;
+			    width: 54%;
+			}
+		}
+		tr{
+			@include screen-size(xs){
+				display: block;
+				width: 100%;
+				padding: 10px 0;
+				border-bottom: 1px dotted #ccc;
+				&:last-child{
+					border-bottom:none;
+				}
+			}
+		}
+	}
+	a.remove-button{
+		color: #ccc;
+    	font-size: 13px;
+	}
+	a.university_name {
+	    color: #000;
+	    font-weight: 600;
+	    letter-spacing: 0;
+	    margin-right: 4px;
+	    text-decoration: none;
+	    font-size: 15px;
+	    &:hover{
+	    	color:$color-link;
+	    }
+	}
+}
+a.course_name {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin-right: 1px;
+}
+.classification {
+    color: #888;
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    position: relative;
+}
+
+.ir.app {
+    cursor: pointer;
+    height: 34px;
+    margin-bottom: 5px;
+    width: 34px;
+}
+.ir {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0 none;
+    direction: ltr;
+    display: inline-block;
+    line-height: 0;
+    overflow: hidden;
+    text-align: left;
+    text-indent: -999em;
+    vertical-align: middle;
+}
+.ir.app.yet {
+    background-image: url("../img/check-courses.png");
+}
+.ir.app.done {
+    background-image: url("../img/done.png");
+}
+.ir.app.problem{
+	background-image: url("../img/problem.png");
+}
+
+#current_app_status, .btn-bottom-apply-success{
+	text-align: center;
+	 padding-bottom: 30px;
+    padding-top: 30px;
+	.btn{
+		width: 345px;
+		max-width: 100%;
+		margin-bottom: 10px;
+	}
+}
+
+#add_course_dialog{
+	background-color: #eaeaea;
+   @include border-radius(8px);
+   padding: 20px;
+   display: none;
+   h3{
+   	@include UTMBebas();
+   	font-size: 26px;
+      text-transform: uppercase;
+	   vertical-align: middle;
+   }
+}
+.form-control{
+	height: 50px;
+}

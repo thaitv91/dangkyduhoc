@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=vietnamese');
+
+@font-face {
+    font-family: 'UTMBebas';
+    src: url('../fonts/UTMBebas.eot');
+    src: url('../fonts/UTMBebas.eot') format('embedded-opentype'),
+         url('../fonts/UTMBebas.woff2') format('woff2'),
+         url('../fonts/UTMBebas.woff') format('woff'),
+         url('../fonts/UTMBebas.ttf') format('truetype'),
+         url('../fonts/UTMBebas.svg#UTMBebas') format('svg');
+}
+
+body{
+	color:#000;
+	font-size: 14px;
+	@include Opensans();
+    padding-top: 80px;
+    @include screen-size(xs){
+        padding-top: 40px;
+    }
+}
+a{
+    color:$color-link;
+    &:hover{
+        color: $color-link;
+    }
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.btn{
+    font-size: 24px;
+    @include UTMBebas();
+    text-transform: uppercase;
+    border:none;
+    @include border-radius(0);
+    color:$white;
+    @include transition-value();
+    min-width: 140px;
+    &:hover, &:focus{
+        color:$white;
+        @include border-radius(8px);
+    }
+}
+.btn-blue{
+    background-color: $color-1;
+    &:hover{
+        background-color: #24497d;
+    }
+}
+
+.btn-green{
+    background-color: $color-3;
+    &:hover{
+        background-color: $color-3-hover;
+    }
+}
+
+.title{
+    @include UTMBebas();
+    text-transform: uppercase;
+}
+
+img{
+    max-width: 100%;
+}
+
+.title-page{
+    background-color: #ededed;
+    padding: 22px 0;
+    margin-bottom:35px;
+    h1{
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 24px;
+        @include UTMBebas();
+        color:$color-link;
+    }
+}
+
+.title-box{
+    text-transform: uppercase;
+    @include UTMBebas();
+    font-size: 24px;
+    margin: 0 0 20px;
+}
+
+.pagination{
+    &> li{
+        margin: 0 2px;
+        display: inline-block;
+        &>a, &>span{
+            color: #686868;
+            background:#fff;
+            padding: 4px 10px;
+            &:hover, &:focus{
+                background: #7f7f7f;
+                border-color:#7f7f7f;
+                color: #fff;
+            }
+        }
+        &:first-child, &:last-child{
+            &>a, &>span{
+                @include border-radius(0);
+            }
+        }
+        &.active{
+            &>a, &>span{
+                background: #7f7f7f;
+                border-color:#7f7f7f;
+                color: #fff;
+                &:hover, &:focus{
+                    background: #7f7f7f;
+                    border-color:#7f7f7f;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+sub, sup {
+    font-size: 60%;
+    line-height: 0;
+    position: relative;
+    text-transform: lowercase;
+    vertical-align: baseline;
+}
+
+.invalid {
+    background-color: #f0dddd!important;
+    padding: 3px;
+    border-radius: 5px;
+}
